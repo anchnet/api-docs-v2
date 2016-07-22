@@ -1,4 +1,3 @@
-File: routes_v2.go
 
 # GET /v2/zone/{zone}/identity
 

@@ -22,3 +22,74 @@
 
 
 
+## Example
+
+#### Example Request
+
+```
+https://api.qingcloud.com/iaas/?action=DescribeInstances
+&instances.1=i-ogbndull
+&status.1=running
+&verbose=1
+&COMMON_PARAMS
+```
+
+#### Example Response:
+
+```js
+{
+  "action":"DescribeInstancesResponse",
+  "instance_set":[
+    {
+      "vcpus_current":1,
+      "instance_id":"i-ogbndull",
+      "volume_ids":[
+        "vol-g7xy7d6g",
+        "vol-jg7326gy"
+      ],
+      "vxnets":[
+        {
+          "vxnet_name":"primary vxnet",
+          "vxnet_type":1,
+          "vxnet_id":"vxnet-0",
+          "nic_id":"52:54:ef:0c:ed:66",
+          "private_ip":"10.50.13.54"
+        }
+      ],
+      "eip":{
+        "eip_id":"eip-1234abcd",
+        "eip_addr":"121.201.5.5",
+        "bandwidth":"50"
+      },
+      "memory_current":1024,
+      "sub_code":0,
+      "transition_status":"",
+      "instance_name":"",
+      "instance_type":"small_b",
+      "create_time":"2013-08-28T14:26:03Z",
+      "status":"running",
+      "description":null,
+      "security_group":{
+        "is_default":1,
+        "security_group_id":"sg-z13kokni"
+      },
+      "status_time":"2013-08-28T14:26:03Z",
+      "image":{
+        "processor_type":"64bit",
+        "platform":"linux",
+        "image_size":20,
+        "image_name":"CentOS 6.4 64bit",
+        "image_id":"centos64x64",
+        "os_family":"centos",
+        "provider":"system"
+      },
+      "keypair_ids":[
+        "kp-bn2n77ow",
+        "kp-05vfs7zs"
+      ]
+    }
+  ],
+  "ret_code":0,
+  "total_count":1
+}
+```

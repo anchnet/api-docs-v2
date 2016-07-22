@@ -15,7 +15,7 @@
 |status.n        | String  | 主机状态: pending, running, stopped, suspended, terminated, ceased  |No|
 |search_word     | String  | 搜索关键词, 支持主机ID, 主机名称 |No|
 |tags.n          | String  | 按照标签ID过滤, 只返回已绑定某标签的资源  |No|
-|verbose         | Integer | 是否返回冗长的信息, 若为1, 则返回主机相关其他资源的详细数据。  | No|
+|verbose         | Integer | 是否返回冗长的信息, <br> 若为1, 则返回主机相关其他资源的详细数据。  | No|
 |offset          | Integer | 数据偏移量, 默认为0 |No|
 |limit           | Integer | 返回数据长度，默认为20，最大100  |No|
 |zone            | String  | 区域 ID，注意要小写| Yes|

@@ -1,3 +1,4 @@
+File: routes_v2.go
 
 # GET /v2/zone/{zone}/identity
 
@@ -5,37 +6,37 @@
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/identity" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -51,37 +52,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/job/:id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -97,43 +98,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -149,37 +150,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/instances" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -195,43 +196,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -247,43 +248,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -299,43 +300,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -351,43 +352,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -403,43 +404,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -455,43 +456,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -507,43 +508,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -559,37 +560,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/:ins_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -605,43 +606,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -657,37 +658,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -703,37 +704,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -749,43 +750,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -801,43 +802,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/resize" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -853,43 +854,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -905,43 +906,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/detach" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -957,37 +958,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1003,43 +1004,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1055,43 +1056,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/volume_snapshots" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1107,37 +1108,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1153,43 +1154,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1205,43 +1206,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1257,43 +1258,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1309,37 +1310,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1355,43 +1356,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/listeners/add" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1407,37 +1408,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_listener_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1453,43 +1454,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1505,43 +1506,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1557,37 +1558,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends/:lb_listener_backends_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1603,43 +1604,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_listener_id/backends/add" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1655,37 +1656,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1701,43 +1702,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1753,43 +1754,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy/apply" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1805,37 +1806,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1851,37 +1852,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1897,43 +1898,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1949,37 +1950,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/:lb_ld_policy_rules" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -1995,43 +1996,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2047,43 +2048,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy/rules/add" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2099,37 +2100,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/rules" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2145,43 +2146,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/dissociate" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2197,43 +2198,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/associate" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2249,43 +2250,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/resize" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2301,43 +2302,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/apply" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2353,43 +2354,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/stop" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2405,43 +2406,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/start" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2457,43 +2458,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2509,37 +2510,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2555,37 +2556,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2601,43 +2602,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2653,43 +2654,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2705,37 +2706,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2751,43 +2752,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2803,43 +2804,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2855,43 +2856,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2907,37 +2908,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/vxnets" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -2953,43 +2954,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/eips" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3005,43 +3006,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_billing_mode" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3057,43 +3058,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_bandwidth" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3109,43 +3110,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/associate" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3161,43 +3162,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/dissociate" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3213,43 +3214,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3265,37 +3266,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/eips/:eip_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3311,37 +3312,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/eips" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3357,43 +3358,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3409,37 +3410,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3455,37 +3456,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3501,43 +3502,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3553,43 +3554,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3605,43 +3606,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3657,43 +3658,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3709,43 +3710,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3761,37 +3762,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3807,37 +3808,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:snap_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3853,43 +3854,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1secruity_groups_snapshots/rollback" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3905,37 +3906,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -3951,43 +3952,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4003,37 +4004,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4049,43 +4050,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4101,37 +4102,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/keypairs" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4147,43 +4148,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4199,37 +4200,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4245,43 +4246,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/attach" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4297,43 +4298,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/detach" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4349,43 +4350,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4401,43 +4402,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4453,43 +4454,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4505,43 +4506,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_off" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4557,43 +4558,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4609,37 +4610,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/:router_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4655,43 +4656,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/join" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4707,43 +4708,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/leave" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4759,43 +4760,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/:router_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4811,43 +4812,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/statics" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4863,43 +4864,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4915,37 +4916,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1router_statics/:router_static_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -4961,43 +4962,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id/entries" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5013,37 +5014,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/router_static_entries/:router_static_entry_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5059,43 +5060,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_static_entry_id" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5111,43 +5112,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_eip" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5163,43 +5164,43 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
-
-|Parameter name | Type | Description | Required|
-| -- | -- | -- | -- |
-|-|-|-|-|
-
-### Body Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+### 请求 Body 参数
 
-### Response Header
+|参数名 | 类型 | 是否必选 | 描述 |
+| -- | -- | -- | -- |
+|-|-|-|-|
+
+## 服务端响应
+
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_security_group" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5215,37 +5216,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/routers" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5261,37 +5262,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/router_statics" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5307,37 +5308,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/router_static_entries" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {
@@ -5353,37 +5354,37 @@ OR
 
 *详细描述*
 
-## Request
+## 请求
 
-### Request Parameters
+### QueryString 参数
 
 |Parameter name | Type | Description | Required|
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Response
+## 服务端响应
 
-### Response Header
+### 响应头信息
 
 `NULL`
 
-### Response Body Parameters
+### 响应 Body 信息
 
 [Job Response](http://www.51idc.com)
 
 OR
 
-|Parameter name | Type | Description | Contained |
+|参数名 | 类型 | 是否必选 | 描述 |
 | -- | -- | -- | -- |
 |-|-|-|-|
 
-## Example
+## 示例
 
-### Example Request
+### 发送请求
 
 ` curl -XGET "http://api.51idc.com/v2/zone/ac1/router_vxnets" `
 
-#### Example Response:
+#### 响应内容:
 
 ```js
 {

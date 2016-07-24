@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [身份授权](authentication.md)
 * [错误码](error_code.md)
-* [签名算法](chapter1.md)
+* [签名算法](signature.md)
 * [REST API](rest_api.md)
    * [主机](instance.md)
    * [硬盘](volume.md)

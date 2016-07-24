@@ -2,6 +2,193 @@
 
 <!-- toc -->
 
+
+## POST /loadbalancers_servercertificate
+
+**创建服务器证书**
+
+*详细描述*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certificate_name | String | Yes | - |
+| certificate_content | String | Yes | - |
+| private_key | String | Yes | - |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certificate_name | String | Yes | - |
+| certificate_content | String | Yes | - |
+| private_key | String | Yes | - |
+| zone | String | Yes | - |
+
+### 示例
+
+#### 发送请求
+
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificate" --data '
+{
+    "key": "value"
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+}
+```
+
+
+## DELETE /loadbalancers_servercertificate/:lb_sf_id
+
+**删除服务器证书**
+
+*详细描述*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certificates | String[] | Yes | - |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certificates | String[] | Yes | - |
+
+### 示例
+
+#### 发送请求
+
+```sh
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificate/:lb_sf_id"
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+}
+```
+
+
+## GET /loadbalancers/servertificates
+
+**获取服务器证书列表**
+
+*详细描述*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certificates | String[] | Yes | - |
+| search_word | String | Yes | - |
+| offset | Int | Yes | - |
+| limit | Int | Yes | - |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certficates | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"server_certificate_id": "*String*",<br>&nbsp;&nbsp;"server_certificate_name": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"description": "*String*"<br>}<br>] |
+| total_count | Int | Yes | - |
+
+### 示例
+
+#### 发送请求
+
+```sh
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/servertificates"
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+}
+```
+
+
+## PUT /loadbalancers_servertificate
+
+**修改服务器证书**
+
+*详细描述*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| server_certificate | String | Yes | - |
+| server_certificate_name | String | Yes | - |
+| description | String | Yes | - |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+**NONE**
+### 示例
+
+#### 发送请求
+
+```sh
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_servertificate" --data '
+{
+    "key": "value"
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+}
+```
+
+
 ## GET /loadbalancers/listeners
 
 **获取监听器列表**

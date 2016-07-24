@@ -4,6 +4,12 @@
     "atoc": {
       "addClass": true,
       "className": "atoc"
+    },
+    "fontSettings": {
+      "size": 1
     }
+  },
+  "pdf": {
+    "fontSize": 12
   }
 }

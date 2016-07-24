@@ -7,7 +7,6 @@
    * [主机](zhu_ji.md)
 * [签名算法](chapter1.md)
 * [All](all.md)
-* [test](test.md)
 * [REST API](rest_api.md)
    * [主机](instance.md)
    * [硬盘](volume.md)

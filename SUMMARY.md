@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* 身份授权
+* [身份授权](authentication.md)
 * [错误码](error_code.md)
 * [签名算法](chapter1.md)
 * [REST API](rest_api.md)

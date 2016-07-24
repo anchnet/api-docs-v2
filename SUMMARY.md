@@ -17,6 +17,6 @@
    * [防火墙](security_group.md)
    * [SSH 秘钥](keypair.md)
    * [负载均衡](loadbalancer.md)
-   * 备份
+   * [备份](snapshot.md)
    * 操作日志
 

@@ -13,7 +13,7 @@
    * [硬盘](volume.md)
    * [私有网络](vxnet.md)
    * [路由器](router.md)
-   * 公网 IP
+   * [公网 IP](eip.md)
    * 防火墙
    * SSH 秘钥
    * 负载均衡

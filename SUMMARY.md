@@ -18,5 +18,5 @@
    * [SSH 秘钥](keypair.md)
    * [负载均衡](loadbalancer.md)
    * [备份](snapshot.md)
-   * 操作日志
+   * [操作日志](job.md)
 

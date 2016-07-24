@@ -40,7 +40,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes"
 ```
 
@@ -81,7 +81,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id"
 ```
 
@@ -123,7 +123,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes" --data '
 {
     "key": "value"
@@ -168,7 +168,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/resize" --data '
 {
     "key": "value"
@@ -213,7 +213,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/resize" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" --data '
 {
     "key": "value"
@@ -258,7 +258,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/detach" --data '
 {
     "key": "value"

@@ -28,7 +28,7 @@
 
 ### 示例
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac2/job/92961ef1-0760-4ac4-97fd-98c2d0604d8f"
 ```
 

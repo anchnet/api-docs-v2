@@ -32,7 +32,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 {
     "key": "value"
@@ -76,7 +76,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
 ```
 
@@ -118,7 +118,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
 {
     "key": "value"
@@ -163,7 +163,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" --data '
 {
     "key": "value"
@@ -208,7 +208,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 {
     "key": "value"
@@ -262,7 +262,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/vxnets"
 ```
 

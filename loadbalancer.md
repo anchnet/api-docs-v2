@@ -36,7 +36,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners"
 ```
 
@@ -78,7 +78,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/listeners/add" --data '
 {
     "key": "value"
@@ -122,7 +122,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/listeners/a
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_listener_id"
 ```
 
@@ -170,7 +170,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_li
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners" --data '
 {
     "key": "value"
@@ -218,7 +218,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends" --data '
 {
     "key": "value"
@@ -262,7 +262,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends" 
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends/:lb_listener_backends_id"
 ```
 
@@ -304,7 +304,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backend
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_listener_id/backends/add" --data '
 {
     "key": "value"
@@ -354,7 +354,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_list
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends"
 ```
 
@@ -396,7 +396,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 {
     "key": "value"
@@ -440,7 +440,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy/apply" --data '
 {
     "key": "value"
@@ -484,7 +484,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy"
 ```
 
@@ -530,7 +530,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_po
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy"
 ```
 
@@ -572,7 +572,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 {
     "key": "value"
@@ -616,7 +616,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/:lb_ld_policy_rules"
 ```
 
@@ -659,7 +659,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/:lb
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules" --data '
 {
     "key": "value"
@@ -704,7 +704,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules" --dat
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy/rules/add" --data '
 {
     "key": "value"
@@ -754,7 +754,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/rules"
 ```
 
@@ -796,7 +796,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/rules"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/dissociate" --data '
 {
     "key": "value"
@@ -841,7 +841,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/dissoc
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/associate" --data '
 {
     "key": "value"
@@ -886,7 +886,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/associ
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/resize" --data '
 {
     "key": "value"
@@ -930,7 +930,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/resize" --d
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/apply" --data '
 {
     "key": "value"
@@ -974,7 +974,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/apply" --da
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/stop" --data '
 {
     "key": "value"
@@ -1018,7 +1018,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/stop" --dat
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/start" --data '
 {
     "key": "value"
@@ -1065,7 +1065,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/start" --da
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers" --data '
 {
     "key": "value"
@@ -1109,7 +1109,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id"
 ```
 
@@ -1158,7 +1158,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 ```
 
@@ -1200,7 +1200,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers" --data '
 {
     "key": "value"

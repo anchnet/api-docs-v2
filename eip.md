@@ -31,7 +31,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/eips" --data '
 {
     "key": "value"
@@ -76,7 +76,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/eips" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_billing_mode" --data '
 {
     "key": "value"
@@ -121,7 +121,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_billing_mode" --data
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_bandwidth" --data '
 {
     "key": "value"
@@ -166,7 +166,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_bandwidth" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/associate" --data '
 {
     "key": "value"
@@ -210,7 +210,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/associate" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/dissociate" --data '
 {
     "key": "value"
@@ -258,7 +258,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/dissociate" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips" --data '
 {
     "key": "value"
@@ -302,7 +302,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/eips/:eip_id"
 ```
 
@@ -352,7 +352,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/eips/:eip_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/eips"
 ```
 

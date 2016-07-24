@@ -32,7 +32,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
 {
     "key": "value"
@@ -76,7 +76,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" --data '
 {
     "key": "value"
@@ -120,7 +120,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_off" --data '
 {
     "key": "value"
@@ -164,7 +164,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_off" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 {
     "key": "value"
@@ -209,7 +209,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/:router_id"
 ```
 
@@ -256,7 +256,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/:router_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/join" --data '
 {
     "key": "value"
@@ -301,7 +301,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/join" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/leave" --data '
 {
     "key": "value"
@@ -350,7 +350,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/leave" --data 
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/:router_id" --data '
 {
     "key": "value"
@@ -396,7 +396,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/:router_id" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/statics" --data '
 {
     "key": "value"
@@ -447,7 +447,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/statics" --dat
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id" --data '
 {
     "key": "value"
@@ -491,7 +491,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id" 
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1router_statics/:router_static_id"
 ```
 
@@ -533,7 +533,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1router_statics/:router_static_i
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id/entries" --data '
 {
     "key": "value"
@@ -577,7 +577,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id/
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/router_static_entries/:router_static_entry_id"
 ```
 
@@ -620,7 +620,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/router_static_entries/:router_
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_static_entry_id" --data '
 {
     "key": "value"
@@ -665,7 +665,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_stati
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_eip" --data '
 {
     "key": "value"
@@ -710,7 +710,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_eip" --da
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_security_group" --data '
 {
     "key": "value"
@@ -762,7 +762,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_security_
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/routers"
 ```
 
@@ -811,7 +811,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/routers"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/router_statics"
 ```
 
@@ -858,7 +858,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/router_statics"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/router_static_entries"
 ```
 
@@ -906,7 +906,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/router_static_entries"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/router_vxnets"
 ```
 

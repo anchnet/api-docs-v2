@@ -30,7 +30,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 {
     "key": "value"
@@ -83,7 +83,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 ```
 
@@ -124,7 +124,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 ```
 
@@ -166,7 +166,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances" --data '
 {
     "key": "value"
@@ -211,7 +211,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances" --data '
 {
     "key": "value"
@@ -256,7 +256,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 {
     "key": "value"
@@ -297,7 +297,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" --data '
 {
     "key": "value"
@@ -342,7 +342,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" 
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" --data '
 {
     "key": "value"
@@ -392,7 +392,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" --dat
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots"
 ```
 
@@ -433,7 +433,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:snap_id"
 ```
 
@@ -475,7 +475,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:sna
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1secruity_groups_snapshots/rollback" --data '
 {
     "key": "value"
@@ -526,7 +526,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1secruity_groups_snapshots/rollbac
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 ```
 
@@ -568,7 +568,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" --data '
 {
     "key": "value"
@@ -612,7 +612,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id"
 ```
 
@@ -660,7 +660,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id" --data '
 {
     "key": "value"

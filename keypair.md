@@ -40,7 +40,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/keypairs"
 ```
 
@@ -85,7 +85,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/keypairs"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs" --data '
 {
     "key": "value"
@@ -129,7 +129,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id"
 ```
 
@@ -171,7 +171,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/attach" --data '
 {
     "key": "value"
@@ -216,7 +216,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/attach" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/detach" --data '
 {
     "key": "value"
@@ -261,7 +261,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/detach" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" --data '
 {
     "key": "value"

@@ -42,7 +42,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 ```
 
@@ -85,7 +85,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 {
     "key": "value"
@@ -131,7 +131,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id"
 ```
 
@@ -172,7 +172,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 {
     "key": "value"
@@ -217,7 +217,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance" --data '
 {
     "key": "value"
@@ -262,7 +262,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" --data '
 {
     "key": "value"

@@ -50,7 +50,7 @@
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" --data '
 {
     "key": "value"
@@ -106,7 +106,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances"
 ```
 
@@ -148,7 +148,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances"
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" --data '
 {
     "key": "value"
@@ -195,7 +195,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
 {
     "key": "value"
@@ -239,7 +239,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" --data '
 {
     "key": "value"
@@ -284,7 +284,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" --data '
 {
     "key": "value"
@@ -328,7 +328,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" --data '
 {
     "key": "value"
@@ -376,7 +376,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" --data '
 {
     "key": "value"
@@ -423,7 +423,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 {
     "key": "value"
@@ -467,7 +467,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 
 #### 发送请求
 
-```sh
+```bash
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/:ins_id"
 ```
 

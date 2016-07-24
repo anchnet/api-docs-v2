@@ -16,7 +16,7 @@
    * [公网 IP](eip.md)
    * [防火墙](security_group.md)
    * [SSH 秘钥](keypair.md)
-   * 负载均衡
+   * [负载均衡](loadbalancer.md)
    * 备份
    * 操作日志
 

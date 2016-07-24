@@ -27,7 +27,7 @@
 ### 示例
 
 ```sh
-$ curl -XGET "http://api.51idc.com/v2/zone/ac2/job/9000/console/zone/ac2/job/92961ef1-0760-4ac4-97fd-98c2d0604d8f"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac2/job/92961ef1-0760-4ac4-97fd-98c2d0604d8f"
 ```
 
 #### 响应内容:

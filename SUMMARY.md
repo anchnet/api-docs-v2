@@ -14,7 +14,7 @@
    * [私有网络](vxnet.md)
    * [路由器](router.md)
    * [公网 IP](eip.md)
-   * 防火墙
+   * [防火墙](security_group.md)
    * SSH 秘钥
    * 负载均衡
    * 备份

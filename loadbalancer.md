@@ -70,7 +70,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -114,7 +114,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/listeners/a
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -254,7 +254,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends" 
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -296,7 +296,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backend
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -388,7 +388,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -432,7 +432,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -476,7 +476,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -608,7 +608,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -696,7 +696,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules" --dat
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -788,7 +788,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/rules"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -833,7 +833,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/dissoc
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -878,7 +878,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/associ
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -922,7 +922,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/resize" --d
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -966,7 +966,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/apply" --da
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -1010,7 +1010,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/stop" --dat
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -1101,7 +1101,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -1192,7 +1192,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 

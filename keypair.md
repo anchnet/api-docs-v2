@@ -77,7 +77,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/keypairs"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -121,7 +121,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -163,7 +163,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -208,7 +208,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/attach" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 

@@ -24,7 +24,7 @@
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -68,7 +68,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -112,7 +112,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -156,7 +156,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_off" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -201,7 +201,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -248,7 +248,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/:router_id"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -293,7 +293,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/join" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -388,7 +388,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/:router_id" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -483,7 +483,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id" 
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -525,7 +525,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1router_statics/:router_static_i
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -569,7 +569,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id/
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -657,7 +657,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_stati
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -702,7 +702,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_eip" --da
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 

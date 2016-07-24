@@ -22,7 +22,7 @@
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -116,7 +116,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -158,7 +158,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -203,7 +203,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -289,7 +289,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -334,7 +334,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" 
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -425,7 +425,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -467,7 +467,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:sna
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -560,7 +560,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -604,7 +604,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 

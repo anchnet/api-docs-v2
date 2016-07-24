@@ -42,7 +42,7 @@
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -187,7 +187,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -231,7 +231,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -276,7 +276,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -320,7 +320,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -368,7 +368,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -415,7 +415,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 
@@ -459,7 +459,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
+参考: *[Job 数据结构](/job.html)*
 
 ### 示例
 

@@ -23,3 +23,26 @@
 | finished_time | String | Yes | 完成时间 |
 | info | String | Yes | 错误信息 |
 | extra | String | Yes | 附加字段 |
+
+### 示例
+
+```sh
+$ curl -XGET "http://api.51idc.com/v2/zone/ac2/job/9000/console/zone/ac2/job/92961ef1-0760-4ac4-97fd-98c2d0604d8f"
+```
+
+#### 响应内容:
+
+```json
+{
+  "job_id":"92961ef1-0760-4ac4-97fd-98c2d0604d8f",
+  "id_prefix":"",
+  "action":"RunInstances",
+  "request_id":"22951ef1-0740-4ay4-97vd-98c2d0602d8f",
+  "status":"pending",
+  "create_time":"2016-06-23T08:23:25Z",
+  "begin_time":"2016-06-23T08:24:25Z",
+  "finished_time":"2016-06-23T08:28:25Z",
+  "info":"",
+  "extra":""
+}
+```

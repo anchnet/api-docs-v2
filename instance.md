@@ -1,10 +1,15 @@
-# POST /instances
+# 主机
+
+
+## POST /instances
 
 **新建主机**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -29,36 +34,26 @@
 | userdata_file | String | No | 默认值: /etc/rc.local<br> |
 | eips | String[] | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -69,15 +64,15 @@ OR
 ```
 
 
-# GET /instances
+## GET /instances
 
 **查询主机**
 
 *详细描述*
 
-## 请求
+### 请求
 
-### QueryString 参数
+#### QueryString 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -92,28 +87,26 @@ OR
 | offset | Int | Yes | - |
 | limit | Int | No | 默认值: 10<br> |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
-
-[Job Response](http://www.51idc.com)
-
-OR
+#### 响应 Body 信息
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instances | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"instance_id": "*String*",<br>&nbsp;&nbsp;"instance_name": "*String*",<br>&nbsp;&nbsp;"description": "*String*",<br>&nbsp;&nbsp;"instance_type": "*Int*",<br>&nbsp;&nbsp;"vcpus_current": "*Int*",<br>&nbsp;&nbsp;"memory_current": "*Int*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"transition_status": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"status_time": "*String*",<br>&nbsp;&nbsp;"image": "*String*",<br>&nbsp;&nbsp;"vxnets": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"vxnet_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"vxnet_type": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"vxnet_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"nic_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"private_ip": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;"eip": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_addr": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_id": "*String*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"security_group": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"security_group_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"is_default": "*Int*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"volumes": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"volume_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"volume_type": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"volume_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"size": "*Int*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;"keypair_ids": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"keypair_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"keypair_name": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}<br>] |
 | total_count | Int | Yes | - |
 
-## 示例
+### 示例
 
-### 发送请求
+#### 发送请求
 
-` curl -XGET "http://api.51idc.com/v2/zone/ac1/instances" `
+```sh
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances"
+```
 
 #### 响应内容:
 
@@ -124,13 +117,15 @@ OR
 ```
 
 
-# PUT /instances
+## PUT /instances
 
 **修改主机属性**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -138,24 +133,25 @@ OR
 | instance_name | String | Yes | - |
 | description | String | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
-
-[Job Response](http://www.51idc.com)
-
-OR
+#### 响应 Body 信息
 
 **NONE**
-## 示例
+### 示例
 
-### 发送请求
+#### 发送请求
 
-` curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" `
+```sh
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -166,13 +162,15 @@ OR
 ```
 
 
-# POST /instances_product
+## POST /instances_product
 
 **打包产品**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -181,36 +179,26 @@ OR
 | eip | Object | Yes | [<br>{<br>&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"eip_group": "*String*"<br>}<br>] |
 | volume | Object | Yes | [<br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"volume_name": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>&nbsp;&nbsp;"volume_type": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*"<br>}<br>] |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -221,48 +209,40 @@ OR
 ```
 
 
-# POST /instances/start
+## POST /instances/start
 
 **启动主机**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instances | String[] | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -273,49 +253,41 @@ OR
 ```
 
 
-# POST /instances/stop
+## POST /instances/stop
 
 **关闭主机**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instances | String[] | Yes | - |
 | force | Int | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -326,48 +298,40 @@ OR
 ```
 
 
-# POST /instances/restart
+## POST /instances/restart
 
 **重启主机**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instances | String[] | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -378,13 +342,15 @@ OR
 ```
 
 
-# POST /instances/reset
+## POST /instances/reset
 
 **重置主机至初始状态**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -394,36 +360,26 @@ OR
 | login_passwd | String | Yes | - |
 | need_newsid | Int | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -434,13 +390,15 @@ OR
 ```
 
 
-# POST /instances/resize
+## POST /instances/resize
 
 **修改主机配置**
 
 *详细描述*
 
-### 请求 Body 参数
+### 请求
+
+#### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -449,36 +407,26 @@ OR
 | cpu | Int | Yes | - |
 | memory | String | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" `
+```sh
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
+{
+    "key": "value"
+}'
+```
 
 #### 响应内容:
 
@@ -489,50 +437,37 @@ OR
 ```
 
 
-# DELETE /instances/:ins_id
+## DELETE /instances/:ins_id
 
 **销毁主机**
 
 *详细描述*
 
-## 请求
+### 请求
 
-### QueryString 参数
+#### QueryString 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instances | String[] | Yes | - |
 
-## 服务端响应
+### 服务端响应
 
-### 响应头信息
+#### 响应头信息
 
 `NULL`
 
-### 响应 Body 信息
+#### 响应 Body 信息
 
-[Job Response](http://www.51idc.com)
+参考: *[Job 数据结构](/api-docs-v2/content/job.html)*
 
-OR
+### 示例
 
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| job_id | String | Yes | - |
-| id_prefix | String | Yes | - |
-| action | String | Yes | - |
-| request_id | String | Yes | - |
-| status | String | Yes | - |
-| create_time | String | Yes | - |
-| begin_time | String | Yes | - |
-| finished_time | String | Yes | - |
-| info | String | Yes | - |
-| extra | String | Yes | - |
+#### 发送请求
 
-## 示例
-
-### 发送请求
-
-` curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/:ins_id" `
+```sh
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/:ins_id"
+```
 
 #### 响应内容:
 

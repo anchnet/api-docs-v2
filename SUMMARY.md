@@ -12,7 +12,7 @@
    * [主机](instance.md)
    * [硬盘](volume.md)
    * [私有网络](vxnet.md)
-   * 路由器
+   * [路由器](router.md)
    * 公网 IP
    * 防火墙
    * SSH 秘钥

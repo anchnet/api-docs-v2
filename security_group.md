@@ -8,7 +8,7 @@
 
 *防火墙可用于保障主机和路由器的网络安全。*
 
-*刚创建的防火墙不包含任何规则，即任何端口都是封闭的， 需要建立规则以打开相应的端口。*
+*刚创建的防火墙不包含任何规则，即任何端口都是封闭的，需要建立规则以打开相应的端口。*
 
 ### 请求
 
@@ -52,7 +52,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 
 **获取防火墙列表**
 
-*详细描述*
+*可根据防火墙ID，名称作过滤条件，来获取防火墙列表。如果不指定任何过滤条件，默认返回你所拥有的所有防火墙*
 
 ### 请求
 
@@ -122,7 +122,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 **删除防火墙 支持批量**
 
-*详细描述*
+*防火墙须在没有资源（主机或路由器）使用的情况下才能被删除。已加载规则到资源的防火墙，需先将相关资源从防火墙移出后才能被删除。*
+*要删除的防火墙已加载规则到主机，则需要先调用 ApplySecurityGroup 将其他防火墙的规则应用到对应主机，之后才能被删除。*
+*要删除的防火墙已加载规则到路由器，则需要先调用 ModifyRouterAttributes 并 UpdateRouters 将其他防火墙的规则应用到对应路由器，之后才能被删除。*
 
 ### 请求
 
@@ -130,7 +132,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_groups | String[] | Yes | - |
+| security_groups | String[] | Yes | 防火墙ID列表 |
 
 ### 服务端响应
 
@@ -140,7 +142,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/job.html)*
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| security_groups | String[] | Yes | 防火墙ID列表 |
 
 ### 示例
 
@@ -154,8 +158,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 
 ```js
 {
-    "key": "value"
-} 
+    "security_groups": [
+        "sg-5PXZLGU"
+    ]
+}
 ```
 
 

@@ -397,7 +397,7 @@ $ curl -XPUT "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners" --data 
 ```
 
 
-## PUT /loadbalancers_listeners_backends
+## PUT /loadbalancers_listeners_backend
 
 **修改监听器后端属性**
 

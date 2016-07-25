@@ -14,7 +14,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| description | String | Yes | 公网IP描述 |
+| description | String | Yes | - |
 | eip | String | Yes |  公网IP的ID |
 | eip_name | String | Yes |  公网IP的名字|
 

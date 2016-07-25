@@ -15,9 +15,9 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificate_name | String | Yes | - |
-| certificate_content | String | Yes | - |
-| private_key | String | Yes | - |
+| server_certificate_name | String | Yes | 服务器证书名称  |
+| certificate_content | String | Yes | 服务器证书内容 |
+| private_key | String | Yes | 服务器证书私钥 |
 
 ### 服务端响应
 
@@ -29,10 +29,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificate_name | String | Yes | - |
-| certificate_content | String | Yes | - |
-| private_key | String | Yes | - |
-| zone | String | Yes | - |
+| server_certificate_id| String | Yes | 服务器ID |
 
 ### 示例
 
@@ -66,7 +63,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificate"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificates | String[] | Yes | - |
+| server_certificates | String[] | Yes | 服务器证书ID |
 
 ### 服务端响应
 
@@ -78,7 +75,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificate"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificates | String[] | Yes | - |
+| server_certificates | String[] | Yes | 服务器证书ID |
 
 ### 示例
 
@@ -109,10 +106,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificat
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificates | String[] | Yes | - |
-| search_word | String | Yes | - |
-| offset | Int | Yes | - |
-| limit | Int | Yes | - |
+| server_certificates | String[] | Yes | 服务器证书ID |
+| search_word | String | Yes |  搜索关键词，支持服务器证书ID，服务器证书名称  |
+| offset | Int | Yes |  数据偏移量，默认为0  |
+| limit | Int | Yes |  返回数据长度，默认为10 |
 
 ### 服务端响应
 
@@ -125,7 +122,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificat
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | server_certficates | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"server_certificate_id": "*String*",<br>&nbsp;&nbsp;"server_certificate_name": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"description": "*String*"<br>}<br>] |
-| total_count | Int | Yes | - |
+| total_count | Int | Yes |  根据过滤条件得到的服务器证书总数 |
 
 ### 示例
 
@@ -156,9 +153,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/servertificates"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificate | String | Yes | - |
-| server_certificate_name | String | Yes | - |
-| description | String | Yes | - |
+| server_certificate | String | Yes | 服务器证书ID |
+| server_certificate_name | String | Yes | 服务器证书名称 |
+| description | String | Yes | 服务器证书描述 |
 
 ### 服务端响应
 
@@ -201,10 +198,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_servertificate" --d
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_listeners | String[] | Yes | - |
-| loadbalancer | String | Yes | - |
-| offset | Int | Yes | - |
-| limit | Int | No | 默认值: 10<br> |
+| loadbalancer_listeners | String[] | Yes | 监听器ID |
+| loadbalancer | String | Yes | 负载均衡器ID |
+| offset | Int | Yes | 数据偏移量，默认为0 |
+| limit | Int | No | 返回数据长度，默认值: 10<br> |
 
 ### 服务端响应
 
@@ -217,7 +214,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_servertificate" --d
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancerListeners | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"loadbalancer_listener_id": "*String*",<br>&nbsp;&nbsp;"loadbalancer_listener_name": "*String*",<br>&nbsp;&nbsp;"backends": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_backend_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_backend_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_listener_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"weight": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource": {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_id": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_policy_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_policy_name": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;"balance_mode": "*String*",<br>&nbsp;&nbsp;"session_sticky": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"forwardfor": "*Int*",<br>&nbsp;&nbsp;"healthy_check_method": "*String*",<br>&nbsp;&nbsp;"healthy_check_option": "*String*",<br>&nbsp;&nbsp;"listener_option": "*Int*",<br>&nbsp;&nbsp;"listener_protocol": "*String*",<br>&nbsp;&nbsp;"backend_protocol": "*String*",<br>&nbsp;&nbsp;"listener_port": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_id": "*String*",<br>&nbsp;&nbsp;"server_certificate_id": "*String*"<br>}<br>] |
-| total_count | Int | Yes | - |
+| total_count | Int | Yes |根据过滤条件的到的总数 |
 
 ### 示例
 
@@ -293,7 +290,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/listeners/a
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_listeners | String[] | Yes | - |
+| loadbalancer_listeners | String[] | Yes | 监听器ID |
 
 ### 服务端响应
 
@@ -334,12 +331,12 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_li
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_listener | String | Yes | - |
-| loadbalancer_listener_name | String | Yes | - |
-| server_certificate_id | String | Yes | - |
-| balance_mode | String | Yes | - |
-| session_sticky | String | Yes | - |
-| forwardfor | Int | Yes | - |
+| loadbalancer_listener | String | Yes | 监听器ID |
+| loadbalancer_listener_name | String | Yes | 监听器名称 |
+| server_certificate_id | String | Yes | 服务器证书ID |
+| balance_mode | String | Yes |  监听器负载均衡方式：支持 roundrobin (轮询)， leastconn (最小连接)和source (源地址) 三种。  |
+| session_sticky | String | Yes |-|
+| forwardfor | Int | Yes |  转发请求时需要的 HTTP Header。此值是由当前支持的3个附加头字段以“按位与”的方式得到的十进制数：X-Forwarded-For: bit 位是1 (二进制的1)，表示是否将真实的客户端IP传递给后端。 一般情况下，后端 server 得到的 client IP 是负载均衡器本身的 IP 地址。 在开启本功能之后，后端服务器可以通过请求中的 X-Forwarded-For 字段来获取真实的用户IP。QC-LBID: bit 位是2 (二进制的10)，表示 Header 中是否包含 LoadBalancer 的 IDQC-LBIP: bit 位是3 (二进制的100)，表示 Header 中是否包含 LoadBalancer 的公网IP例如 Header 中包含 X-Forwarded-For 和 QC-LBIP 的话，forwarfor 的值则为:“X-Forwarded-For \| QC-LBIP”，二进制结果为101，最后转换成十进制得到5。 |
 | healthy_check_method | String | Yes | - |
 | healthy_check_option | String | Yes | - |
 | listener_option | Int | Yes | - |

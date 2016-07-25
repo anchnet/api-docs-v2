@@ -33,7 +33,7 @@
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 {
-    "key": "value"
+  "group_name":"secruity_group_name"
 }'
 ```
 
@@ -41,7 +41,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 
 ```js
 {
-    "key": "value"
+    "security_group_id": "sg-5PXZLGU"
 } 
 ```
 
@@ -58,13 +58,13 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_groups | String[] | Yes | - |
-| search_word | String | Yes | - |
-| tags | String[] | Yes | - |
-| verbose | Int | Yes | - |
-| offset | Int | Yes | - |
-| limit | Int | No | 默认值: 10<br> |
-| is_default | Int | Yes | - |
+| security_groups | String[] | No | 防火墙ID列表 |
+| search_word | String | No | 搜索关键词，支持防火墙ID，防火墙名称 |
+| tags | String[] | No | - |
+| verbose | Int | No | 是否返回冗长的信息，若为1，则返回应用了此防火墙的其他资源的信息，默认为0. |
+| offset | Int | No | 数据偏移量，默认为0 |
+| limit | Int | No | 返回数据长度，默认为20，最大100 |
+##| is_default | Int | Yes | - |
 
 ### 服务端响应
 

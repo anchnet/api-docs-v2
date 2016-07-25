@@ -615,7 +615,7 @@ $ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/loadbalancers_policy" --data '
 ```
 
 
-## POST /loadbalancers_policy/:lb_ld_policy/apply
+## POST /loadbalancers_policy/:lb_policy_id/apply
 
 **应用负载均衡器策略**
 
@@ -650,7 +650,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/lbp-A0A1897
 
 
 
-## DELETE /loadbalancers_policies/:lb_ld_policy
+## DELETE /loadbalancers_policies/:lb_policy_id
 
 **删除负载均衡器策略**
 
@@ -777,7 +777,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 
 
 
-## DELETE /loadbalancers_policy_rules/:lb_ld_policy_rules
+## DELETE /loadbalancers_policy_rules/:lb_policy_rules_id
 
 **删除策略规则**
 
@@ -1229,7 +1229,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/start" --da
 ```
 
 
-## PUT /loadbalancers
+## PUT /loadbalancer
 
 **修改负载均衡器属性**
 

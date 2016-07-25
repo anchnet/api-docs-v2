@@ -14,7 +14,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| group_name | String | Yes | - |
+| group_name | String | Yes | 防火墙名称 |
 
 ### 服务端响应
 

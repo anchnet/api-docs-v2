@@ -91,8 +91,28 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 ```js
 {
-    "key": "value"
-} 
+    "security_groups": [
+        {
+            "is_applied": 1,
+            "description": "",
+            "security_group_id": "sg-9UY7WTG",
+            "is_default": 1,
+            "create_time": "2016-07-18T01:57:50Z",
+            "security_group_name": "default firewall",
+            "resources": []
+        },
+        {
+            "is_applied": 1,
+            "description": "",
+            "security_group_id": "sg-5PXZLGU",
+            "is_default": 0,
+            "create_time": "2016-07-25T08:22:34Z",
+            "security_group_name": "secruity_group_name",
+            "resources": []
+        }
+    ],
+    "total_count": 2
+}
 ```
 
 
@@ -132,27 +152,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 
 ```js
 {
-    "security_groups": [
-        {
-            "is_applied": 1,
-            "description": "",
-            "security_group_id": "sg-9UY7WTG",
-            "is_default": 1,
-            "create_time": "2016-07-18T01:57:50Z",
-            "security_group_name": "default firewall",
-            "resources": []
-        },
-        {
-            "is_applied": 1,
-            "description": "",
-            "security_group_id": "sg-5PXZLGU",
-            "is_default": 0,
-            "create_time": "2016-07-25T08:22:34Z",
-            "security_group_name": "secruity_group_name",
-            "resources": []
-        }
-    ],
-    "total_count": 2
+    "key": "value"
 } 
 ```
 

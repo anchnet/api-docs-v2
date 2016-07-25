@@ -16,7 +16,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | image_id | String | Yes | 镜像 ID |
-| instance_type | Int | Yes | 主机类型 <br> PERFORMANCE 性能型 <br> HIGH_PERFORMANCE 超高性能型 |
+| instance_type | String | Yes | 主机类型 <br> PERFORMANCE: 性能型 <br> HIGH_PERFORMANCE: 超高性能型 |
 | cpu | Int | Yes | CPU 核心数 有效值为: 1, 2, 4, 8, 16 |
 | memory | Int | Yes | 内存 有效值为: 1024, 2048, 4096, 6144, 8192, 12288, 16384, 24576, 32768 <br> |
 | count | Int | No | 创建主机的数量, 默认值: 1<br> |
@@ -79,7 +79,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" --data '
 | :-- | :-- | :-- | :-- |
 | instances | String[] | Yes | 主机 ID 筛选，多个用 半角逗号',' 分割 <br> 例如：instances=ins-24h3k2j,ins-k2sfh345 |
 | image_id | String[] | Yes | 镜像 ID |
-| instance_type | Int[] | Yes | 主机类型 |
+| instance_type | String[] | Yes | 主机类型 <br> PERFORMANCE: 性能型 <br> HIGH_PERFORMANCE: 超高性能型 |
 | status | String[] | Yes | 主机状态<br>可选值：<br>pending 处理中<br>running 运行中<br>stopped 已关机<br>suspended 已暂停<br>terminated 已删除<br>ceased  已终止|
 | search_word | String | Yes | 查询关键词 |
 | tags | String[] | Yes | 筛选标签 |
@@ -402,7 +402,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instances | String[] | Yes | 主机实例 ID |
-| instance_type | Int | Yes | 主机类型 |
+| instance_type | String | Yes | 主机类型 <br> PERFORMANCE: 性能型 <br> HIGH_PERFORMANCE: 超高性能型 |
 | cpu | Int | Yes | CPU core，有效值为: 1, 2, 4, 8, 16 |
 | memory | String | Yes | 内存，有效值为: 1024, 2048, 4096, 6144, 8192, 12288, 16384, 24576, 32768 |
 

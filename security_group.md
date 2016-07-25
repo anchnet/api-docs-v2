@@ -6,7 +6,9 @@
 
 **创建防火墙**
 
-*详细描述*
+*防火墙可用于保障主机和路由器的网络安全。*
+
+*刚创建的防火墙不包含任何规则，即任何端口都是封闭的， 需要建立规则以打开相应的端口。*
 
 ### 请求
 
@@ -14,7 +16,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| group_name | String | Yes | - |
+| group_name | String | Yes | 防火墙名称 |
 
 ### 服务端响应
 
@@ -33,7 +35,7 @@
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 {
-    "key": "value"
+  "group_name":"secruity_group_name"
 }'
 ```
 
@@ -41,7 +43,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 
 ```js
 {
-    "key": "value"
+    "security_group_id": "sg-5PXZLGU"
 } 
 ```
 
@@ -58,13 +60,13 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_groups | String[] | Yes | - |
-| search_word | String | Yes | - |
-| tags | String[] | Yes | - |
-| verbose | Int | Yes | - |
-| offset | Int | Yes | - |
-| limit | Int | No | 默认值: 10<br> |
-| is_default | Int | Yes | - |
+| security_groups | String[] | No | 防火墙ID列表 |
+| search_word | String | No | 搜索关键词，支持防火墙ID，防火墙名称 |
+| tags | String[] | No | - |
+| verbose | Int | No | 是否返回冗长的信息，若为1，则返回应用了此防火墙的其他资源的信息，默认为0. |
+| offset | Int | No | 数据偏移量，默认为0 |
+| limit | Int | No | 返回数据长度，默认为20，最大100 |
+<!--| is_default | Int | Yes | - |-->
 
 ### 服务端响应
 
@@ -77,7 +79,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | security_groups | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"is_applied": "*Int*",<br>&nbsp;&nbsp;"description": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"is_default": "*Int*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"security_group_name": "*String*",<br>&nbsp;&nbsp;"resources": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_id": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}<br>] |
-| total_count | Int | Yes | - |
+| total_count | Int | Yes | 根据过滤条件得到的防火墙总数 |
 
 ### 示例
 
@@ -91,8 +93,28 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 
 ```js
 {
-    "key": "value"
-} 
+    "security_groups": [
+        {
+            "is_applied": 1,
+            "description": "",
+            "security_group_id": "sg-9UY7WTG",
+            "is_default": 1,
+            "create_time": "2016-07-18T01:57:50Z",
+            "security_group_name": "default firewall",
+            "resources": []
+        },
+        {
+            "is_applied": 1,
+            "description": "",
+            "security_group_id": "sg-5PXZLGU",
+            "is_default": 0,
+            "create_time": "2016-07-25T08:22:34Z",
+            "security_group_name": "secruity_group_name",
+            "resources": []
+        }
+    ],
+    "total_count": 2
+}
 ```
 
 

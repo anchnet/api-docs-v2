@@ -52,7 +52,7 @@
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" --data '
 {
-    "key": "value"
+    "key": "value2"
 }'
 ```
 

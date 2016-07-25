@@ -859,7 +859,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rule" --data
 
 
 
-## POST /loadbalancers_policy/:lb_ld_policy/rules/add
+## POST /loadbalancers_policy/:lb_policy_id/rules/add
 
 **增加策略规则**
 

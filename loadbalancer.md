@@ -431,13 +431,14 @@ $ curl -XPUT "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners" --data 
 
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends" --data '
-{
-    "key": "value"
+{ 
+"loadbalancer_backend":"lbb-060F740", 
+"loadbalancer_backend_name":"loadbalancer_backend_modify_test" 
 }'
 ```
 
 
-## DELETE /loadbalancers_listener_backends/:lb_listener_backends_id
+## DELETE  /loadbalancers_listeners_backends/:lb_listener_backends_id
 
 **删除监听器后端**
 
@@ -466,15 +467,15 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends" 
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backends/:lb_listener_backends_id"
+$ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners_backends/lbb-C11BED2"
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+{ 
+  "loadbalancer_backends": ["lbb-C11BED2"]
+}
 ```
 
 
@@ -508,18 +509,18 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_listener_backend
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_listener_id/backends/add" --data '
-{
-    "key": "value"
-}'
-```
-
-#### 响应内容:
-
-```js
-{
-    "key": "value"
+$ curl -XPOST "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_listener_id/backends/add" --data '
+{ 
+"backends":
+[ 
+{ "weight":1, 
+"port":8082, 
+"resource_id":"192.168.201.204", 
+"loadbalancer_backend_name":"liangs_test_ip",
+"vxnet":"resource_id" 
 } 
+]
+}'
 ```
 
 
@@ -558,15 +559,13 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_list
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends"
+$ curl -XGET "http://dev2.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends"
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+{<br>loadbalancerBackends: [<br>{<br>loadbalancer_backend_id: "lbb-060F740",<br>loadbalancer_backend_name: "",<br>loadbalancer_listener_id: "lbl-620BDAB",<br>loadbalancer_id: "lb-737A435",<br>port: 8082,<br>weight: 1,<br>resource: {<br>resource_name: "liangs_test",<br>resource_type: "managed_vxnet",<br>resource_id: "rtr-9A74A3C"<br>},<br>status: "down",<br>create_time: "2016-07-204 06:54:18",<br>loadbalancer_policy_id: "lbp-CCE01DB",<br>disabled: 0,<br>loadbalancer_policy_name: "liangs_test"<br>}<br>],<br>total_count: 1<br>}
 ```
 
 
@@ -600,17 +599,18 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/listeners/backends"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
-{
-    "key": "value"
+$ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/loadbalancers_policy" --data '
+{ 
+    "operator":"and",
+    "loadbalancer_policy_name":"liangs_test"
 }'
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
+{ 
+    "loadbalancer_poicy_id": "lbp-A0A1897"
 } 
 ```
 
@@ -623,11 +623,12 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 
 ### 请求
 
-#### 请求 Body 参数
+#### 请求  QueryString 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_policy | String | Yes | 转发策略ID |
+| loadbalancer_policy| String | Yes | 转发策略ID |
+
 
 ### 服务端响应
 
@@ -644,22 +645,12 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy/apply" --data '
-{
-    "key": "value"
-}'
-```
-
-#### 响应内容:
-
-```js
-{
-    "key": "value"
-} 
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/lbp-A0A1897/apply"
 ```
 
 
-## DELETE /loadbalancers_policy/:lb_ld_policy
+
+## DELETE /loadbalancers_policies/:lb_ld_policy
 
 **删除负载均衡器策略**
 
@@ -671,7 +662,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_policies | String[] | Yes | 转发策略 ID|
+| loadbalancer_policies| String[] | Yes | 转发策略ID |
 
 ### 服务端响应
 
@@ -681,26 +672,28 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/job.html)*
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| loadbalancer_policies| String[] | Yes | 转发策略ID |
 
 ### 示例
 
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy"
+$ curl -XDELETE "http://dev2.51idc.cn/v2/zone/ac1/loadbalancers_policy/lbp-A0A1897 "
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "key": "value"
-} 
+    "loadbalancer_policies": [ "lbp-A0A1897" ]
+}
 ```
 
 
-## GET /loadbalancers_policy
+## GET /loadbalancers_policies
 
 **获取负载均衡器策略列表**
 
@@ -734,15 +727,13 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_po
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policies"
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+{<br>loadbalancerPolicys: [<br>{<br>loadbalancer_policy_id: "lbp-CCE01DB",<br>loadbalancer_policy_name: "liangs_test",<br>create_time: "2016-07-204 05:57:37",<br>is_applied: 0,<br>rules: [<br>{<br>loadbalancer_policy_rule_id: "lbpr-00F4ADB",<br>loadbalancer_policy_rule_name: "rules_test_1",<br>rule_type: "url",<br>val: "test_test",<br>loadbalancer_policy_id: "lbp-CCE01DB",<br>disabled: 0<br>},<br>{<br>loadbalancer_policy_rule_id: "lbpr-B55E183",<br>loadbalancer_policy_rule_name: "rules_test_2",<br>rule_type: "url",<br>val: "test_test",<br>loadbalancer_policy_id: "lbp-CCE01DB",<br>disabled: 0<br>}<br>],<br>description: "",<br>operator: "and"<br>}<br>],<br>total_count: 1<br>}
 ```
 
 
@@ -777,18 +768,13 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy"
 
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
-{
-    "key": "value"
+{ 
+    "loadbalancer_policy":"lbp-CCE01DB", 
+    "operator":"or", 
+    "loadbalancer_policy_name":"modify_test"
 }'
 ```
 
-#### 响应内容:
-
-```js
-{
-    "key": "value"
-} 
-```
 
 
 ## DELETE /loadbalancers_policy_rules/:lb_ld_policy_rules
@@ -820,19 +806,19 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy" --data '
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/:lb_ld_policy_rules"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/lbpr-00F4ADB "
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+{     
+    "loadbalancer_policy_rules": [ "lbpr-00F4ADB" ]
+}
 ```
 
 
-## PUT /loadbalancers_policy_rules
+## PUT /loadbalancers_policy_rule
 
 **修改策略规则属性**
 
@@ -863,19 +849,14 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/:lb
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules" --data '
-{
-    "key": "value"
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rule" --data '
+{ 
+    "loadbalancer_policy_rule":"lbpr-B55E183", 
+    "val":"4645", 
+    "loadbalancer_policy_rule_name":"test"
 }'
 ```
 
-#### 响应内容:
-
-```js
-{
-    "key": "value"
-} 
-```
 
 
 ## POST /loadbalancers_policy/:lb_ld_policy/rules/add
@@ -909,21 +890,33 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules" --dat
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_policy/rules/add" --data '
-{
-    "key": "value"
+{ 
+    "rules":
+    [ 
+     { 
+       "loadbalancer_policy_rule_name":"rules_test_1", 
+       "val":"test_test", 
+       "rule_type":"url" 
+     }, 
+     { 
+       "loadbalancer_policy_rule_name":"rules_test_2", 
+       "val":"test_test",
+       "rule_type":"url"
+     } 
+    ] 
 }'
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+{ 
+    "loadbalancer_policy_rules": [ "lbpr-2562688", "lbpr-0EBCE7D" ]
+}
 ```
 
 
-## GET /loadbalancers_policy/rules
+## GET /loadbalancers_policy_rules
 
 **获取策略规则列表**
 
@@ -958,15 +951,13 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/rules"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules"
 ```
 
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+{<br>loadbalancerPolicyRules: [<br>{<br>loadbalancer_policy_rule_id: "lbpr-B55E183",<br>loadbalancer_policy_rule_name: "test",<br>rule_type: "url",<br>val: "4645",<br>loadbalancer_policy_id: "lbp-CCE01DB",<br>disabled: 0<br>}<br>],<br>total_count: 1<br>}
 ```
 
 

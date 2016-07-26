@@ -169,7 +169,11 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 
 **应用防火墙 支持多台主机**
 
-*详细描述*
+*应用防火墙规则。当防火墙的规则发生改变后，新规则不会即刻生效 （可通过 is_applied 属性分辨），需要调用 ApplySecurityGroup 之后才生效。*
+
+*防火墙规则可通过 AddSecurityGroupRules, DeleteSecurityGroupRules, ModifySecurityGroupRuleAttributes 修改。*
+
+*如果请求参数中传递了 instances.n ，则表示将此防火墙的规则应用到对应的主机。如果不传此参数，则会将最新规则更新到所有已应用此防火墙的主机*
 
 ### 请求
 
@@ -177,8 +181,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group | String | Yes | - |
-| instances | String[] | Yes | - |
+| security_group | String | Yes | 防火墙 ID |
+| instances | String[] | No | 应用防火墙的主机ID |
 
 ### 服务端响应
 
@@ -197,7 +201,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances" --data '
 {
-    "key": "value"
+  "security_group":"sg-YZOEB6B",
+  "instances":["ins-C7WXRO0"]
 }'
 ```
 
@@ -205,7 +210,16 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 
 ```js
 {
-    "key": "value"
+    "job_id": "4262469b-ca1f-45dd-92c0-f13c00b84d1d",
+    "id_prefix": "",
+    "action": "ApplySecurityGroups",
+    "request_id": "e3ec627b-58c1-40b1-8893-3dd4d089aaf1",
+    "status": "pending",
+    "create_time": "2016-07-26T02:29:26Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
 } 
 ```
 
@@ -222,8 +236,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group | String | Yes | - |
-| instances | String[] | Yes | - |
+| security_group | String | Yes | 防火墙 ID |
+| instances | String[] | Yes | 应用防火墙的主机ID |
 
 ### 服务端响应
 
@@ -242,7 +256,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances" --data '
 {
-    "key": "value"
+  "security_group":"sg-YZOEB6B",
+  "instances":["ins-C7WXRO0"]
 }'
 ```
 
@@ -250,7 +265,16 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 
 ```js
 {
-    "key": "value"
+    "job_id": "b4374b75-ef11-425b-9f62-30671b6a1765",
+    "id_prefix": "",
+    "action": "RemoveSecurityGroups",
+    "request_id": "97270e35-1ac1-4ddd-9c38-bb7d0a3dd180",
+    "status": "pending",
+    "create_time": "2016-07-26T02:32:37Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
 } 
 ```
 
@@ -259,7 +283,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 
 **修改防火墙属性**
 
-*详细描述*
+*修改防火墙的名称和描述。一次只能修改一个防火墙*
 
 ### 请求
 
@@ -267,9 +291,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group | String | Yes | - |
-| security_group_name | String | Yes | - |
-| description | String | Yes | - |
+| security_group | String | Yes | 防火墙 ID |
+| security_group_name | String | No |  防火墙名称 |
+| description | String | No | 防火墙描述 |
 
 ### 服务端响应
 
@@ -287,7 +311,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 {
-    "key": "value"
+  "security_group":"sg-YZOEB6B",
+  "security_group_name":"group_name",
+  "description":"test"
 }'
 ```
 
@@ -295,7 +321,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 
 ```js
 {
-    "key": "value"
+    "security_group_id": "sg-YZOEB6B"
 } 
 ```
 
@@ -326,17 +352,23 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" --data '
-{
-    "key": "value"
-}'
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" --data ''
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "key": "value"
+    "job_id": "98ce759a-d332-4528-8e9d-839c3c23fea3",
+    "id_prefix": "",
+    "action": "CreateDefaultSecurityGroup",
+    "request_id": "365c7ae1-2d5a-4173-9fb4-31bb4f9225d5",
+    "status": "pending",
+    "create_time": "2016-07-26T03:00:22Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
 } 
 ```
 
@@ -345,7 +377,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" 
 
 **创建防火墙备份**
 
-*详细描述*
+*根据当前的防火墙规则创建一个备份,用于随时回滚之前的防火墙规则。*
 
 ### 请求
 
@@ -353,8 +385,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" 
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group | String | Yes | - |
-| name | String | Yes | - |
+| security_group | String | Yes | 防火墙ID |
+| name | String | Yes | 备份名称 |
 
 ### 服务端响应
 

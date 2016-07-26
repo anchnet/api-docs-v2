@@ -15,7 +15,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 网络名称 |
-| type | Int | No | 网络类型      受管网络:SYSTEM_MANAGER <br> SELF_MANAAGER:自管网路|
+| type | Int | No | 网络类型 <br>       受管网络:SYSTEM_MANAGER <br> SELF_MANAAGER:自管网路|
 | count | Int | Yes | - |
 
 ### 服务端响应

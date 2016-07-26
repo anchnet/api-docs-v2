@@ -1332,7 +1332,6 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id"
 | loadbalancers | String[] | Yes | 负载均衡器ID |
 | status | String[] | Yes |  负载均衡器状态: pending，active，stopped，suspended，deleted，ceased  |
 | search_word | String | Yes |  搜索关键词，支持负载均衡器ID，负载均衡器名称 |
-| tags | String[] | Yes | - |
 | offset | Int | Yes |  数据偏移量，默认为0 |
 | limit | Int | No | 默认值: 10<br> |
 

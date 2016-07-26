@@ -16,7 +16,7 @@
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 网络名称 |
 | type | Int | No | 网络类型&nbsp; &nbsp; &nbsp;  受管网络:SYSTEM_MANAGER <p>   &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;自管网路 :SELF_MANAAGER|
-| count | Int | Yes | - |
+| count | Int | Yes | 数量 |
 
 ### 服务端响应
 

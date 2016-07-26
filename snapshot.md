@@ -6,7 +6,7 @@
 
 **查询磁盘备份**
 
-*详细描述*
+*获取指定资源的所有备份。*
 
 ### 请求
 
@@ -14,16 +14,16 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshots | String[] | Yes | - |
-| resource_id | String | Yes | - |
-| snapshot_type | Int | Yes | - |
-| status | String[] | Yes | - |
-| search_word | String | Yes | - |
-| tags | String[] | Yes | - |
-| verbose | Int | Yes | - |
-| offset | Int | Yes | - |
-| limit | Int | No | 默认值: 10<br> |
-| root_id | String | Yes | - |
+| snapshots | String[] | No | 备份ID |
+| resource_id | String | No | 按资源 ID 进行过滤 |
+| snapshot_type | Int | No | 按备份类型过滤，0表示获取增量备份，1表示获取全量备份 |
+| status | String[] | No | 备份状态: pending, available, suspended, deleted, ceased |
+| search_word | String | No | 搜索关键词 |
+| tags | String[] | No | 暂时不支持 |
+| verbose | Int | No | verbose level, 1表示返回备份的详细信息 |
+| offset | Int | No | 结果集偏移量，默认为0 |
+| limit | Int | No | 结果集长度，默认为2010 |
+| root_id | String | No | 全量备份ID,由于查询当前下面的增量备份 |
 
 ### 服务端响应
 
@@ -49,9 +49,50 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 #### 响应内容:
 
 ```js
-{
-    "key": "value"
-} 
+"snapshots": [
+      {
+         "snapshot_id": "ss-BTZOND4",
+         "snapshot_name": "son",
+         "description": "",
+         "snapshot_type": 0,
+         "status": "available",
+         "transition_status": "",
+         "create_time": "2016-07-15T16:20:05Z",
+         "status_time": "2016-07-15T16:20:05Z",
+         "snapshot_time": "2016-07-15T16:20:05Z",
+         "is_taken": 1,
+         "is_head": 0,
+         "head_chain": 0,
+         "root_id": "ss-5fvm6a0u",
+         "parent_id": "ss-ihles3sb",
+         "size": 1,
+         "total_size": 0,
+         "total_count": 0,
+         "lastest_snapshot_time": "2016-07-15T16:20:05Z"
+      },
+      {
+         "snapshot_id": "ss-X0J5V8Q",
+         "snapshot_name": "son",
+         "description": "",
+         "snapshot_type": 0,
+         "status": "available",
+         "transition_status": "",
+         "create_time": "2016-07-15T16:20:05Z",
+         "status_time": "2016-07-15T16:20:05Z",
+         "snapshot_time": "2016-07-15T16:20:05Z",
+         "is_taken": 1,
+         "is_head": 0,
+         "head_chain": 0,
+         "root_id": "ss-5fvm6a0u",
+         "parent_id": "ss-km1u2qxt",
+         "size": 1,
+         "total_size": 0,
+         "total_count": 0,
+         "lastest_snapshot_time": "2016-07-15T16:20:05Z"
+      }
+   ],
+   "total_count": 2
+}
 ```
 
 
@@ -59,7 +100,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 
 **创建磁盘备份**
 
-*详细描述*
+*为指定的资源创建备份*
 
 ### 请求
 
@@ -67,9 +108,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| resources | String[] | Yes | - |
-| snapshot_name | String | Yes | - |
-| is_full | Int | Yes | - |
+| resources | String[] | Yes | 资源ID |
+| snapshot_name | String | Yes | 备份点名称 |
+| is_full | Int | No | 是否创建全量备份,1为是 0为由系统决定 |
 
 ### 服务端响应
 
@@ -88,7 +129,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 {
-    "key": "value"
+    "resources":["vol-SACNVJNS","vol-ascdvf"],
+    "snapshot_name":"demos",
+    "is_full":0
 }'
 ```
 
@@ -96,8 +139,17 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 
 ```js
 {
-    "key": "value"
-} 
+    "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
+    "id_prefix": "",
+    "action": "CreateSnapshots",
+    "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
+    "status": "pending",
+    "create_time": "2016-07-26T07:38:28Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
+}
 ```
 
 
@@ -105,7 +157,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 
 **删除磁盘备份**
 
-*详细描述*
+*删除备份。请注意，当删除一条备份链中某个增量备份点之后，该增量备份点后的所有备份点都会被自动删除， 并且该操作是不可逆的。*
 
 ### 请求
 
@@ -113,9 +165,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshot | String | Yes | - |
-| snapshot_name | String | Yes | - |
-| description | String | Yes | - |
+| snapshot | String[] | Yes | 备份ID |
 
 ### 服务端响应
 
@@ -139,8 +189,17 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id"
 
 ```js
 {
-    "key": "value"
-} 
+    "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
+    "id_prefix": "",
+    "action": "DeleteSnapshots",
+    "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
+    "status": "pending",
+    "create_time": "2016-07-26T07:38:28Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
+}
 ```
 
 
@@ -148,7 +207,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id"
 
 **回滚到指定备份点**
 
-*详细描述*
+*回滚到指定备份点。请注意，为了保证回滚的安全性，当回滚的资源为运行的主机，或者为绑定在运行主机上的硬盘时，该操作会导致主机重启。*
 
 ### 请求
 
@@ -156,7 +215,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshots | String[] | Yes | - |
+| snapshots | String[] | Yes | 备份ID |
 
 ### 服务端响应
 
@@ -175,7 +234,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volume_snapshots/:snapshot_id"
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 {
-    "key": "value"
+    "snapshots":["s-sdDCVGBE","s-sdDCVGBE"]
 }'
 ```
 
@@ -183,8 +242,17 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 
 ```js
 {
-    "key": "value"
-} 
+    "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
+    "id_prefix": "",
+    "action": "ApplySnapshots",
+    "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
+    "status": "pending",
+    "create_time": "2016-07-26T07:38:28Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
+}
 ```
 
 
@@ -192,7 +260,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 
 **将指定备份导出为映像**
 
-*详细描述*
+*将指定备份导出为映像。请注意，此备份点必须为主机的备份点才能导出为映像。*
 
 ### 请求
 
@@ -200,8 +268,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshot | String | Yes | - |
-| image_name | String | Yes | - |
+| snapshot | String | Yes | 备份ID |
+| image_name | String | Yes | 镜像名称 |
 
 ### 服务端响应
 
@@ -220,7 +288,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance" --data '
 {
-    "key": "value"
+    "snapshot": "s-COKDSO",
+    "image_name":"demo"
 }'
 ```
 
@@ -228,8 +297,17 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 
 ```js
 {
-    "key": "value"
-} 
+    "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
+    "id_prefix": "",
+    "action": "CaptureInstanceFromSnapshot",
+    "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
+    "status": "pending",
+    "create_time": "2016-07-26T07:38:28Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
+}
 ```
 
 
@@ -237,7 +315,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 
 **将指定备份导出为硬盘**
 
-*详细描述*
+*将指定备份导出为硬盘。请注意，此备份点必须为硬盘的备份点才能导出为硬盘，而且通过备份创建的硬盘类型和备份的来源硬盘类型是一致的。*
 
 ### 请求
 
@@ -245,8 +323,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshot | String | Yes | - |
-| volume_name | String | Yes | - |
+| snapshot | String | Yes | 备份ID |
+| volume_name | String | Yes | 磁盘名称 |
 
 ### 服务端响应
 
@@ -265,7 +343,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" --data '
 {
-    "key": "value"
+    "snapshot": "s-vjknsndnk",
+    "volume_name":"demo"
 }'
 ```
 
@@ -273,7 +352,16 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" 
 
 ```js
 {
-    "key": "value"
-} 
+    "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
+    "id_prefix": "",
+    "action": "CreateVolumeFromSnapshot",
+    "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
+    "status": "pending",
+    "create_time": "2016-07-26T07:38:28Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
+}
 ```
 

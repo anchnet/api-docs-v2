@@ -26,7 +26,7 @@
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/job.html)*
+Array &nbsp; &nbsp;  vxnet_id
 
 ### 示例
 

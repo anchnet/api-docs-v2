@@ -91,7 +91,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/vxnet-DED2XXX,vxnet-FE4
 ```
 
 
-## POST /vxnets/join
+## POST /vxnet/join
 
 **加入私有网络**
 
@@ -103,7 +103,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/vxnet-DED2XXX,vxnet-FE4
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnetInsId | String | Yes | - |
+| vxnet| String | Yes | 网络id |
 | instanceInsIdList | String[] | Yes | - |
 
 ### 服务端响应

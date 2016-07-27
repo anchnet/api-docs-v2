@@ -58,11 +58,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 
 ### 请求
 
-#### QueryString 参数
+#### path 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| insIdList | String[] | Yes | - |
+|  :vxnet_id  | String | Yes | 多个vxnet_id以逗号分隔 |
 
 ### 服务端响应
 

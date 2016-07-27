@@ -7,7 +7,7 @@
 
 **创建服务器证书**
 
-*暂不可用*
+*详细信息*
 
 ### 请求
 
@@ -55,7 +55,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificate"
 
 **删除服务器证书**
 
-* 暂不可用 *
+* 详细信息 *
 
 ### 请求
 
@@ -98,7 +98,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificat
 
 **获取服务器证书列表**
 
-* 暂不可用 *
+* 详细信息 *
 
 ### 请求
 
@@ -145,7 +145,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/servertificates"
 
 **修改服务器证书**
 
-* 暂不可用 *
+* 详细信息 *
 
 ### 请求
 
@@ -367,7 +367,7 @@ $ curl -XDELETE "http://mq.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners/ lb
 | :-- | :-- | :-- | :-- |
 | loadbalancer_listener | String | Yes | 监听器ID |
 | loadbalancer_listener_name | String | Yes | 监听器名称 |
-| server_certificate_id | String | Yes | 服务器证书ID |
+| server_certificate | String | Yes | 服务器证书ID |
 | balance_mode | String | Yes |  监听器负载均衡方式：支持 roundrobin (轮询)， leastconn (最小连接)和source (源地址) 三种。  |
 | session_sticky | String | Yes |会话保持，即拥有同一个cookie的请求始终发往同一后台服务器。会话保持提供两种方式:Insert:由负载均衡器来插入cookie，此时cookie名字由负载均衡器来指定，而使用者只需要提供cookie的超时时间.Rewrite:由使用者自己来指定并维护cookie，此时使用者需要主动向client端插入cookie，并提供过期时间。负载均衡器通过重写该cookie(在cookiename前面加上server标题)，借此实现会话保持。当request重新转发给后端服务器时，负载均衡器会主动将server标题删除，来实现cookie到后端服务器的透明。<br>格式（只对HTTP协议有意义）：<br>Rewrite：prefix\|cookie_name，例如:<br>prefix\|sk<br>Insert：insert\|cookie_timeout，例如：insert\|3600， cookie_timeout 可以为0，表示永远不超时|
 | forwardfor | Int | Yes | 转发请求时需要的 HTTP Header。此值是由当前支持的3个附加头字段以“按位与”的方式得到的十进制数：<br><br>X-Forwarded-For: bit 位是1 (二进制的1)，表示是否将真实的客户端IP传递给后端。 一般情况下，后端 server 得到的 client IP 是负载均衡器本身的 IP 地址。 在开启本功能之后，后端服务器可以通过请求中的 X-Forwarded-For 字段来获取真实的用户IP。<br>QC-LBID: bit 位是2 (二进制的10)，表示 Header 中是否包含 LoadBalancer 的 ID<br>QC-LBIP: bit 位是3 (二进制的100)，表示 Header 中是否包含 LoadBalancer 的公网IP<br>例如 Header 中包含 X-Forwarded-For 和 QC-LBIP 的话，forwarfor 的值则为:<br><br>“X-Forwarded-For \| QC-LBIP”，二进制结果为101，最后转换成十进制得到5。 |
@@ -413,7 +413,7 @@ $ curl -XPUT "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners" --data 
 | port | String | Yes |  后端服务端口  |
 | weight | String | Yes |  后端服务权重  |
 | disabled | String | Yes |  1表示禁用，0表示启用  |
-| loadbalancer_policy_id | String | Yes |  转发策略ID |
+| loadbalancer_policy | String | Yes |  转发策略ID |
 | name | String | Yes | 后端名称 |
 
 ### 服务端响应
@@ -491,7 +491,7 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners_b
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| backends | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"weight": "*Int*",<br>&nbsp;&nbsp;"port": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_policy_id": "*String*",<br>&nbsp;&nbsp;"resource_id": "*String*",<br>&nbsp;&nbsp;"loadbalancer_backend_name": "*String*",<br>&nbsp;&nbsp;"vxnet": "*String*"<br>}<br>] |
+| backends | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"weight": "*Int*",<br>&nbsp;&nbsp;"port": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_policy": "*String*",<br>&nbsp;&nbsp;"resource": "*String*",<br>&nbsp;&nbsp;"loadbalancer_backend_name": "*String*",<br>&nbsp;&nbsp;"vxnet": "*String*"<br>}<br>] |
 | loadbalancer_listener | String | Yes | 监听器ID |
 
 ### 服务端响应

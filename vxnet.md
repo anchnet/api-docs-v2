@@ -72,7 +72,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/job.html)*
+Array  vxnet_id
 
 ### 示例
 

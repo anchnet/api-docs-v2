@@ -137,7 +137,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/join" --data '
 ```
 
 
-## POST /vxnets/leave
+## POST /vxnet/leave
 
 **离开私有网络**
 
@@ -149,8 +149,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/join" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnet | String | Yes | - |
-| instances | String[] | Yes | - |
+| vxnet | String | Yes | 网络ID |
+| instances | String[] | Yes | 主机ID |
 
 ### 服务端响应
 

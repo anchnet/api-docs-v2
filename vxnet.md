@@ -79,7 +79,7 @@ Array  vxnet_id
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/vxnet-DED2XXX,vxnet-FE4XXX"
 ```
 
 #### 响应内容:

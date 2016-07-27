@@ -121,9 +121,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/vxnet-DED2XXX,vxnet-FE4
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
-{
-    "key": "value"
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/join" --data '
+{ 
+"instances":["ins-XC2TQFW","ins-9HDBZLS"], 
+"vxnet":"vxnet-78A067A"
 }'
 ```
 

@@ -20,9 +20,9 @@
 | status | String[] | No | 备份状态: pending, available, suspended, deleted, ceased |
 | search_word | String | No | 搜索关键词 |
 | tags | String[] | No | 暂时不支持 |
-| verbose | Int | No | verbose level, 1表示返回备份的详细信息 |
+| verbose | Int | No | verbose level, 1表示返回备份的详细信息 暂时只支持1 |
 | offset | Int | No | 结果集偏移量，默认为0 |
-| limit | Int | No | 结果集长度，默认为2010 |
+| limit | Int | No | 结果集长度，默认为20 |
 | root_id | String | No | 全量备份ID,由于查询当前下面的增量备份 |
 
 ### 服务端响应

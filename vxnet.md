@@ -196,8 +196,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/leave" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | vxnet | String | Yes | 网络ID |
-| vxnetName | String | Yes | - |
-| description | String | Yes | - |
+| vxnetName | String | Yes | 网络名称 |
+| description | String | Yes | 网络描述 |
 
 ### 服务端响应
 

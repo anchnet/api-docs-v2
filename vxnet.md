@@ -35,8 +35,10 @@ Array &nbsp; &nbsp;  vxnet_id
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 {
-    "key": "value"
-}'
+ "vxnet_name": "51idc", 
+ "vxnet_type": "SYSTEM_MANAGER",
+ "count": 1
+}
 ```
 
 #### 响应内容:

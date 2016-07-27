@@ -103,8 +103,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/vxnet-DED2XXX,vxnet-FE4
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnet| String | Yes | 网络id |
-| instanceInsIdList | String[] | Yes | - |
+| vxnet| String | Yes | 网络ID |
+| instances | String[] | Yes | 主机ID |
 
 ### 服务端响应
 

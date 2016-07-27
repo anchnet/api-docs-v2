@@ -167,7 +167,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/join" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/leave" --data '
 {
     "key": "value"
 }'

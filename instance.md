@@ -444,11 +444,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 
 ### 请求
 
-#### QueryString 参数
+#### URI PATH 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| instances | String[] | Yes | 主机实例 ID |
+| :ins_id | String | Yes | 主机实例 ID<br> *多个用英文半角逗号 ',' 分割* |
 
 ### 服务端响应
 

@@ -15,7 +15,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificate_name | String | Yes | 服务器证书名称  |
+| server_certificate_name | String | NO | 服务器证书名称  |
 | certificate_content | String | Yes | 服务器证书内容 |
 | private_key | String | Yes | 服务器证书私钥 |
 
@@ -106,10 +106,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_servercertificat
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| server_certificates | String[] | Yes | 服务器证书ID |
-| search_word | String | Yes |  搜索关键词，支持服务器证书ID，服务器证书名称  |
-| offset | Int | Yes |  数据偏移量，默认为0  |
-| limit | Int | Yes |  返回数据长度，默认为10 |
+| server_certificates | String[] | NO | 服务器证书ID |
+| search_word | String | NO |  搜索关键词，支持服务器证书ID，服务器证书名称  |
+| offset | Int | NO |  数据偏移量，默认为0  |
+| limit | Int | NO |  返回数据长度，默认为10 |
 
 ### 服务端响应
 
@@ -154,8 +154,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers/servertificates"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | server_certificate | String | Yes | 服务器证书ID |
-| server_certificate_name | String | Yes | 服务器证书名称 |
-| description | String | Yes | 服务器证书描述 |
+| server_certificate_name | String | NO | 服务器证书名称 |
+| description | String | NO | 服务器证书描述 |
 
 ### 服务端响应
 
@@ -198,9 +198,9 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_servertificate" --d
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_listeners | String[] | Yes | 监听器ID |
-| loadbalancer | String | Yes | 负载均衡器ID |
-| offset | Int | Yes | 数据偏移量，默认为0 |
+| loadbalancer_listeners | String[] | NO | 监听器ID |
+| loadbalancer | String | NO | 负载均衡器ID |
+| offset | Int | NO | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认值: 10<br> |
 
 ### 服务端响应
@@ -366,14 +366,14 @@ $ curl -XDELETE "http://mq.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners/ lb
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer_listener | String | Yes | 监听器ID |
-| loadbalancer_listener_name | String | Yes | 监听器名称 |
-| server_certificate | String | Yes | 服务器证书ID |
-| balance_mode | String | Yes |  监听器负载均衡方式：支持 roundrobin (轮询)， leastconn (最小连接)和source (源地址) 三种。  |
-| session_sticky | String | Yes |会话保持，即拥有同一个cookie的请求始终发往同一后台服务器。会话保持提供两种方式:Insert:由负载均衡器来插入cookie，此时cookie名字由负载均衡器来指定，而使用者只需要提供cookie的超时时间.Rewrite:由使用者自己来指定并维护cookie，此时使用者需要主动向client端插入cookie，并提供过期时间。负载均衡器通过重写该cookie(在cookiename前面加上server标题)，借此实现会话保持。当request重新转发给后端服务器时，负载均衡器会主动将server标题删除，来实现cookie到后端服务器的透明。<br>格式（只对HTTP协议有意义）：<br>Rewrite：prefix\|cookie_name，例如:<br>prefix\|sk<br>Insert：insert\|cookie_timeout，例如：insert\|3600， cookie_timeout 可以为0，表示永远不超时|
-| forwardfor | Int | Yes | 转发请求时需要的 HTTP Header。此值是由当前支持的3个附加头字段以“按位与”的方式得到的十进制数：<br><br>X-Forwarded-For: bit 位是1 (二进制的1)，表示是否将真实的客户端IP传递给后端。 一般情况下，后端 server 得到的 client IP 是负载均衡器本身的 IP 地址。 在开启本功能之后，后端服务器可以通过请求中的 X-Forwarded-For 字段来获取真实的用户IP。<br>QC-LBID: bit 位是2 (二进制的10)，表示 Header 中是否包含 LoadBalancer 的 ID<br>QC-LBIP: bit 位是3 (二进制的100)，表示 Header 中是否包含 LoadBalancer 的公网IP<br>例如 Header 中包含 X-Forwarded-For 和 QC-LBIP 的话，forwarfor 的值则为:<br><br>“X-Forwarded-For \| QC-LBIP”，二进制结果为101，最后转换成十进制得到5。 |
-| healthy_check_method | String | Yes | 监听器健康检查方式。检查方式有 HTTP 和 TCP 两种。格式为:<br><br>TCP: tcp 。<br>HTTP: http\|url\|host，例如 http\|/index.html 或 http\|/index.html\|vhost.example.com 。 |
-| healthy_check_option | String | Yes | 监听器健康检查参数配置，只有当启用了健康检查了之后才有效。格式为:<br><br>inter \| timeout \| fall \| rise ，表示<br><br>检查间隔(2-60s) \| 超时时间(5-300s) \| 不健康阈值(2-10次) \| 健康阈值(2-10次)。 |
-| listener_option | Int | Yes | 附加选项。此值是由当前支持的2个附加选项以“按位与”的方式得到的十进制数：<br><br>取消URL校验: bit 位是1 (二进制的1)，表示是否可以让负载均衡器接受不符合编码规范的 URL，例如包含未编码中文字符的URL等<br>获取客户端IP: bit 位是2 (二进制的10)，表示是否将客户端的IP直接传递给后端。 开启本功能后，负载均衡器对与后端是完全透明的。后端主机TCP连接得到的源地址是客户端的IP， 而不是负载均衡器的IP。注意：仅支持受管网络中的后端。使用基础网络后端时，此功能无效。<br>数据压缩: bit 位是4 (二进制的100)， 表示是否使用gzip算法压缩文本数据，以减少网络流量。<br>禁用不安全的加密方式: bit 位是8 (二进制的1000), 禁用存在安全隐患的加密方式， 可能会不兼容低版本的客户端。 |
+| loadbalancer_listener_name | String | NO | 监听器名称 |
+| server_certificate | String | NO | 服务器证书ID |
+| balance_mode | String | NO |  监听器负载均衡方式：支持 roundrobin (轮询)， leastconn (最小连接)和source (源地址) 三种。  |
+| session_sticky | String | NO |会话保持，即拥有同一个cookie的请求始终发往同一后台服务器。会话保持提供两种方式:Insert:由负载均衡器来插入cookie，此时cookie名字由负载均衡器来指定，而使用者只需要提供cookie的超时时间.Rewrite:由使用者自己来指定并维护cookie，此时使用者需要主动向client端插入cookie，并提供过期时间。负载均衡器通过重写该cookie(在cookiename前面加上server标题)，借此实现会话保持。当request重新转发给后端服务器时，负载均衡器会主动将server标题删除，来实现cookie到后端服务器的透明。<br>格式（只对HTTP协议有意义）：<br>Rewrite：prefix\|cookie_name，例如:<br>prefix\|sk<br>Insert：insert\|cookie_timeout，例如：insert\|3600， cookie_timeout 可以为0，表示永远不超时|
+| forwardfor | Int | NO | 转发请求时需要的 HTTP Header。此值是由当前支持的3个附加头字段以“按位与”的方式得到的十进制数：<br><br>X-Forwarded-For: bit 位是1 (二进制的1)，表示是否将真实的客户端IP传递给后端。 一般情况下，后端 server 得到的 client IP 是负载均衡器本身的 IP 地址。 在开启本功能之后，后端服务器可以通过请求中的 X-Forwarded-For 字段来获取真实的用户IP。<br>QC-LBID: bit 位是2 (二进制的10)，表示 Header 中是否包含 LoadBalancer 的 ID<br>QC-LBIP: bit 位是3 (二进制的100)，表示 Header 中是否包含 LoadBalancer 的公网IP<br>例如 Header 中包含 X-Forwarded-For 和 QC-LBIP 的话，forwarfor 的值则为:<br><br>“X-Forwarded-For \| QC-LBIP”，二进制结果为101，最后转换成十进制得到5。 |
+| healthy_check_method | String | NO | 监听器健康检查方式。检查方式有 HTTP 和 TCP 两种。格式为:<br><br>TCP: tcp 。<br>HTTP: http\|url\|host，例如 http\|/index.html 或 http\|/index.html\|vhost.example.com 。 |
+| healthy_check_option | String | NO | 监听器健康检查参数配置，只有当启用了健康检查了之后才有效。格式为:<br><br>inter \| timeout \| fall \| rise ，表示<br><br>检查间隔(2-60s) \| 超时时间(5-300s) \| 不健康阈值(2-10次) \| 健康阈值(2-10次)。 |
+| listener_option | Int | NO | 附加选项。此值是由当前支持的2个附加选项以“按位与”的方式得到的十进制数：<br><br>取消URL校验: bit 位是1 (二进制的1)，表示是否可以让负载均衡器接受不符合编码规范的 URL，例如包含未编码中文字符的URL等<br>获取客户端IP: bit 位是2 (二进制的10)，表示是否将客户端的IP直接传递给后端。 开启本功能后，负载均衡器对与后端是完全透明的。后端主机TCP连接得到的源地址是客户端的IP， 而不是负载均衡器的IP。注意：仅支持受管网络中的后端。使用基础网络后端时，此功能无效。<br>数据压缩: bit 位是4 (二进制的100)， 表示是否使用gzip算法压缩文本数据，以减少网络流量。<br>禁用不安全的加密方式: bit 位是8 (二进制的1000), 禁用存在安全隐患的加密方式， 可能会不兼容低版本的客户端。 |
 
 ### 服务端响应
 
@@ -410,11 +410,11 @@ $ curl -XPUT "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners" --data 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer_backend | String | Yes | 监听器后端ID |
-| port | String | Yes |  后端服务端口  |
-| weight | String | Yes |  后端服务权重  |
-| disabled | String | Yes |  1表示禁用，0表示启用  |
-| loadbalancer_policy | String | Yes |  转发策略ID |
-| name | String | Yes | 后端名称 |
+| port | String | NO |  后端服务端口  |
+| weight | String | NO |  后端服务权重  |
+| disabled | String | NO |  1表示禁用，0表示启用  |
+| loadbalancer_policy | String | NO |  转发策略ID |
+| name | String | NO | 后端名称 |
 
 ### 服务端响应
 
@@ -537,8 +537,8 @@ $ curl -XPOST "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_lis
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer_backends | String[] | Yes | 后端ID |
-| loadbalancer_listener | String | Yes | 监听器ID |
-| offset | Int | Yes | 数据偏移量默认为0 |
+| loadbalancer_listener | String | NO | 监听器ID |
+| offset | Int | NO | 数据偏移量默认为0 |
 | limit | Int | No | 默认值: 10<br> |
 
 ### 服务端响应
@@ -706,8 +706,8 @@ $ curl -XDELETE "http://dev2.51idc.cn/v2/zone/ac1/loadbalancers_policy/lbp-A0A18
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer_policies | String[] | Yes | 转发策略ID |
-| offset | Int | Yes | 数据偏移量默认为0 |
-| limit | Int | No | 默认值: 10<br> |
+| offset | Int | NO | 数据偏移量默认为0 |
+| limit | Int | NO | 默认值: 10<br> |
 
 ### 服务端响应
 
@@ -750,8 +750,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policies"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer_policy | String | Yes | 转发策略ID |
-| loadbalancer_policy_name | String | Yes | 转发策略名称 |
-| operator | String | Yes |  转发策略规则间的逻辑关系：”and” 是『与』，”or” 是『或』，默认是 “or”  |
+| loadbalancer_policy_name | String | NO | 转发策略名称 |
+| operator | String | NO |  转发策略规则间的逻辑关系：”and” 是『与』，”or” 是『或』，默认是 “or”  |
 
 ### 服务端响应
 
@@ -831,9 +831,9 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules/lbp
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer_policy_rule | String | Yes | 转发策略规则ID |
-| loadbalancer_policy_rule_name | String | Yes | 转发策略规则名称 |
-| val | String | Yes |  转发策略规则匹配规则  |
-| disabled | Int | Yes | 1为启用，0为禁用 |
+| loadbalancer_policy_rule_name | String | NO | 转发策略规则名称 |
+| val | String | NO |  转发策略规则匹配规则  |
+| disabled | Int | NO | 1为启用，0为禁用 |
 
 ### 服务端响应
 
@@ -928,9 +928,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy/:lb_ld_poli
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer_policy_rules | String[] | Yes | 转发策略规则ID |
-| loadbalancer_policy | String | Yes | 转发策略ID |
-| offset | Int | Yes | 数据偏移量默认为0 |
+| loadbalancer_policy_rules | String[] | NO | 转发策略规则ID |
+| loadbalancer_policy | String | NO | 转发策略ID |
+| offset | Int | NO | 数据偏移量默认为0 |
 | limit | Int | No | 默认值: 10<br> |
 
 ### 服务端响应
@@ -1242,10 +1242,10 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/start" --da
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancer | String | Yes |  负载均衡器ID  |
-| loadbalancer_name | String | Yes |  负载均衡器名称 |
-| security_group | String | Yes |  更改的负载均衡器加载的防火墙ID，为空则保持不变  |
-| description | String | Yes |  负载均衡器描述 |
-| private_ip | String | Yes | 私网IP |
+| loadbalancer_name | String | NO |  负载均衡器名称 |
+| security_group | String | NO |  更改的负载均衡器加载的防火墙ID，为空则保持不变  |
+| description | String | NO |  负载均衡器描述 |
+| private_ip | String | NO | 私网IP |
 
 ### 服务端响应
 
@@ -1329,11 +1329,11 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancers | String[] | Yes | 负载均衡器ID |
-| status | String[] | Yes |  负载均衡器状态: pending，active，stopped，suspended，deleted，ceased  |
-| search_word | String | Yes |  搜索关键词，支持负载均衡器ID，负载均衡器名称 |
-| offset | Int | Yes |  数据偏移量，默认为0 |
-| limit | Int | No | 默认值: 10<br> |
+| loadbalancers | String[] | NO | 负载均衡器ID |
+| status | String[] | NO |  负载均衡器状态: pending，active，stopped，suspended，deleted，ceased  |
+| search_word | String | NO |  搜索关键词，支持负载均衡器ID，负载均衡器名称 |
+| offset | Int | NO |  数据偏移量，默认为0 |
+| limit | Int | NO | 默认值: 10<br> |
 
 ### 服务端响应
 

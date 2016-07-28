@@ -1429,10 +1429,10 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 |bandwidth|Int|Yes|公网IP带宽|
-|billing_mode|String|No|公网IP计费方式|
-|eip_name||||
-|count||||
-|eip_group||||
+|billing_mode|String|No| 公网IP计费模式：bandwidth 按带宽计费，traffic 按流量计费，默认是 bandwidth |
+|eip_name|String|No|公网IP名称|
+|count|Int|Yes|公网IP数量|
+|eip_group|String|Yes|公网IP分组Id|
 ### 服务端响应
 
 #### 响应头信息

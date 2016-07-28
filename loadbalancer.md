@@ -1377,7 +1377,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer | Object | No | 默认值: Object<br>[<br>{<br>&nbsp;&nbsp;"eips": "*String[]*",<br>&nbsp;&nbsp;"vxnet": "*String*",<br>&nbsp;&nbsp;"private_ip": "*String*",<br>&nbsp;&nbsp;"loadbalancer_type": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_name": "*String*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"zone": "*String*"<br>}<br>] |
+| loadbalancer | Object | YES | 默认值: Object<br>[<br>{<br>&nbsp;&nbsp;"eips": "*String[]*",<br>&nbsp;&nbsp;"vxnet": "*String*",<br>&nbsp;&nbsp;"private_ip": "*String*",<br>&nbsp;&nbsp;"loadbalancer_type": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_name": "*String*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"zone": "*String*"<br>}<br>] |
 | eip | Object | No | 默认值: Object<br>[<br>{<br>&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"eip_group": "*String*"<br>}<br>] |
 
 ### 服务端响应

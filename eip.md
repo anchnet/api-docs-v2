@@ -14,9 +14,9 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| description | String | Yes | 公网IP的描述 |
-| eip | String | Yes |  公网IP的ID |
-| eip_name | String | Yes |  公网IP的名字|
+| description | String | NO | 公网IP的描述 |
+| eip | String | YES |  公网IP的ID |
+| eip_name | String | NO |  公网IP的名字|
 
 ### 服务端响应
 
@@ -240,7 +240,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/dissociate" --data '
 | :-- | :-- | :-- | :-- |
 | bandwidth | Int | Yes |  公网IP带宽，单位是 Mbps  |
 | billing_mode | String | No|  公网IP计费模式：bandwidth 按带宽计费，traffic 按流量计费，默认是 bandwidth  |
-| eip_name | String | Yes | 公网IP名称 |
+| eip_name | String | NO | 公网IP名称 |
 | count | Int | Yes | 分配公网IP数量 |
 | eip_group | String | Yes | 公网IP分组ID |
 
@@ -327,13 +327,13 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/eips/:eip_id"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| eips | String[] | Yes |  公网IP的ID  |
-| resouces | String[] | Yes |  资源ID，可得到已分配给此资源的公网IP 包括 负载均衡器、路由器、主机  |
-| status | String[] | Yes |  公网IP状态，有效值为 pending, available, associated, suspended，released, ceased  |
-| search_word | String | Yes |  搜索关键词，支持公网IP的ID，名称  |
-| resource_type | String | Yes | 资源ID的类型 |
-| offset | Int | Yes |  数据偏移量，默认为0  |
-| limit | Int | No | 默认值: 10<br> |
+| eips | String[] | NO |  公网IP的ID  |
+| resouces | String[] |  NO  |  资源ID，可得到已分配给此资源的公网IP 包括 负载均衡器、路由器、主机  |
+| status | String[] |  NO  |  公网IP状态，有效值为 pending, available, associated, suspended，released, ceased  |
+| search_word | String | NO |  搜索关键词，支持公网IP的ID，名称  |
+| resource_type | String | NO | 资源ID的类型 |
+| offset | Int | NO |  数据偏移量，默认为0  |
+| limit | Int | NO | 默认值: 10<br> |
 
 ### 服务端响应
 

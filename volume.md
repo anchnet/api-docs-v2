@@ -1,6 +1,60 @@
 # 磁盘
 
 <!-- toc -->
+## POST /volumes
+
+**创建磁盘**
+
+*创建一块或多块硬盘，每块硬盘都可加载到任意一台主机中。*
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| size | Int | Yes | 硬盘容量，目前可创建最小 10G，最大 500G 的硬盘， 在此范围内的容量值必须是 10 的倍数 |
+| volume_name | String | No | 磁盘名称 |
+| volume_type | Int | No | 磁盘类型: <br/>性能型是 0<br/> 超高性能型是 3 (只能与超高性能主机挂载，目前只支持北京2区)，<br/>容量型因技术升级过程中，在各区的 type 值略有不同:<br/>北京1区，亚太1区：容量型是 1<br/>北京2区，广东1区：容量型是 2 |
+| count | Int | No | 创建硬盘的数量，默认是1,注解 每块硬盘的容量是相同的  |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" --data='
+    {
+        "size":10,
+        "count":2
+    }
+'
+```
+
+#### 响应内容:
+
+```js
+{
+    "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
+    "id_prefix": "",
+    "action": "CreateVolume",
+    "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
+    "status": "pending",
+    "create_time": "2016-07-26T07:38:28Z",
+    "begin_time": "",
+    "finished_time": "",
+    "info": "",
+    "extra": ""
+}
+```
 
 ## GET /volumes
 

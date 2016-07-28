@@ -66,7 +66,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 | verbose | Int | No | 是否返回冗长的信息，若为1，则返回应用了此防火墙的其他资源的信息，默认为0. |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为20，最大100 |
-<!--| is_default | Int | Yes | - |-->
 
 ### 服务端响应
 
@@ -674,7 +673,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 | security_group_id | String | Yes |   防火墙规则ID |
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
-| action | String | No | 行为：accept 表示接受，drop 为拒绝s |
+| action | String | No | 行为：accept 表示接受，drop 为拒绝 |
 | val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
 | val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
 | val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |

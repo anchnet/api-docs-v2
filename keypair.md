@@ -93,9 +93,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/keypairs"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | keypair_name | String | No | 密钥对名称 |
-| mode | String | No | 密钥创建方式，有效值为system和user，默认为system.
-<br>当密钥创建方式system时，表示 SSH密钥将由系统为你创建，此时你需要下载并保存系统创建的私钥；
-<br>当密钥创建方式user时，表示SSH密钥将通过您提供的公钥 (public_key)参数进行创建. |
+| mode | String | No | 密钥创建方式，有效值为system和user，默认为system.<br>当密钥创建方式system时，表示 SSH密钥将由系统为你创建，此时你需要下载并保存系统创建的私钥；<br>当密钥创建方式user时，表示SSH密钥将通过您提供的公钥(public_key)参数进行创建. |
 | encrypt_method | String | No | 加密算法，有效值为ssh-rsa和ssh-dss，默认为ssh-rsa。只有当mode=sytem的时候才需要提供。|
 | public_key | String | No | SSH公钥内容,只有当mode = user的时候才需要提供 |
 | description | String | No | 密钥描述 |

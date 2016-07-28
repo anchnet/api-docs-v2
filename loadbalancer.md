@@ -216,6 +216,11 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_servertificate" --d
 | loadbalancerListeners | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"loadbalancer_listener_id": "*String*",<br>&nbsp;&nbsp;"loadbalancer_listener_name": "*String*",<br>&nbsp;&nbsp;"backends": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_backend_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_backend_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_listener_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"port": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"weight": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource": {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_id": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_policy_id": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"loadbalancer_policy_name": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;],<br>&nbsp;&nbsp;"balance_mode": "*String*",<br>&nbsp;&nbsp;"session_sticky": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"forwardfor": "*Int*",<br>&nbsp;&nbsp;"healthy_check_method": "*String*",<br>&nbsp;&nbsp;"healthy_check_option": "*String*",<br>&nbsp;&nbsp;"listener_option": "*Int*",<br>&nbsp;&nbsp;"listener_protocol": "*String*",<br>&nbsp;&nbsp;"backend_protocol": "*String*",<br>&nbsp;&nbsp;"listener_port": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_id": "*String*",<br>&nbsp;&nbsp;"server_certificate_id": "*String*"<br>}<br>] |
 | total_count | Int | Yes |根据过滤条件的到的总数 |
 
+#####loadbalancerlisteners
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+
 ### 示例
 
 #### 发送请求
@@ -279,8 +284,22 @@ total_count: 1
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer | String | Yes | - |
-| listeners | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"listener_port": "*Int*",<br>&nbsp;&nbsp;"listener_protocol": "*String*",<br>&nbsp;&nbsp;"server_certificate_id": "*String*",<br>&nbsp;&nbsp;"backend_protocol": "*String*",<br>&nbsp;&nbsp;"loadbalancer_listener_name": "*String*",<br>&nbsp;&nbsp;"balance_mode": "*String*",<br>&nbsp;&nbsp;"session_sticky": "*String*",<br>&nbsp;&nbsp;"forwardfor": "*Int*",<br>&nbsp;&nbsp;"healthy_check_method": "*String*",<br>&nbsp;&nbsp;"healthy_check_option": "*String*",<br>&nbsp;&nbsp;"listener_option": "*Int*"<br>}<br>] |
+| loadbalancer | String | Yes | 负载均衡器ID |
+| listeners | Object[] | Yes | - |
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| listener_port |int|Yes|监听端口|
+| listener_protocol|string|Yes| 监听协议，目前支持 HTTP ， TCP 和 HTTPS 三种。 当指定监听协议为 HTTPS，需指定服务证器书ID: server_certificate_id |
+| server_certificate_id|string|NO| 服务器证书 ID |
+| backend_protocol|string|Yes| 后端协议，需要跟监听协议一致 |
+| loadbalancer_listener_name|string|NO| 监听器名称 |
+| balance_mode|string|NO|监听器负载均衡方式：支持 roundrobin (轮询)， leastconn (最小连接)和 source (源地址) 三种。<br><br>默认为 roundrobin|
+| session_sticky|string|NO|会话保持，即拥有同一个 cookie 的请求始终发往同一后台服务器。会话保持提供两种方式:<br><br>Insert: 由负载均衡器来插入cookie，此时 cookie 名字由负载均衡器来指定， 而使用者只需要提供 cookie 的超时时间.<br>Rewrite: 由使用者自己来指定并维护 cookie，此时使用者需要主动向 client 端插入 cookie，并提供过期时间。负载均衡器通过重写该 cookie (在 cookie name 前面加上 server 标题)，借此实现会话保持。当 request 重新转发给后端服务器时，负载均衡器会主动将 server 标题删除，来实现 cookie 到后端服务器的透明。<br>格式（只对 HTTP 协议有意义）：<br><br>Rewrite：prefix\|cookie_name，例如: prefix\|sk<br>Insert：insert\|cookie_timeout，例如：insert\|3600， cookie_timeout 可以为0，表示永远不超时<br>为空表示禁用会话保持。|
+| forwardfor|int|NO|转发请求时需要附加的 HTTP Header。此值是由当前支持的3个附加头字段以“按位与”的方式得到的十进制数：<br><br>X-Forwarded-For: bit 位是1 (二进制的1)，表示是否将真实的客户端IP传递给后端。 附加选项“获取客户端IP”关闭时，后端 server 得到的 client IP 是负载均衡器本身的 IP 地址。 在开启本功能之后，后端服务器可以通过请求中的 X-Forwarded-For 字段来获取真实的用户IP。<br>QC-LBID: bit 位是2 (二进制的10)，表示 Header 中是否包含 LoadBalancer 的 ID<br>QC-LBIP: bit 位是3 (二进制的100)，表示 Header 中是否包含 LoadBalancer 的公网IP<br>例如 Header 中包含 X-Forwarded-For 和 QC-LBIP 的话，forwarfor 的值则为:<br><br>“X-Forwarded-For \| QC-LBIP”，二进制结果为101，最后转换成十进制得到5。|
+| healthy_check_method|string|NO|监听器健康检查方式。检查方式有 HTTP 和 TCP 两种。格式为:<br><br>TCP: tcp 。<br>HTTP: http\|url\|host，例如 http\|/index.html 或 http\|/index.html\|vhost.example.com 。<br>默认是 tcp|
+| healthy_check_option|string|NO|监听器健康检查参数配置，只有当启用了健康检查了之后才有效。格式为:<br><br>inter \| timeout \| fall \| rise ，表示<br><br>检查间隔(2-60s) \| 超时时间(5-300s) \| 不健康阈值(2-10次) \| 健康阈值(2-10次)。<br><br>默认是：10\|5\|2\|5|
+| listener_option|int|NO|附加选项。此值是由当前支持的2个附加选项以“按位与”的方式得到的十进制数：<br><br>取消URL校验: bit 位是1 (二进制的1)，表示是否可以让负载均衡器接受不符合编码规范的 URL，例如包含未编码中文字符的URL等<br>获取客户端IP: bit 位是2 (二进制的10)，表示是否将客户端的IP直接传递给后端。 开启本功能后，负载均衡器对与后端是完全透明的。后端主机TCP连接得到的源地址是客户端的IP， 而不是负载均衡器的IP。注意：仅支持受管网络中的后端。使用基础网络后端时，此功能无效。<br>数据压缩: bit 位是4 (二进制的100)， 表示是否使用gzip算法压缩文本数据，以减少网络流量。<br>禁用不安全的加密方式: bit 位是8 (二进制的1000), 禁用存在安全隐患的加密方式， 可能会不兼容低版本的客户端。|
 
 ### 服务端响应
 
@@ -491,8 +510,17 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners_b
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| backends | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"weight": "*Int*",<br>&nbsp;&nbsp;"port": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_policy": "*String*",<br>&nbsp;&nbsp;"resource": "*String*",<br>&nbsp;&nbsp;"loadbalancer_backend_name": "*String*",<br>&nbsp;&nbsp;"vxnet": "*String*"<br>}<br>] |
+| backends | Object[] | Yes | - |
 | loadbalancer_listener | String | Yes | 监听器ID |
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| resource |string|Yes|后端资源ID|
+| vxnet|string|Yes|后端资源类型 LOADBALANCER_BACKEND_TYPE_IP ，LOADBALANCER_BACKEND_TYPE_ROUTER，LOADBALANCER_BACKEND_TYPE_INSTANCE |
+| loadbalancer_backend_name |string|No|后端名称|
+| loadbalancer_policy |string|No|绑定策略ID|
+| port |int|Yes|端口号|
+| weight |int|Yes|权重|
 
 ### 服务端响应
 
@@ -553,6 +581,7 @@ $ curl -XPOST "http://dev2.51idc.com/v2/zone/ac1/loadbalancers_listeners/:lb_lis
 | :-- | :-- | :-- | :-- |
 | loadbalancerBackends | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"loadbalancer_backend_id": "*String*",<br>&nbsp;&nbsp;"loadbalancer_backend_name": "*String*",<br>&nbsp;&nbsp;"loadbalancer_listener_id": "*String*",<br>&nbsp;&nbsp;"loadbalancer_id": "*String*",<br>&nbsp;&nbsp;"port": "*Int*",<br>&nbsp;&nbsp;"weight": "*Int*",<br>&nbsp;&nbsp;"resource": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resource_id": "*String*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"loadbalancer_policy_id": "*String*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_policy_name": "*String*"<br>}<br>] |
 | total_count | Int | Yes | 根据过滤条件获取的总条数 |
+
 
 ### 示例
 
@@ -874,6 +903,11 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rule" --data
 | rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"loadbalancer_policy_rule_name": "*String*",<br>&nbsp;&nbsp;"rule_type": "*String*",<br>&nbsp;&nbsp;"val": "*String*"<br>}<br>] |
 | loadbalancer_policy | String | Yes | 转发策略ID |
 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| loadbalancer_policy_rule_name |String|NO|策略规则名称|
+| rule_type |String|Yes|策略规则类型 and \| or|
+| val |String|||
 ### 服务端响应
 
 #### 响应头信息
@@ -1377,9 +1411,28 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| loadbalancer | Object | YES | 默认值: Object<br>[<br>{<br>&nbsp;&nbsp;"eips": "*String[]*",<br>&nbsp;&nbsp;"vxnet": "*String*",<br>&nbsp;&nbsp;"private_ip": "*String*",<br>&nbsp;&nbsp;"loadbalancer_type": "*Int*",<br>&nbsp;&nbsp;"loadbalancer_name": "*String*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"zone": "*String*"<br>}<br>] |
-| eip | Object | No | 默认值: Object<br>[<br>{<br>&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"eip_group": "*String*"<br>}<br>] |
+| loadbalancer | Object | YES | - |
+| eip | Object | No |-|
 
+#####loadbalancer
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+|eips|String[]|No| 公网IP的ID |
+|vxnet|String|Yes| 要加入的私网ID |
+|private_ip|String|NO| 要使用的私网IP |
+|loadbalancer_name|String|Yes|负载均衡器名称|
+|loadbalancer_type|String|Yes|负载均衡器类型 MAX_CONNT_5000，MAX_CONNT_20000，MAX_CONNT_40000，MAX_CONNT_100000 |
+|security_group|String|Yes|防火墙ID|
+
+#####eip
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+|bandwidth|Int|Yes|公网IP带宽|
+|billing_mode|String|No|公网IP计费方式|
+|eip_name||||
+|count||||
+|eip_group||||
 ### 服务端响应
 
 #### 响应头信息

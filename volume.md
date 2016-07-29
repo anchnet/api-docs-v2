@@ -253,7 +253,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes" --data '
 {
     "volume": "vol-qwdqwv",
     "volume_name":"name",
-    "volume_description":"description"
+    "description":"description"
 }'
 ```
 

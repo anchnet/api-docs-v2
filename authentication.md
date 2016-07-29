@@ -19,7 +19,7 @@ URI Path 参数
 ```bash
 # http://www.51idc.com  ----base64--->   aHR0cDovL3d3dy41MWlkYy5jb20=
 
-$ curl -i -XGET https://api.51idc.com/v2/zone/ac2/identity/aHR0cDovL3d3dy41MWlkYy5jb20= --cookie 'GWSession=vn0gp1cgK1VH2Ah6BpS5NaePtDJywcpKrbcZ8AqJeqGkve5jo0UiKQiCnGEoTr9P'
+$ curl -i -XGET https://api.51idc.com/v2/zone/ac2/identity/aHR0cDovL3d3dy41MWlkYy5jb20=
 ```
 
 HTTP 响应

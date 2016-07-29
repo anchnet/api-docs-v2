@@ -17,7 +17,7 @@ URI Path 参数
 案例
 
 ```bash
-// http://www.51idc.com  ----base64--->   aHR0cDovL3d3dy41MWlkYy5jb20=
+# http://www.51idc.com  ----base64--->   aHR0cDovL3d3dy41MWlkYy5jb20=
 
 $ curl -i -XGET http://dev2.51idc.cn:9000/v2/zone/ac2/identity/aHR0cDovL3d3dy41MWlkYy5jb20= --cookie 'GWSession=vn0gp1cgK1VH2Ah6BpS5NaePtDJywcpKrbcZ8AqJeqGkve5jo0UiKQiCnGEoTr9P'
 ```

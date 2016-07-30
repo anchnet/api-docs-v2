@@ -225,7 +225,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/:router_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 ```
 
 #### 响应内容:

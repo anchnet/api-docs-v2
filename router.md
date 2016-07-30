@@ -21,7 +21,7 @@
 | nets | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"manager_ip": "*String*",<br>&nbsp;&nbsp;"ip_network": "*String*",<br>&nbsp;&nbsp;"dyn_ip_end": "*String*",<br>&nbsp;&nbsp;"dyn_ip_start": "*String*",<br>&nbsp;&nbsp;"features": "*Int*"<br>}<br>] |
 | manager_ip | String | No | 路由器的管理IP |
 | dyn_ip_start | String | No | DHCP服务分配开始IP |
-| dyn_ip_start | String | No | DHCP服务分配开始IP |
+| dyn_ip_end | String | No |  DHCP服务分配终止IP  |
 | eip | Object | Yes | [<br>{<br>&nbsp;&nbsp;"eip": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_group": "*String*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"eip_id": "*String*"<br>}<br>] |
 
 ### 服务端响应

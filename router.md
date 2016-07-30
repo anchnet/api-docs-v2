@@ -25,8 +25,8 @@
 | ip_network | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
 | features | Int | No | 是否开启DHCP服务  &nbsp;&nbsp; 默认开启 |
 | eip | Object | Yes | [<br>{<br>&nbsp;&nbsp;"eip": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_group": "*String*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"eip_id": "*String*"<br>}<br>] |
-| bandwidth | Int | No | 带宽 |
-| bandwidth | Int | No | 带宽 |
+| bandwidth | Int | Yes | 带宽 |
+| eip_group | String | Yes | 公网IP分组 |
 
 ### 服务端响应
 

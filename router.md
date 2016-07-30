@@ -14,7 +14,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router | Object | Yes | 路由器属性 |
+| router | Object | Yes | 路由器 |
 | router_name | String | Yes | 路由器名称 |
 | router_type | int | Yes | 路由器类型 |
 | security_group| String | Yes | 防火墙ID |

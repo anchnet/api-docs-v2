@@ -207,7 +207,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| :router_id | String[] | Yes | - |
+| :router_id | String | Yes | 路由器ID 多个已逗号分隔 |
 
 
 ### 服务端响应

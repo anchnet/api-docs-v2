@@ -243,11 +243,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 | vxnets | String[] | Yes | - |
 | vxnet_type | Int | No | 默认值: -1<br> |
 | search_word | String | Yes | - |
-| tags | String[] | Yes | - |
-| verbose | Int | Yes | - |
 | offset | Int | Yes | - |
 | limit | Int | No | 默认值: 10<br> |
-| sdnNet | String | Yes | - |
 
 ### 服务端响应
 

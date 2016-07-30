@@ -25,8 +25,8 @@
 | ip_network | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
 | features | Int | No | 是否开启DHCP服务  &nbsp;&nbsp; 默认开启 |
 | eip | Object | Yes | 公网IP信息 |
-| bandwidth | Int | Yes | 带宽 |
-| eip_group | String | Yes | 公网IP分组 |
+| bandwidth | Int | Yes | 带宽 (如需新建公网IP,需填此参数)|
+| eip_group | String | Yes | 公网IP分组  (如需新建公网IP,需填此参数) |
 | eip_id | String | Yes | 公网IP ID |
 
 

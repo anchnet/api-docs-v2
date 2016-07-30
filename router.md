@@ -15,7 +15,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | router | Object | Yes | [<br>{<br>&nbsp;&nbsp;"router_name": "*String*",<br>&nbsp;&nbsp;"router_type": "*Int*",<br>&nbsp;&nbsp;"vpc_network": "*String*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"zone": "*String*"<br>}<br>] |
-| :-- | :-- | :-- | :-- |
+| router_name | String | Yes | 路由器名称 |
 | nets | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"manager_ip": "*String*",<br>&nbsp;&nbsp;"ip_network": "*String*",<br>&nbsp;&nbsp;"dyn_ip_end": "*String*",<br>&nbsp;&nbsp;"dyn_ip_start": "*String*",<br>&nbsp;&nbsp;"features": "*Int*"<br>}<br>] |
 | eip | Object | Yes | [<br>{<br>&nbsp;&nbsp;"eip": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_group": "*String*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"eip_id": "*String*"<br>}<br>] |
 

@@ -18,7 +18,7 @@
 | router_name | String | Yes | 路由器名称 |
 | router_type | int | Yes | 路由器类型 |
 | security_group| String | No | 防火墙ID |
-| nets | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"manager_ip": "*String*",<br>&nbsp;&nbsp;"ip_network": "*String*",<br>&nbsp;&nbsp;"dyn_ip_end": "*String*",<br>&nbsp;&nbsp;"dyn_ip_start": "*String*",<br>&nbsp;&nbsp;"features": "*Int*"<br>}<br>] |
+| nets | Object[] | Yes | 网络信息 |
 | manager_ip | String | No | 路由器的管理IP |
 | dyn_ip_start | String | No | DHCP服务分配开始IP |
 | dyn_ip_end | String | No | DHCP服务分配终止IP |

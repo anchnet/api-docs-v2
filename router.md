@@ -46,10 +46,7 @@
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
-{ 
-"router": { 
-"router_name": "gaotest", "router_type": 1 
-}, "nets": [ { "manager_ip": "192.168.100.1", "ip_network": "192.168.100.0/24", "dyn_ip_start": "192.168.100.2", "dyn_ip_end": "192.168.100.254", "features": 1 } ], "eip": { "eip": { "bandwidth": 1, "eip_group": "eipg-6666666" } }}'
+{ "router": { "router_name": "gaotest", "router_type": 1 }, "nets": [ { "manager_ip": "192.168.100.1", "ip_network": "192.168.100.0/24", "dyn_ip_start": "192.168.100.2", "dyn_ip_end": "192.168.100.254", "features": 1 } ], "eip": { "eip": { "bandwidth": 1, "eip_group": "eipg-6666666" } }}'
 ```
 
 #### 响应内容:

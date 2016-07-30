@@ -17,7 +17,7 @@
 | router | Object | Yes | 路由器 |
 | router_name | String | Yes | 路由器名称 |
 | router_type | int | Yes | 路由器类型 |
-| security_group| String | No | 防火墙ID  不填则需用您的默认防火墙|
+| security_group| String | No | 防火墙ID  &nbsp;&nbsp;  不填则需用您的默认防火墙|
 | nets | Object[] | Yes | 网络信息 |
 | manager_ip | String | No | 路由器的管理IP |
 | dyn_ip_start | String | No | DHCP服务分配开始IP |

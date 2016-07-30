@@ -275,9 +275,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/join" --data '
-{
-    "key": "value"
-}'
+{ "vxnet":"vxnet-18ADEFC", "ip_network":"192.168.103.4/24"}'
 ```
 
 #### 响应内容:

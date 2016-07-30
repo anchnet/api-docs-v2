@@ -255,7 +255,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 | vxnet | String | Yes | 网络ID |
 | ip_network | String | Yes |  受管私有网络的网段，目前支持的网段为192.168.x.0/24  |
 | features | Int | No | 是否需要开启DHCP服务  &nbsp;&nbsp; 默认开启 |
-| manager_ip | String | Yes | - |
+| manager_ip | String | No | - |
 | dyn_ip_start | String | Yes | - |
 | dyn_ip_end | String | Yes | - |
 

@@ -27,7 +27,7 @@
 | eip | Object | Yes | 公网IP信息 |
 | bandwidth | Int | Yes | 带宽 (如需新建公网IP,需填此参数)|
 | eip_group | String | Yes | 公网IP分组  (如需新建公网IP,需填此参数) |
-| eip_id | String | Yes | 公网IP ID |
+| eip_id | String | Yes | 公网IP ID (如选择已有公网IP，需此参数) |
 
 
 ### 服务端响应

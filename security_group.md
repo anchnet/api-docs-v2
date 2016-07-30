@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-## POST /secruity_groups
+## POST /security_groups
 
 **创建防火墙**
 
@@ -33,9 +33,9 @@
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups" --data '
 {
-  "group_name":"secruity_group_name"
+  "group_name":"security_group_name"
 }'
 ```
 
@@ -48,7 +48,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 ```
 
 
-## GET /secruity_groups
+## GET /security_groups
 
 **获取防火墙列表**
 
@@ -66,7 +66,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 | verbose | Int | No | 是否返回冗长的信息，若为1，则返回应用了此防火墙的其他资源的信息，默认为0. |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为20，最大100 |
-<!--| is_default | Int | Yes | - |-->
 
 ### 服务端响应
 
@@ -86,7 +85,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups" --data '
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_groups"
 ```
 
 #### 响应内容:
@@ -109,7 +108,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
             "security_group_id": "sg-5PXZLGU",
             "is_default": 0,
             "create_time": "2016-07-25T08:22:34Z",
-            "security_group_name": "secruity_group_name",
+            "security_group_name": "security_group_name",
             "resources": []
         }
     ],
@@ -118,7 +117,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 ```
 
 
-## DELETE /secruity_groups/:sg_id
+## DELETE /security_groups/:sg_id
 
 **删除防火墙 支持批量**
 
@@ -151,7 +150,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups"
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_groups/:sg_id"
 ```
 
 #### 响应内容:
@@ -165,7 +164,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 ```
 
 
-## POST /secruity_groups/apply_instances
+## POST /security_groups/apply_instances
 
 **应用防火墙 支持多台主机**
 
@@ -199,7 +198,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/apply_instances" --data '
 {
   "security_group":"sg-YZOEB6B",
   "instances":["ins-C7WXRO0"]
@@ -224,7 +223,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 ```
 
 
-## POST /secruity_groups/remove_instances
+## POST /security_groups/remove_instances
 
 **移除防火墙 支持多台主机**
 
@@ -254,7 +253,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/apply_instances"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances" --data '
 {
   "security_group":"sg-YZOEB6B",
   "instances":["ins-C7WXRO0"]
@@ -279,7 +278,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 ```
 
 
-## PUT /secruity_groups/:sg_id
+## PUT /security_groups/:sg_id
 
 **修改防火墙属性**
 
@@ -309,7 +308,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups/remove_instances
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_groups/:sg_id" --data '
 {
   "security_group":"sg-YZOEB6B",
   "security_group_name":"group_name",
@@ -326,7 +325,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 ```
 
 
-## POST /create_default_secruity_groups
+## POST /create_default_security_groups
 
 **创建默认防火墙**
 
@@ -352,7 +351,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_groups/:sg_id" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" --data ''
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_security_groups" --data ''
 ```
 
 #### 响应内容:
@@ -373,7 +372,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" 
 ```
 
 
-## POST /secruity_groups_snapshots
+## POST /security_groups_snapshots
 
 **创建防火墙备份**
 
@@ -403,7 +402,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_secruity_groups" 
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups_snapshots" --data '
 {
   "security_group":"sg-YZOEB6B",
   "name":"bak_test"
@@ -420,7 +419,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" --dat
 ```
 
 
-## GET /secruity_groups_snapshots
+## GET /security_groups_snapshots
 
 **获取防火墙备份**
 
@@ -455,7 +454,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots" --dat
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_groups_snapshots"
 ```
 
 #### 响应内容:
@@ -489,7 +488,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots"
 ```
 
 
-## DELETE /secruity_groups_snapshots/:snap_id
+## DELETE /security_groups_snapshots/:snap_id
 
 **删除防火墙备份**
 
@@ -518,7 +517,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots"
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:snap_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_groups_snapshots/:snap_id"
 ```
 
 #### 响应内容:
@@ -532,7 +531,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:sna
 ```
 
 
-## POST secruity_groups_snapshots/rollback
+## POST security_groups_snapshots/rollback
 
 **回滚防火墙备份**
 
@@ -563,7 +562,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/:sna
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/rollback" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups_snapshots/rollback" --data '
 {
   "security_group":"sg-YZOEB6B",
   "group_snapshot":"sgs-PRY5PEH"
@@ -580,7 +579,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/rollba
 ```
 
 
-## GET /secruity_group_rules
+## GET /security_group_rules
 
 **获取防火墙规则**
 
@@ -616,7 +615,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_groups_snapshots/rollba
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_group_rules"
 ```
 
 #### 响应内容:
@@ -643,7 +642,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 ```
 
 
-## POST /secruity_group_rules
+## POST /security_group_rules
 
 **添加防火墙规则**
 
@@ -666,6 +665,20 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 | security_group | String | Yes | 防火墙ID |
 | rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
 
+
+#### Rule 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| security_group_id | String | Yes |   防火墙规则ID |
+| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
+| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
+| action | String | No | 行为：accept 表示接受，drop 为拒绝 |
+| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
+| val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
+| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
+| name | String | No | 防火墙规则名称 |
 ### 服务端响应
 
 #### 响应头信息
@@ -681,7 +694,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/secruity_group_rules"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_rules" --data '
 {
   "security_group":"sg-YZOEB6B",
   "rules":[ 
@@ -711,7 +724,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" --data '
 ```
 
 
-## DELETE /secruity_group_rules/:rules_id
+## DELETE /security_group_rules/:rules_id
 
 **删除防火墙规则**
 
@@ -742,7 +755,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/secruity_group_rules" --data '
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id"
 ```
 
 #### 响应内容:
@@ -756,7 +769,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id
 ```
 
 
-## PUT /secruity_group_rules/:rules_id
+## PUT /security_group_rules/:rules_id
 
 **修改防火墙属性**
 
@@ -792,7 +805,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/secruity_group_rules/:rules_id" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id" --data '
    {
             "security_group_rule_id":"sgr-ZL4HY0B",
             "protocol": "tcp",     

@@ -111,8 +111,52 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances"
 
 ```js
 {
-    "key": "value"
-} 
+	"instances": [
+		{
+			"instance_id": "ins-JWFQNPY",
+			"instance_name": "test-go",
+			"description": "",
+			"instance_type": "PERFORMANCE",
+			"vcpus_current": 1,
+			"memory_current": 1024,
+			"status": "running",
+			"transition_status": "",
+			"create_time": "2016-07-22T06:02:33Z",
+			"status_time": "2016-07-29T03:15:03Z",
+			"image": {
+				"image_id": "centos65x64d",
+				"image_name": "Ubuntu 16.04 LTS",
+				"image_size": 10,
+				"platform": "linux",
+				"processor_type": "64bit",
+				"os_family": "ubuntu",
+				"provider": "system",
+				"is_shared": 0
+			},
+			"vxnets": [
+				{
+					"vxnet_name": "公有网络",
+					"vxnet_type": "SYSTEM_MANAGER",
+					"vxnet_id": "vxnet-0",
+					"nic_id": "52:54:31:27:3c:04",
+					"private_ip": ""
+				}
+			],
+			"eip": {
+				"eip_name": "test-eip",
+				"eip_addr": "118.184.0.102",
+				"eip_id": "eip-EF217BD"
+			},
+			"keypair_ids": [
+				{
+					"keypair_id": "kp-ZRM7SM2",
+					"keypair_name": "sss"
+				}
+			]
+		}
+	],
+	"total_count": 125
+}
 ```
 
 
@@ -444,11 +488,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 
 ### 请求
 
-#### QueryString 参数
+#### URI PATH 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| instances | String[] | Yes | 主机实例 ID |
+| :ins_id | String | Yes | 主机实例 ID<br> *多个用英文半角逗号 ',' 分割* |
 
 ### 服务端响应
 

@@ -215,7 +215,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/leave" --data '
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 {
-    "key": "value"
+    "vxnet_name": "51idc"
 }'
 ```
 

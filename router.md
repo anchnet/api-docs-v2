@@ -257,7 +257,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 | features | Int | No | 是否需要开启DHCP服务  &nbsp;&nbsp; 默认开启 |
 | manager_ip | String | No |  路由器的管理IP  |
 | dyn_ip_start | String | No |  DHCP服务分配开始IP  |
-| dyn_ip_end | String | Yes | - |
+| dyn_ip_end | String | No | - |
 
 ### 服务端响应
 

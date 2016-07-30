@@ -364,7 +364,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/leave" --data
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/:router_id" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 {
     "key": "value"
 }'

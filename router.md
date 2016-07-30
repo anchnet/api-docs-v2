@@ -320,9 +320,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/join" --data 
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/leave" --data '
-{
-    "key": "value"
-}'
+{ "vxnets":["vxnet-18ADEFC","vxnet-485535E"]}'
 ```
 
 #### 响应内容:

@@ -240,7 +240,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnets | String[] | Yes | - |
+| vxnets | String[] | Yes | 网络ID |
 | vxnet_type | Int | No | 默认值: -1<br> |
 | search_word | String | Yes | - |
 | offset | Int | Yes | - |

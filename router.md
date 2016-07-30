@@ -23,7 +23,7 @@
 | dyn_ip_start | String | No | DHCP服务分配开始IP |
 | dyn_ip_end | String | No | DHCP服务分配终止IP |
 | ip_network | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
-| ip_network | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
+| features | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
 | eip | Object | Yes | [<br>{<br>&nbsp;&nbsp;"eip": {<br>&nbsp;&nbsp;&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;"eip_group": "*String*"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;"eip_id": "*String*"<br>}<br>] |
 
 ### 服务端响应

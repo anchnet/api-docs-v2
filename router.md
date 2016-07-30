@@ -347,13 +347,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/leave" --data
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router | String | Yes | - |
-| eip | String | Yes | - |
-| security_group | String | Yes | - |
 | router_name | String | Yes | - |
 | description | String | Yes | - |
-| dyn_ip_start | String | Yes | - |
-| dyn_ip_end | String | Yes | - |
 
 ### 服务端响应
 

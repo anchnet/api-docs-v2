@@ -169,7 +169,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/join" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/leave" --data '
 { 
-"instances":["ins-9HDBZLS"], 
+"instances":["ins-9HDBXXX"], 
 "vxnet":"vxnet-0"
 }'
 ```

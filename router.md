@@ -243,7 +243,9 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 
 *详细描述*
 
-### 请求
+### 请求PATH 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
 
 #### 请求 Body 参数
 

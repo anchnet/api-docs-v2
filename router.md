@@ -14,7 +14,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router | Object | Yes | [<br>{<br>&nbsp;&nbsp;"router_name": "*String*",<br>&nbsp;&nbsp;"router_type": "*Int*",<br>&nbsp;&nbsp;"vpc_network": "*String*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"zone": "*String*"<br>}<br>] |
+| router | Object | Yes | 路由器属性 |
 | router_name | String | Yes | 路由器名称 |
 | router_type | int | Yes | 路由器类型 |
 | security_group| String | Yes | 防火墙ID |

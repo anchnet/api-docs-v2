@@ -15,7 +15,8 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | vxnet_name | String | Yes | 网络名称 |
-| vxnet_type | Int | No | 网络类型&nbsp; &nbsp; &nbsp;  受管网络:SYSTEM_MANAGER <p>   &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;自管网路 :SELF_MANAAGER|
+| vxnet_type | Int | No | 网络类型&nbsp; &nbsp; &nbsp;  受管网络:SYSTEM_MANAGER <p>   &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;自管网路 :SELF_MANAAGER <p>
+ 默认为受管网络 |
 | count | Int | Yes | 数量 |
 
 ### 服务端响应

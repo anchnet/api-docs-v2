@@ -119,7 +119,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| routers | String[] | Yes | - |
+| routers | String[] | Yes | 路由器ID |
 
 ### 服务端响应
 

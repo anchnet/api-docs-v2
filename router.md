@@ -395,7 +395,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | :-- | :-- | :-- | :-- |
 | router_statics | Object[] | Yes | 路由器规则信息 |
 | static_name | String | Yes | 路由器规则名称 |
-| static_type | String | Yes | 路由器规则类型 : PORT_FORWARD  端口转发|
+| static_type | String | Yes | 路由器规则类型 :  <p> PORT_FORWARD  端口转发 <p> VPN vpn <p> DHCP dhcp选项<p>TWO_GRE 二层gre隧道 <p> FILTER_CONTROL 过滤控制 <p> THREE_GRE 三层gre隧道 <p> THREE_IPSEC 三层ipsec <p> DNS 私网dns|
 
 ### 服务端响应
 

@@ -477,9 +477,23 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/statics" --data '
-{
-    "key": "value"
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --data '
+{ 
+    "router_statics": [ 
+        { 
+            "static_type": "PORT_FORWARD", 
+            "val1": "104", 
+            "val2": "3.2.8.3", 
+            "val3": "41", 
+            "val4": "tcp" 
+        },{ 
+            "static_type": "PORT_FORWARD", 
+            "val1": "105", 
+            "val2": "3.3.6.4", 
+            "val3": "56", 
+            "val4": "tcp" 
+        } 
+    ]
 }'
 ```
 

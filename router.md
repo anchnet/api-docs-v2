@@ -512,13 +512,15 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 
 *详细描述*
 
-### 请求
+### 请求PATH 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| : router_static_id | String | Yes | 路由器规则ID |
 
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_static | String | Yes | - |
 | router_static_name | String | Yes | - |
 | val1 | String | Yes | - |
 | val2 | String | Yes | - |

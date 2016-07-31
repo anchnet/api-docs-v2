@@ -15,19 +15,35 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | router | Object | Yes | 路由器 |
+| nets | Object[] | Yes | 网络信息 |
+| eip | Object | Yes | 公网IP信息 |
+###  router 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
 | router_name | String | Yes | 路由器名称 |
 | router_type | int | Yes | 路由器类型 |
 | security_group| String | No | 防火墙ID  &nbsp;&nbsp;  不填则需用您的默认防火墙|
-| nets | Object[] | Yes | 网络信息 |
+### nets
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
 | manager_ip | String | No | 路由器的管理IP |
 | dyn_ip_start | String | No | DHCP服务分配开始IP |
 | dyn_ip_end | String | No | DHCP服务分配终止IP |
 | ip_network | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
-| features | Int | No | 是否开启DHCP服务  &nbsp;&nbsp; 默认开启 |
+| features | int | No | 是否开启DHCP服务  &nbsp;&nbsp; 默认开启 |
+### eip
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
 | eip | Object | Yes | 公网IP信息 |
-| bandwidth | Int | Yes | 带宽 (如需新建公网IP,需填此参数)|
-| eip_group | String | Yes | 公网IP分组  (如需新建公网IP,需填此参数) |
-| eip_id | String | Yes | 公网IP ID (如选择已有公网IP，需此参数) |
+###  选择新建 eip 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| bandwidth | Int | Yes | 带宽 |
+| eip_group | String | Yes | 公网IP分组 |
+### 选择已有 eip
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| eip | String | Yes | 公网IP ID |
 
 
 ### 服务端响应
@@ -46,14 +62,47 @@
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
+{
+     "router":{
+         "router_name":"51idc",
+         "router_type":1
+     },
+     "nets":[
+         {
+             "manager_ip":"192.168.100.1",
+             "ip_network":"192.168.100.0/24",
+             "dyn_ip_start":"192.168.100.2",
+             "dyn_ip_end":"192.168.100.254",
+             "features":1
+         }
+     ],
+     "eip":{
+         "eip":{
+             "bandwidth"：1,
+             "eip_group"："eipg-6666666",
+         }
+     }
+}
+
+{
+     "router":{
+         "router_name":"51idc",
+         "router_type":1
+     },
+     "nets":[
+         {
+             "manager_ip":"192.168.100.1",
+             "ip_network":"192.168.100.0/24",
+             "dyn_ip_start":"192.168.100.2",
+             "dyn_ip_end":"192.168.100.254",
+             "features":1
+         }
+     ],
+     "eip":{
+         "eip":"eip-IFE1XXX"
+     }
+}
 ```
-
-{ "router": { "router_name": "gaotest", "router_type": 1 }, "nets": [ { "manager_ip": "192.168.100.1", "ip_network": "192.168.100.0/24", "dyn_ip_start": "192.168.100.2", "dyn_ip_end": "192.168.100.254", "features": 1 } ], "eip": { "eip": { "bandwidth": 1, "eip_group": "eipg-6666666" } }}
-
-{ "router": { "router_name": "gaotest", "router_type": 1, "security_group":"sg-FWO2XXX" }, "nets": [ { "manager_ip": "192.168.100.1", "ip_network": "192.168.100.0/24", "dyn_ip_start": "192.168.100.2", "dyn_ip_end": "192.168.100.254", "features": 1 } ], "eip": { "eip": "eip-IFE1XXX" }}
-
-
-
 #### 响应内容:
 
 ```js
@@ -94,7 +143,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" --data '
 {
-    "key": "value"
+    "routers": ["rtr-5350XXX"]
 }'
 ```
 
@@ -138,7 +187,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_on" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_off" --data '
 {
-    "key": "value"
+     "routers": ["rtr-5350XXX"]
 }'
 ```
 
@@ -182,7 +231,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/power_off" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 {
-    "key": "value"
+     "routers": ["rtr-5350XXX"]
 }'
 ```
 
@@ -275,7 +324,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/join" --data '
-{ "vxnet":"vxnet-18ADXXX", "ip_network":"192.168.103.4/24"}'
+{ 
+    "vxnet":"vxnet-18ADXXX", 
+    "ip_network":"192.168.103.4/24"
+}'
 ```
 
 #### 响应内容:
@@ -320,7 +372,12 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/join" --data 
 
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/leave" --data '
-{ "vxnets":["vxnet-18ADEFC","vxnet-485535E"]}'
+{ 
+    "vxnets":[
+        "vxnet-18ADEFC",
+        "vxnet-485535E"
+    ]
+}'
 ```
 
 #### 响应内容:
@@ -394,8 +451,13 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | router_statics | Object[] | Yes | 路由器规则信息 |
+####  router_statics 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
 | static_name | String | Yes | 路由器规则名称 |
-| static_type | String | Yes | 路由器规则类型 :  <p> PORT_FORWARD  端口转发 <p> VPN vpn <p> DHCP dhcp选项<p>TWO_GRE 二层gre隧道 <p> FILTER_CONTROL 过滤控制 <p> THREE_GRE 三层gre隧道 <p> THREE_IPSEC 三层ipsec <p> DNS 私网dns|
+| static_type | String | Yes | 路由器规则类型 : <p> PORT_FORWARD ：端口转发 <p> VPN ：vpn <p> DHCP ：dhcp选项<p>TWO_GRE ：二层gre隧道 <p> FILTER_CONTROL ：过滤控制 <p> THREE_GRE ：三层gre隧道 <p> THREE_IPSEC ：三层ipsec <p> DNS ：私网dns|
+| val1 | String | Yes | 根据规则类型的不同，代表不同含义: <p> 端口转发：val1 表示源端口。 <p> VPN：val1 表示 VPN 类型，目前支持 “pptp”，默认值为 “ pptp”。<P> DHCP 选项：val1 表示 DHCP 主机ID。 <p> 二层 GRE 隧道：val1 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。<P>  过滤控制：val1 表示『源 IP』。<P>  三层 GRE 隧道：val1 表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1 <P> 三层 IPsec 隧道：val1 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id <p>  私网DNS：val1 表示私网域名，比如node1  。 |
+||||
 
 ### 服务端响应
 

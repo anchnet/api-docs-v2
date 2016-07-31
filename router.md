@@ -455,12 +455,12 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | static_name | String | Yes | 路由器规则名称 |
-| static_type | String | Yes | 路由器规则类型 : <p> PORT_FORWARD ：端口转发 <p> VPN ：vpn <p> DHCP ：dhcp选项<p>TWO_GRE ：二层gre隧道 <p> FILTER_CONTROL ：过滤控制 <p> THREE_GRE ：三层gre隧道 <p> THREE_IPSEC ：三层ipsec <p> DNS ：私网dns|
-| val1 | String | Yes | 根据规则类型的不同，代表不同含义: <p> 端口转发：val1 表示源端口。 <p> VPN：val1 表示 VPN 类型，目前支持 “pptp”，默认值为 “ pptp”。<P> DHCP 选项：val1 表示 DHCP 主机ID。 <p> 二层 GRE 隧道：val1 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。<P>  过滤控制：val1 表示『源 IP』。<P>  三层 GRE 隧道：val1 表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1 <P> 三层 IPsec 隧道：val1 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id <p>  私网DNS：val1 表示私网域名，比如node1  。 |
-| val2 | String | No |  根据规则类型的不同，代表不同含义： <p>  端口转发规则：val2 表示目标 IP 。 <p>   PPTP VPN 规则：val2 表示用户名和密码，格式为 user:password  <p>  DHCP 选项：val2 表示 DHCP 配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8;fixed-address=192.168.1.2”。 <p>  过滤控制：val2 表示『源端口』 <p>  三层 GRE 隧道：val2 表示目标网络，多个网络间以 “\|” 分隔。注意目标网络不能和路由器已有的私有网络重复。<p>  三层 IPsec 隧道：val2 表示本地网络，多个网络间以 “\|” 分隔。 <p>  私网DNS：val2 表示IP地址，格式为ip1;ip2，例如：”192.168.1.2;192.168.1.3”   |
-| val3 | String | No |  根据规则类型的不同，代表不同含义： <p>   端口转发规则：val3 表示目标端口号。 <p>  PPTP VPN 规则：val3 表示最大连接数，连接数范围是 1-253 <p>  过滤控制：val3 表示『目标 IP』 <p>  三层 IPsec 隧道：val3 表示目标网络，多个网络间以 “\|” 分隔。  |
-| val4 | String | No |  根据规则类型的不同，代表不同含义： <p>  端口转发规则：val4 表示端口转发协议，默认为 “tcp” ，目前支持 “tcp” 和 “udp” 两种协议。 <p>  VPN 规则(PPTP)：val4 表示 VPN 客户端的网络地址段，目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。<p>  过滤控制：val4 表示『目标端口』 <p>  三层 IPsec 隧道：val4 表示IPsec隧道模式，默认为”main”，支持 主模式（main） 和 野蛮模式（aggrmode）。   |
-| val5 | String | No |  根据规则类型的不同，代表不同含义： <p>   过滤控制：val5 表示『行为』，包括： “accept” 和 “drop” |
+| static_type | String | Yes | 路由器规则类型 : <br> PORT_FORWARD ：端口转发 <br> VPN ：vpn <br> DHCP ：dhcp选项<br>TWO_GRE ：二层gre隧道 <br> FILTER_CONTROL ：过滤控制 <br> THREE_GRE ：三层gre隧道 <br> THREE_IPSEC ：三层ipsec <br> DNS ：私网dns|
+| val1 | String | Yes | 根据规则类型的不同，代表不同含义: <br> 端口转发：val1 表示源端口。 <br> VPN：val1 表示 VPN 类型，目前支持 “pptp”，默认值为 “ pptp”。<br> DHCP 选项：val1 表示 DHCP 主机ID。 <br> 二层 GRE 隧道：val1 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。<br> 过滤控制：val1 表示『源 IP』。<br> 三层 GRE 隧道：val1 表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1 <br> 三层 IPsec 隧道：val1 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id <br> 私网DNS：val1 表示私网域名，比如node1 。 |
+| val2 | String | No | 根据规则类型的不同，代表不同含义： <br> 端口转发规则：val2 表示目标 IP 。 <br> PPTP VPN 规则：val2 表示用户名和密码，格式为 user:password <br> DHCP 选项：val2 表示 DHCP 配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8;fixed-address=192.168.1.2”。 <br> 过滤控制：val2 表示『源端口』 <br> 三层 GRE 隧道：val2 表示目标网络，多个网络间以 “\|” 分隔。注意目标网络不能和路由器已有的私有网络重复。<br> 三层 IPsec 隧道：val2 表示本地网络，多个网络间以 “\|” 分隔。 <br> 私网DNS：val2 表示IP地址，格式为ip1;ip2，例如：”192.168.1.2;192.168.1.3” |
+| val3 | String | No | 根据规则类型的不同，代表不同含义： <br> 端口转发规则：val3 表示目标端口号。 <br> PPTP VPN 规则：val3 表示最大连接数，连接数范围是 1-253 <br> 过滤控制：val3 表示『目标 IP』 <br> 三层 IPsec 隧道：val3 表示目标网络，多个网络间以 “\|” 分隔。 |
+| val4 | String | No | 根据规则类型的不同，代表不同含义： <br> 端口转发规则：val4 表示端口转发协议，默认为 “tcp” ，目前支持 “tcp” 和 “udp” 两种协议。 <br> VPN 规则(PPTP)：val4 表示 VPN 客户端的网络地址段，目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。<br> 过滤控制：val4 表示『目标端口』 <br> 三层 IPsec 隧道：val4 表示IPsec隧道模式，默认为”main”，支持 主模式（main） 和 野蛮模式（aggrmode）。 |
+| val5 | String | No | 根据规则类型的不同，代表不同含义： <br> 过滤控制：val5 表示『行为』，包括： “accept” 和 “drop” |
 
 ### 服务端响应
 
@@ -522,10 +522,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | static_name | String | No | 路由器规则名称 |
-| val1 | String | No |  当规则类型为端口转发规则时(static_type="PORT_FORWARD")，val1表示源端口。<p>  当规则类型为DHCP选项时(static_type="DHCP")，val1表示DHCP主机ID。  |
-| val2 | String | No |  当规则类型为端口转发规则时(static_type="PORT_FORWARD")，val2表示目标IP。<p>
-当规则类型为VPN规则时(static_type="VPN")，val2表示VPN服务端口号，默认为1194。<p>
-当规则类型为DHCP选项时(static_type="DHCP")，val2表示DHCP配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8”。 |
+| val1 | String | No |  当规则类型为端口转发规则时(static_type="PORT_FORWARD")，val1表示源端口。<br>  当规则类型为DHCP选项时(static_type="DHCP")，val1表示DHCP主机ID。  |
+| val2 | String | No |  当规则类型为端口转发规则时(static_type="PORT_FORWARD")，val2表示目标IP。<br> 当规则类型为VPN规则时(static_type="VPN")，val2表示VPN服务端口号，默认为1194。<br>当规则类型为DHCP选项时(static_type="DHCP")，val2表示DHCP配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8”。 |
 | val3 | String | No | - |
 | val4 | String | No | - |
 | val5 | String | No | - |

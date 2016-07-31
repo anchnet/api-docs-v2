@@ -393,7 +393,6 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router | String | Yes | - |
 | vxnet | String | Yes | - |
 | router_statics | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"static_type": "*Int*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"val4": "*String*",<br>&nbsp;&nbsp;"val5": "*String*",<br>&nbsp;&nbsp;"val6": "*String*",<br>&nbsp;&nbsp;"static_name": "*String*"<br>}<br>] |
 

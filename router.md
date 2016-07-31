@@ -384,8 +384,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 **添加路由器规则**
 
 *详细描述*
-
-### 请求
+### 请求PATH 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :router_id | String | Yes | 路由器ID |
 
 #### 请求 Body 参数
 

@@ -528,7 +528,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | val4 | String | No | 当规则类型为端口转发规则时(static_type= "PORT_FORWARD" )，val4表示端口转发协议，默认为”tcp”，目前支持”tcp”和”udp”两种协议。<br><br>当规则类型为VPN规则时(static_type= "VPN" )，val4表示VPN客户端的网络地址段，目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。 |
 | val5 | String | No | 当规则类型为过滤控制规则时(static_type="FILTER_CONTROL")，val5 表示优先级，目前支持 0-100，数字越小优先级越高。 |
 | val6 | String | No | 当规则类型为过滤控制规则时(static_type="FILTER_CONTROL")，val6 表示控制行为，即接受 “accept” 或拒绝 “drop” 。 |
-| disabled | int | No | - |
+| disabled | int | No | 是否禁用  |
 
 ### 服务端响应
 

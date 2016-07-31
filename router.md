@@ -657,7 +657,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id/
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_static_entries | String[] | Yes | - |
+| router_static_entries | String[] | Yes | 路由器规则条目ID |
 
 ### 服务端响应
 
@@ -744,8 +744,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_stati
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| eip | String | Yes | - |
-| rotuer | String | Yes | - |
+| eip | String | Yes | 公网IP ID |
+| rotuer | String | Yes | 路由器ID |
 
 ### 服务端响应
 
@@ -789,8 +789,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_eip" --da
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group | String | Yes | - |
-| router | String | Yes | - |
+| security_group | String | Yes | 防火墙ID |
+| router | String | Yes | 路由器ID |
 
 ### 服务端响应
 

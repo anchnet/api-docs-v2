@@ -70,7 +70,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" --data='
 | :-- | :-- | :-- | :-- |
 | volumes | String | No | 磁盘ID,多个以逗号隔开 |
 | volume_type | Int | No | 磁盘类型:性能型是 0 超高性能型是3|
-| status | String[] | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased |
+| status | String | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased ,多个以逗号隔开|
 | search_word | String | No | 搜索关键词，支持硬盘ID，硬盘名称 |
 | tags | String[] | No | 暂不支持 |
 | verbose | Int | No | 是否返回冗长的信息，目前 verbose 只支持为 0 |

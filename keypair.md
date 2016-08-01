@@ -314,8 +314,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/detach" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| keypair_name | String | No | 密钥名称 |
-| description | String | No | 密钥描述 |
+| keypair_name | String | Yes | 密钥名称 |
+| description | String | Yes | 密钥描述 |
 
 ### 服务端响应
 

@@ -272,7 +272,7 @@ total_count: 1
 ```
 
 
-## POST /loadbalancers/:lb_id/listeners/add
+## POST /loadbalancers_listeners
 
 **创建监听器**
 
@@ -498,7 +498,7 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners_b
 ```
 
 
-## POST /loadbalancers_listeners/:lb_listener_id/backends/add
+## POST /loadbalancers_listeners_backends
 
 **增加监听器后端**
 
@@ -888,7 +888,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rule" --data
 
 
 
-## POST /loadbalancers_policy/:lb_policy_id/rules/add
+## POST /loadbalancers_policy_rules
 
 **增加策略规则**
 
@@ -995,7 +995,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policy_rules"
 ```
 
 
-## POST /loadbalancers/:lb_id/eips/dissociate
+## POST /loadbalancers/eips/dissociate
 
 **从负载均衡器中解绑公网IP**
 
@@ -1041,7 +1041,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/dissoc
 ```
 
 
-## POST /loadbalancers/:lb_id/eips/associate
+## POST /loadbalancers/eips/associate
 
 **绑定公网IP到负载均衡器**
 
@@ -1086,7 +1086,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/associ
 ```
 
 
-## POST /loadbalancers/:lb_id/resize
+## POST /loadbalancers/resize
 
 **调整负载均衡器容量**
 
@@ -1131,7 +1131,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/resize" --d
 ```
 
 
-## POST /loadbalancers/:lb_id/apply
+## POST /loadbalancers/apply
 
 **应用负载均衡器**
 
@@ -1175,7 +1175,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/apply" --da
 ```
 
 
-## POST /loadbalancers/:lb_id/stop
+## POST /loadbalancers/stop
 
 **关闭负载均衡器**
 
@@ -1219,7 +1219,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/stop" --dat
 ```
 
 
-## POST /loadbalancers/:lb_id/start
+## POST /loadbalancers/start
 
 **启动负载均衡器**
 

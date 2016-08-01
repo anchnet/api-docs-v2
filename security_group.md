@@ -16,7 +16,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| group_name | String | Yes | 防火墙名称 |
+| group_name | String | No | 防火墙名称 |
 
 ### 服务端响应
 
@@ -46,7 +46,83 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups" --data '
     "security_group_id": "sg-5PXZLGU"
 } 
 ```
+## POST /security_group_product
 
+**创建防火墙并添加规则**
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| group_name | String | No | 防火墙名称 |
+| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+
+
+#### Rule 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
+| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
+| action | String | No | 行为：accept 表示接受，drop 为拒绝 |
+| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
+| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
+| name | String | No | 防火墙规则名称 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_product" --data '
+{
+  "group_name":"secruity_group_name",
+   "rules":[
+            {
+                "protocol": "tcp",
+                "priority": 3,
+                "action": "accept",
+                "val2": "80",
+                "val1": "80",
+                "val3": "",
+                "direction": 0,
+                "disabled": 0,
+                "name": "http1"
+            }
+     ]
+}
+```
+
+#### 响应内容:
+
+```js
+{
+    "job_id": "30ce8c26-e013-482b-8811-eaaae4d3735d",
+    "action": "CreateSecurityGroupProduct",
+    "request_id": "6ed9677b-563e-41bf-b5fa-584b1da33bee",
+    "status": "pending",
+    "create_time": "2016-08-03T01:58:03Z",
+    "begin_time": "",
+    "finished_time": "",
+    "extra": "",
+    "zone": "ac2",
+    "resource_ids": []
+}
+```
 
 ## GET /security_groups
 
@@ -291,8 +367,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | security_group | String | Yes | 防火墙 ID |
-| security_group_name | String | No |  防火墙名称 |
-| description | String | No | 防火墙描述 |
+| security_group_name | String | Yes |  防火墙名称 |
+| description | String | Yes | 防火墙描述 |
 
 ### 服务端响应
 
@@ -782,14 +858,14 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | security_group_rule_id | String | Yes |   防火墙规则ID |
-| protocol | String | No | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
-| priority | Int | No | 优先级，由高到低为 0 - 100 |
-| action | String | No | 行为：accept 表示接受，drop 为拒绝s |
-| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
-| val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
-| name | String | No | 防火墙规则名称 |
+| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
+| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
+| action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
+| val2 | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
+| val3 | String | Yes | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
+| direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
+| name | String | Yes | 防火墙规则名称 |
 
 ### 服务端响应
 

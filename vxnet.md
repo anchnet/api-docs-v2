@@ -6,7 +6,7 @@
 
 **创建私有网络**
 
-*详细描述*
+* 信息 
 
 ### 请求
 
@@ -14,9 +14,9 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| name | String | Yes | - |
-| type | Int | No | 默认值: 1<br> |
-| count | Int | Yes | - |
+| vxnet_name | String | Yes | 网络名称 |
+| vxnet_type | Int | No | 网络类型&nbsp; &nbsp; &nbsp;  受管网络:SYSTEM_MANAGER <p>   &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;自管网路 :SELF_MANAAGER <p> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; 默认为受管网络 |
+| count | Int | Yes | 数量 |
 
 ### 服务端响应
 
@@ -26,7 +26,7 @@
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/job.html)*
+Array &nbsp; &nbsp;  vxnet_id
 
 ### 示例
 
@@ -35,8 +35,10 @@
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 {
-    "key": "value"
-}'
+ "vxnet_name": "51idc", 
+ "vxnet_type": "SYSTEM_MANAGER",
+ "count": 1
+}
 ```
 
 #### 响应内容:
@@ -56,11 +58,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 
 ### 请求
 
-#### QueryString 参数
+#### path 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| insIdList | String[] | Yes | - |
+|  :vxnet_id  | String | Yes | 多个vxnet_id以逗号分隔 |
 
 ### 服务端响应
 
@@ -70,14 +72,14 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets" --data '
 
 #### 响应 Body 信息
 
-参考: *[Job 数据结构](/job.html)*
+Array  vxnet_id
 
 ### 示例
 
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/vxnet-DED2XXX,vxnet-FE43XXX"
 ```
 
 #### 响应内容:
@@ -89,7 +91,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
 ```
 
 
-## POST /vxnets/join
+## POST /vxnet/join
 
 **加入私有网络**
 
@@ -101,8 +103,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnetInsId | String | Yes | - |
-| instanceInsIdList | String[] | Yes | - |
+| vxnet| String | Yes | 网络ID |
+| instances | String[] | Yes | 主机ID |
 
 ### 服务端响应
 
@@ -119,9 +121,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
-{
-    "key": "value"
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/join" --data '
+{ 
+"instances":["ins-XC2TXXX","ins-9HDBXXX"], 
+"vxnet":"vxnet-78A0XXX"
 }'
 ```
 
@@ -134,7 +137,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
 ```
 
 
-## POST /vxnets/leave
+## POST /vxnet/leave
 
 **离开私有网络**
 
@@ -146,8 +149,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnet | String | Yes | - |
-| instances | String[] | Yes | - |
+| vxnet | String | Yes | 网络ID |
+| instances | String[] | Yes | 主机ID |
 
 ### 服务端响应
 
@@ -164,9 +167,10 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/join" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" --data '
-{
-    "key": "value"
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnet/leave" --data '
+{ 
+"instances":["ins-9HDBXXX"], 
+"vxnet":"vxnet-0"
 }'
 ```
 
@@ -191,9 +195,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnet | String | Yes | - |
-| vxnetName | String | Yes | - |
-| description | String | Yes | - |
+| vxnet | String | Yes | 网络ID |
+| vxnet_name | String | Yes | 网络名称 |
+| description | String | Yes | 网络描述 |
 
 ### 服务端响应
 
@@ -211,7 +215,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/vxnets/leave" --data '
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 {
-    "key": "value"
+    "vxnet_name": "51idc"
 }'
 ```
 
@@ -236,14 +240,11 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/vxnets/:vxnet_id" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vxnets | String[] | Yes | - |
-| vxnet_type | Int | No | 默认值: -1<br> |
-| search_word | String | Yes | - |
-| tags | String[] | Yes | - |
-| verbose | Int | Yes | - |
+| vxnets | String[] | Yes | 网络ID |
+| vxnet_type | Int | No | 网络类型 |
+| search_word | String | Yes | 名称关键字 |
 | offset | Int | Yes | - |
 | limit | Int | No | 默认值: 10<br> |
-| sdnNet | String | Yes | - |
 
 ### 服务端响应
 

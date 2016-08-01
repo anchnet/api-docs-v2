@@ -78,8 +78,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
      ],
      "eip":{
          "eip":{
-             "bandwidth"：1,
-             "eip_group"："eipg-6666666",
+             "bandwidth":1,
+             "eip_group":"eipg-6666666"
          }
      }
 }
@@ -567,11 +567,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id" 
 
 ### 请求
 
-#### QueryString 参数
-
+### 请求PATH 参数
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_statics | String[] | Yes | 路由器规则ID |
+| : router_static_id | String | Yes | 路由器规则ID。 多个已逗号分隔 |
 
 ### 服务端响应
 
@@ -606,14 +605,21 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1router_statics/:router_static_i
 
 *详细描述*
 
-### 请求
+### 请求PATH 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :router_static_id | String | Yes | 路由器规则ID |
 
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_static | String | Yes | - |
-| static_entries | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val2": "*String*"<br>}<br>] |
+| static_entries| Object[]| Yes | 路由器规则条目信息 |
+####  static_entries 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| val1 | String| Yes |  根据规则类型的不同，代表不同含义： <br>  PPTP 账户信息：val1 表示账户名 <br>  三层 GRE 隧道：val1 表示目标网络 <br>  三层 IPsec 隧道：val1 表示本地网络 (val2 可为空) |
+| val2 | String| Yes |  根据规则类型的不同，代表不同含义： <br>  PPTP 账户信息：val2 表示密码 <br>  三层 IPsec 隧道：val2 表示目标网络 (val1 可为空) |
 
 ### 服务端响应
 

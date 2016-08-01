@@ -14,7 +14,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshots | String[] | No | 备份ID |
+| snapshots | String | No | 备份ID,多个以逗号隔开|
 | resource_id | String | No | 按资源 ID 进行过滤 |
 | snapshot_type | Int | No | 按备份类型过滤，0表示获取增量备份，1表示获取全量备份 |
 | status | String[] | No | 备份状态: pending, available, suspended, deleted, ceased |

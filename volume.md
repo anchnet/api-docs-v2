@@ -68,7 +68,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" --data='
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| volumes | String[] | No | 磁盘ID |
+| volumes | String | No | 磁盘ID,多个以逗号隔开 |
 | volume_type | Int | No | 磁盘类型:性能型是 0 超高性能型是3|
 | status | String[] | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased |
 | search_word | String | No | 搜索关键词，支持硬盘ID，硬盘名称 |

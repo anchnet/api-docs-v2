@@ -364,4 +364,41 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" 
     "extra": ""
 }
 ```
+## PUT /volume_snapshots
+
+**修改备份属性**
+
+*详细描述*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| snapshot | String | Yes | 备份ID |
+| snapshot_name | String | No | 备份名称 |
+| description | String | No | 备份描述 |
+
+### 服务端响应
+
+
+#### 响应 Body 信息
+
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
+{
+    "snapshot": "ss-qwdqwv",
+    "snapshot_name":"name",
+    "description":"description"
+}'
+```
+
+#### 响应内容:
+无
 

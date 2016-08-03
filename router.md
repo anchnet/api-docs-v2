@@ -21,7 +21,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | router_name | String | Yes | 路由器名称 |
-| router_type | int | Yes | 路由器类型 |
+| router_type | String | Yes | 路由器类型 <br> SMALL：小型 <br> SUPER：大型| 
 | security_group| String | No | 防火墙ID  &nbsp;&nbsp;  不填则需用您的默认防火墙|
 ### nets
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -77,17 +77,16 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
          }
      ],
      "eip":{
-         "eip":{
-             "bandwidth"：1,
-             "eip_group"："eipg-6666666",
-         }
+         "bandwidth":1,
+         "eip_group":"eipg-6666666"
      }
 }
 
 {
      "router":{
          "router_name":"51idc",
-         "router_type":1
+         "router_type":1,
+         "eip":""
      },
      "nets":[
          {
@@ -97,10 +96,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router" --data '
              "dyn_ip_end":"192.168.100.254",
              "features":1
          }
-     ],
-     "eip":{
-         "eip":"eip-IFE1XXX"
-     }
+     ]
 }
 ```
 #### 响应内容:
@@ -243,6 +239,52 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/update" --data '
 } 
 ```
 
+## POST /routers/resize
+
+**路由器扩容**
+
+*详细描述*
+### 请求
+
+#### 请求 Body 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| routers | String[] | Yes | 路由器ID |
+| router_type| String | Yes | 路由器类型 <br> SMALL：小型 <br> SUPER：大型 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+#### 发送请求
+```bash
+
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/routers/resize" --data '
+
+{
+    "routers": ["rtr-5350XXX"]
+    "router_type":"SMALL"
+}'
+
+```
+#### 响应内容:
+```js
+
+{
+
+ "key": "value"
+
+}
+
+```
+
+
 
 ## DELETE /routers/:router_id
 
@@ -304,7 +346,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/routers/rtr-8E0BXXX"
 | vxnet | String | Yes | 网络ID |
 | ip_network | String | Yes |  受管私有网络的网段，目前支持的网段为192.168.x.0/24  |
 | features | Int | No | 是否需要开启DHCP服务  &nbsp;&nbsp; 默认开启 |
-| manager_ip | String | No |  路由器的管理IP  |
+| manager_ip | String | No |  路由器的管理IP  |desc
 | dyn_ip_start | String | No |  DHCP服务分配开始IP  |
 | dyn_ip_end | String | No |  DHCP服务分配终止IP  |
 
@@ -567,11 +609,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id" 
 
 ### 请求
 
-#### QueryString 参数
-
+### 请求PATH 参数
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_statics | String[] | Yes | 路由器规则ID |
+| : router_static_id | String | Yes | 路由器规则ID。 多个已逗号分隔 |
 
 ### 服务端响应
 
@@ -606,14 +647,21 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1router_statics/:router_static_i
 
 *详细描述*
 
-### 请求
+### 请求PATH 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :router_static_id | String | Yes | 路由器规则ID |
 
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_static | String | Yes | - |
-| static_entries | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val2": "*String*"<br>}<br>] |
+| static_entries| Object[]| Yes | 路由器规则条目信息 |
+####  static_entries 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| val1 | String| Yes |  根据规则类型的不同，代表不同含义： <br>  PPTP 账户信息：val1 表示账户名 <br>  三层 GRE 隧道：val1 表示目标网络 <br>  三层 IPsec 隧道：val1 表示本地网络 (val2 可为空) |
+| val2 | String| Yes |  根据规则类型的不同，代表不同含义： <br>  PPTP 账户信息：val2 表示密码 <br>  三层 IPsec 隧道：val2 表示目标网络 (val1 可为空) |
 
 ### 服务端响应
 
@@ -653,11 +701,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router_static/:router_static_id/
 
 ### 请求
 
-#### QueryString 参数
+#### PATH参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_static_entries | String[] | Yes | 路由器规则条目ID |
+| :router_static_entry_id | String[] | Yes | 路由器规则条目ID。 多个以逗号分隔 |
 
 ### 服务端响应
 
@@ -834,10 +882,10 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_security_
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| routerList | String[] | Yes | - |
+| routers | String[] | Yes | 路由器ID |
 | vxnet | String | Yes | - |
-| statusList | String[] | Yes | - |
-| searchWord | String | Yes | - |
+| status | String[] | Yes | - |
+| search_word | String | Yes | - |
 | offset | Int | Yes | - |
 | limit | Int | No | 默认值: 10<br> |
 

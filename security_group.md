@@ -139,7 +139,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_product" --data '
 | security_groups | String[] | No | 防火墙ID列表 |
 | search_word | String | No | 搜索关键词，支持防火墙ID，防火墙名称 |
 | tags | String[] | No | - |
-| verbose | Int | No | 是否返回冗长的信息，若为1，则返回应用了此防火墙的其他资源的信息，默认为0. |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为20，最大100 |
 

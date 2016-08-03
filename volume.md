@@ -68,9 +68,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" --data='
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| volumes | String[] | No | 磁盘ID |
+| volumes | String | No | 磁盘ID,多个以逗号隔开 |
 | volume_type | Int | No | 磁盘类型:性能型是 0 超高性能型是3|
-| status | String[] | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased |
+| status | String | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased ,多个以逗号隔开|
 | search_word | String | No | 搜索关键词，支持硬盘ID，硬盘名称 |
 | tags | String[] | No | 暂不支持 |
 | verbose | Int | No | 是否返回冗长的信息，目前 verbose 只支持为 0 |
@@ -374,7 +374,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" --data '
 
 ## POST /volumes/detach
 
-**卸载磁盘**
+**批量卸载磁盘**
 
 *详细描述*
 
@@ -384,7 +384,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| instance_id | String | Yes | 主机ID |
 | volumes | String[] | Yes | 磁盘ID |
 
 ### 服务端响应
@@ -404,8 +403,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/detach" --data '
 {
-    "instance_id": "ins-SDVFDBGFD",
-    "volumes":["vol-SMOVDAD","vol-SMOVDAD"]
+    "volumes":["vol-SMOVDAD","vol-SMOVDAF"]
 }'
 ```
 
@@ -415,7 +413,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/detach" --data '
 {
     "job_id": "6fcb4e9a-5398-4ddb-89c2-d0917bbdc4af",
     "id_prefix": "",
-    "action": "attachVolumes",
+    "action": "detachVolumes",
     "request_id": "e3332d54-4567-4295-8275-3dc9f50a6960",
     "status": "pending",
     "create_time": "2016-07-26T07:38:28Z",

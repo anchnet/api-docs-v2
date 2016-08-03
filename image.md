@@ -75,8 +75,6 @@ $ curl -XDELETE "http://dev2.51idc.cn/v2/zone/ac1/images/img-9SSE88S,img-992IIII
 
 #### 响应内容:
 
-
-
 ## PUT /images
 
 **修改映像属性**

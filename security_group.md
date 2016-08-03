@@ -367,8 +367,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | security_group | String | Yes | 防火墙 ID |
-| security_group_name | String | No |  防火墙名称 |
-| description | String | No | 防火墙描述 |
+| security_group_name | String | Yes |  防火墙名称 |
+| description | String | Yes | 防火墙描述 |
 
 ### 服务端响应
 
@@ -858,14 +858,14 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | security_group_rule_id | String | Yes |   防火墙规则ID |
-| protocol | String | No | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
-| priority | Int | No | 优先级，由高到低为 0 - 100 |
-| action | String | No | 行为：accept 表示接受，drop 为拒绝s |
-| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
-| val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
-| name | String | No | 防火墙规则名称 |
+| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
+| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
+| action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
+| val2 | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
+| val3 | String | Yes | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
+| direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
+| name | String | Yes | 防火墙规则名称 |
 
 ### 服务端响应
 

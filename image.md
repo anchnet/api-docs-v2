@@ -134,7 +134,7 @@ $ curl -XPUT "http://dev2.51idc.cn/v2/zone/ac1/images" --data '
 | os_family | String | No |  映像操作系统发行版，有效值为 centos，ubuntu，debian，fedora 和 windows 等  |
 | visibility | String | No |  映像的可见范围，有效值为 public 和 private  |
 | provider | String | No |  映像提供者。初始青云系统会提供一系列默认映像，其 provider 为 system 。 当用户捕获主机后，被捕获的“自有”映像的 provider 为 self 。  |
-| status | String | No |  映像状态: pending, available, deprecated, suspended, deleted, ceased  |
+| status | String[] | No |  映像状态: pending, available, deprecated, suspended, deleted, ceased  |
 | search_word | String | No |  搜索关键词，支持映像ID，映像名称  |
 | offset | String | No |  数据偏移量，默认为0  |
 | limit | String | No |  返回数据长度，默认为10，最大100  |

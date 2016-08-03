@@ -137,7 +137,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_bandwidth" --data '
 ```
 
 
-## POST /eips/associate
+## POST /eip/associate
 
 **绑定公网IP 到主机**
 

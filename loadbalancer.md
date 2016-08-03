@@ -1398,7 +1398,6 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 } 
 ```
 
-
 ## POST /loadbalancers
 
 **创建负载均衡器**
@@ -1459,6 +1458,49 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers" --data '
 ```js
 {
     "key": "value"
-} 
+}
 ```
 
+## POST /loadbalancer/bind_security_group
+
+**应用防火墙到负载均衡器**
+
+*详细描述*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| loadbalancer | String | YES | 负载均衡器ID |
+| security_group | String | YES | 防火墙ID |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/bind_security_group" --data '
+{
+    "key": "value"
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+}
+```

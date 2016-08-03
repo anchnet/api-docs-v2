@@ -22,7 +22,6 @@
 | encrypt_method | String | No | 加密算法:ssh-rsa,ssh-dss |
 | search_word | String | No | 搜索关键词，支持密钥ID，密钥名称 |
 | tags | String[] | No | 按照标签ID过滤, 只返回已绑定某标签的资源 |
-| verbose | Int | No | 是否返回冗长的信息，若为1，则返回加载了该SSH密钥的主机的信息，默认为0. |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 

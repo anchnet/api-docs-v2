@@ -10,7 +10,7 @@
     * [私有网络](vxnet.md)
     * [路由器](router.md)
     * [公网 IP](eip.md)
-    * [映像](映像.md)
+    * [映像](image.md)
     * [防火墙](security_group.md)
     * [SSH 秘钥](keypair.md)
     * [负载均衡](loadbalancer.md)

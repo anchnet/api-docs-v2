@@ -149,21 +149,21 @@ $ curl -XPUT "http://dev2.51idc.cn/v2/zone/ac1/images" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| create_time | object | No |  创建时间  |
+| create_time | String | No |  创建时间  |
 | default_passwd | String | No |  映像默认密码  |
-| size | object | No |  映像空间大小，单位为 GB  |
+| size | String | No |  映像空间大小，单位为 GB  |
 | platform | String | No |  映像操作系统平台，有效值为 linux 和 windows  |
-| provider | object | No |  映像提供者。初始青云系统会提供一系列默认映像，其 provider 为 system 。 当用户捕获主机后，被捕获的“自有”映像的 provider 为 self 。  |
+| provider | String | No |  映像提供者。初始青云系统会提供一系列默认映像，其 provider 为 system 。 当用户捕获主机后，被捕获的“自有”映像的 provider 为 self 。  |
 | status_time | String | No |  状态产生时间  |
-| status | object | No |  映像状态  |
+| status | String | No |  映像状态  |
 | description | String | No |  映像描述  |
-| image_id | object | No |  映像ID  |
+| image_id | String | No |  映像ID  |
 | image_name | String | No |  映像名称  |
-| transition_status | object | No |  过渡状态  |
+| transition_status | String | No |  过渡状态  |
 | visibility | String | No |  映像的可见范围，有效值为 public 和 private  |
-| os_family | object | No |  映像操作系统发行版，有效值为 centos，ubuntu，debian，fedora 和 windows 等  |
+| os_family | String | No |  映像操作系统发行版，有效值为 centos，ubuntu，debian，fedora 和 windows 等  |
 | default_user | String | No |  默认用户  |
-| processor_type | object | No |  映像支持的处理器类型，有效值为 64bit 和 32bit  |
+| processor_type | String | No |  映像支持的处理器类型，有效值为 64bit 和 32bit  |
 | recommended_type | String | No |  运行该映像的推荐主机配置  |
 
 ### 示例

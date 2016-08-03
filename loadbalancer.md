@@ -1322,12 +1322,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/loadbalancers" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| eip | Obj | no | 要删除的公网IP对象 |
+| delete_eips | String[] | no | 要删除的公网IP ID |
 
-####eip
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| eips | String[] | Yes | 要删除的公网IP ID |
 
 ### 服务端响应
 

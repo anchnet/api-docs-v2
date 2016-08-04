@@ -139,7 +139,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_product" --data '
 | security_groups | String[] | No | 防火墙ID列表 |
 | search_word | String | No | 搜索关键词，支持防火墙ID，防火墙名称 |
 | tags | String[] | No | - |
-| verbose | Int | No | 是否返回冗长的信息，若为1，则返回应用了此防火墙的其他资源的信息，默认为0. |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为20，最大100 |
 
@@ -366,7 +365,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group | String | Yes | 防火墙 ID |
 | security_group_name | String | Yes |  防火墙名称 |
 | description | String | Yes | 防火墙描述 |
 
@@ -386,7 +384,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_groups/:sg_id" --data '
 {
-  "security_group":"sg-YZOEB6B",
   "security_group_name":"group_name",
   "description":"test"
 }'
@@ -857,7 +854,6 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_group_rule_id | String | Yes |   防火墙规则ID |
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
@@ -883,7 +879,6 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id" --data '
    {
-            "security_group_rule_id":"sgr-ZL4HY0B",
             "protocol": "tcp",     
             "priority": 3,
             "action": "accept",

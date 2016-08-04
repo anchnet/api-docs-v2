@@ -222,19 +222,18 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id"
 ```
 
 
-## PUT /volumes
+## PUT /volumes/:volume_id
 
 **修改磁盘属性**
 
 *详细描述*
 
 ### 请求
-
+QueryString说明: volume_id 硬盘ID
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| volume | String | Yes | 磁盘ID |
 | volume_name | String | No | 磁盘名称 |
 | description | String | No | 磁盘描述 |
 
@@ -249,9 +248,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id"
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes/vol-qsdfwf" --data '
 {
-    "volume": "vol-qwdqwv",
     "volume_name":"name",
     "description":"description"
 }'

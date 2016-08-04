@@ -22,7 +22,6 @@
 | encrypt_method | String | No | 加密算法:ssh-rsa,ssh-dss |
 | search_word | String | No | 搜索关键词，支持密钥ID，密钥名称 |
 | tags | String[] | No | 按照标签ID过滤, 只返回已绑定某标签的资源 |
-| verbose | Int | No | 是否返回冗长的信息，若为1，则返回加载了该SSH密钥的主机的信息，默认为0. |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 
@@ -342,4 +341,64 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" --data '
 
 ```js
 ```
+# SSH 秘钥
 
+<!-- toc -->
+
+## GET /v2/zone/:zone/keypair/:kp_id/instances
+
+**获取秘钥的主机信息**
+
+*获取一个或多个SSH密钥*
+
+*根据密钥ID，作为过滤条件，获取主机信息列表。*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| offset | Int | No | 数据偏移量，默认为0 |
+| limit | Int | No | 返回数据长度，默认为10，最大100|
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| total_count | Int | Yes | 根据过滤条件得到的密钥总数 |
+| keypairs | Resource[] | Yes | [<br>{<br>&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;"resource_id": "*String*"}<br>] |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/keypair/kp-ZRM7SM2/instances?offset=1&limit=2"
+```
+
+#### 响应内容:
+
+```js
+{
+    "resources": [
+        {
+            "resource_name": "test-go",
+            "resource_type": "instance",
+            "resource_id": "ins-TVXB1GX"
+        },
+        {
+            "resource_name": "test-go",
+            "resource_type": "instance",
+            "resource_id": "ins-16T0WNM"
+        }
+    ],
+    "total_count": 7
+}
+```

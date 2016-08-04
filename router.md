@@ -787,6 +787,11 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_stati
 *详细描述*
 
 ### 请求
+#### PATH参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :router_id | String | Yes | 路由器ID|
+
 
 #### 请求 Body 参数
 

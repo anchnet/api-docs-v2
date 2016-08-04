@@ -380,6 +380,59 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX/join" --data 
 } 
 ```
 
+## POST /router/:router_id/nets
+
+**添加路由子网**
+
+*详细描述*
+
+### 请求PATH 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :router_id | String | Yes | 路由器ID |
+
+#### 请求 Body 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| ip_network | String | Yes | 受管私有网络的网段，目前支持的网段为192.168.x.0/24 |
+| features | Int | No | 是否需要开启DHCP服务 &nbsp;&nbsp; 默认开启 |
+| manager_ip | String | No | 路由器的管理IP |
+| dyn_ip_start | String | No | DHCP服务分配开始IP |
+| dyn_ip_end | String | No | DHCP服务分配终止IP |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-5F42XXX/nets" --data '
+{     "manager_ip": "192.168.103.1",     "ip_network": "192.168.103.0/24",     "dyn_ip_start": "192.168.103.2",     "dyn_ip_end": "192.168.103.254",     "features": 1 }
+
+```
+
+#### 响应内容:
+
+```js
+
+{
+
+ "key": "value"
+
+}
+
+```
+
 
 ## POST /router/:router_id/leave
 

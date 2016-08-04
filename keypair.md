@@ -343,7 +343,6 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" --data '
 ```
 # SSH 秘钥
 
-<!-- toc -->
 
 ## GET /v2/zone/:zone/keypair/:kp_id/instances
 

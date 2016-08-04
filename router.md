@@ -797,8 +797,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_stati
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| eip | String | Yes | 公网IP ID |
-| rotuer | String | Yes | 路由器ID |
+| eip | String | Yes | 公网IP (如传空字符串则表示解绑公网IP) |
 
 ### 服务端响应
 
@@ -815,9 +814,9 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router_static_entry/:router_stati
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/:router_id/bind_eip" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/router/rtr-139FXXX/bind_eip" --data '
 {
-    "key": "value"
+    "eip": "eip-38hjXXX"
 }'
 ```
 

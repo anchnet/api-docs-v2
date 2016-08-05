@@ -256,7 +256,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 ```
 
 
-## POST /volume_snapshots/capture_instance
+## POST /volume_snapshots/capture_instance/:snapshot_id
 
 **将指定备份导出为映像**
 

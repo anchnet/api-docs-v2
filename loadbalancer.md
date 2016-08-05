@@ -1099,7 +1099,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id/eips/associ
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancers | String[] | Yes | 负载均衡器ID |
-| loadbalancer_type | Int | Yes | 负载均衡器类型（MAX_CONNT_5000，MAX_CONNT_20000，MAX_CONNT_40000，MAX_CONNT_100000） |
+| loadbalancer_type | Int | Yes | 负载均衡器类型（MAX_COUNT_5000，MAX_COUNT_20000，MAX_COUNT_40000，MAX_COUNT_100000） |
 
 ### 服务端响应
 
@@ -1422,7 +1422,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers"
 |vxnet|String|Yes| 要加入的私网ID |
 |private_ip|String|NO| 要使用的私网IP |
 |loadbalancer_name|String|Yes|负载均衡器名称|
-|loadbalancer_type|String|Yes|负载均衡器类型 MAX_CONNT_5000，MAX_CONNT_20000，MAX_CONNT_40000，MAX_CONNT_100000 |
+|loadbalancer_type|String|Yes|负载均衡器类型 MAX_COUNT_5000，MAX_COUNT_20000，MAX_COUNT_40000，MAX_COUNT_100000 |
 |security_group|String|Yes|防火墙ID|
 
 #####eip

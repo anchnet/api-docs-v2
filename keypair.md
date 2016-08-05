@@ -166,9 +166,16 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id"
 
 ```js
 {
-    "keypris": [
-        "kp-CX82W3L"
-    ]
+    "job_id": "36eb4a49-25fd-42a9-87ec-40320f72be73",
+    "action": "DeleteKeyPairs",
+    "request_id": "c10c0c9d-6f54-4858-a2cd-5ba84704c675",
+    "status": "pending",
+    "create_time": "2016-08-05T10:23:16Z",
+    "begin_time": "",
+    "finished_time": "",
+    "extra": "",
+    "zone": "ac2",
+    "resource_ids": []
 }
 ```
 
@@ -358,6 +365,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| key_pairs | string | No |  密钥ID列表 ','分隔 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 
@@ -372,7 +380,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | total_count | Int | Yes | 根据过滤条件得到的密钥总数 |
-| keypairs | Resource[] | Yes | [<br>{<br>&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;"resource_id": "*String*"}<br>] |
+| resources | Resource[] | Yes | [<br>{<br>&nbsp;&nbsp;"keypair": "*String*",<br>&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;"resource_id": "*String*"}<br>] |
 
 ### 示例
 
@@ -386,7 +394,6 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/keypair/instances?offset=1&l
 
 ```js
 {
-    "keypair": "",
     "resources": [
         {
             "keypair": "kp-ZRM7SM2",

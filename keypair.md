@@ -379,22 +379,25 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/keypairs/:kp_id" --data '
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/keypair/kp-ZRM7SM2/instances?offset=1&limit=2"
+$ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/keypair/instances?offset=1&limit=2&key_pairs=kp-ZRM7SM2,kp-ZRM7SM9"
 ```
 
 #### 响应内容:
 
 ```js
 {
+    "keypair": "",
     "resources": [
         {
+            "keypair": "kp-ZRM7SM2",
             "resource_name": "test-go",
-            "resource_type": "instance",
+            "resource_type": "",
             "resource_id": "ins-TVXB1GX"
         },
         {
+            "keypair": "kp-ZRM7SM2",
             "resource_name": "test-go",
-            "resource_type": "instance",
+            "resource_type": "",
             "resource_id": "ins-16T0WNM"
         }
     ],

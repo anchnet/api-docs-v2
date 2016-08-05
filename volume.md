@@ -13,7 +13,7 @@
 | :-- | :-- | :-- | :-- |
 | size | Int | Yes | 硬盘容量，目前可创建最小 10G，最大 500G 的硬盘， 在此范围内的容量值必须是 10 的倍数 |
 | volume_name | String | No | 磁盘名称 |
-| volume_type | Int | No | 磁盘类型: <br/>性能型是 0<br/> 超高性能型是 3 (只能与超高性能主机挂载，目前只支持北京2区)，<br/>容量型因技术升级过程中，在各区的 type 值略有不同:<br/>北京1区，亚太1区：容量型是 1<br/>北京2区，广东1区：容量型是 2 |
+| volume_type | Int | No | 磁盘类型: <br/>性能型是 PERFORMANCE <br/>超高性能型是 HIGH_PERFORMANCE (只能与超高性能主机挂载，目前只支持北京2区)，<br/>容量型因技术升级过程中，在各区的 type 值略有不同:<br/>北京1区，亚太1区：容量型是 1<br/>北京2区，广东1区：容量型是 2 |
 | count | Int | No | 创建硬盘的数量，默认是1,注解 每块硬盘的容量是相同的  |
 
 ### 服务端响应
@@ -69,7 +69,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" --data='
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | volumes | String | No | 磁盘ID,多个以逗号隔开 |
-| volume_type | Int | No | 磁盘类型:性能型是 0 超高性能型是3|
+| volume_type | Int | No | 磁盘类型:性能型是 PERFORMANCE 超高性能型是 HIGH_PERFORMANCE|
 | status | String | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased ,多个以逗号隔开|
 | search_word | String | No | 搜索关键词，支持硬盘ID，硬盘名称 |
 | tags | String[] | No | 暂不支持 |
@@ -184,7 +184,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes" --data'{"VolumeType":0}'
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| volumes | String[] | Yes | 磁盘ID |
+| vol_id | String | Yes | 磁盘ID,多个按逗号隔开 |
+| force | String | No | 是否强制删除, 默认false不强制 <br/>true为强制 |
 
 ### 服务端响应
 
@@ -201,7 +202,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes" --data'{"VolumeType":0}'
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac2/volumes/vol-123edc?force=false"
 ```
 
 #### 响应内容:
@@ -248,7 +249,7 @@ QueryString说明: volume_id 硬盘ID
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes/vol-qsdfwf" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac2/volumes/vol-qsdfwf" --data '
 {
     "volume_name":"name",
     "description":"description"

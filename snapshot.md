@@ -16,7 +16,7 @@
 | :-- | :-- | :-- | :-- |
 | snapshots | String | No | 备份ID,多个以逗号隔开|
 | resource_id | String | No | 按资源 ID 进行过滤 |
-| snapshot_type | Int | No | 按备份类型过滤，0表示获取增量备份，1表示获取全量备份 |
+| snapshot_type | String | No | 按备份类型过滤，IS_INCREMENTAL 表示获取增量备份，IS_FULL 表示获取全量备份 |
 | status | String | No | 备份状态: pending, available, suspended, deleted, ceased ,多个以逗号隔开|
 | search_word | String | No | 搜索关键词 |
 | tags | String[] | No | 暂时不支持 |
@@ -35,7 +35,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| snapshots | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"snapshot_id": "*String*",<br>&nbsp;&nbsp;"snapshot_name": "*String*",<br>&nbsp;&nbsp;"description": "*String*",<br>&nbsp;&nbsp;"snapshot_type": "*Int*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"transition_status": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"status_time": "*String*",<br>&nbsp;&nbsp;"snapshot_time": "*String*",<br>&nbsp;&nbsp;"is_taken": "*Int*",<br>&nbsp;&nbsp;"is_head": "*Int*",<br>&nbsp;&nbsp;"head_chain": "*Int*",<br>&nbsp;&nbsp;"root_id": "*String*",<br>&nbsp;&nbsp;"parent_id": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>&nbsp;&nbsp;"total_size": "*Int*",<br>&nbsp;&nbsp;"total_count": "*Int*",<br>&nbsp;&nbsp;"lastest_snapshot_time": "*String*"<br>}<br>] |
+| snapshots | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"snapshot_id": "*String*",<br>&nbsp;&nbsp;"snapshot_name": "*String*",<br>&nbsp;&nbsp;"description": "*String*",<br>&nbsp;&nbsp;"snapshot_type": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"transition_status": "*String*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"status_time": "*String*",<br>&nbsp;&nbsp;"snapshot_time": "*String*",<br>&nbsp;&nbsp;"is_taken": "*Int*",<br>&nbsp;&nbsp;"is_head": "*Int*",<br>&nbsp;&nbsp;"head_chain": "*Int*",<br>&nbsp;&nbsp;"root_id": "*String*",<br>&nbsp;&nbsp;"parent_id": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>&nbsp;&nbsp;"total_size": "*Int*",<br>&nbsp;&nbsp;"total_count": "*Int*",<br>&nbsp;&nbsp;"lastest_snapshot_time": "*String*"<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例
@@ -54,7 +54,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
          "snapshot_id": "ss-BTZOND4",
          "snapshot_name": "son",
          "description": "",
-         "snapshot_type": 0,
+         "snapshot_type": "IS_FULL",
          "status": "available",
          "transition_status": "",
          "create_time": "2016-07-15T16:20:05Z",
@@ -131,7 +131,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots" --data '
 {
     "resources":["vol-SACNVJNS","vol-ascdvf"],
     "snapshot_name":"demos",
-    "is_full":0
+    "is_full":"IS_FULL"
 }'
 ```
 
@@ -256,7 +256,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 ```
 
 
-## POST /volume_snapshots/capture_instance
+## POST /volume_snapshots/capture_instance/:snapshot_id
 
 **将指定备份导出为映像**
 
@@ -286,9 +286,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance/:snapshot_id" --data '
 {
-    "snapshot": "s-COKDSO",
     "image_name":"demo"
 }'
 ```
@@ -311,7 +310,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 ```
 
 
-## POST /volume_snapshots/create_volume
+## POST /volume_snapshots/create_volume/:snapshot_id
 
 **将指定备份导出为硬盘**
 
@@ -341,9 +340,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume/:snapshot_id" --data '
 {
-    "snapshot": "s-vjknsndnk",
+   
     "volume_name":"demo"
 }'
 ```

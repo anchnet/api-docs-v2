@@ -256,7 +256,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 ```
 
 
-## POST /volume_snapshots/capture_instance
+## POST /volume_snapshots/capture_instance/:snapshot_id
 
 **将指定备份导出为映像**
 
@@ -286,9 +286,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/apply" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instance/:snapshot_id" --data '
 {
-    "snapshot": "s-COKDSO",
     "image_name":"demo"
 }'
 ```
@@ -311,7 +310,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 ```
 
 
-## POST /volume_snapshots/create_volume
+## POST /volume_snapshots/create_volume/:snapshot_id
 
 **将指定备份导出为硬盘**
 
@@ -341,9 +340,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/capture_instanc
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volume_snapshots/create_volume/:snapshot_id" --data '
 {
-    "snapshot": "s-vjknsndnk",
+   
     "volume_name":"demo"
 }'
 ```

@@ -184,7 +184,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes" --data'{"VolumeType":0}'
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| volumes | String[] | Yes | 磁盘ID |
+| vol_id | String | Yes | 磁盘ID,多个按逗号隔开 |
+| force | String | No | 是否强制删除, 默认false不强制 <br/>true为强制 |
 
 ### 服务端响应
 
@@ -201,7 +202,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volumes" --data'{"VolumeType":0}'
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/volumes/:vol_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac2/volumes/vol-123edc?force=false"
 ```
 
 #### 响应内容:
@@ -248,7 +249,7 @@ QueryString说明: volume_id 硬盘ID
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/volumes/vol-qsdfwf" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac2/volumes/vol-qsdfwf" --data '
 {
     "volume_name":"name",
     "description":"description"

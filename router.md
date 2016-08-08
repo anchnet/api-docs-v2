@@ -555,7 +555,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | val2 | String | No | 根据规则类型的不同，代表不同含义： <br> 端口转发规则：val2 表示目标 IP 。 <br> PPTP VPN 规则：val2 表示用户名和密码，格式为 user:password <br> DHCP 选项：val2 表示 DHCP 配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8;fixed-address=192.168.1.2”。 <br> 过滤控制：val2 表示『源端口』 <br> 三层 GRE 隧道：val2 表示目标网络，多个网络间以 “\|” 分隔。注意目标网络不能和路由器已有的私有网络重复。<br> 三层 IPsec 隧道：val2 表示本地网络，多个网络间以 “\|” 分隔。 <br> 私网DNS：val2 表示IP地址，格式为ip1;ip2，例如：”192.168.1.2;192.168.1.3” |
 | val3 | String | No | 根据规则类型的不同，代表不同含义： <br> 端口转发规则：val3 表示目标端口号。 <br> PPTP VPN 规则：val3 表示最大连接数，连接数范围是 1-253 <br> 过滤控制：val3 表示『目标 IP』 <br> 三层 IPsec 隧道：val3 表示目标网络，多个网络间以 “\|” 分隔。 |
 | val4 | String | No | 根据规则类型的不同，代表不同含义： <br> 端口转发规则：val4 表示端口转发协议，默认为 “tcp” ，目前支持 “tcp” 和 “udp” 两种协议。 <br> VPN 规则(PPTP)：val4 表示 VPN 客户端的网络地址段，目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。<br> 过滤控制：val4 表示『目标端口』 <br> 三层 IPsec 隧道：val4 表示IPsec隧道模式，默认为”main”，支持 主模式（main） 和 野蛮模式（aggrmode）。 |
-| val5 | String | No | 根据规则类型的不同，代表不同含义： <br> 过滤控制：val5 表示『行为』，包括： “accept” 和 “drop” |
+| val5 | String | No | 根据规则类型的不同，代表不同含义： <br> 过滤控制：val5 表示『优先级』 |
+| val6 | String | No | 根据规则类型的不同，代表不同含义：<br> 过滤控制：val6 表示 『行为』，包括： “accept” 和 “drop” |
 
 ### 服务端响应
 

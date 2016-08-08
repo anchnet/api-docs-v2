@@ -781,6 +781,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policies"
 | loadbalancer_policy | String | Yes | 转发策略ID |
 | loadbalancer_policy_name | String | NO | 转发策略名称 |
 | operator | String | NO |  转发策略规则间的逻辑关系：”and” 是『与』，”or” 是『或』，默认是 “or”  |
+| description | String | NO |  负载均衡器策略描述  |
 
 ### 服务端响应
 

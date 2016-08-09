@@ -617,7 +617,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| static_name | String | No | 路由器规则名称 |
+| router_static_name | String | No | 路由器规则名称 |
 | val1 | String | No |  当规则类型为端口转发规则时(static_type="PORT_FORWARD")，val1表示源端口。<br>  当规则类型为DHCP选项时(static_type="DHCP")，val1表示DHCP主机ID。  |
 | val2 | String | No |  当规则类型为端口转发规则时(static_type="PORT_FORWARD")，val2表示目标IP。<br> 当规则类型为VPN规则时(static_type="VPN")，val2表示VPN服务端口号，默认为1194。<br>当规则类型为DHCP选项时(static_type="DHCP")，val2表示DHCP配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8”。 |
 | val3 | String | No | 当规则类型为端口转发规则时(static_type= "PORT_FORWARD" )，val3表示目标端口号。<br><br>当规则类型为VPN规则时(static_type= "VPN" )，val3表示VPN协议，默认为”udp”。 |

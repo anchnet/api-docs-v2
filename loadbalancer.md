@@ -516,7 +516,7 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners_b
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | resource |string|Yes|后端资源ID|
-| vxnet|string|Yes|后端资源类型 LOADBALANCER_BACKEND_TYPE_IP ，LOADBALANCER_BACKEND_TYPE_ROUTER，LOADBALANCER_BACKEND_TYPE_INSTANCE |
+| vxnet|string|Yes|后端资源类型 resource_id ，managed_vxnet，vxnet-0 |
 | loadbalancer_backend_name |string|No|后端名称|
 | loadbalancer_policy |string|No|绑定策略ID|
 | port |int|Yes|端口号|

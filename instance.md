@@ -517,8 +517,17 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset_login_passwd" --
 
 ```js
 {
-    "key": "value"
-} 
+  "job_id": "ce9d13b7-cd22-4fef-8805-a0f04b7051f7",
+  "action": "ResetLoginPasswd",
+  "request_id": "1543d6bf-5434-4274-afb6-c33823dc04fb",
+  "status": "pending",
+  "create_time": "2016-08-17T06:16:32Z",
+  "begin_time": "",
+  "finished_time": "",
+  "extra": "",
+  "zone": "ac2",
+  "resource_ids": []
+}
 ```
 
 

@@ -480,6 +480,48 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 ```
 
 
+## POST /instances/reset_login_passwd
+
+**重置系统密码**
+
+*主机必须处于关机状态才能重置密码*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| instances | String[] | Yes | 主机实例 ID |
+| login_passwd | String | Yes | 登录密码 |
+
+### 服务端响应
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset_login_passwd" --data '
+{
+    "instances":["ins-AVVNTPJ"],
+    "login_passwd":"Test123456"
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+} 
+```
+
+
 ## DELETE /instances/:ins_id
 
 **销毁主机**

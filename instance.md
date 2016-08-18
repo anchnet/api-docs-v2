@@ -5,7 +5,7 @@
 
 ## POST /instances
 
-**新建主机**
+**打包产品**
 
 *详细描述*
 
@@ -15,25 +15,10 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| image_id | String | Yes | 镜像 ID |
-| instance_type | String | Yes | 主机类型 <br> PERFORMANCE: 性能型 <br> HIGH_PERFORMANCE: 超高性能型 |
-| cpu | Int | Yes | CPU 核心数 有效值为: 1, 2, 4, 8, 16 |
-| memory | Int | Yes | 内存 有效值为: 1024, 2048, 4096, 6144, 8192, 12288, 16384, 24576, 32768 <br> |
-| count | Int | No | 创建主机的数量, 默认值: 1<br> |
-| instance_name | String | Yes | 主机名称 |
-| login_mode | String | Yes | 指定登录方式。当为 linux 主机时，有效值为 keypair 和 passwd; 当为 windows 主机时，只能选用 passwd 登录方式。<br>当登录方式为 keypair 时，需要指定 login_keypair 参数；<br>当登录方式为 passwd 时，需要指定 login_passwd 参数。 |
-| login_keypair | String | Yes | 登录密钥ID |
-| login_passwd | String | Yes | 登录密码 |
-| vxnets | String[] | Yes | 主机要加入已有私有网络 ID  |
-| security_group | String | Yes | 主机加载防火墙 ID, 只有在 vxnets.n 包含基础网络（即：vxnet-0）时才需要提供。 若未提供，则默认加载缺省防火墙 |
-| volumes | String[] | Yes | 主机创建后自动加载的硬盘ID，如果传此参数，则参数 count 必须为1  |
-| need_newsid | Int | Yes | 1: 生成新的SID<br>0: 不生成新的SID<br>默认为0；只对Windows类型主机有效  |
-| need_userdata | Int | Yes |1: 使用 User Data 功能；<br>0: 不使用 User Data 功能；<br>默认为 0|
-| userdata_type | String | Yes | User Data 类型，有效值：’plain’, ‘exec’ 或 ‘tar’。为 ‘plain’或’exec’ 时，使用一个 Base64 编码后的字符串；为 ‘tar’ 时，使用一个压缩包（种类为 zip，tar，tgz，tbz） |
-| userdata_value | String | Yes | 暂未实现 |
-| userdata_path | String | No | User Data 和 MetaData 生成文件的存放路径。不输入或输入不合法时，为默认目录 /etc/qingcloud/userdata |
-| userdata_file | String | No | userdata_type 为 ‘exec’ 时，指定生成可执行文件的路径, 默认值: /etc/rc.local<br> |
-| eips | String[] | Yes | 主机要挂载已有公网IP ID |
+| instance | Object | Yes | 主机配置详情<br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"image_id": "*String*",<br>&nbsp;&nbsp;"instance_type": "*Int*",<br>&nbsp;&nbsp;"cpu": "*Int*",<br>&nbsp;&nbsp;"memory": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"instance_name": "*String*",<br>&nbsp;&nbsp;"login_mode": "*String*",<br>&nbsp;&nbsp;"login_keypair": "*String*",<br>&nbsp;&nbsp;"login_passwd": "*String*",<br>&nbsp;&nbsp;"vxnets": "*String[]*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"volumes": "*String[]*",<br>&nbsp;&nbsp;"need_newsid": "*Int*",<br>&nbsp;&nbsp;"need_userdata": "*Int*",<br>&nbsp;&nbsp;"userdata_type": "*String*",<br>&nbsp;&nbsp;"userdata_value": "*String*",<br>&nbsp;&nbsp;"instance_class": "*String*",<br>&nbsp;&nbsp;"userdata_path": "*String*",<br>&nbsp;&nbsp;"userdata_file": "*String*",<br>&nbsp;&nbsp;"eips": "*String[]*"<br>} |
+| vxnet | Object | Yes | 新建私有网络 <br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"type": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*"<br>} |
+| eip | Object | Yes | 新建公网 IP <br>[<br>{<br>&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"eip_group": "*String*"<br>}<br>] |
+| volume | Object | Yes | 新建磁盘<br>[<br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"volume_name": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>&nbsp;&nbsp;"volume_type": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*"<br>}<br>] |
 
 ### 服务端响应
 
@@ -50,9 +35,9 @@
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
 {
-    "key": "value2"
+    "key": "value"
 }'
 ```
 
@@ -191,53 +176,6 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances"
 
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" --data '
-{
-    "key": "value"
-}'
-```
-
-#### 响应内容:
-
-```js
-{
-    "key": "value"
-} 
-```
-
-
-## POST /instances_product
-
-**打包产品**
-
-*详细描述*
-
-### 请求
-
-#### 请求 Body 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| instance | Object | Yes | 主机配置详情<br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"image_id": "*String*",<br>&nbsp;&nbsp;"instance_type": "*Int*",<br>&nbsp;&nbsp;"cpu": "*Int*",<br>&nbsp;&nbsp;"memory": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"instance_name": "*String*",<br>&nbsp;&nbsp;"login_mode": "*String*",<br>&nbsp;&nbsp;"login_keypair": "*String*",<br>&nbsp;&nbsp;"login_passwd": "*String*",<br>&nbsp;&nbsp;"vxnets": "*String[]*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"volumes": "*String[]*",<br>&nbsp;&nbsp;"need_newsid": "*Int*",<br>&nbsp;&nbsp;"need_userdata": "*Int*",<br>&nbsp;&nbsp;"userdata_type": "*String*",<br>&nbsp;&nbsp;"userdata_value": "*String*",<br>&nbsp;&nbsp;"instance_class": "*String*",<br>&nbsp;&nbsp;"userdata_path": "*String*",<br>&nbsp;&nbsp;"userdata_file": "*String*",<br>&nbsp;&nbsp;"eips": "*String[]*"<br>} |
-| vxnet | Object | Yes | 新建私有网络 <br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"type": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*"<br>} |
-| eip | Object | Yes | 新建公网 IP <br>[<br>{<br>&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"eip_group": "*String*"<br>}<br>] |
-| volume | Object | Yes | 新建磁盘<br>[<br>{<br>&nbsp;&nbsp;"zone": "*String*",<br>&nbsp;&nbsp;"volume_name": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>&nbsp;&nbsp;"volume_type": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*"<br>}<br>] |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-参考: *[Job 数据结构](/job.html)*
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
 {
     "key": "value"
 }'

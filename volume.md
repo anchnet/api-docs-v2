@@ -73,7 +73,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes" --data='
 | status | String | No | 磁盘状态:pending, available, in-use, suspended, deleted, ceased ,多个以逗号隔开|
 | search_word | String | No | 搜索关键词，支持硬盘ID，硬盘名称 |
 | tags | String[] | No | 暂不支持 |
-| verbose | Int | No | 是否返回冗长的信息，目前 verbose 只支持为 0 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100<br> |
 

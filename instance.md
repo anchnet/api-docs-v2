@@ -545,6 +545,14 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset_login_passwd" --
 | :-- | :-- | :-- | :-- |
 | :ins_id | String | Yes | 主机实例 ID<br> *多个用英文半角逗号 ',' 分割* |
 
+
+### Query String 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :volumes | String | Yes | 强制删除磁盘列表， 多个以英文半角逗号','分隔 |
+| :eips | String | Yes | 强制删除公网IP列表， 多个以英文半角逗号','分隔 |
+
 ### 服务端响应
 
 #### 响应头信息
@@ -560,7 +568,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset_login_passwd" --
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/:ins_id"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/i-23kh43?volumes=vol-hk2h34,vol-23k4h324"
 ```
 
 #### 响应内容:

@@ -365,3 +365,33 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/eips"
 } 
 ```
 
+
+## GET /eip_groups
+
+**获取公网IP分组列表**
+
+*详细描述*
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| eip_groups | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"eip_group_id": "*String*",<br>&nbsp;&nbsp;"eip_group_name": "*String*"}] |
+| total_count | Int | Yes |  根据过滤条件得到的总数  |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/eip_groups"
+```
+
+#### 响应内容:
+
+```js
+{
+    "key": "value"
+}
+```
+

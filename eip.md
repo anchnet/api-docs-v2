@@ -287,6 +287,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | eips | String[] | Yes | 要释放的公网IP的ID |
+| force | bool | No | 是否强制删除资源，默认为false |
 
 ### 服务端响应
 

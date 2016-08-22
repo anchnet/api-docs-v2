@@ -15,4 +15,6 @@
     * [SSH 秘钥](keypair.md)
     * [负载均衡](loadbalancer.md)
     * [备份](snapshot.md)
+    * [事件通知](events.md)
+    * [JOB](job.md)
 

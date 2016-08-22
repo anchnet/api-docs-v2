@@ -290,7 +290,7 @@ total_count: 1
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | listener_port |int|Yes|监听端口|
-| listener_protocol|string|Yes| 监听协议，目前支持 HTTP ， TCP 和 HTTPS 三种。 当指定监听协议为 HTTPS，需指定服务证器书ID: server_certificate_id |
+| listener_protocol|string|Yes| 监听协议，目前支持 http ， tcp 和 https 三种。 当指定监听协议为 HTTPS，需指定服务证器书ID: server_certificate_id |
 | server_certificate_id|string|NO| 服务器证书 ID |
 | backend_protocol|string|Yes| 后端协议，需要跟监听协议一致 |
 | loadbalancer_listener_name|string|NO| 监听器名称 |
@@ -300,7 +300,7 @@ total_count: 1
 | healthy_check_method|string|NO|监听器健康检查方式。检查方式有 HTTP 和 TCP 两种。格式为:<br><br>TCP: tcp 。<br>HTTP: http\|url\|host，例如 http\|/index.html 或 http\|/index.html\|vhost.example.com 。<br>默认是 tcp|
 | healthy_check_option|string|NO|监听器健康检查参数配置，只有当启用了健康检查了之后才有效。格式为:<br><br>inter \| timeout \| fall \| rise ，表示<br><br>检查间隔(2-60s) \| 超时时间(5-300s) \| 不健康阈值(2-10次) \| 健康阈值(2-10次)。<br><br>默认是：10\|5\|2\|5|
 | listener_option|int|NO|附加选项。此值是由当前支持的2个附加选项以“按位与”的方式得到的十进制数：<br><br>取消URL校验: bit 位是1 (二进制的1)，表示是否可以让负载均衡器接受不符合编码规范的 URL，例如包含未编码中文字符的URL等<br>获取客户端IP: bit 位是2 (二进制的10)，表示是否将客户端的IP直接传递给后端。 开启本功能后，负载均衡器对与后端是完全透明的。后端主机TCP连接得到的源地址是客户端的IP， 而不是负载均衡器的IP。注意：仅支持受管网络中的后端。使用基础网络后端时，此功能无效。<br>数据压缩: bit 位是4 (二进制的100)， 表示是否使用gzip算法压缩文本数据，以减少网络流量。<br>禁用不安全的加密方式: bit 位是8 (二进制的1000), 禁用存在安全隐患的加密方式， 可能会不兼容低版本的客户端。|
-
+| timeout |int|no|超时时间|
 ### 服务端响应
 
 #### 响应头信息
@@ -393,6 +393,7 @@ $ curl -XDELETE "http://mq.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners/ lb
 | healthy_check_method | String | NO | 监听器健康检查方式。检查方式有 HTTP 和 TCP 两种。格式为:<br><br>TCP: tcp 。<br>HTTP: http\|url\|host，例如 http\|/index.html 或 http\|/index.html\|vhost.example.com 。 |
 | healthy_check_option | String | NO | 监听器健康检查参数配置，只有当启用了健康检查了之后才有效。格式为:<br><br>inter \| timeout \| fall \| rise ，表示<br><br>检查间隔(2-60s) \| 超时时间(5-300s) \| 不健康阈值(2-10次) \| 健康阈值(2-10次)。 |
 | listener_option | Int | NO | 附加选项。此值是由当前支持的2个附加选项以“按位与”的方式得到的十进制数：<br><br>取消URL校验: bit 位是1 (二进制的1)，表示是否可以让负载均衡器接受不符合编码规范的 URL，例如包含未编码中文字符的URL等<br>获取客户端IP: bit 位是2 (二进制的10)，表示是否将客户端的IP直接传递给后端。 开启本功能后，负载均衡器对与后端是完全透明的。后端主机TCP连接得到的源地址是客户端的IP， 而不是负载均衡器的IP。注意：仅支持受管网络中的后端。使用基础网络后端时，此功能无效。<br>数据压缩: bit 位是4 (二进制的100)， 表示是否使用gzip算法压缩文本数据，以减少网络流量。<br>禁用不安全的加密方式: bit 位是8 (二进制的1000), 禁用存在安全隐患的加密方式， 可能会不兼容低版本的客户端。 |
+| timeout | Int | NO | 超时时间 |
 
 ### 服务端响应
 
@@ -516,7 +517,7 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/loadbalancers_listeners_b
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | resource |string|Yes|后端资源ID|
-| vxnet|string|Yes|后端资源类型 LOADBALANCER_BACKEND_TYPE_IP ，LOADBALANCER_BACKEND_TYPE_ROUTER，LOADBALANCER_BACKEND_TYPE_INSTANCE |
+| vxnet|string|Yes|后端资源类型 resource_id ，managed_vxnet，vxnet-0 |
 | loadbalancer_backend_name |string|No|后端名称|
 | loadbalancer_policy |string|No|绑定策略ID|
 | port |int|Yes|端口号|
@@ -781,6 +782,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/loadbalancers_policies"
 | loadbalancer_policy | String | Yes | 转发策略ID |
 | loadbalancer_policy_name | String | NO | 转发策略名称 |
 | operator | String | NO |  转发策略规则间的逻辑关系：”and” 是『与』，”or” 是『或』，默认是 “or”  |
+| description | String | NO |  负载均衡器策略描述  |
 
 ### 服务端响应
 

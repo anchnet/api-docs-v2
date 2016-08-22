@@ -1367,6 +1367,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/loadbalancers/:lb_id"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | loadbalancers | String[] | NO | 负载均衡器ID |
+| lb_type | String| NO | 负载均衡器类型 VXNET_TYPE（私网） EIP_TYPE(公网) |
 | status | String[] | NO |  负载均衡器状态: pending，active，stopped，suspended，deleted，ceased  |
 | search_word | String | NO |  搜索关键词，支持负载均衡器ID，负载均衡器名称 |
 | offset | Int | NO |  数据偏移量，默认为0 |

@@ -517,3 +517,42 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/i-23kh43?volumes=vol
 } 
 ```
 
+
+## GET /instances_brokers/:ins_id
+
+**获取主机 Web Console Brokers**
+
+*用 于Web console 管理主机，Brokers 协议 WebSocket*
+
+注意：该接口请求时间为秒级别
+
+
+### 请求
+
+#### URI PATH 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| :ins_id | String | Yes | 主机实例 ID |
+
+### 服务端响应
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances_brokers/i-UXHODVM"
+```
+
+#### 响应内容:
+
+```js
+[
+    {
+        "instance_id": "i-UXHODVM",
+        "broker_port": 13693,
+        "broker_host": "cb1ac2.51idc.com"
+    }
+]
+```

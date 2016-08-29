@@ -1124,11 +1124,8 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 | name | String | Yes | 防火墙规则名称 |
 | start_port | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
 | end_port | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
-
-
 | icmp_type | String | Yes | 如果协议为 icmp，此值表示 ICMP 类型，具体类型可参见 ICMP 类型及代码 其他协议无需此值。|
 | icmp_code | String | Yes |如果协议为 icmp，此值表示 ICMP代码 ，其他协议无需此值 |
-
 | saddr | String | Yes | 用于上行规则，如果填写，则这条防火墙规则只对此目的IP（或IP段）有效。 |
 | daddr | String | Yes | 用于下行规则，如果填写，则这条防火墙规则只对此源IP（或IP段）有效。 |
 

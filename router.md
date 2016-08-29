@@ -571,7 +571,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 #### twogre_statics
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| remote_ip_ssh | string | yes | 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。 |
+| remote_ip_ssh | string | yes | 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。 | 
 
 ####  threegre_statics 
 |参数名 | 类型 | 是否必选 | 描述 |

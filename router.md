@@ -577,7 +577,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remoteip_ssh_p2plocalip_p2premoteip | string | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1。 |
-| goalnet | string | yes | 表示目标网络，多个网络间以 “|” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
+| goalnet | string | yes | 表示目标网络，多个网络间以 “\|” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
 
 ####  filter_control_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -592,8 +592,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remoteip_way_remoteid | string | yes | 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id |
-| localnet | string | yes | 表示本地网络，多个网络间以 “|” 分隔。
-私网DNS：val2 表示IP地址，格式为ip1;ip2，例 |
+| localnet | string | yes | 表示本地网络，多个网络间以 “\|” 分隔。
+私网DNS：val2 表示IP地址，格式为ip1;ip2，例 |\
 | goalnet | string | yes | 目标网络，多个网络间以 “|” 分隔. |
 | model | string | yes | 隧道模式，默认为main 支持主模式（main） 野蛮模式（aggrmode） |
 
@@ -694,7 +694,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remoteip_ssh_p2plocalip_p2premoteip | string | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1。 |
-| goalnet | string | yes | 表示目标网络，多个网络间以 “|” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
+| goalnet | string | yes | 表示目标网络，多个网络间以 “\|” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
 
 ####  filter_control_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -709,9 +709,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remoteip_way_remoteid | string | yes | 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id |
-| localnet | string | yes | 表示本地网络，多个网络间以 “|” 分隔。
+| localnet | string | yes | 表示本地网络，多个网络间以 “|\” 分隔。
 私网DNS：val2 表示IP地址，格式为ip1;ip2，例 |
-| goalnet | string | yes | 目标网络，多个网络间以 “|” 分隔. |
+| goalnet | string | yes | 目标网络，多个网络间以 “\|” 分隔. |
 | model | string | yes | 隧道模式，默认为main 支持主模式（main） 野蛮模式（aggrmode） |
 
 ####  dns_statics 

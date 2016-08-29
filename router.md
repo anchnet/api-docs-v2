@@ -662,7 +662,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| port_forward_statics | Object[] | No | 转发策略规则条目 |
+| port_forward_statics | Object | No | 转发策略规则条目 |
 | vpn_statics | Object | No | vpn规则条目 |
 | dhcp_statics | Object | No | dhcp规则条目 |
 | twogre_statics | Object | No | 二层gre规则条目 |

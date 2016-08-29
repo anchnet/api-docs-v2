@@ -933,25 +933,28 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id" -
 
 
 #### tcp , udp 信息
-*protocol 为tcp,udp时出现该参数, 其他协议无需此值*
+
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | start_port | String | no | 起始端口 |
 | end_port | String | No | 结束端口|
+*protocol 为tcp,udp时出现该参数, 其他协议无需此值*
 
 #### icmp 信息
-*protocol 为icmp时出现该参数  其他协议无需此值*
+
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | icmp_type | String | no |  ICMP类型 |
 | icmp_code | String | No |  ICMP代码|
+*protocol 为icmp时出现该参数  其他协议无需此值*
 
 #### address 信息
-*目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效*
+
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | saddr | String | no |  源IP,用于下行规则|
 | daddr | String | no |  目的IP,用于上行规则|
+*目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效*
 ### 服务端响应
 
 ### 示例

@@ -545,7 +545,16 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| router_statics | Object[] | Yes | 路由器规则信息 |
+| static_type | Object[] | Yes | 路由器规则信息 |
+| port_forward_statics | Object[] | No | 转发策略规则条目 |
+| vpn_statics | Object[] | No | vpn规则条目 |
+| dhcp_statics | Object[] | No | dhcp规则条目 |
+| twogre_statics | Object[] | No | 二层gre规则条目 |
+| filter_control_statics | Object[] | No | 过滤控制规则条目 |
+| threegre_statics | Object[] | No | 三层gre规则条目 |
+| threeipsec_statics | Object[] | No | 三层ipsec规则条目 |
+| dns_statics | Object[] | No | dns规则条目 |
+
 ####  router_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |

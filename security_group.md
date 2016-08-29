@@ -899,3 +899,397 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id" -
 }
 ```
 
+
+## GET /security_rules
+
+**获取防火墙规则**
+
+*详细描述*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| security_group | String | No | 防火墙ID |
+| security_group_rules | String[] | No | 防火墙规则ID |
+| direction | Int | No | 方向，0 表示下行，1 表示上行。默认为 0。 |
+| offset | Int | No | 数据偏移量，默认为0 |
+| limit | Int | No | 返回数据长度，默认为10，最大100 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+| total_count | Int | Yes | - |
+
+
+#### tcp , udp 信息
+*protocol 为tcp,udp时出现该参数, 其他协议无需此值*
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| start_port | String | no | 起始端口 |
+| end_port | String | No | 结束端口|
+
+#### icmp 信息
+*protocol 为icmp时出现该参数  其他协议无需此值*
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| icmp_type | String | no |  ICMP类型 |
+| icmp_code | String | No |  ICMP代码|
+
+#### address 信息
+*目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效*
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| saddr | String | no |  源IP,用于下行规则|
+| daddr | String | no |  目的IP,用于上行规则|
+### 服务端响应
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
+```
+
+#### 响应内容:
+
+```js
+{
+    "rules": [
+         {
+            "name": "ping",
+            "security_group_id": "sg-F2L8YCV",
+            "security_group_rule_id": "sgr-NY60OKL",
+            "priority": 1,
+            "action": "accept",
+            "direction": "DOWN",
+            "protocol": "icmp",
+            "disabled": 0,
+            "icmp": {
+                "icmp_type": "8",
+                "icmp_code": "0"
+            }
+        },
+        {
+            "name": "mstsc",
+            "security_group_id": "sg-F2L8YCV",
+            "security_group_rule_id": "sgr-NSH8ZSO",
+            "priority": 3,
+            "action": "accept",
+            "direction": "DOWN",
+            "protocol": "tcp",
+            "disabled": 0,
+            "tcp": {
+                "start_port": "3389",
+                "end_port": "3389"
+            }
+        }
+    ],
+    "total_count": 2
+}
+```
+
+
+## POST /security_rules
+
+**添加防火墙规则**
+
+*给防火墙添加规则。每条规则包括的属性为：*
+*protocol：协议*
+*priority：优先级，由高到低为 0 - 100*
+*security_group_rule_name：规则名称*
+*action：操作，分为 accept 接受 和 drop 拒绝*
+*direction：方向，0 表示下行，1 表示上行。*
+*tcp：如果协议为 tcp ，此值表示起始端口。*
+*udp：如果协议为 udp，此值表示结束端口。*
+*icmp:如果协议为 icmp，此值表示 ICMP 代码 具体代码可参见 ICMP 类型及代码*
+*val3：源IP*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| security_group | String | Yes | 防火墙ID |
+| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+
+
+#### Rule 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| security_group_id | String | Yes |   防火墙规则ID |
+| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
+| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
+| action | String | No | 行为：accept 表示接受，drop 为拒绝 |
+| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
+| name | String | No | 防火墙规则名称 |
+| tcp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
+| udp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |
+| icmp | Object | No | 如果协议为 icmp，此值表示 ICMP 类型,如果协议为 icmp，此值表示 ICMP 类型,其他协议无需此值 |
+| addr | Object | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
+{
+    "security_group": "sg-F2L8YCV",
+    "rules": [
+        {
+            "name": "ping",
+            "priority": 1,
+            "action": "accept",
+            "direction": "DOWN",
+            "protocol": "icmp",
+            "disabled": 0,
+            "icmp": {
+                "icmp_type": "8",
+                "icmp_code": "0"
+            },
+            "addr": {
+                "saddr": "192.168.11.12"
+            }
+        },
+        {
+            "name": "mstsc",
+            "priority": 3,
+            "action": "accept",
+            "direction": "DOWN",
+            "protocol": "tcp",
+            "disabled": 0,
+            "tcp": {
+                "start_port": "3389",
+                "end_port": "3389"
+            },
+            "addr": {
+                "saddr": "192.168.11.12"
+            }
+        }
+    ]
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+    "security_group_rules": [
+        "sgr-KNWLWNT",
+        "sgr-ERQCZYR"
+    ]
+}
+```
+
+
+## PUT /security_group_rules/:rules_id
+
+**修改防火墙属性**
+
+*详细描述*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
+| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
+| action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
+| direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
+| name | String | Yes | 防火墙规则名称 |
+| start_port | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
+| end_port | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
+
+
+| icmp_type | String | Yes | 如果协议为 icmp，此值表示 ICMP 类型，具体类型可参见 ICMP 类型及代码 其他协议无需此值。|
+| icmp_code | String | Yes |如果协议为 icmp，此值表示 ICMP代码 ，其他协议无需此值 |
+
+| saddr | String | Yes | 用于上行规则，如果填写，则这条防火墙规则只对此目的IP（或IP段）有效。 |
+| daddr | String | Yes | 用于下行规则，如果填写，则这条防火墙规则只对此源IP（或IP段）有效。 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id" --data '
+{
+    "name": "mstsc1",
+    "priority": 2,
+    "action": "accept",
+    "direction": "UP",
+    "protocol": "tcp",
+    "disabled": 0,
+    "start_port": "3389",
+    "end_port": "3389",
+    "daddr": "192.168.11.13"
+}'
+```
+
+#### 响应内容:
+
+```js
+{"rule_id":"sgr-ERQCZYR"}
+
+
+
+## DELETE /security_rules/:rules_id
+
+**删除防火墙规则**
+
+*删除防火墙规则。*
+
+*注 删除规则后，记得调用 ApplySecurityGroup 使其生效。*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| rules | String[] | Yes | 防火墙规则ID |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id"
+```
+
+#### 响应内容:
+
+```js
+{
+    "rules": [
+        "sgr-KNWLWNT"
+    ]
+}
+```
+
+## POST /new/security_group_product
+
+**创建防火墙并添加规则**
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| group_name | String | No | 防火墙名称 |
+| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/new/security_group_product" --data '
+{
+    "group_name":"secruity_group_name",
+    "rules": [
+        {
+            "name": "ping",
+            "priority": 1,
+            "action": "accept",
+            "direction": "DOWN",
+            "protocol": "icmp",
+            "disabled": 0,
+            "icmp": {
+                "icmp_type": "8",
+                "icmp_code": "0"
+            },
+            "addr": {
+                "saddr": "192.168.11.12"
+            }
+        },
+        {
+            "name": "mstsc",
+            "priority": 3,
+            "action": "accept",
+            "direction": "DOWN",
+            "protocol": "tcp",
+            "disabled": 0,
+            "tcp": {
+                "start_port": "3389",
+                "end_port": "3389"
+            },
+            "addr": {
+                "saddr": "192.168.11.12"
+            }
+        }
+    ]
+}
+```
+
+#### 响应内容:
+
+```js
+{
+    "job_id": "08b2ee3e-1be6-4c6c-802c-c3fd21143f5a",
+    "action": "CreateSecurityGroupProduction",
+    "request_id": "c37e2be8-c8e2-489b-be10-307a2d3fd611",
+    "status": "pending",
+    "create_time": "2016-08-29T10:47:46Z",
+    "begin_time": "",
+    "finished_time": "",
+    "extra": "",
+    "zone": "ac2",
+    "resource_ids": []
+}
+```

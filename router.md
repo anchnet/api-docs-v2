@@ -576,7 +576,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 ####  threegre_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| remoteip_ssh_p2plocalip_p2premoteip | string | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1。 |
+| remoteip_ssh_p2plocalip_p2premoteip | string | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1 |
 | goalnet | string | yes | 表示目标网络，多个网络间以 “\|” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
 
 ####  filter_control_statics 

@@ -558,7 +558,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 ####  vpn_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vpn_type | string| | yes | VPN 类型，目前支持 “openvpn” 和 “pptp”，默认值为 “openvpn”。 |
+| vpn_type | string | yes | VPN 类型，目前支持 “openvpn” 和 “pptp”，默认值为 “openvpn”。 |
 | user_pwd | string | yes | OpenVPN 规则：表示 VPN 服务端口号，默认为1194。<br />
  PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
 | connection_num | string | yes | OpenVPN 规则：表示 VPN 协议，默认为 “udp”。<br />
@@ -567,24 +567,24 @@ PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 ####  dhcp_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| instance_id | string| | yes | DHCP 主机ID |
+| instance_id | string | yes | DHCP 主机ID |
 | config | string | yes | 表示 DHCP 配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8;fixed-address=192.168.1.2”。 |
 
 #### twogre_statics
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| remote_ip_ssh | string| | yes | 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。 |
+| remote_ip_ssh | string | yes | 表示二层隧道的远端 IP 和密钥，如：gre\|1.2.3.4\|888。 |
 
 ####  threegre_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| remoteip_ssh_p2plocalip_p2premoteip | string| | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1。 |
+| remoteip_ssh_p2plocalip_p2premoteip | string | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6\|key\|1.2.3.4\|4.3.2.1。 |
 | goalnet | string | yes | 表示目标网络，多个网络间以 “|” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
 
 ####  filter_control_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| source_ip | string| | yes | 源ip地址 |
+| source_ip | string | yes | 源ip地址 |
 | source_port | string | yes | 源ip端口 |
 | goal_ip | string | yes | 目标ip地址 |
 | goal_port | string | yes | 目标ip端口 |
@@ -593,7 +593,7 @@ PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 ####  threeipsec_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| remoteip_way_remoteid | string| | yes | 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id |
+| remoteip_way_remoteid | string | yes | 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4\|\|passw0rd\|device-id |
 | localnet | string | yes | 表示本地网络，多个网络间以 “|” 分隔。
 私网DNS：val2 表示IP地址，格式为ip1;ip2，例 |
 | goalnet | string | yes | 目标网络，多个网络间以 “|” 分隔. |
@@ -602,7 +602,7 @@ PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 ####  dns_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| ip_address | string| | yes | ip地址 |
+| ip_address | string | yes | ip地址 |
 | domain_name | string | yes | 域名 |
 
 

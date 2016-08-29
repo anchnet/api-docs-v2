@@ -559,10 +559,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | vpn_type | string | yes | VPN 类型，目前支持 “openvpn” 和 “pptp”，默认值为 “openvpn”。 |
-| user_pwd | string | yes | OpenVPN 规则：表示 VPN 服务端口号，默认为1194。<br />
- PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
-| connection_num | string | yes | OpenVPN 规则：表示 VPN 协议，默认为 “udp”。<br />
-PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| user_pwd | string | yes | OpenVPN 规则：表示 VPN 服务端口号，默认为1194。<br />PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
+| connection_num | string | yes | OpenVPN 规则：表示 VPN 协议，默认为 “udp”。<br />PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 
 ####  dhcp_statics 
 |参数名 | 类型 | 是否必选 | 描述 |

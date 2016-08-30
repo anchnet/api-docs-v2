@@ -1037,7 +1037,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
+| direction | string | No | 方向， DOWN 表示下行，UP 表示上行。 |
 | name | String | No | 防火墙规则名称 |
 | tcp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
 | udp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |

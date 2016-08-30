@@ -1108,7 +1108,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 ```
 
 
-## PUT /security_group_rules/:rules_id
+## PUT /security_rules/:rules_id
 
 **修改防火墙属性**
 

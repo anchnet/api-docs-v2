@@ -196,9 +196,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_groups"
 
 **删除防火墙 支持批量**
 
-*防火墙须在没有资源（主机或路由器）使用的情况下才能被删除。已加载规则到资源的防火墙，需先将相关资源从防火墙移出后才能被删除。*
-*要删除的防火墙已加载规则到主机，则需要先调用 ApplySecurityGroup 将其他防火墙的规则应用到对应主机，之后才能被删除。*
-*要删除的防火墙已加载规则到路由器，则需要先调用 ModifyRouterAttributes 并 UpdateRouters 将其他防火墙的规则应用到对应路由器，之后才能被删除。*
+*防火墙须在没有资源（主机或路由器）使用的情况下才能被删除。已加载规则到资源的防火墙，需先将相关资源从防火墙移出后才能被删除<br>*
+*要删除的防火墙已加载规则到主机，则需要先调用 ApplySecurityGroup 将其他防火墙的规则应用到对应主机，之后才能被删除<br>*
+*要删除的防火墙已加载规则到路由器，则需要先调用 ModifyRouterAttributes 并 UpdateRouters 将其他防火墙的规则应用到对应路由器，之后才能被删除<br>*
 
 ### 请求
 
@@ -243,11 +243,11 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_groups/:sg_id"
 
 **应用防火墙 支持多台主机**
 
-*应用防火墙规则。当防火墙的规则发生改变后，新规则不会即刻生效 （可通过 is_applied 属性分辨），需要调用 ApplySecurityGroup 之后才生效。*
+*应用防火墙规则。当防火墙的规则发生改变后，新规则不会即刻生效 （可通过 is_applied 属性分辨），需要调用 ApplySecurityGroup 之后才生效<br>*
 
-*防火墙规则可通过 AddSecurityGroupRules, DeleteSecurityGroupRules, ModifySecurityGroupRuleAttributes 修改。*
+*防火墙规则可通过 AddSecurityGroupRules, DeleteSecurityGroupRules, ModifySecurityGroupRuleAttributes 修改<br>*
 
-*如果请求参数中传递了 instances.n ，则表示将此防火墙的规则应用到对应的主机。如果不传此参数，则会将最新规则更新到所有已应用此防火墙的主机*
+*如果请求参数中传递了 instances.n ，则表示将此防火墙的规则应用到对应的主机。如果不传此参数，则会将最新规则更新到所有已应用此防火墙的主机<br>*
 
 ### 请求
 
@@ -719,15 +719,15 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_group_rules"
 
 **添加防火墙规则**
 
-*给防火墙添加规则。每条规则包括的属性为：*
-*protocol：协议*
-*priority：优先级，由高到低为 0 - 100*
-*security_group_rule_name：规则名称*
-*action：操作，分为 accept 接受 和 drop 拒绝*
-*direction：方向，0 表示下行，1 表示上行。*
-*val1：如果协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码*
-*val2：如果协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码*
-*val3：源IP*
+*给防火墙添加规则。每条规则包括的属性为：<br>*
+*protocol：协议<br>*
+*priority：优先级，由高到低为 0 - 100<br>*
+*security_group_rule_name：规则名称<br>*
+*action：操作，分为 accept 接受 和 drop 拒绝<br>*
+*direction：方向，0 表示下行，1 表示上行<br>*
+*val1：如果协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码<br>*
+*val2：如果协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码<br>*
+*val3：源IP<br>*
 
 ### 请求
 

@@ -976,7 +976,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
             "security_group_rule_id": "sgr-NY60OKL",
             "priority": 1,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "icmp",
             "disabled": 0,
             "icmp": {
@@ -990,7 +990,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
             "security_group_rule_id": "sgr-NSH8ZSO",
             "priority": 3,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "tcp",
             "disabled": 0,
             "tcp": {
@@ -1037,7 +1037,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| direction | string | No | 方向， DOWN 表示下行，UP 表示上行。 |
+| direction | string | No | 方向， 0 表示下行，1 表示上行。 |
 | name | String | No | 防火墙规则名称 |
 | tcp | Object | No | 协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
 | udp | Object | No | 协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |
@@ -1066,7 +1066,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
             "name": "ping",
             "priority": 1,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "icmp",
             "disabled": 0,
             "icmp": {
@@ -1081,7 +1081,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
             "name": "mstsc",
             "priority": 3,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "tcp",
             "disabled": 0,
             "tcp": {
@@ -1123,7 +1123,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
-| direction | string | Yes | 方向，DOWN 表示下行，UP 表示上行。 |
+| direction | string | Yes | 方向，0 表示下行，0 表示上行。 |
 | name | String | Yes | 防火墙规则名称 |
 | start_port | String | Yes | 协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
 | end_port | String | Yes | 协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
@@ -1151,7 +1151,7 @@ $ curl -XPUT "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id" --
     "name": "mstsc1",
     "priority": 2,
     "action": "accept",
-    "direction": "UP",
+    "direction": 1,
     "protocol": "tcp",
     "disabled": 0,
     "start_port": "3389",
@@ -1247,7 +1247,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/new/security_group_product"
             "name": "ping",
             "priority": 1,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "icmp",
             "disabled": 0,
             "icmp": {
@@ -1262,7 +1262,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/new/security_group_product"
             "name": "mstsc",
             "priority": 3,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "tcp",
             "disabled": 0,
             "tcp": {

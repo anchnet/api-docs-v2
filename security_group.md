@@ -67,8 +67,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups" --data '
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val2 | String | No | 协议为 tcp 或 udp，此值表示起始端口。<br>协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | No | 协议为 tcp 或 udp，此值表示结束端口。<br>协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值 |
 | val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
 | direction | Int | No | 方向，0 表示下行，1 表示上行。 |
 | name | String | No | 防火墙规则名称 |
@@ -725,8 +725,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_group_rules"
 *security_group_rule_name：规则名称<br>*
 *action：操作，分为 accept 接受 和 drop 拒绝<br>*
 *direction：方向，0 表示下行，1 表示上行<br>*
-*val1：如果协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码<br>*
-*val2：如果协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码<br>*
+*val1：协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码<br>*
+*val2：协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码<br>*
 *val3：源IP<br>*
 
 ### 请求
@@ -857,8 +857,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
-| val2 | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
+| val2 | String | Yes | 协议为 tcp 或 udp，此值表示起始端口。<br>协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | Yes | 协议为 tcp 或 udp，此值表示结束端口。<br>协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
 | val3 | String | Yes | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
 | direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
 | name | String | Yes | 防火墙规则名称 |
@@ -1039,9 +1039,9 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 | action | String | No | 行为：accept 表示接受，drop 为拒绝 |
 | direction | string | No | 方向， DOWN 表示下行，UP 表示上行。 |
 | name | String | No | 防火墙规则名称 |
-| tcp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
-| udp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |
-| icmp | Object | No | 如果协议为 icmp，此值表示 ICMP 类型,如果协议为 icmp，此值表示 ICMP 类型,其他协议无需此值 |
+| tcp | Object | No | 协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
+| udp | Object | No | 协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |
+| icmp | Object | No | 协议为 icmp，此值表示 ICMP 类型,协议为 icmp，此值表示 ICMP 类型,其他协议无需此值 |
 | addr | Object | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
 ### 服务端响应
 
@@ -1125,10 +1125,10 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
 | direction | string | Yes | 方向，DOWN 表示下行，UP 表示上行。 |
 | name | String | Yes | 防火墙规则名称 |
-| start_port | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
-| end_port | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
-| icmp_type | String | Yes | 如果协议为 icmp，此值表示 ICMP 类型，具体类型可参见 ICMP 类型及代码 其他协议无需此值。|
-| icmp_code | String | Yes |如果协议为 icmp，此值表示 ICMP代码 ，其他协议无需此值 |
+| start_port | String | Yes | 协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
+| end_port | String | Yes | 协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
+| icmp_type | String | Yes | 协议为 icmp，此值表示 ICMP 类型，具体类型可参见 ICMP 类型及代码 其他协议无需此值。|
+| icmp_code | String | Yes |协议为 icmp，此值表示 ICMP代码 ，其他协议无需此值 |
 | saddr | String | Yes | 用于上行规则，如果填写，则这条防火墙规则只对此目的IP（或IP段）有效。 |
 | daddr | String | Yes | 用于下行规则，如果填写，则这条防火墙规则只对此源IP（或IP段）有效。 |
 

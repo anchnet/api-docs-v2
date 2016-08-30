@@ -1008,16 +1008,16 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 
 **添加防火墙规则**
 
-*给防火墙添加规则。每条规则包括的属性为：*
-*protocol：协议*
-*priority：优先级，由高到低为 0 - 100*
-*security_group_rule_name：规则名称*
-*action：操作，分为 accept 接受 和 drop 拒绝*
-*direction：方向，0 表示下行，1 表示上行。*
-*tcp：如果协议为 tcp ，此值表示起始端口。*
-*udp：如果协议为 udp，此值表示结束端口。*
-*icmp:如果协议为 icmp，此值表示 ICMP 代码 具体代码可参见 ICMP 类型及代码。*
-*addr：源IP*
+*给防火墙添加规则。每条规则包括的属性为：<br>*
+*protocol：协议 <br>*
+*priority：优先级，由高到低为 0 - 100<br>*
+*security_group_rule_name：规则名称<br>*
+*action：操作，分为 accept 接受 和 drop 拒绝<br>*
+*direction：方向，0 表示下行，1 表示上行<br>*
+*tcp：如果协议为 tcp ，此值表示起始端口<br>*
+*udp：如果协议为 udp，此值表示结束端口<br>*
+*icmp:如果协议为 icmp，此值表示 ICMP 代码 具体代码可参见 ICMP 类型及代码<br>*
+*addr：源IP<br>*
 
 ### 请求
 

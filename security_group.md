@@ -328,7 +328,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/apply_instances"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances" --data '
+$ curl -X POST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances" --data '
 {
   "security_group":"sg-YZOEB6B",
   "instances":["ins-C7WXRO0"]
@@ -1164,7 +1164,7 @@ $ curl -XPUT "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id" --
 
 ```js
 {"rule_id":"sgr-ERQCZYR"}
-
+```
 
 
 ## DELETE /security_rules/:rules_id

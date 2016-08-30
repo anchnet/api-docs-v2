@@ -555,7 +555,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | threeipsec_statics | Object[] | No | 三层ipsec规则条目 |
 | dns_statics | Object[] | No | dns规则条目 |
 
-#### vpn_statics
+#### port_forward_statics
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | source_port | string | yes | 源端口。 |

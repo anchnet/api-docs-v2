@@ -671,16 +671,16 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| port_forward_statics | Object | No | 转发策略规则条目 |
-| vpn_statics | Object | No | vpn规则条目 |
-| dhcp_statics | Object | No | dhcp规则条目 |
-| twogre_statics | Object | No | 二层gre规则条目 |
-| filter_control_statics | Object | No | 过滤控制规则条目 |
-| threegre_statics | Object | No | 三层gre规则条目 |
-| threeipsec_statics | Object | No | 三层ipsec规则条目 |
-| dns_statics | Object | No | dns规则条目 |
+| port_forward_static | Object | No | 转发策略规则条目 |
+| vpn_static | Object | No | vpn规则条目 |
+| dhcp_static | Object | No | dhcp规则条目 |
+| twogre_static | Object | No | 二层gre规则条目 |
+| filter_control_static | Object | No | 过滤控制规则条目 |
+| threegre_static | Object | No | 三层gre规则条目 |
+| threeipsec_static | Object | No | 三层ipsec规则条目 |
+| dns_static | Object | No | dns规则条目 |
 
-#### port_forward_statics
+#### port_forward_static
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | source_port | string | yes | 源端口。 |
@@ -689,31 +689,31 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | protocl | string | yes | 端口转发协议，默认为 “tcp” ，目前支持 “tcp” 和 “udp” 两种协议 |
 | router_static_name | string | yes | 规则名称。 |
 
-####  vpn_statics 
+####  vpn_static 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | vpn_type | string | yes | VPN 类型，目前支持 “openvpn” 和 “pptp”，默认值为 “openvpn”。 |
 | user_pwd | string | yes | OpenVPN 规则：表示 VPN 服务端口号，默认为1194。<br />PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
 | connection_num | string | yes | OpenVPN 规则：表示 VPN 协议，默认为 “udp”。<br />PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 
-####  dhcp_statics 
+####  dhcp_static 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instance_id | string | yes | DHCP 主机ID |
 | config | string | yes | 表示 DHCP 配置内容，格式为key1=value1;key2=value2，例如：”domain-name-servers=8.8.8.8;fixed-address=192.168.1.2”。 |
 
-#### twogre_statics
+#### twogre_static
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remote_ip_ssh | string | yes | 表示二层隧道的远端 IP 和密钥，如：gre&#124;1.2.3.4&#124;888。 | 
 
-####  threegre_statics 
+####  threegre_static 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remoteip_ssh_p2plocalip_p2premoteip | string | yes |  表示远端 IP 、密钥、本地点对点IP、对端点对点IP，格式如：6.6.6.6&#124;key&#124;1.2.3.4&#124;4.3.2.1。 |
 | goalnet | string | yes | 表示目标网络，多个网络间以 “&#124;” 分隔。注意目标网络不能和路由器已有的私有网络重复。 |
 
-####  filter_control_statics 
+####  filter_control_static 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | source_ip | string | yes | 源ip地址 |
@@ -722,7 +722,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | goal_port | string | yes | 目标ip端口 |
 | action | string | yes | 表示『行为』，包括： “accept” 和 “drop” |
 
-####  threeipsec_statics 
+####  threeipsec_static 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | remoteip_way_remoteid | string | yes | 表示远端IP（支持接受任意对端，可填 0.0.0.0） 、加密算法(phase2alg&ike，可为空，默认aes)、密钥和远端设备ID（支持接受任意对端设备ID，可填 %any），格式如：1.2.3.4&#124;&#124;passw0rd&#124;device-id |
@@ -730,7 +730,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | goalnet | string | yes | 目标网络，多个网络间以 “&#124;” 分隔. |
 | model | string | yes | 隧道模式，默认为main 支持主模式（main） 野蛮模式（aggrmode） |
 
-####  dns_statics 
+####  dns_static 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | ip_address | string | yes | ip地址 |

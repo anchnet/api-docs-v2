@@ -1017,7 +1017,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 *tcp：如果协议为 tcp ，此值表示起始端口。*
 *udp：如果协议为 udp，此值表示结束端口。*
 *icmp:如果协议为 icmp，此值表示 ICMP 代码 具体代码可参见 ICMP 类型及代码*
-*val3：源IP*
+*addr：源IP*
 
 ### 请求
 

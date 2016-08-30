@@ -1123,7 +1123,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
-| direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
+| direction | string | Yes | 方向，DOWN 表示下行，UP 表示上行。 |
 | name | String | Yes | 防火墙规则名称 |
 | start_port | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
 | end_port | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|

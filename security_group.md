@@ -67,8 +67,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups" --data '
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val2 | String | No | 协议为 tcp 或 udp，此值表示起始端口。<br>协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | No | 协议为 tcp 或 udp，此值表示结束端口。<br>协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值 |
 | val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
 | direction | Int | No | 方向，0 表示下行，1 表示上行。 |
 | name | String | No | 防火墙规则名称 |
@@ -196,9 +196,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_groups"
 
 **删除防火墙 支持批量**
 
-*防火墙须在没有资源（主机或路由器）使用的情况下才能被删除。已加载规则到资源的防火墙，需先将相关资源从防火墙移出后才能被删除。*
-*要删除的防火墙已加载规则到主机，则需要先调用 ApplySecurityGroup 将其他防火墙的规则应用到对应主机，之后才能被删除。*
-*要删除的防火墙已加载规则到路由器，则需要先调用 ModifyRouterAttributes 并 UpdateRouters 将其他防火墙的规则应用到对应路由器，之后才能被删除。*
+*防火墙须在没有资源（主机或路由器）使用的情况下才能被删除。已加载规则到资源的防火墙，需先将相关资源从防火墙移出后才能被删除<br>*
+*要删除的防火墙已加载规则到主机，则需要先调用 ApplySecurityGroup 将其他防火墙的规则应用到对应主机，之后才能被删除<br>*
+*要删除的防火墙已加载规则到路由器，则需要先调用 ModifyRouterAttributes 并 UpdateRouters 将其他防火墙的规则应用到对应路由器，之后才能被删除<br>*
 
 ### 请求
 
@@ -243,11 +243,11 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_groups/:sg_id"
 
 **应用防火墙 支持多台主机**
 
-*应用防火墙规则。当防火墙的规则发生改变后，新规则不会即刻生效 （可通过 is_applied 属性分辨），需要调用 ApplySecurityGroup 之后才生效。*
+*应用防火墙规则。当防火墙的规则发生改变后，新规则不会即刻生效 （可通过 is_applied 属性分辨），需要调用 ApplySecurityGroup 之后才生效<br>*
 
-*防火墙规则可通过 AddSecurityGroupRules, DeleteSecurityGroupRules, ModifySecurityGroupRuleAttributes 修改。*
+*防火墙规则可通过 AddSecurityGroupRules, DeleteSecurityGroupRules, ModifySecurityGroupRuleAttributes 修改<br>*
 
-*如果请求参数中传递了 instances.n ，则表示将此防火墙的规则应用到对应的主机。如果不传此参数，则会将最新规则更新到所有已应用此防火墙的主机*
+*如果请求参数中传递了 instances.n ，则表示将此防火墙的规则应用到对应的主机。如果不传此参数，则会将最新规则更新到所有已应用此防火墙的主机<br>*
 
 ### 请求
 
@@ -328,7 +328,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/apply_instances"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances" --data '
+$ curl -X POST "http://api.51idc.com/v2/zone/ac1/security_groups/remove_instances" --data '
 {
   "security_group":"sg-YZOEB6B",
   "instances":["ins-C7WXRO0"]
@@ -719,15 +719,15 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_group_rules"
 
 **添加防火墙规则**
 
-*给防火墙添加规则。每条规则包括的属性为：*
-*protocol：协议*
-*priority：优先级，由高到低为 0 - 100*
-*security_group_rule_name：规则名称*
-*action：操作，分为 accept 接受 和 drop 拒绝*
-*direction：方向，0 表示下行，1 表示上行。*
-*val1：如果协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码*
-*val2：如果协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码*
-*val3：源IP*
+*给防火墙添加规则。每条规则包括的属性为：<br>*
+*protocol：协议<br>*
+*priority：优先级，由高到低为 0 - 100<br>*
+*security_group_rule_name：规则名称<br>*
+*action：操作，分为 accept 接受 和 drop 拒绝<br>*
+*direction：方向，0 表示下行，1 表示上行<br>*
+*val1：协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码<br>*
+*val2：协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码<br>*
+*val3：源IP<br>*
 
 ### 请求
 
@@ -857,8 +857,8 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
-| val2 | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
+| val2 | String | Yes | 协议为 tcp 或 udp，此值表示起始端口。<br>协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
+| val1 | String | Yes | 协议为 tcp 或 udp，此值表示结束端口。<br>协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
 | val3 | String | Yes | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
 | direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
 | name | String | Yes | 防火墙规则名称 |
@@ -928,7 +928,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id" -
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*string*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
 | total_count | Int | Yes | - |
 
 
@@ -976,7 +976,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
             "security_group_rule_id": "sgr-NY60OKL",
             "priority": 1,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "icmp",
             "disabled": 0,
             "icmp": {
@@ -990,7 +990,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
             "security_group_rule_id": "sgr-NSH8ZSO",
             "priority": 3,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "tcp",
             "disabled": 0,
             "tcp": {
@@ -1008,16 +1008,16 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 
 **添加防火墙规则**
 
-*给防火墙添加规则。每条规则包括的属性为：*
-*protocol：协议*
-*priority：优先级，由高到低为 0 - 100*
-*security_group_rule_name：规则名称*
-*action：操作，分为 accept 接受 和 drop 拒绝*
-*direction：方向，0 表示下行，1 表示上行。*
-*tcp：如果协议为 tcp ，此值表示起始端口。*
-*udp：如果协议为 udp，此值表示结束端口。*
-*icmp:如果协议为 icmp，此值表示 ICMP 代码 具体代码可参见 ICMP 类型及代码*
-*val3：源IP*
+*给防火墙添加规则。每条规则包括的属性为：<br>*
+*protocol：协议 <br>*
+*priority：优先级，由高到低为 0 - 100<br>*
+*security_group_rule_name：规则名称<br>*
+*action：操作，分为 accept 接受 和 drop 拒绝<br>*
+*direction：方向，0 表示下行，1 表示上行<br>*
+*tcp：如果协议为 tcp ，此值表示起始端口<br>*
+*udp：如果协议为 udp，此值表示结束端口<br>*
+*icmp:如果协议为 icmp，此值表示 ICMP 代码 具体代码可参见 ICMP 类型及代码<br>*
+*addr：源IP<br>*
 
 ### 请求
 
@@ -1026,7 +1026,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | security_group | String | Yes | 防火墙ID |
-| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*string*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
 
 
 #### Rule 信息
@@ -1037,11 +1037,11 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules"
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
+| direction | string | No | 方向， 0 表示下行，1 表示上行。 |
 | name | String | No | 防火墙规则名称 |
-| tcp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
-| udp | Object | No | 如果协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |
-| icmp | Object | No | 如果协议为 icmp，此值表示 ICMP 类型,如果协议为 icmp，此值表示 ICMP 类型,其他协议无需此值 |
+| tcp | Object | No | 协议为 tcp ，此值表示起始,结束端口。其他协议无需此值 |
+| udp | Object | No | 协议为 tcp ，此值表示起始,结束端口。其他协议无需此值。 |
+| icmp | Object | No | 协议为 icmp，此值表示 ICMP 类型,协议为 icmp，此值表示 ICMP 类型,其他协议无需此值 |
 | addr | Object | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
 ### 服务端响应
 
@@ -1066,7 +1066,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
             "name": "ping",
             "priority": 1,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "icmp",
             "disabled": 0,
             "icmp": {
@@ -1081,7 +1081,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
             "name": "mstsc",
             "priority": 3,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "tcp",
             "disabled": 0,
             "tcp": {
@@ -1108,7 +1108,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 ```
 
 
-## PUT /security_group_rules/:rules_id
+## PUT /security_rules/:rules_id
 
 **修改防火墙属性**
 
@@ -1123,12 +1123,12 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules" --data '
 | protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
 | priority | Int | Yes | 优先级，由高到低为 0 - 100 |
 | action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
-| direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
+| direction | string | Yes | 方向，0 表示下行，0 表示上行。 |
 | name | String | Yes | 防火墙规则名称 |
-| start_port | String | Yes | 如果协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
-| end_port | String | Yes | 如果协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
-| icmp_type | String | Yes | 如果协议为 icmp，此值表示 ICMP 类型，具体类型可参见 ICMP 类型及代码 其他协议无需此值。|
-| icmp_code | String | Yes |如果协议为 icmp，此值表示 ICMP代码 ，其他协议无需此值 |
+| start_port | String | Yes | 协议为 tcp 或 udp，此值表示起始端口。其他协议无需此值 |
+| end_port | String | Yes | 协议为 tcp 或 udp，此值表示结束端口。其他协议无需此值。|
+| icmp_type | String | Yes | 协议为 icmp，此值表示 ICMP 类型，具体类型可参见 ICMP 类型及代码 其他协议无需此值。|
+| icmp_code | String | Yes |协议为 icmp，此值表示 ICMP代码 ，其他协议无需此值 |
 | saddr | String | Yes | 用于上行规则，如果填写，则这条防火墙规则只对此目的IP（或IP段）有效。 |
 | daddr | String | Yes | 用于下行规则，如果填写，则这条防火墙规则只对此源IP（或IP段）有效。 |
 
@@ -1151,7 +1151,7 @@ $ curl -XPUT "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id" --
     "name": "mstsc1",
     "priority": 2,
     "action": "accept",
-    "direction": "UP",
+    "direction": 1,
     "protocol": "tcp",
     "disabled": 0,
     "start_port": "3389",
@@ -1164,7 +1164,7 @@ $ curl -XPUT "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id" --
 
 ```js
 {"rule_id":"sgr-ERQCZYR"}
-
+```
 
 
 ## DELETE /security_rules/:rules_id
@@ -1222,7 +1222,7 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | group_name | String | No | 防火墙名称 |
-| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
+| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*string*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
 
 ### 服务端响应
 
@@ -1247,7 +1247,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/new/security_group_product"
             "name": "ping",
             "priority": 1,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "icmp",
             "disabled": 0,
             "icmp": {
@@ -1262,7 +1262,7 @@ $ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/new/security_group_product"
             "name": "mstsc",
             "priority": 3,
             "action": "accept",
-            "direction": "DOWN",
+            "direction": 0,
             "protocol": "tcp",
             "disabled": 0,
             "tcp": {

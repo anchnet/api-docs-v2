@@ -563,6 +563,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | target_port | string | yes | 目标端口。 |
 | protocl | string | yes | 端口转发协议，默认为 “tcp” ，目前支持 “tcp” 和 “udp” 两种协议 |
 | router_static_name | string | yes | 规则名称。 |
+| level | string | yes | 优先级 |
 
 ####  vpn_statics 
 |参数名 | 类型 | 是否必选 | 描述 |

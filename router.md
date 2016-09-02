@@ -568,9 +568,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 ####  vpn_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vpn_type | string | yes | VPN 类型，目前支持 “openvpn” 和 “pptp”，默认值为 “openvpn”。 |
-| user_pwd | string | yes | OpenVPN 规则：表示 VPN 服务端口号，默认为1194。<br />PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
-| connection_num | string | yes | OpenVPN 规则：表示 VPN 协议，默认为 “udp”。<br />PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| vpn_type | string | yes | VPN 类型，目前支持 “pptp”，默认值为 "pptp" |
+| user_pwd | string | yes | PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
+| connection_num | string | yes | PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| net address | string | yes | vpn网络地址 目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。 |
 
 ####  dhcp_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -690,12 +691,13 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | protocol | string | yes | 端口转发协议，默认为 “tcp” ，目前支持 “tcp” 和 “udp” 两种协议 |
 | router_static_name | string | yes | 规则名称。 |
 
-####  vpn_static 
+####  vpn_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vpn_type | string | yes | VPN 类型，目前支持 “openvpn” 和 “pptp”，默认值为 “openvpn”。 |
-| user_pwd | string | yes | OpenVPN 规则：表示 VPN 服务端口号，默认为1194。<br />PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
-| connection_num | string | yes | OpenVPN 规则：表示 VPN 协议，默认为 “udp”。<br />PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| vpn_type | string | yes | VPN 类型，目前支持 “pptp”，默认值为 "pptp" |
+| user_pwd | string | yes | PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
+| connection_num | string | yes | PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| net address | string | yes | vpn网络地址 目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。 |
 
 ####  dhcp_static 
 |参数名 | 类型 | 是否必选 | 描述 |

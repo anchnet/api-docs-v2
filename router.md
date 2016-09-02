@@ -572,7 +572,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | :-- | :-- | :-- | :-- |
 | vpn_type | string | yes | VPN 类型，目前支持 “pptp”，默认值为 "pptp" |
 | user_pwd | string | yes | PPTP VPN 规则：表示用户名和密码，格式为 user:passwor |
-| connection_num | string | yes | PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| connection_num | int | yes | PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 | net address | string | yes | vpn网络地址 目前支持10.255.x.0/24，x的范围是[0-255]，默认为自动分配。 |
 
 ####  dhcp_statics 
@@ -701,7 +701,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 ####  vpn_statics 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| connection_num | string | no | PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
+| connection_num | int | no | PPTP VPN 规则：表示最大连接数，连接数范围是 1-253 |
 
 ####  dhcp_static 
 |参数名 | 类型 | 是否必选 | 描述 |

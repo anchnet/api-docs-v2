@@ -554,6 +554,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | threegre_statics | Object[] | No | 三层gre规则条目 |
 | threeipsec_statics | Object[] | No | 三层ipsec规则条目 |
 | dns_statics | Object[] | No | dns规则条目 |
+| config_statics | Object[] | No | 高级配置规则条目 |
+
 
 #### port_forward_statics
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -613,6 +615,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/router/rtr-E7D5XXX" --data '
 | ip_address | string | yes | ip地址 |
 | domain_name | string | yes | 域名 |
 
+####  config_statics 
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| mss | int | yes | mss |
 
 ### 服务端响应
 
@@ -681,6 +687,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | threegre_static | Object | No | 三层gre规则条目 |
 | threeipsec_static | Object | No | 三层ipsec规则条目 |
 | dns_static | Object | No | dns规则条目 |
+| config_static | Object | No | dns规则条目 |
 
 #### port_forward_static
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -735,6 +742,12 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac2/router/rtr-8E0BXXX/statics" --da
 | :-- | :-- | :-- | :-- |
 | ip_address | string | yes | ip地址 |
 | domain_name | string | yes | 域名 |
+
+####  config_static
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| mss | int | yes | mss |
+
 
 ### 服务端响应
 

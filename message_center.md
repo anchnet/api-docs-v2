@@ -442,7 +442,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
 
 *标记为已读*
 
-*一次只能修改多个消息对*
+*一次能修改多个消息对*
 
 ### 请求
 

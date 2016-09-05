@@ -328,9 +328,9 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages" --data '
   "message_ids":["msg_123443"]
 }
 ```
-# SSH 秘钥
+<!--# SSH 秘钥
 
-<!--
+
 ## GET /v2/zone/:zone/keypair/instances
 
 **获取秘钥的主机信息**

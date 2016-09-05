@@ -315,7 +315,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/keypairs/detach" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
 {
   "messages":["msg_123443"],
 }'

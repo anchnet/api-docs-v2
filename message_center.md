@@ -391,11 +391,10 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 
 ## PUT /notice_receivers
 
-**标记为已读**
+**修改联系人**
 
-*标记为已读*
+*修改联系人*
 
-*一次只能修改多个消息对*
 
 ### 请求
 
@@ -438,11 +437,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
 
 ## PUT /notice_way
 
-**标记为已读**
+**修改消息接收接收方式**
 
-*标记为已读*
+*修改消息接收接收方式*
 
-*一次能修改多个消息对*
 
 ### 请求
 

@@ -355,7 +355,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | id | string | Yes | 根据过滤条件得到的密钥总数 |
-| resources | Resource[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"create_at": "*String*"<br>&nbsp;&nbsp;"receivers": "*object[]*",<br>&nbsp;&nbsp;"name": "*String[]*"}<br>] |
+| notice_types | NoticeType[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"create_at": "*String*"<br>&nbsp;&nbsp;"receivers": "*object[]*",<br>&nbsp;&nbsp;"name": "*String[]*"}<br>] |
 
 ### 示例
 

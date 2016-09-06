@@ -368,19 +368,22 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 #### 响应内容:
 
 ```js
-{
-    "id":"id"
-    "name":"name",
-    "remark" :"remark"  
-    "create_at":"",
-    "notice_ways":[],
-    "receivers": [
+{   "notice_types":[
         {
-            "id":"id"
+            "id":"id",
             "name":"name",
-            "mail" :"mail"  
-            "mobile":"mobile",
-            "type":"type"
+            "remark" :"remark",  
+            "create_at":"",
+            "notice_ways":[],
+            "receivers": [
+                {
+                "id":"id",
+                "name":"name",
+                "mail" :"mail",
+                "mobile":"mobile",
+                "type":"type"
+                }
+            ]
         }
     ],
     "total_count": 7

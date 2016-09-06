@@ -17,7 +17,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | tag_ids | String[] | No | 标签ID |
-| name | String| No | 名称 |
+| search_word | String| No | 查询条件 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 

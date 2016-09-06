@@ -1,4 +1,4 @@
-# SSH 秘钥
+# 消息
 
 <!-- toc -->
 
@@ -17,7 +17,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | message_ids | String[] | No | 消息ID |
-| parent_type | String| No | 父类别 |
+<!--| parent_type | String| No | 父类别 |-->
 | type | String| No | 消息类别 |
 | status | Int| No | 状态 |
 | offset | Int | No | 数据偏移量，默认为0 |

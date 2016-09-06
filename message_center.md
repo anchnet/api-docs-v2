@@ -19,7 +19,7 @@
 | message_ids | String[] | No | 消息ID |
 | parent_type | String| No | 父类别 |
 | type | String| No | 消息类别 |
-| type | Int| No | 状态 |
+| status | Int| No | 状态 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 

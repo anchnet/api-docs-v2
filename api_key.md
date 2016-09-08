@@ -136,7 +136,7 @@ _empty object_
 
 
 
-## POST /api_keys/:key_id
+## PUT /api_keys/:key_id
 
 
 
@@ -145,9 +145,14 @@ _empty object_
 
 
 
-
 ### 请求
 
+#### URI 参数
+|参数名 | 类型 | 是否必选 | 描述 |
+
+| :-- | :-- | :-- | :-- |
+
+| key_id | String | Yes | APIKey ID |
 
 
 #### Body JSON 参数

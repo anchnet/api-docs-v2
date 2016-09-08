@@ -127,7 +127,14 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 |200|成功|
 |404|APIKey 不存在|
 
+```
+HTTP/1.1 200 OK
+Server: nginx/1.8.1
+Date: Thu, 08 Sep 2016 05:37:16 GMT
+Content-Type: application/json
 
+{}
+```
 #### Body 内容
 
 _empty object_
@@ -179,8 +186,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys/api-H3KH54" --data '
 ```
 
 #### 响应内容:
-
-
 
 ```js
 

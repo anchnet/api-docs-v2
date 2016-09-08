@@ -112,6 +112,17 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 ## DELETE /api_keys/:key_id
 **删除APIKey**
 
+### 请求
+
+
+
+#### Body JSON 参数
+
+
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| key_id | String | Yes | 名称 |
 
 ### 服务端响应
 

@@ -152,14 +152,9 @@ _empty object_
 
 #### Body JSON 参数
 
-
-
 |参数名 | 类型 | 是否必选 | 描述 |
-
 | :-- | :-- | :-- | :-- |
-
 | name | String | Yes | 名称 |
-
 | description | String | No | 描述 |
 
 

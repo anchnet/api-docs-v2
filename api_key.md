@@ -29,8 +29,6 @@
 |secret_key|string|是|secret_key|
 |enabled|int|是|启用状态 **1** 启用 **0** 禁用|
 
-
-
 ### 示例
 
 #### 发送请求

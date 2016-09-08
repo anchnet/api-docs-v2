@@ -121,3 +121,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 
 ### 服务端响应
 
+#### 相应状态码
+|状态吗 | 描述 |
+| :-- | :-- |
+|200|成功|
+

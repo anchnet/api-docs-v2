@@ -98,7 +98,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 
 ```js
  {
- "ins_id":"api-sk34h3k4",
+ "key_id":"api-sk34h3k4",
  "name":"测试 KEY",
  "description":"测试描述",
  "access_id":"4h3k2h4k32hk4h3",

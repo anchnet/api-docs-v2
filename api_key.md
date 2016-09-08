@@ -88,7 +88,11 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/api_keys"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys"
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
+{
+    "name":"test api",
+    "description":"test desc"
+}
 ```
 
 

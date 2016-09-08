@@ -76,7 +76,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/api_keys"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-|ins_id|string|是|ID|
+|key_id|string|是|ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
 |access_id|string|是|access_id|

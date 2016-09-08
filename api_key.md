@@ -133,3 +133,107 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 _empty object_
 `{}`
 
+
+
+
+## POST /api_keys/:key_id
+
+
+
+**创建APIKey**
+
+
+
+
+
+### 请求
+
+
+
+#### Body JSON 参数
+
+
+
+|参数名 | 类型 | 是否必选 | 描述 |
+
+| :-- | :-- | :-- | :-- |
+
+| name | String | Yes | 名称 |
+
+| description | String | No | 描述 |
+
+
+
+
+
+### 服务端响应
+
+
+
+|参数名 | 类型 | 是否必选 | 描述 |
+
+| :-- | :-- | :-- | :-- |
+
+|key_id|string|是|ID|
+
+|name|string|是|秘钥名称|
+
+|description|sring|是|秘钥描述|
+
+|access_id|string|是|access_id|
+
+|secret_key|string|是|secret_key|
+
+|enabled|int|是|启用状态 **1** 启用 **0** 禁用|
+
+
+
+
+
+### 示例
+
+#### 发送请求
+
+
+
+```bash
+
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
+
+{
+
+ "name":"test api",
+
+ "description":"test desc"
+
+}'
+
+```
+
+#### 响应内容:
+
+
+
+```js
+
+ {
+
+ "key_id":"api-sk34h3k4",
+
+ "name":"测试 KEY",
+
+ "description":"测试描述",
+
+ "access_id":"4h3k2h4k32hk4h3",
+
+ "secret_key":"k23k4hk3j2h4kj",
+
+ "enabled":1,
+
+ "created_at":"2016-02-23T19:23:11Z"
+
+ }
+
+```
+
+

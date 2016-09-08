@@ -70,7 +70,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys"
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 名称 |
 | description | String | No | 描述 |
-| limit | Int | No | 默认值: 10 |
 
 
 

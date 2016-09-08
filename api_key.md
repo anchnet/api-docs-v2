@@ -138,12 +138,9 @@ _empty object_
 
 ## PUT /api_keys/:key_id
 
-
-
-**创建APIKey**
+**修改APIKey**
 
 ### 请求
-
 #### URI 参数
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |

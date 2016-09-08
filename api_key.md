@@ -142,16 +142,11 @@ _empty object_
 
 **创建APIKey**
 
-
-
-
 ### 请求
 
 #### URI 参数
 |参数名 | 类型 | 是否必选 | 描述 |
-
 | :-- | :-- | :-- | :-- |
-
 | key_id | String | Yes | APIKey ID |
 
 

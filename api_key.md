@@ -170,9 +170,7 @@ _empty object_
 #### 发送请求
 
 ```bash
-
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
-
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys/api-H3KH54" --data '
 {
 
  "name":"test api",

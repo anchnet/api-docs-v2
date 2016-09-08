@@ -68,7 +68,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| name | String | Yes | 名称/Tag |
+| name | String | Yes | 名称 |
 | offset | Int | Yes | 偏移量 |
 | limit | Int | No | 默认值: 10 |
 

@@ -122,8 +122,56 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
     "permit_addr": "http://wwww.51idc.com",
     "organizationcode": "456",
     "organizationCode_adrr": "http://www.51idc.com"
+    "authorization": "121"
 }
 ```
+## PUT /customer
+
+**修改用户基本信息**
+
+*修改用户的基本信息*
+
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| post_field | String | No | 可选字段，"phone"修改绑定手机，"auth"修改服务授权码 |
+| tel | string | No | 固定电话 |
+| address | string | No | 地址 |
+| postcode | string | No | 邮编 |
+| fax | string | No | 传真 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
+{
+    "tel":"021-45612",
+    "address":"宝山",
+    "postcode":"201900",
+    "fax":"021-45612"
+}'
+```
+
+#### 响应内容:
+
+```js
+```
+
 
 ## GET /customer/available:customer_name
 
@@ -165,12 +213,80 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc
     "available": "51idc"
 } 
 ```
+## GET /customer/contacts
 
-## PUT /customer
+**获取用户联系人信息**
 
-**修改用户信息**
+*获取用户联系人的基本信息*
 
-*修改用户的基本信息*
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| offset | Int | No | 数据偏移量，默认为0 |
+| limit | Int | No | 返回数据长度，默认为10，最大100 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String*",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>&nbsp;&nbsp;"id": "*Int*"<br>}<br>] |
+| total_count | Int | Yes | - |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
+```
+
+#### 响应内容:
+
+```js
+   {
+   "contacts": [
+      {
+         "name": "小张",
+         "sex": "M",
+         "tel": "021-25228622",
+         "mobile": "13751247782",
+         "email": "test@163.com",
+         "con_type": "Jtype",
+         "cred_type": "Identity",
+         "credentials": "330104598502150915",
+         "id": 19895
+      },
+      {
+         "name": "小李",
+         "sex": "M",
+         "tel": "",
+         "mobile": "15721460942",
+         "email": "test2@heheda.net",
+         "con_type": "Stype",
+         "cred_type": "Identity",
+         "credentials": "728923198511293151",
+         "id": 20477
+      }
+   ],
+   "total_count": 2
+}
+ 
+```
+
+## PUT /customer/contacts
+
+**修改联系人信息**
+
+*修改用户联系人信息*
 
 ### 请求
 
@@ -178,10 +294,12 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| name | String | No | 姓名 |
+| sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
 | address | String | No | 联系地址 |
 | postcode | String | No | 邮编 |
-| fax | String | No | 传真 |
+| email | String | No | 邮箱 |
 | mobile | String | No | 手机 |
 
 ### 服务端响应

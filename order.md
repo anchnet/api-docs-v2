@@ -41,7 +41,7 @@
 | order_name | String | Yes | 订单列表 |
 | order_number | Int | Yes | 根据过滤条件得到的总数 |
 | resource_type | String | Yes | 资源的类型 CLOUD(云资源) IDC(物理架构) |
-| account_type| String | Yes | 账户类型 MAIN(主账号) BUSINESS（商务）TECHNOLOGY(技术) CHILD（子账号） |
+| account_type| String | Yes | 账户类型 admin(主账号) sub（子账号） |
 | pay_way | String | Yes | PREPAY（包年包月）POSTPAY（按需） |
 | product_name | String | Yes | 产品名称 |
 | order_state | String | Yes | 订单状态 PREPAID（已支付）NOTPAY（未支付）SUSPEND(已终止) EXPIREING(即将到期) |

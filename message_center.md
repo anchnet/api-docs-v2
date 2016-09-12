@@ -377,36 +377,36 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
             "notice_ways":[],
             "receivers": [],
             "childs":[
-                   {
-            "id":"id",
-            "name":"产品创建的信息通知",
-            "remark" :"remark",  
-            "create_at":"",
-            "notice_ways":[],
-            "receivers": [],
-            "childs":[]
+                {
+                    "id":"id",
+                    "name":"产品创建的信息通知",
+                    "remark" :"remark",  
+                    "create_at":"",
+                    "notice_ways":[],
+                    "receivers": [],
+                    "childs":[]
               },
-                          {
-            "id":"id",
-            "name":"产品欠费、即将停机的信息通知",
-            "remark" :"remark",  
-            "create_at":"",
-            "notice_ways":[],
-            "receivers": [],
-            "childs":[]
+            {
+                "id":"id",
+                "name":"产品欠费、即将停机的信息通知",
+                "remark" :"remark",  
+                "create_at":"",
+                "notice_ways":[],
+                "receivers": [],
+                "childs":[]
               }
-            ]
-        },
-        {
-            "id":"id",
-            "name":"运维事件",
-            "remark" :"remark",  
-            "create_at":"",
-            "notice_ways":[],
-            "receivers": [],
-            "childs":[]
-        }
-    ],
+        ]
+    },
+    {
+        "id":"id",
+        "name":"运维事件",
+        "remark" :"remark",  
+        "create_at":"",
+        "notice_ways":[],
+        "receivers": [],
+        "childs":[]
+    }
+  ],
     "total_count": 7
 }
 ```

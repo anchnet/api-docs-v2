@@ -339,7 +339,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
 {
     "id": 3677
 } 
-`
+```
+
 ## DELETE /customer/contacts/:contact_ids
 
 **删除联系人 支持批量**
@@ -454,7 +455,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 ```
 
 #### 响应内容:
@@ -468,7 +469,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
          "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
-         "status": "active"
+         "status": "activity"
       },
       {
          "login_id": "test@51idc.com",
@@ -476,10 +477,296 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
          "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
-         "status": "active"
+         "status": "activity"
       }
    ],
    "total_count": 2
 }
  
+```
+## post /customer/accounts
+
+**增加新账户**
+
+*增加新登录账户*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| login_id | String | Yes | 登录账户 |
+| passwd | String | Yes | 密码 |
+| tel | String | No | 固定电话 |
+| mobile | String | Yes | 手机 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| login_id | string | Yes | 账户 |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
+{
+    "login_id":"",
+    "passwd":"123abc",
+    "tel":"021-9621312",
+    "mobile":"13312345864"
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+    "login_id": ""
+} 
+```
+## DELETE /customer/accounts/:account_ids
+
+**删除登录账户 支持批量**
+
+*删除一个或多个用户的登录账户*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| account_ids | Int[] | Yes | 账户ID列表 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids"
+```
+
+#### 响应内容:
+
+```js
+{
+    "account_ids": []
+}
+```
+## PUT /customer/accounts:account_id/disabled
+
+**禁用账户**
+
+*修改用户登录账户状态*
+
+### 请求
+
+#### 请求 Body 参数
+`NULL`
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| account_id | String | Yes | 登录Id |
+
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/disabled
+```
+
+#### 响应内容:
+
+```js
+{
+    "account_id": "test@gmail.com"
+} 
+```
+## PUT /customer/accounts:account_id/undisabled
+
+**解禁账户**
+
+*修改用户登录账户状态*
+
+### 请求
+
+#### 请求 Body 参数
+`NULL`
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| account_id | String | Yes | 登录Id |
+
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/undisabled
+```
+
+#### 响应内容:
+
+```js
+{
+    "account_id": "test@gmail.com"
+} 
+```
+
+
+## GET /customer/profession
+
+**获取业务信息**
+
+*获取用户的业务信息*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| industry_application | String | No | 行业应用 |
+| main_business | String | No | 主营业务 |
+| website | String | No | 用户网址 |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/profession"
+```
+
+#### 响应内容:
+
+```js
+{
+    "industry_application": "",
+    "main_business": "",
+    "website": ""
+}
+```
+
+## PUT /customer/profession
+
+**修改业务信息**
+
+*修改用户业务信息*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| industry_application | String | No | 行业应用 |
+| main_business | String | No | 主营业务 |
+| website | String | No | 用户网址 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
+{
+    "industry_application":"",
+    "main_business":"",
+    "website":""
+}'
+```
+## PUT /customer/account/passwd
+
+**修改密码**
+
+*修改登录密码*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| login_id | String | Yes | 帐号 |
+| old_passwd | String | Yes | 原密码 |
+| new_passwd | String | Yes | 新密码 |
+| verify_type | String | Yes | 验证方式，phone对应手机，wechat对应微信 |
+| verify_code | String | Yes | 验证码 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
+{
+    "login_id":"",
+    "old_passwd":"",
+    "new_passwd":"",
+    "verify_type":"",
+    "verify_code":""
+}'
 ```

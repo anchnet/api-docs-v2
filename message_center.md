@@ -354,8 +354,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| id | string | Yes | 根据过滤条件得到的密钥总数 |
-| notice_types | NoticeType[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"create_at": "*String*"<br>&nbsp;&nbsp;"receivers": "*object[]*",<br>&nbsp;&nbsp;"name": "*String[]*"}<br>] |
+| total_count | Int | Yes | 根据过滤条件得到的密钥总数 |
+| notice_types | NoticeType[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"create_at": "*String*"<br>&nbsp;&nbsp;"receivers": "*object[]*",<br>&nbsp;&nbsp;"notice_ways": "*String[]*"<br>&nbsp;&nbsp;"childs": "*NoticeType[]*",<br>}<br>] |
 
 ### 示例
 
@@ -383,7 +383,8 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
                 "mobile":"mobile",
                 "type":"type"
                 }
-            ]
+            ],
+            "childs":[]
         }
     ],
     "total_count": 7
@@ -423,8 +424,8 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
 {
-  "notice_type_id":["not_123443"],
-   "contact_ids":["attn_123443"]
+    "notice_type_id":["not_123443"],
+    "contact_ids":["attn_123443"]
 }'
 ```
 

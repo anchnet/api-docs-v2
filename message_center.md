@@ -199,7 +199,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
                     "name":"产品创建的信息通知",
                     "remark" :"remark",  
                     "create_at":"",
-                    "notice_ways":[],
+                    "notice_ways":["sms","mail"],
                     "receivers": [],
                     "childs":[]
               },
@@ -208,7 +208,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
                 "name":"产品欠费、即将停机的信息通知",
                 "remark" :"remark",  
                 "create_at":"",
-                "notice_ways":[],
+                "notice_ways":["mail"],
                 "receivers": [],
                 "childs":[]
               }

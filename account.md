@@ -582,9 +582,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 | :-- | :-- | :-- | :-- |
 | login_id | String | Yes | 登录账户 |
 | passwd | String | Yes | 密码 |
-| mobile | String | Yes | 手机 |
-| account_type | String | Yes | 账户类型 |
-| contact_name | String | Yes | 联系人 |
+| account_type | String | Yes | 账户类型, admin对应主帐号,sub对应子帐号 |
 
 ### 服务端响应
 
@@ -603,12 +601,11 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts" --data '
 {
     "login_id":"",
     "passwd":"123abc",
-    "tel":"021-9621312",
-    "mobile":"13312345864"
+    "account_type":"admin"
 }'
 ```
 
@@ -853,5 +850,41 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "new_passwd":"",
     "verify_type":"",
     "verify_code":""
+}'
+```
+## PUT /customer/account/phone
+
+**绑定手机**
+
+*绑定账户手机*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| phone | String | Yes | 手机号 |
+| verification_code | Int | Yes | 验证码 |
+| action_type | Int | Yes | 动作，0表示绑定，1表示解除绑定 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+**NONE**
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
+{
+    "phone":"",
+    "verification_code":,
+    "action_type":0
 }'
 ```

@@ -657,7 +657,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids
     "account_ids": []
 }
 ```
-## PUT /customer/accounts:account_id/disabled
+## PUT /customer/accounts/:account_id/disabled
 
 **禁用账户**
 
@@ -666,7 +666,10 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids
 ### 请求
 
 #### 请求 Body 参数
-`NULL`
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| status | String | Yes | 状态，DISABLED |
+| reason | String | Yes | 理由 |
 
 ### 服务端响应
 
@@ -695,7 +698,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/
     "account_id": "test@gmail.com"
 } 
 ```
-## PUT /customer/accounts:account_id/undisabled
+## PUT /customer/accounts/:account_id/undisabled
 
 **解禁账户**
 
@@ -704,7 +707,10 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/
 ### 请求
 
 #### 请求 Body 参数
-`NULL`
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| status | String | Yes | 状态，DISABLED |
+| reason | String | Yes | 理由 |
 
 ### 服务端响应
 

@@ -138,11 +138,12 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| post_field | String | No | 可选字段，"phone"修改绑定手机，"auth"修改服务授权码 |
-| tel | string | No | 固定电话 |
-| address | string | No | 地址 |
-| postcode | string | No | 邮编 |
-| fax | string | No | 传真 |
+| post_field | String | No | 可选字段，"phone"修改客户手机，"auth"修改服务授权码 |
+| tel | String | No | 固定电话 |
+| address | String | No | 地址 |
+| postcode | String | No | 邮编 |
+| fax | String | No | 传真 |
+| authorization | String | No | 授权码 |
 
 ### 服务端响应
 

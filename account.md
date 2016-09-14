@@ -534,7 +534,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| accounts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"login_id": "*String*",<br>&nbsp;&nbsp;"account_type": "*String*",<br>&nbsp;&nbsp;"contact_name": "*String*",<br>&nbsp;&nbsp;"last_logintime": "*TimeStamp*",<br>&nbsp;&nbsp;"last_loginip": "*String*",<br>&nbsp;&nbsp;"status": "*Int*"disabled or activity<br>}<br>] |
+| accounts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"login_id": "*String*",<br>&nbsp;&nbsp;"account_type": "*String*",<br>&nbsp;&nbsp;"contact_name": "*String*",<br>&nbsp;&nbsp;"last_logintime": "*TimeStamp*",<br>&nbsp;&nbsp;"last_loginip": "*String*",<br>&nbsp;&nbsp;"status": "*String*"DISABLED or ACTIVITY<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例
@@ -556,7 +556,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
          "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
-         "status": "activity"
+         "status": "ACTIVITY"
       },
       {
          "login_id": "test@51idc.com",
@@ -564,7 +564,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
          "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
-         "status": "activity"
+         "status": "ACTIVITY"
       }
    ],
    "total_count": 2

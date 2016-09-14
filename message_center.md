@@ -101,7 +101,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
 }
 ```
 
-## PUT /messages/read
+## PUT /messages/read/:messages
 
 **标记为已读**
 
@@ -131,9 +131,9 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read/:msg_123443,msg_123444" --data '
 {
-  "messages":["msg_123443"],
+  
 }'
 ```
 
@@ -141,7 +141,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
 
 ```js
 {
-  "message_ids":["msg_123443"]
+  "message_ids":["msg_123443","msg_123444"]
 }
 ```
 

@@ -229,7 +229,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 ```
 
 
-## POST /notice_receivers
+## PUT /notice_receivers/:notice_type_id
 
 **修改联系人**
 
@@ -259,9 +259,8 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/notice_receivers/not_123443" --data '
 {
-    "notice_type_id":["not_123443"],
     "contact_ids":["attn_123443"]
 }'
 ```
@@ -270,7 +269,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
 
 ```js
 {
-  "notice_type_id":["not_123443"]
+  "notice_type_id":"not_123443"
 }
 ```
 

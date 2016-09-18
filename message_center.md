@@ -101,7 +101,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
 }
 ```
 
-## PUT /messages/read
+## PUT /messages/read/:messages
 
 **标记为已读**
 
@@ -131,9 +131,9 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read/:msg_123443,msg_123444" --data '
 {
-  "messages":["msg_123443"],
+  
 }'
 ```
 
@@ -141,7 +141,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read" --data '
 
 ```js
 {
-  "message_ids":["msg_123443"]
+  "message_ids":["msg_123443","msg_123444"]
 }
 ```
 
@@ -199,7 +199,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
                     "name":"产品创建的信息通知",
                     "remark" :"remark",  
                     "create_at":"",
-                    "notice_ways":[],
+                    "notice_ways":["sms","mail"],
                     "receivers": [],
                     "childs":[]
               },
@@ -208,7 +208,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
                 "name":"产品欠费、即将停机的信息通知",
                 "remark" :"remark",  
                 "create_at":"",
-                "notice_ways":[],
+                "notice_ways":["mail"],
                 "receivers": [],
                 "childs":[]
               }
@@ -229,7 +229,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 ```
 
 
-## PUT /notice_receivers
+## PUT /notice_receivers/:notice_type_id
 
 **修改联系人**
 
@@ -259,9 +259,8 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/notice_receivers/not_123443" --data '
 {
-    "notice_type_id":["not_123443"],
     "contact_ids":["attn_123443"]
 }'
 ```
@@ -270,7 +269,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_receivers" --data '
 
 ```js
 {
-  "notice_type_id":["not_123443"]
+  "notice_type_id":"not_123443"
 }
 ```
 

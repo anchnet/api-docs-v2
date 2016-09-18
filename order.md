@@ -475,7 +475,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 | size | Int | Yes | 大小 |
 | amount | Int | Yes | 数量 |
 | payment_type | String | Yes | 计费类型 (POSTPAY:按需，PREPAY:包月)|
-| payment_months | Int | No | 周期 (包年包月需填) |
+| payment_months | Int | No | 周期 (包月需填) |
 
 
 

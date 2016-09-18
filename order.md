@@ -15,13 +15,13 @@
 | :-- | :-- | :-- | :-- |
 | end_time | String | NO | 订单结束时间
 | start_time | String | NO | 订单开始时间 |
-| order_type | String | NO | 订单类型 ADDNEW(新增) RENEW(续约) |
+| order_type | String | NO | 订单类型  |
 | search_word | String | NO | 搜索关键词，支持订单编号，名称 |
-| resource_type | String | NO | 资源的类型 CLOUD(云资源) IDC(物理架构) |
+| resource_type | String | NO | 资源的类型 |
 | offset | Int | NO | 数据偏移量，默认为0 |
 | limit | Int | NO | 默认值: 10|
-| account_type | String | NO | 账户类型 MAIN(主账号) BUSINESS（商务）TECHNOLOGY(技术) CHILD（子账号） |
-| order_state | String | NO | 订单状态 PREPAID（已支付）NOTPAY（未支付）SUSPEND(已终止) EXPIREING(即将到期) |
+| account_type | String | NO | 账户类型 admin (主账号) sub（子账号） |
+| order_state | String | NO | 订单状态 |
 
 ### 服务端响应
 

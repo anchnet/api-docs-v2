@@ -485,5 +485,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 ### 服务端响应
 #### 响应头信息
 `NULL`
+#### 响应 Body 信息
+| 类型 | 描述 |
+| :-- | :-- |
+| double | 价格|
 
 

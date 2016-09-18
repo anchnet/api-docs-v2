@@ -84,7 +84,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | cus_name | String | No | 用户名 |
-| cus_type | String | No | 用户类型 |
+| cus_type | String | No | 用户类型,Firm对应企业用户，self对应个人用户 |
 | tel | String | No | 固定电话 |
 | address | String | No | 地址 |
 | postcode | String | No | 邮编 |
@@ -110,7 +110,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 ```js
 {
     "cus_name": "51idc",
-    "cus_type": "firm",
+    "cus_type": "Firm",
     "tel": "021-4648",
     "address": "呼兰西路",
     "postcode": "242200",
@@ -211,7 +211,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc
 
 ```js
 {
-    "available": "51idc"
+    "available": {
+        "cus_name":"51idc"
+    }
 } 
 ```
 ## GET /customer/contacts
@@ -239,7 +241,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String*",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>}<br>] |
+| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String* Stype or Jtype",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例

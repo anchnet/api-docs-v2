@@ -448,7 +448,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| contact_ids | String[] | Yes | 联系人ID列表 |
+| contact_ids | String[] | Yes | 联系人ID列表,逗号分割 |
 
 ### 服务端响应
 
@@ -463,14 +463,17 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/contacts/:contact_ids"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/contacts/con_USEWFAB,con_OIHYDNV"
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "contact_ids": []
+    "contact_ids": [
+        "con_USEWFAB",
+        "con_OIHYDNV"
+    ]
 }
 ```
 ## GET /customer/accountmanager
@@ -678,7 +681,6 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids
 #### 请求 Body 参数
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| status | String | Yes | 状态，DISABLED |
 | reason | String | Yes | 理由 |
 
 ### 服务端响应
@@ -691,6 +693,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | account_id | String | Yes | 登录Id |
+| status | String | Yes | 状态 |
 
 **NONE**
 ### 示例
@@ -698,14 +701,19 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/disabled
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/disabled --data '
+{
+    "account_id": "test@51idc.com"
+}'
+
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "account_id": "test@gmail.com"
+    "account_id": "test@51idc.com",
+    "status": "DISABLED"
 } 
 ```
 ## PUT /customer/accounts/:account_id/undisabled
@@ -719,7 +727,6 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/
 #### 请求 Body 参数
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| status | String | Yes | 状态，DISABLED |
 | reason | String | Yes | 理由 |
 
 ### 服务端响应
@@ -732,6 +739,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | account_id | String | Yes | 登录Id |
+| status | String | Yes | 状态 |
 
 **NONE**
 ### 示例
@@ -739,14 +747,18 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@gmail.com/undisabled
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/undisabled --data '
+{
+    "account_id": "test@51idc.com"
+}'
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "account_id": "test@gmail.com"
+    "account_id": "test@51idc.com"
+    "status": "ACTIVITY"
 } 
 ```
 

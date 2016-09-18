@@ -241,7 +241,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String* Stype or Jtype",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>}<br>] |
+| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"contact_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String* Stype or Jtype",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例
@@ -258,6 +258,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
    {
    "contacts": [
       {
+         "contact_id": "con_YZAKUZF",
          "name": "小张",
          "sex": "M",
          "tel": "021-25228622",
@@ -268,6 +269,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
          "credentials": "330104598502150915"
       },
       {
+         "contact_id": "con_USBENSE",
          "name": "小李",
          "sex": "M",
          "tel": "",
@@ -313,6 +315,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| contact_id | String | Yes | ID |
 | name | String | No | 姓名 |
 | sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
@@ -344,6 +347,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 
 ```js
 {
+     "contact_id": "con_USBENSE",
      "name": "小李",
      "sex": "M",
      "tel": "",
@@ -367,6 +371,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| contact_id | String | Yes | ID |
 | name | String | No | 姓名 |
 | sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
@@ -385,6 +390,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 #### 响应 Body 信息
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| contact_id | String | Yes | ID |
 | name | String | No | 姓名 |
 | sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
@@ -402,6 +408,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
 {
+    "contact_id": "con_USBENSE",
     "name":"name",
     "sex":"F",
     "tel":"",
@@ -417,6 +424,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
 
 ```js
 {
+    "contact_id": "con_USBENSE",
     "name":"name",
     "sex":"F",
     "tel":"",
@@ -440,7 +448,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| contact_ids | String[] | Yes | 联系人姓名列表 |
+| contact_ids | String[] | Yes | 联系人ID列表 |
 
 ### 服务端响应
 
@@ -898,5 +906,44 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "phone":"",
     "verification_code":,
     "action_type":0
+}'
+```
+## post /verification/sms/send
+
+**获取验证码**
+
+*给手机发送验证码*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| action | String | Yes |  |
+| smsype | String | Yes | 类型，certify |
+| mobile | String | Yes | 手机 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
+{
+    "action":"123abc",
+    "smstype":"certify",
+    "mobile":"13312345864"
 }'
 ```

@@ -860,6 +860,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 | old_passwd | String | Yes | 原密码 |
 | new_passwd | String | Yes | 新密码 |
 | verify_type | String | Yes | 验证方式，phone对应手机，wechat对应微信 |
+| cell_number | String | Yes | 手机号或微信号 |
 | verify_code | String | Yes | 验证码 |
 
 ### 服务端响应
@@ -881,6 +882,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "old_passwd":"",
     "new_passwd":"",
     "verify_type":"",
+    "cell_number":"",
     "verify_code":""
 }'
 ```
@@ -896,7 +898,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| phone | String | Yes | 手机号 |
+| mobile | String | Yes | 手机号 |
 | verification_code | Int | Yes | 验证码 |
 | action_type | Int | Yes | 动作，0表示绑定，1表示解除绑定 |
 
@@ -920,7 +922,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "action_type":0
 }'
 ```
-## post /verification/sms/send
+## post /verification_code
 
 **获取验证码**
 
@@ -932,8 +934,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| action | String | Yes |  |
-| smsype | String | Yes | 类型，certify |
+| addition | String | Yes | 附加字段 |
+| smsype | String | Yes | 验证类型，certify |
 | mobile | String | Yes | 手机 |
 
 ### 服务端响应
@@ -954,7 +956,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
 {
-    "action":"123abc",
+    "addition":"123abc",
     "smstype":"certify",
     "mobile":"13312345864"
 }'

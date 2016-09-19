@@ -137,7 +137,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags" --data '
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/tags/:tag_ids"
 ```
 
 #### 响应内容:

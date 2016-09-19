@@ -864,7 +864,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 | new_passwd | String | Yes | 新密码 |
 | verify_type | String | Yes | 验证方式，phone对应手机，wechat对应微信 |
 | cell_number | String | Yes | 手机号或微信号 |
-| verify_code | String | Yes | 验证码 |
+| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -886,7 +886,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "new_passwd":"",
     "verify_type":"",
     "cell_number":"",
-    "verify_code":""
+    "verification_code":""
 }'
 ```
 ## PUT /customer/account/phone

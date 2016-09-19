@@ -164,6 +164,9 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/tags/:tag_ids"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | tag_id | String | Yes | 标签ID列表 |
+| name | String | NO | 标签名称 |
+| color | String | No | 颜色 |
+| describe | String | No | 描述 |
 
 ### 服务端响应
 

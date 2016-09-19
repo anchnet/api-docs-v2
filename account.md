@@ -22,7 +22,7 @@
 | cus_type | String | Yes | 用户类型，企业对应FIRM，个人对应SELF |
 | tel | String | No | 固定电话 |
 | mobile | String | Yes | 手机 |
-| verification_code | Int | Yes | 验证码 |
+| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -902,7 +902,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | mobile | String | Yes | 手机号 |
-| verification_code | Int | Yes | 验证码 |
+| verification_code | String | Yes | 验证码 |
 | action_type | Int | Yes | 动作，0表示绑定，1表示解除绑定 |
 
 ### 服务端响应
@@ -921,7 +921,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 {
     "mobile":"",
-    "verification_code":,
+    "verification_code":"",
     "action_type":0
 }'
 ```

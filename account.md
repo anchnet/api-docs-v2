@@ -91,6 +91,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
 | postcode | String | No | 邮编 |
 | fax | String | No | 传真 |
 | mobile | String | No | 手机 |
+| email | String | No | 邮箱 |
 | cred_type | String | No | 证件类型，身份证对应IDENTITY，<br>军官证对应MILITARY，<br>驾照对应DRIVER |
 | credentials | String | No | 证件编号 |
 | permit_number | String | No | 营业执照编号 |

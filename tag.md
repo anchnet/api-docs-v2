@@ -155,7 +155,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/tags/:tag_ids"
 
 *修改标签*
 
-*一次只能修改多个标签*
+*一次只能修改一个标签*
 
 ### 请求
 
@@ -211,7 +211,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/tags/:tag_id" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| tags | String[] | Yes | 密钥ID列表 |
+| tag_ids | String[] | Yes | 密钥ID列表 |
 | resources | Object[] | Yes | 资源列表 |
 
 ### 服务端响应
@@ -231,7 +231,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/tags/:tag_id" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
 {
-  "tags":["tag-1313677"],
+  "tag_ids":["tag-1313677"],
   "resources":[
                
                 {
@@ -250,7 +250,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
 
 ```js
 {
-      "tags":["tag-1313677"]
+      "tagi_ids":["tag-1313677"]
 } 
 ```
 
@@ -267,7 +267,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| tags | String[] | Yes | 标签ID列表 |
+| tagi_ids | String[] | Yes | 标签ID列表 |
 | resources | Object[] | Yes | 资源列表 |
 
 ### 服务端响应
@@ -287,7 +287,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/detach" --data '
 {
-  "tags":["tag-1313677"],
+  "tag_ids":["tag-1313677"],
   "resources":[
                 {
                     "resource_id":"ins-D6MK7EV"
@@ -303,6 +303,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/detach" --data '
 
 ```js
 {
-  "tags":["tag-1313677"]
+  "tag_ids":["tag-1313677"]
 }
 ```

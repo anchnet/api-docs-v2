@@ -54,7 +54,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 
 ```
 
-## GET /worksheets
+## GET /tickets
 
 **获取订单列表**
 
@@ -108,7 +108,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/worksheets"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/tickets"
 
 ```
 
@@ -125,7 +125,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/worksheets"
 ```
 
 
-## POST /worksheet
+## POST /ticket
 
 **提交工单**
 
@@ -162,7 +162,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/worksheets"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/worksheet" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 {
     "key": "value"
 }'
@@ -177,7 +177,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/worksheet" --data '
 ```
 
 
-## GET /worksheet/:sheet_number
+## GET /ticket/:sheet_number
 
 **获取工单详情**
 
@@ -217,7 +217,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/worksheet" --data '
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/worksheet/:sheet_number"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:sheet_number"
 
 ```
 
@@ -379,7 +379,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/assess" --data '
 }
 ```
 
-## PUT /worksheet/:sheet_number
+## PUT /ticket/:sheet_number
 
 **关闭工单**
 
@@ -408,7 +408,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/assess" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/worksheet/:sheet_number" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/ticket/:sheet_number" --data '
 {
     "key": "value"
 }'

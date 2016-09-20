@@ -92,7 +92,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | title | String | Yes | 工单标题 |
-| number | Int | Yes | 工单编号 |
+| id | Int | Yes | 工单编号 |
 | state | String | Yes | 工单状态 (TODO,DOING,DONE,CLOSED,SUSPEND,APPOINTED) |
 | business_type | String | Yes | 业务类型(CLOUD,IDC) |
 | event_type | String | Yes | 事件类型 |
@@ -273,7 +273,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:id"
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/reply/:sheet_number"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/reply/:id"
 
 ```
 
@@ -304,7 +304,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/reply/:sheet_number"
 | :-- | :-- | :-- | :-- |
 | content | String | Yes | 回复内容 |
 | secret_content | String | Yes | 机密信息 |
-| ticket_number | String | Yes | 工单编号 |
+| id | String | Yes | 工单编号 |
 
 ### 服务端响应
 
@@ -349,7 +349,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/reply" --data '
 | :-- | :-- | :-- | :-- |
 | assess | String | Yes | 评价级别 |
 | advice | String | Yes | 意见建议 |
-| ticket_number | String | Yes | 工单编号 |
+| id | String | Yes | 工单编号 |
 
 ### 服务端响应
 
@@ -409,7 +409,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/assess" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/ticket/:sheet_number" --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/ticket/:id" --data '
 {
     "key": "value"
 }'

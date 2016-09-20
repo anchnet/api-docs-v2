@@ -537,7 +537,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| login_id | String | No | 模糊查询字段 |
+| search_id | String | No | 模糊查询字段 |
 | status | String | No | 状态过滤，ACTIVITY 或 DISABLED 或 空 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100 |
@@ -552,7 +552,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| accounts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"login_id": "*String*",<br>&nbsp;&nbsp;"account_type": "*String*",<br>&nbsp;&nbsp;"contact_name": "*String*",<br>&nbsp;&nbsp;"last_logintime": "*TimeStamp*",<br>&nbsp;&nbsp;"last_loginip": "*String*",<br>&nbsp;&nbsp;"status": "*String*"DISABLED or ACTIVITY<br>}<br>] |
+| accounts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"login_id": "*String*",<br>&nbsp;&nbsp;"account_type": "*String*",<br>&nbsp;&nbsp;"last_logintime": "*TimeStamp*",<br>&nbsp;&nbsp;"last_loginip": "*String*",<br>&nbsp;&nbsp;"status": "*String*"DISABLED or ACTIVITY<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例
@@ -571,7 +571,6 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
       {
          "login_id": "test@51idc.com",
          "account_type": "ADMIN",
-         "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
          "status": "ACTIVITY"
@@ -579,7 +578,6 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
       {
          "login_id": "test@51idc.com",
          "account_type": "SUB",
-         "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
          "status": "ACTIVITY"

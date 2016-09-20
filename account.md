@@ -570,7 +570,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
    "accounts": [
       {
          "login_id": "test@51idc.com",
-         "account_type": "admin",
+         "account_type": "ADMIN",
          "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
@@ -578,7 +578,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
       },
       {
          "login_id": "test@51idc.com",
-         "account_type": "sub",
+         "account_type": "SUB",
          "contact_name": "小李",
          "last_logintime": "2013-08-30T05:13:32Z",
          "last_loginip": "1.1.1.1",
@@ -603,7 +603,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 | :-- | :-- | :-- | :-- |
 | login_id | String | Yes | 登录账户 |
 | passwd | String | Yes | 密码 |
-| account_type | String | Yes | 账户类型, admin对应主帐号,sub对应子帐号 |
+| account_type | String | Yes | 账户类型, ADMIN对应主帐号,SUB对应子帐号 |
 
 ### 服务端响应
 
@@ -626,7 +626,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts" --data '
 {
     "login_id":"",
     "passwd":"123abc",
-    "account_type":"admin"
+    "account_type":"ADMIN"
 }'
 ```
 

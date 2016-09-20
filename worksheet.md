@@ -207,7 +207,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 | device_info | String | Yes | 设备信息 |
 | create_time | String | Yes | 创建时间 |
 | update_time | String | Yes | 更新时间 |
-| responsible_name | String | Yes | 工单负责人 |
+| charge_one_name | String | Yes | 工单第一负责人 |
+| charge_two_name | String | Yes | 工单第二负责人 |
 | content | String | Yes | 工单内容 |
 
 

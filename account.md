@@ -41,7 +41,7 @@
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
+$ curl -XPOST "http://api.51idc.com/v2/public/join" --data '
 {
     "cus_name":"51idc",
     "short_name":"idc",
@@ -98,6 +98,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
 | permit_addr | String | No | 营业执照图片地址 |
 | organizationcode | String | No | 组织机构代码证编号 |
 | organizationCode_addr | String | No | 组织机构代码证图片地址 |
+| authorization | String | No | 服务授权码 |
 
 ### 示例
 
@@ -957,7 +958,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
+$ curl -XPOST "http://api.51idc.com/v2/public/verification_code" --data '
 {
     "addition":"123abc",
     "smstype":"certify",

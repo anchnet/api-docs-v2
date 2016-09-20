@@ -67,7 +67,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 | :-- | :-- | :-- | :-- |
 | end_time | String | NO | 工单结束时间 |
 | start_time | String | NO | 工单开始时间 |
-| sheet_state | String | NO | 工单状态  |
+| ticket_state | String | NO | 工单状态  |
 | search_word | String | NO | 搜索关键词，支持工单编号，名称 |
 | business_type | String | NO | 业务类型(CLOUD,IDC) |
 | offset | Int | NO | 数据偏移量，默认为0 |
@@ -177,7 +177,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 ```
 
 
-## GET /ticket/:sheet_number
+## GET /ticket/:id
 
 **获取工单详情**
 
@@ -188,7 +188,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 #### Body 参数
 | 参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| sheet_number | String | NO | 工单编号 |
+| id | String | Yes | 工单编号 |
 
 ### 服务端响应
 
@@ -206,9 +206,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 | datacenter | String | Yes | 数据中心 |
 | device_info | String | Yes | 设备信息 |
 | create_time | String | Yes | 创建时间 |
-| update_time | double | Yes | 更新时间 |
-| responsible_name | double | Yes | 工单负责人 |
-| content | double | Yes | 工单内容 |
+| update_time | String | Yes | 更新时间 |
+| responsible_name | String | Yes | 工单负责人 |
+| content | String | Yes | 工单内容 |
 
 
 ### 示例
@@ -217,7 +217,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:sheet_number"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:id"
 
 ```
 
@@ -234,7 +234,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:sheet_number"
 ```
 
 
-## GET /reply/:sheet_number
+## GET /reply/:id
 
 **获取回复详情**
 
@@ -245,7 +245,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:sheet_number"
 #### Body 参数
 | 参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| sheet_number | String | NO | 工单编号 |
+| id | String | NO | 工单编号 |
 
 ### 服务端响应
 
@@ -303,7 +303,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/reply/:sheet_number"
 | :-- | :-- | :-- | :-- |
 | content | String | Yes | 回复内容 |
 | secret_content | String | Yes | 机密信息 |
-| sheet_number | String | Yes | 工单编号 |
+| ticket_number | String | Yes | 工单编号 |
 
 ### 服务端响应
 
@@ -348,7 +348,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/reply" --data '
 | :-- | :-- | :-- | :-- |
 | assess | String | Yes | 评价级别 |
 | advice | String | Yes | 意见建议 |
-| sheet_number | String | Yes | 工单编号 |
+| ticket_number | String | Yes | 工单编号 |
 
 ### 服务端响应
 
@@ -379,7 +379,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/assess" --data '
 }
 ```
 
-## PUT /ticket/:sheet_number
+## PUT /ticket/:id
 
 **关闭工单**
 
@@ -391,7 +391,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/assess" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| sheet_number | String | Yes | 工单编号 |
+| id | String | Yes | 工单编号 |
 
 ### 服务端响应
 

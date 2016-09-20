@@ -19,9 +19,10 @@
 | cus_name | String | Yes | 用户名 |
 | short_name | String| No | 昵称 |
 | passwd | String | Yes | 密码 |
-| cus_type | String | Yes | 用户类型，企业对应firm，个人对应self |
+| cus_type | String | Yes | 用户类型，企业对应FIRM，个人对应SELF |
 | tel | String | No | 固定电话 |
 | mobile | String | Yes | 手机 |
+| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -45,7 +46,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
     "cus_name":"51idc",
     "short_name":"idc",
     "passwd":"123abc",
-    "cus_type":"firm",
+    "cus_type":"FIRM",
     "tel":"021-9621312",
     "mobile":"13312345864"
 }'
@@ -84,18 +85,19 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/join" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | cus_name | String | No | 用户名 |
-| cus_type | String | No | 用户类型,Firm对应企业用户，self对应个人用户 |
+| cus_type | String | No | 用户类型,FIRM对应企业用户，SELF对应个人用户 |
 | tel | String | No | 固定电话 |
 | address | String | No | 地址 |
 | postcode | String | No | 邮编 |
 | fax | String | No | 传真 |
 | mobile | String | No | 手机 |
-| cred_type | String | No | 证件类型，身份证对应Identity，<br>军官证对应Military，<br>驾照对应Driver |
+| email | String | No | 邮箱 |
+| cred_type | String | No | 证件类型，身份证对应IDENTITY，<br>军官证对应MILITARY，<br>驾照对应DRIVER |
 | credentials | String | No | 证件编号 |
 | permit_number | String | No | 营业执照编号 |
 | permit_addr | String | No | 营业执照图片地址 |
 | organizationcode | String | No | 组织机构代码证编号 |
-| organizationCode_adrr | String | No | 组织机构代码证图片地址 |
+| organizationCode_addr | String | No | 组织机构代码证图片地址 |
 
 ### 示例
 
@@ -110,18 +112,18 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 ```js
 {
     "cus_name": "51idc",
-    "cus_type": "Firm",
+    "cus_type": "FIRM",
     "tel": "021-4648",
     "address": "呼兰西路",
     "postcode": "242200",
     "fax": "445646",
     "mobile": "134123456",
-    "cred_type": "Driver",
+    "cred_type": "DRIVER",
     "credentials": "146548796454515614546",
     "permit_number": "123",
     "permit_addr": "http://wwww.51idc.com",
     "organizationcode": "456",
-    "organizationCode_adrr": "http://www.51idc.com",
+    "organizationCode_addr": "http://www.51idc.com",
     "authorization": "121"
 }
 ```
@@ -241,7 +243,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"contact_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String* Stype or Jtype",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>}<br>] |
+| contacts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"contact_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"sex": "*String*",<br>&nbsp;&nbsp;"tel": "*String*",<br>&nbsp;&nbsp;"mobile": "*String*",<br>&nbsp;&nbsp;"email": "*String*",<br>&nbsp;&nbsp;"con_type": "*String* STYPE or JTYPE",<br>&nbsp;&nbsp;"cred_type": "*String*",<br>&nbsp;&nbsp;"credentials": "*String*",<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例
@@ -264,8 +266,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
          "tel": "021-25228622",
          "mobile": "13751247782",
          "email": "test@163.com",
-         "con_type": "Jtype",
-         "cred_type": "Identity",
+         "con_type": "JTYPE",
+         "cred_type": "IDENTITY",
          "credentials": "330104598502150915"
       },
       {
@@ -275,8 +277,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
          "tel": "",
          "mobile": "15721460942",
          "email": "test2@heheda.net",
-         "con_type": "Stype",
-         "cred_type": "Identity",
+         "con_type": "STYPE",
+         "cred_type": "IDENTITY",
          "credentials": "728923198511293151"
       }
    ],
@@ -337,8 +339,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
      "tel": "",
      "mobile": "15721460942",
      "email": "test2@heheda.net",
-     "con_type": "Stype",
-     "cred_type": "Identity",
+     "con_type": "STYPE",
+     "cred_type": "IDENTITY",
      "credentials": "728923198511293151"
 }'
 ```
@@ -353,8 +355,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
      "tel": "",
      "mobile": "15721460942",
      "email": "test2@heheda.net",
-     "con_type": "Stype",
-     "cred_type": "Identity",
+     "con_type": "STYPE",
+     "cred_type": "IDENTITY",
      "credentials": "728923198511293151"
 }
 ```
@@ -535,6 +537,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | login_id | String | No | 模糊查询字段 |
+| status | String | No | 状态过滤，ACTIVITY 或 DISABLED 或 空 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100 |
 
@@ -861,7 +864,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 | new_passwd | String | Yes | 新密码 |
 | verify_type | String | Yes | 验证方式，phone对应手机，wechat对应微信 |
 | cell_number | String | Yes | 手机号或微信号 |
-| verify_code | String | Yes | 验证码 |
+| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -883,7 +886,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "new_passwd":"",
     "verify_type":"",
     "cell_number":"",
-    "verify_code":""
+    "verification_code":""
 }'
 ```
 ## PUT /customer/account/phone
@@ -899,7 +902,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | mobile | String | Yes | 手机号 |
-| verification_code | Int | Yes | 验证码 |
+| verification_code | String | Yes | 验证码 |
 | action_type | Int | Yes | 动作，0表示绑定，1表示解除绑定 |
 
 ### 服务端响应
@@ -917,8 +920,8 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 {
-    "phone":"",
-    "verification_code":,
+    "mobile":"",
+    "verification_code":"",
     "action_type":0
 }'
 ```

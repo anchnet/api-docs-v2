@@ -56,7 +56,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 
 ## GET /tickets
 
-**获取订单列表**
+**获取工单列表**
 
 *详细描述*
 
@@ -84,7 +84,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| work_sheets | Objects | Yes | 工单列表 |
+| tickets | Objects | Yes | 工单列表 |
 | total_count | Int | Yes | 根据过滤条件得到的总数 |
 
 ### work_sheets
@@ -347,7 +347,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/reply" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| assess | String | Yes | 评价级别 |
+| assess | String | Yes | 评价级别(BAD(差评) GOOD(一般) BEST(好评)) |
 | advice | String | Yes | 意见建议 |
 | id | String | Yes | 工单编号 |
 

@@ -12,7 +12,7 @@
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/event_type"
+$ curl -XGET "http://api.51idc.com/v2/event_type"
 
 ```
 
@@ -38,7 +38,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/event_type"
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
+$ curl -XGET "http://api.51idc.com/v2/datacenter"
 
 ```
 
@@ -108,7 +108,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/datacenter"
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/tickets"
+$ curl -XGET "http://api.51idc.com/v2/tickets"
 
 ```
 
@@ -162,7 +162,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/tickets"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
+$ curl -XPOST "http://api.51idc.com/v2/ticket" --data '
 {
     "key": "value"
 }'
@@ -218,7 +218,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/ticket" --data '
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:id"
+$ curl -XGET "http://api.51idc.com/v2/ticket/:id"
 
 ```
 
@@ -273,7 +273,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/ticket/:id"
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/reply/:id"
+$ curl -XGET "http://api.51idc.com/v2/reply/:id"
 
 ```
 

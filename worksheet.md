@@ -87,7 +87,7 @@ $ curl -XGET "http://api.51idc.com/v2/datacenter"
 | tickets | Objects | Yes | 工单列表 |
 | total_count | Int | Yes | 根据过滤条件得到的总数 |
 
-### work_sheets
+### tickets
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -146,6 +146,7 @@ $ curl -XGET "http://api.51idc.com/v2/tickets"
 | secret_content | String | Yes | 机密信息 |
 | contacts_email | String | Yes | 联系人邮箱 |
 | contacts_phone | String | Yes | 联系人电话 |
+| contacts_name | String | Yes | 联系人名称 |
 
 ### 服务端响应
 
@@ -210,6 +211,9 @@ $ curl -XPOST "http://api.51idc.com/v2/ticket" --data '
 | charge_one_name | String | Yes | 工单第一负责人 |
 | charge_two_name | String | Yes | 工单第二负责人 |
 | content | String | Yes | 工单内容 |
+| contacts_phone | String | Yes | 联系人电话 |
+| contacts_email | String | Yes | 联系人邮箱 |
+| contacts_name | String | Yes | 联系人名称 |
 
 
 ### 示例

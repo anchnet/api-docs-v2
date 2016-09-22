@@ -40,7 +40,7 @@
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/messsages"
+$ curl -XGET "http://api.51idc.com/v2/messsages"
 ```
 
 #### 响应内容:
@@ -90,7 +90,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/messsages"
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
+$ curl -XDELETE "http://api.51idc.com/v2/messsages/:message_ids"
 ```
 
 #### 响应内容:
@@ -131,7 +131,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/messsages/:message_ids"
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read/:msg_123443,msg_123444" --data '
+$ curl -XPUT "http://api.51idc.com/v2/messages/read/:msg_123443,msg_123444" --data '
 {
   
 }'
@@ -179,7 +179,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/messages/read/:msg_123443,msg_123
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
+$ curl -XGET "http://dev2.51idc.cn:9000/v2/notice_types
 ```
 
 #### 响应内容:
@@ -259,7 +259,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/zone/ac2/notice_types
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/notice_receivers/not_123443" --data '
+$ curl -XPOST "http://api.51idc.com/v2/notice_receivers/not_123443" --data '
 {
     "contact_ids":["attn_123443"]
 }'
@@ -304,7 +304,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/notice_receivers/not_123443" --d
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_way" --data '
+$ curl -XPUT "http://api.51idc.com/v2/notice_way" --data '
 {
   "notice_type_ids":["msg_123443"],
   "notice_ways":["mail"]
@@ -350,7 +350,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/notice_way" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/add_notice_way" --data '
+$ curl -XPOST "http://api.51idc.com/v2/add_notice_way" --data '
 {
   "notice_type_ids":["msg_123443"],
   "notice_ways":["mail"]
@@ -395,11 +395,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/add_notice_way" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/delete_notice_way" --data '
+$ curl -XPOST "http://api.51idc.com/v2/delete_notice_way" --data '
 {
   "notice_type_ids":["msg_123443"],
   "notice_ways":["mail"]
-}'
+}
 ```
 
 #### 响应内容:

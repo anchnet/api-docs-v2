@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-## post /join
+## post /customer
 
 **注册**
 
@@ -41,7 +41,7 @@
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/public/join" --data '
+$ curl -XPOST "http://api.51idc.com/v2/customer" --data '
 {
     "cus_name":"51idc",
     "short_name":"idc",
@@ -207,7 +207,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/available?cus_name=51idc"
+$ curl -XGET "http://api.51idc.com/v2/customer/available?cus_name=51idc"
 ```
 
 #### 响应内容:
@@ -362,7 +362,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 }
 ```
  
-## PUT /customer/contacts
+## PUT /customer/contacts/:contact_id
 
 **修改联系人信息**
 
@@ -370,11 +370,15 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 
 ### 请求
 
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| contact_id | String | Yes | 联系人ID列表 |
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| contact_id | String | Yes | ID |
 | name | String | No | 姓名 |
 | sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
@@ -409,9 +413,8 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts/con_USBENSE --data '
 {
-    "contact_id": "con_USBENSE",
     "name":"name",
     "sex":"F",
     "tel":"",
@@ -635,6 +638,45 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts" --data '
     "login_id": ""
 } 
 ```
+## GET /customer/account
+
+**获取登录信息**
+
+*获取用户的登录信息*
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| login_id | string | Yes | 用户登录ID |
+| mobile | string | Yes | 绑定手机 |
+| wechat | string | Yes | 绑定微信 |
+| authorization | string | Yes | 服务授权码 |
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
+{
+    "login_id":"test@51idc.com",
+    "mobile":"",
+    "wechat":"",
+    "authorization":"1006"
+}'
+```
 ## DELETE /customer/accounts/:account_ids
 
 **删除登录账户 支持批量**
@@ -846,13 +888,18 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
     "website":""
 }'
 ```
-## PUT /customer/account/passwd
+## PUT /customer/accounts/account_id/passwd
 
 **修改密码**
 
 *修改登录密码*
 
 ### 请求
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| account_id | String | Yes | 用户登录ID |
 
 #### 请求 Body 参数
 
@@ -878,7 +925,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd --data '
 {
     "login_id":"",
     "old_passwd":"",
@@ -888,7 +935,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
     "verification_code":""
 }'
 ```
-## PUT /customer/account/phone
+## PUT /customer/accounts/:account_id/phone
 
 **绑定手机**
 
@@ -896,6 +943,11 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 
 ### 请求
 
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| account_id | String | Yes | 用户登录ID |
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
@@ -917,7 +969,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd --data '
 {
     "mobile":"",
     "verification_code":"",
@@ -956,7 +1008,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account/passwd --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/public/verification_code" --data '
+$ curl -XPOST "http://api.51idc.com/v2/verification_code" --data '
 {
     "addition":"123abc",
     "smstype":"certify",

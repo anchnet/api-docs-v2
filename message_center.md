@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-## GET /messsages
+## GET /messages
 
 **获取消息列表**
 
@@ -33,14 +33,14 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | total_count | Int | Yes | 根据过滤条件得到的密钥总数 |
-| messsages | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"title": "*String*",<br>&nbsp;&nbsp;"type": "*String*",<br>&nbsp;&nbsp;"context": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"send_at": "*String*"<br>}<br>] |
+| messages | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"title": "*String*",<br>&nbsp;&nbsp;"type": "*String*",<br>&nbsp;&nbsp;"context": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"send_at": "*String*"<br>}<br>] |
 
 ### 示例
 
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/messsages"
+$ curl -XGET "http://api.51idc.com/v2/messages"
 ```
 
 #### 响应内容:
@@ -48,7 +48,7 @@ $ curl -XGET "http://api.51idc.com/v2/messsages"
 ```js
 {
     "total_count": 1,
-    "messsages": [
+    "messages": [
         {
            "id": "ins-D6MK7EV",
             "title": "rsa",
@@ -61,7 +61,7 @@ $ curl -XGET "http://api.51idc.com/v2/messsages"
 } 
 ```
 
-## DELETE /messsages/:message_ids
+## DELETE /messages/:message_ids
 
 **删除消息 支持批量**
 
@@ -90,7 +90,7 @@ $ curl -XGET "http://api.51idc.com/v2/messsages"
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/messsages/:message_ids"
+$ curl -XDELETE "http://api.51idc.com/v2/messages/:message_ids"
 ```
 
 #### 响应内容:

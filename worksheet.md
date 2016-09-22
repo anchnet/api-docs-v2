@@ -67,7 +67,7 @@ $ curl -XGET "http://api.51idc.com/v2/datacenter"
 | :-- | :-- | :-- | :-- |
 | end_time | String | NO | 工单结束时间 |
 | start_time | String | NO | 工单开始时间 |
-| ticket_state | String | NO | 工单状态(TODO,DOING,DONE,CLOSED,SUSPEND,APPOINTED) |
+| ticket_state | String | NO | 工单状态(TODO,DOING,DONE,CLOSED) |
 | search_word | String | NO | 搜索关键词，支持工单编号，名称 |
 | business_type | String | NO | 业务类型(CLOUD,IDC) |
 | offset | Int | NO | 数据偏移量，默认为0 |
@@ -93,7 +93,7 @@ $ curl -XGET "http://api.51idc.com/v2/datacenter"
 | :-- | :-- | :-- | :-- |
 | title | String | Yes | 工单标题 |
 | id | Int | Yes | 工单编号 |
-| state | String | Yes | 工单状态 (TODO,DOING,DONE,CLOSED,SUSPEND,APPOINTED) |
+| state | String | Yes | 工单状态 (TODO,DOING,DONE,CLOSED) |
 | business_type | String | Yes | 业务类型(CLOUD,IDC) |
 | event_type | String | Yes | 事件类型 |
 | datacenter | String | Yes | 数据中心 |
@@ -201,7 +201,7 @@ $ curl -XPOST "http://api.51idc.com/v2/ticket" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | title | String | Yes | 工单标题 |
-| state | String | Yes | 工单状态 (TODO,DOING,DONE,CLOSED,SUSPEND,APPOINTED) |
+| state | String | Yes | 工单状态 (TODO,DOING,DONE,CLOSED) |
 | business_type | String | Yes | 业务类型(CLOUD,IDC) |
 | event_type | String | Yes | 事件类型 |
 | datacenter | String | Yes | 数据中心 |
@@ -214,6 +214,7 @@ $ curl -XPOST "http://api.51idc.com/v2/ticket" --data '
 | contacts_phone | String | Yes | 联系人电话 |
 | contacts_email | String | Yes | 联系人邮箱 |
 | contacts_name | String | Yes | 联系人名称 |
+| create_type | String | Yes | 创建人类型(cus,ser) |
 
 
 ### 示例
@@ -270,6 +271,8 @@ $ curl -XGET "http://api.51idc.com/v2/ticket/:id"
 | reply_name  | String | Yes | 回复人 |
 | reply_time  | String | Yes | 回复时间 |
 | reply_content  | String | Yes | 回复内容 |
+| reply_type  | String | Yes | 回复类型(cus,ser) |
+
 
 ### 示例
 

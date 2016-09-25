@@ -1,6 +1,88 @@
 # 订单
 
 <!-- toc -->
+## GET /order/resource_type
+
+**获取资源类型列表**
+
+### 示例
+
+#### 发送请求
+
+```bash
+
+$ curl -XGET "http://api.51idc.com/v2/event_type"
+
+```
+
+#### 响应内容:
+
+```js
+
+{
+
+ "key": "value"
+
+}
+
+```
+
+
+## GET /order/order_type
+
+**获取订单类型列表**
+
+### 示例
+
+#### 发送请求
+
+```bash
+
+$ curl -XGET "http://api.51idc.com/v2/event_type"
+
+```
+
+#### 响应内容:
+
+```js
+
+{
+
+ "key": "value"
+
+}
+
+```
+
+
+## GET /order/order_state
+
+**获取订单状态列表**
+
+### 示例
+
+#### 发送请求
+
+```bash
+
+$ curl -XGET "http://api.51idc.com/v2/event_type"
+
+```
+
+#### 响应内容:
+
+```js
+
+{
+
+ "key": "value"
+
+}
+
+```
+
+
+
 
 ## GET /orders
 
@@ -44,18 +126,16 @@
 | order_number | Int | Yes | 订单编号 |
 | resource_type | String | Yes | 资源的类型 |
 | account_type| String | Yes | 账户类型 admin(主账号) sub（子账号） |
-| pay_way | String | Yes | PREPAY（包年包月）POSTPAY（按需） |
+| pay_way | String | Yes | 计费方式 HOUR(小时) MONTH(月) QUARTER(季度) HALF_YEAR(半年) YEAR(年) |
 | product_name | String | Yes | 产品名称 |
 | order_state | String | Yes | 订单状态 |
 | create_time | String | Yes | 创建时间 |
 | price | double | Yes | 价格 |
-| price_details | Object[] | Yes | 价格详情 |
+| is_self | boolean | Yes | 是否是账号本身(yes,no) |
+| seq | int | Yes | 当前期次 |
+| seq_count | int | Yes | 总期次 |
 
-### price_details
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| details_name | String | Yes | 资源名称 |
-| details_price | double | Yes | 资源单价 |
+
 
 ### 示例
 
@@ -93,7 +173,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| eorder_number| String | Yes | 订单编号 |
+| order_number| String | Yes | 订单编号 |
 
 ### 服务端响应
 
@@ -114,7 +194,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | order_state | String | Yes | 订单状态 |
-| order_number | String | Yes | 订单编号 |
+| order_no | String | Yes | 订单编号 |
 | delivery_time | String | Yes | 订单开通日期  |
 | expiration_time | String | Yes | 订单截止日期 |
 | cus_manager_name | String | Yes | 客户经理 |
@@ -125,7 +205,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | order_sum | double | Yes | 订单总额 |
-| pay_cycle | int | Yes | 付款周期 |
+| pay_cycle | int | Yes | 付款周期 demand(周期付款) once (一次付款) |
 | pay_time | String | Yes | 付款时间 |
 | comment | String | Yes | 备注 |
 | first_pay_sum | double | No | 首次付款金额 |
@@ -140,7 +220,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 | type | String | Yes | 产品类型 |
 | zone | String | Yes | 地区 |
 | count | int | Yes | 数量 |
-| pay_way | String | No | 购买方式 |
+| pay_way | String | No | 购买方式 HOUR(小时) MONTH(月) QUARTER(季度) HALF_YEAR(半年) YEAR(年)|
 | duration | int | No | 购买时长 |
 | price | String | Yes | 产品价格 |
 | product_details | Object[] | Yes | 产品详情 |

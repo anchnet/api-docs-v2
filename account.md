@@ -141,7 +141,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| post_field | String | No | 可选字段，"phone"修改客户手机，"auth"修改服务授权码 |
+| post_field | String | No | 可选字段，"auth"修改服务授权码 |
 | tel | String | No | 固定电话 |
 | address | String | No | 地址 |
 | postcode | String | No | 邮编 |
@@ -160,7 +160,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 ### 示例
 
 #### 发送请求
-
+* 修改基本属性
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
 {
@@ -170,7 +170,14 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
     "fax":"021-45612"
 }'
 ```
-
+* 修改服务授权码
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
+{
+    "post_field": "auth",
+    "authorization":"201900"
+}'
+```
 #### 响应内容:
 
 ```js

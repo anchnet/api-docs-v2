@@ -25,8 +25,8 @@
 |ins_id|string|是|资源 ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
-|access_id|string|是|access_id|
-|secret_key|string|是|secret_key|
+|access_id|string|是|密钥 ID|
+|secret_key|string|是|密钥|
 |status|string|是|状态 **enabled** 启用 **disabled** 禁用|
 |create_time|string|是|创建时间|
 
@@ -80,8 +80,8 @@ $ curl -XGET "http://api.51idc.com/v2/apikey"
 |ins_id|string|是|资源 ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
-|access_id|string|是|access_id|
-|secret_key|string|是|secret_key|
+|access_id|string|是|密钥 ID|
+|secret_key|string|是|密钥|
 |status|string|是|状态 **enabled** 启用 **disabled** 禁用|
 |create_time|string|是|创建时间|
 
@@ -171,8 +171,8 @@ Content-Length: 2
 |ins_id|string|是|资源 ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
-|access_id|string|是|access_id|
-|secret_key|string|是|secret_key|
+|access_id|string|是|密钥 ID|
+|secret_key|string|是|密钥|
 |status|string|是|状态 **enabled** 启用 **disabled** 禁用|
 |create_time|string|是|创建时间|
 

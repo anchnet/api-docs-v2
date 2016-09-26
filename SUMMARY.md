@@ -17,7 +17,7 @@
     * [备份](snapshot.md)
     * [事件通知](events.md)
     * [JOB](job.md)
-    * [API-KEY](api_key.md)
+    * [APIKEY](apikey.md)
     * [订单](order.md)
     * [工单](worksheet.md)
 

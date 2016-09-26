@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-## GET /api_keys
+## GET /v2/apikey
 
 **获取秘钥列表**
 
@@ -12,7 +12,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| search_word | String | Yes | 名称/Tag |
+| search_word | String | Yes | 搜索内容 |
 | offset | Int | Yes | 偏移量 |
 | limit | Int | No | 默认值: 10 |
 
@@ -22,42 +22,43 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-|key_id|string|是|ID|
+|ins_id|string|是|资源 ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
 |access_id|string|是|access_id|
 |secret_key|string|是|secret_key|
-|enabled|int|是|启用状态 **1** 启用 **0** 禁用|
+|status|string|是|状态 **enabled** 启用 **disabled** 禁用|
+|create_time|string|是|创建时间|
 
 ### 示例
 
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/api_keys"
+$ curl -XGET "http://api.51idc.com/v2/apikey"
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "data":[
+    "data": [
         {
-            "key_id":"api-sk34h3k4",
-            "name":"测试 KEY",
-            "description":"测试描述",
-            "access_id":"4h3k2h4k32hk4h3",
-            "secret_key":"k23k4hk3j2h4kj",
-            "enabled":1,
-            "created_at":"2016-02-23T19:23:11Z"
+            "ins_id": "api-BN9M5EB",
+            "name": "测试Test",
+            "description": "desc",
+            "access_id": "acfP9YgZA3TSwlzi",
+            "secret_key": "X9loQpTDQN8xxVWtm4ADWpK4IjOuZWv0",
+            "status": "enabled",
+            "create_time": "2016-09-26T02:58:47Z"
         }
     ],
-    "total_count":1
+    "total_count": 1
 }
 ```
 
 
-## POST /api_keys
+## POST /apikey
 
 **创建APIKey**
 
@@ -76,19 +77,20 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/api_keys"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-|key_id|string|是|ID|
+|ins_id|string|是|资源 ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
 |access_id|string|是|access_id|
 |secret_key|string|是|secret_key|
-|enabled|int|是|启用状态 **1** 启用 **0** 禁用|
+|status|string|是|状态 **enabled** 启用 **disabled** 禁用|
+|create_time|string|是|创建时间|
 
 
 ### 示例
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
+$ curl -XPOST "http://api.51idc.com/v2/apikey" --data '
 {
     "name":"test api",
     "description":"test desc"
@@ -98,18 +100,18 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 
 ```js
  {
- "key_id":"api-sk34h3k4",
- "name":"测试 KEY",
- "description":"测试描述",
- "access_id":"4h3k2h4k32hk4h3",
- "secret_key":"k23k4hk3j2h4kj",
- "enabled":1,
- "created_at":"2016-02-23T19:23:11Z"
- }
+  "ins_id": "api-BN9M5EB",
+  "name": "测试Test",
+  "description": "desc",
+  "access_id": "acfP9YgZA3TSwlzi",
+  "secret_key": "X9loQpTDQN8xxVWtm4ADWpK4IjOuZWv0",
+  "status": "enabled",
+  "create_time": "2016-09-26T02:58:47Z"
+}
 ```
 
 
-## DELETE /api_keys/:key_id
+## DELETE /apikey/:ins_id
 **删除APIKey**
 
 ### 请求
@@ -117,7 +119,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| key_id | String | Yes | APIKey ID |
+| ins_id | String | Yes | 资源 ID |
 
 ### 服务端响应
 
@@ -146,59 +148,63 @@ Content-Length: 2
 
 
 
-## PUT /api_keys/:key_id
+## PUT /apikey
 
 **修改APIKey**
 
 ### 请求
-#### URI 参数
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| key_id | String | Yes | APIKey ID |
-
 
 #### Body JSON 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| name | String | Yes | 名称 |
+|ins_id|String|Yes|资源 ID|
+| name | String | No | 名称 |
 | description | String | No | 描述 |
+| status| string|No|状态 可选值：`enabled` `disabled`|
 
 
 ### 服务端响应
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-|key_id|string|是|ID|
+|ins_id|string|是|资源 ID|
 |name|string|是|秘钥名称|
 |description|sring|是|秘钥描述|
 |access_id|string|是|access_id|
 |secret_key|string|是|secret_key|
-|enabled|int|是|启用状态 **1** 启用 **0** 禁用|
+|status|string|是|状态 **enabled** 启用 **disabled** 禁用|
+|create_time|string|是|创建时间|
 
 ### 示例
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/api_keys/api-H3KH54" --data '
-{
- "name":"test api",
- "description":"test desc"
-}'
+$ curl -XPOST "http://api.51idc.com/v2/apikey" --data '
+[
+	{
+		"ins_id":"api-8K047ZT", // Required
+		"name":"tttt2",
+		"description":"desc2",
+		"status":"enabled"
+	}	
+]'
 ```
 
 #### 响应内容:
 
 ```js
- {
- "key_id":"api-sk34h3k4",
- "name":"测试 KEY",
- "description":"测试描述",
- "access_id":"4h3k2h4k32hk4h3",
- "secret_key":"k23k4hk3j2h4kj",
- "enabled":1,
- "created_at":"2016-02-23T19:23:11Z"
- }
+[
+  {
+    "ins_id": "api-8K047ZT",
+    "name": "tttt2",
+    "description": "desc2",
+    "access_id": "acSdwCKCrR2OOOkh",
+    "secret_key": "5xLhmxQDn9VBxPpaAsHc8nBtU5sWN8HR",
+    "status": "enabled",
+    "create_time": "2016-09-26T02:50:24Z"
+  }
+]
 ```
 
 

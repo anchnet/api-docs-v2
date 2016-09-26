@@ -1,7 +1,7 @@
 # 订单
 
 <!-- toc -->
-## GET /order/resource_type
+## GET /resource_type
 
 **获取资源类型列表**
 
@@ -28,7 +28,7 @@ $ curl -XGET "http://api.51idc.com/v2/event_type"
 ```
 
 
-## GET /order/order_type
+## GET /order_type
 
 **获取订单类型列表**
 
@@ -55,7 +55,7 @@ $ curl -XGET "http://api.51idc.com/v2/event_type"
 ```
 
 
-## GET /order/order_state
+## GET /order_state
 
 **获取订单状态列表**
 

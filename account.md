@@ -22,6 +22,7 @@
 | cus_type | String | Yes | 用户类型，企业对应FIRM，个人对应SELF |
 | tel | String | No | 固定电话 |
 | mobile | String | Yes | 手机 |
+| email | String | Yes | 邮箱 |
 | verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
@@ -48,19 +49,74 @@ $ curl -XPOST "http://api.51idc.com/v2/customer" --data '
     "passwd":"123abc",
     "cus_type":"FIRM",
     "tel":"021-9621312",
-    "mobile":"13312345864"
+    "mobile":"13312345864",
+    "email":"test@51idc.com",
+    "verification_code":"133264"
 }'
 ```
 
 #### 响应内容:
-
+* 成功
 ```js
 {
     "cus_name": "51idc"
 } 
 ```
+* 验证码错误
+Http Status:400
+```js
+{
+  "code": "10120020",
+  "detail": "SError({Code:10124000020 Message:Verification code does not match Extra:map[]})",
+  "message": "10124000020"
+}
+```
+* 密码格式错误
+Http Status:400
+```js         
+{             
+  "code": "10120023",
+  "detail": "SError({Code:10124000023 Message:ill-formatted password Extra:map[]})",
+  "message": "10124000023"
+}             
+```
+* 邮箱已存在
+Http Status:400                                                                                                                                                                                                    
+```js           
+{               
+  "code": "10120018",
+  "detail": "SError({Code:10120018 Message:SError({Code:10124000019 Message:customer's email already existed Extra:map[]}) Extra:map[]})",
+  "message": "10120018"
+}               
+``` 
+* 手机已存在
+Http Status:400
+```js
+{  
+  "code": "10120017",
+  "detail": "SError({Code:10120017 Message:SError({Code:10124000019 Message:customer's name already existed Extra:map[]}) Extra:map[]})",
+  "message": "10120017"
+}                                                                                                                                                                                                                  
+```
 
-
+* 客户名已存在
+Http Status:400
+```js
+{
+  "code": "10120019",
+  "detail": "SError({Code:10120019 Message:SError({Code:10124000019 Message:customer's name already existed Extra:map[]}) Extra:map[]})",
+  "message": "10120019"
+}
+```
+* 非法参数
+Http Status:400
+```js
+{    
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid params Extra:map[]})",
+  "message": "10124000001"
+}    
+``` 
 ## GET /customer
 
 **获取用户信息**
@@ -141,7 +197,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| post_field | String | No | 可选字段，"phone"修改客户手机，"auth"修改服务授权码 |
+| post_field | String | No | 可选字段，"auth"修改服务授权码 |
 | tel | String | No | 固定电话 |
 | address | String | No | 地址 |
 | postcode | String | No | 邮编 |
@@ -160,7 +216,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer"
 ### 示例
 
 #### 发送请求
-
+* 修改基本属性
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
 {
@@ -170,14 +226,21 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
     "fax":"021-45612"
 }'
 ```
-
+* 修改服务授权码
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
+{
+    "post_field": "auth",
+    "authorization":"201900"
+}'
+```
 #### 响应内容:
 
 ```js
 ```
 
 
-## GET /customer/available:customer_name
+## GET /customer/available:cusname
 
 **查询用户名是否可用**
 
@@ -207,17 +270,26 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer" --data '
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/customer/available?cus_name=51idc"
+$ curl -XGET "http://api.51idc.com/v2/customer/available?cusname=51idc"
 ```
 
 #### 响应内容:
-
+* 用户名可用
 ```js
 {
     "available": {
         "cus_name":"51idc"
     }
 } 
+```
+* 用户名不可用
+Http Status:202
+```js
+{
+  "code": "10120012",
+  "detail": "SError({Code:10122020012 Message:customer name already existed Extra:map[]})",
+  "message": "10122020012"
+}
 ```
 ## GET /customer/contacts
 
@@ -347,7 +419,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
 ```
 
 #### 响应内容:
-
+* 成功
 ```js
 {
      "contact_id": "con_USBENSE",
@@ -361,7 +433,38 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/contacts" --data '
      "credentials": "728923198511293151"
 }
 ```
- 
+* 非法的手机格式
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid mobile params. Extra:map[]})",
+  "message": "10124000001"
+}
+```
+* 非法的电话格式
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid mobile params. Extra:map[]})",
+  "message": "10124000001"
+}
+```
+* 非法的邮箱格式
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid email params. Extra:map[]})",
+  "message": "10124000001"
+}
+```
+* 非法参数
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid params Extra:map[]})",
+  "message": "10124000001"
+}
+```
 ## PUT /customer/contacts/:contact_id
 
 **修改联系人信息**
@@ -427,7 +530,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts/con_USBENSE --d
 ```
 
 #### 响应内容:
-
+* 成功
 ```js
 {
     "contact_id": "con_USBENSE",
@@ -441,7 +544,38 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts/con_USBENSE --d
     "credentials":""
 } 
 ```
-
+* 非法的手机格式
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid mobile params. Extra:map[]})",
+  "message": "10124000001"
+}
+```
+* 非法的电话格式
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid mobile params. Extra:map[]})",
+  "message": "10124000001"
+}
+```
+* 非法的邮箱格式
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid email params. Extra:map[]})",
+  "message": "10124000001"
+}
+```
+* 非法参数
+```js
+{
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid params Extra:map[]})",
+  "message": "10124000001"
+}
+```
 ## DELETE /customer/contacts/:contact_ids
 
 **删除联系人 支持批量**
@@ -632,12 +766,48 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts" --data '
 ```
 
 #### 响应内容:
-
+* 成功
 ```js
 {
     "login_id": ""
 } 
 ```
+* 邮箱已存在
+Http Status:400                                                                                                                                                                                                    
+```js           
+{               
+  "code": "10120018",
+  "detail": "SError({Code:10120018 Message:SError({Code:10124000019 Message:customer's email already existed Extra:map[]}) Extra:map[]})",
+  "message": "10120018"
+}               
+``` 
+* 非法参数
+Http Status:400
+```js
+{    
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid params Extra:map[]})",
+  "message": "10124000001"
+}
+```   
+* 非法的邮箱格式
+```js
+{  
+  "code": "10120001",
+  "detail": "SError({Code:10124000001 Message:invalid email params. Extra:map[]})",
+  "message": "10124000001"
+}  
+```
+* 密码格式错误
+Http Status:400
+```js         
+{             
+  "code": "10120023",
+  "detail": "SError({Code:10124000023 Message:ill-formatted password Extra:map[]})",
+  "message": "10124000023"
+}             
+```
+
 ## GET /customer/account
 
 **获取登录信息**
@@ -747,7 +917,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/disabled --data '
 {
-    "account_id": "test@51idc.com"
+    "reason": "test"
 }'
 
 ```
@@ -793,7 +963,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/undisabled --data '
 {
-    "account_id": "test@51idc.com"
+    "reason": "test"
 }'
 ```
 

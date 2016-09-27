@@ -290,8 +290,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 ### bills
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| bill_number | String | Yes | 账单编号 |
-| order_number | double | Yes | 订单编号 |
+| bill_no | String | Yes | 账单编号 |
+| order_no | double | Yes | 订单编号 |
 | start_time | double | Yes | 开始时间 |
 | end_time | double | Yes | 结束时间 |
 | seq | double | Yes | 当前期数 |

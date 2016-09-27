@@ -266,7 +266,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 | :-- | :-- | :-- | :-- |
 | end_time | String | NO | 账单结束时间 |
 | start_time | String | NO | 账单开始时间 |
-| bill_state | String | NO | 账单状态 |
+| state | String | NO | 账单状态 |
 | search_word | String | NO | 搜索关键词，支持账单编号，名称 |
 | offset | Int | NO | 数据偏移量，默认为0 |
 | limit | Int | NO | 默认值: 10|
@@ -282,8 +282,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/orders"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | bills | Objects | Yes | 账单列表 |
-| account_payment_count | Int | Yes | 已付账单总数 |
-| non_payment_count | Int | Yes | 未付账单总数 |
+| total_count | Int | Yes | 根据过滤条件取得总数 |
 | current_amount_count | Double | Yes | 当前页账单金额 |
 | amount_count | Double | Yes | 当前状态总账单金额 |
 

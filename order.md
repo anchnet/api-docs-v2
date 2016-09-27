@@ -570,4 +570,21 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 | :-- | :-- |
 | double | 价格|
 
+## GET /recharge_record
+**获取充值记录**
+*描述*
+###请求
+#### Path 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| offset | Integer | No | |
+| limit | Integer | No | |
+| start_time | String | Yes | 起始时间  |
+| end_time | String | Yes | 截止时间  |
+
+### 服务端响应
+#### 响应头信息
+`NULL`
+#### 响应 Body 信息
+
 

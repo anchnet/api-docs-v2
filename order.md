@@ -398,13 +398,10 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/bill/:bill_number"
 | :-- | :-- | :-- | :-- |
 | end_time | String | NO | 记录结束时间 |
 | start_time | String | NO | 记录开始时间 |
-| account_type | String | NO | 用户类型 |
-| search_word | String | NO | 搜索关键词，支持订单编号，名称 |
-| resource_type | String | NO | 资源的类型 |
 | offset | Int | NO | 数据偏移量，默认为0 |
 | limit | Int | NO | 默认值: 10|
 | datacenter | String | NO | 数据中心 |
-| order_type | String | NO | 订单类型 |
+| account_name | list | NO | 账号名称 逗号分隔 |
 
 
 ### 服务端响应
@@ -424,16 +421,14 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/bill/:bill_number"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| order_name | String | Yes | 订单名称 |
-| order_number | Int | Yes | 订单编号 |
-| resource_type | String | Yes | 资源的类型 |
-| account_type| String | Yes | 账户类型 admin(主账号) sub（子账号） |
-| pay_way | String | Yes | PREPAY（包年包月）POSTPAY（按需） |
-| product_name | String | Yes | 产品名称 |
-| order_state | String | Yes | 订单状态 |
-| create_time | String | Yes | 创建时间 |
-| price | double | Yes | 价格 |
-| price_details | Object[] | Yes | 价格详情 |
+| order_no | String | Yes | 订单编号 |
+| resource_type | String | Yes | 资源的类型(cloud,或者其他) |
+| account_name | String | Yes | 用户名 |
+| datacenter | String | Yes | 数据中心 code |
+| consume_amount | Double | Yes | 消费金额 |
+| consume_way | String | Yes | 消费方式 POSTPAY(按需)PREPAY(包年包月)  |
+| consume_time | String | Yes | 消费时间 |
+| is_self | boolean | Yes | 是否账号本身 |
 
 ### price_details
 |参数名 | 类型 | 是否必选 | 描述 |

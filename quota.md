@@ -54,7 +54,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac2/quota_left"
 | :-- | :-- | :-- | :-- |
 | zone | String | Yes | 区域 |
 | reason |  String | Yes | 理由（最大1024字符） |
-| detail |  Map<String, Integer> | Yes | 申请配额详情 |
+| detail |  Map&lt;String, Integer&gt; | Yes | 申请配额详情 |
 
 ### 服务端响应
 

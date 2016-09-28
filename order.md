@@ -430,20 +430,6 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/bill/:bill_number"
 | consume_time | String | Yes | 消费时间 |
 | is_self | boolean | Yes | 是否账号本身 |
 
-### price_details
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| record_title | String | Yes | 记录名称 |
-| record_id | String | Yes | 记录ID |
-| resource_type | String | Yes | 资源类型 |
-| consume_time | String | Yes | 消费时间 |
-| account_type | String | Yes | 账户类型 |
-| order_number | String | Yes | 订单编号 |
-| order_type | String | Yes | 订单类型 |
-| consume_way | String | Yes | 消费方式 |
-| datacenter | String | Yes | 数据中心 |
-| consume_price | double | Yes | 消费金额 |
-
 ### 示例
 
 #### 发送请求
@@ -466,7 +452,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 
 ```
 
-## GET /record/:record_number
+## GET /record/:order_number
 
 **获取消费记录列表**
 
@@ -477,7 +463,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 #### Body 参数
 | 参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| record_number | String | Yes | 消费记录Id |
+| order_number | String | Yes | 订单编号 |
 
 
 ### 服务端响应
@@ -490,30 +476,23 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| order_name | String | Yes | 订单名称 |
-| order_number | Int | Yes | 订单编号 |
-| resource_type | String | Yes | 资源的类型 |
-| account_type| String | Yes | 账户类型 admin(主账号) sub（子账号） |
-| pay_way | String | Yes | PREPAY（包年包月）POSTPAY（按需） |
-| product_name | String | Yes | 产品名称 |
-| order_state | String | Yes | 订单状态 |
-| create_time | String | Yes | 创建时间 |
-| price | double | Yes | 价格 |
-| price_details | Object[] | Yes | 价格详情 |
+| order_no | String | Yes | 订单编号 |
+| consumer_way | String | Yes | 消费方式  POSTPAY(按需)PREPAY(包年包月) |
+| datacenter | String | Yes | 数据中心 |
+| account_name | String | Yes | 用户名 |
+| consumer_amount | Double | Yes | 消费金额 |
+| details | Object | Yes | 详情 |
 
-### price_details
+### details
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| record_title | String | Yes | 记录名称 |
-| record_id | String | Yes | 记录ID |
-| resource_type | String | Yes | 资源类型 |
-| consume_time | String | Yes | 消费时间 |
-| account_type | String | Yes | 账户类型 |
-| order_number | String | Yes | 订单编号 |
-| order_type | String | Yes | 订单类型 |
-| consume_way | String | Yes | 消费方式 |
-| datacenter | String | Yes | 数据中心 |
-| consume_price | double | Yes | 消费金额 |
+| id | String | Yes | 资源id |
+| name | String | Yes | 资源名称 |
+| type | String | Yes | 资源类型 |
+| time | String | Yes | 创建时间 |
+| amount | String | Yes | 消费金额 |
+| start_time| String | Yes | 开始时间 |
+| end_time | String | Yes | 结束时间 |
 
 ### 示例
 
@@ -521,7 +500,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 
 ```bash
 
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
+$ curl -XGET "http://api.51idc.com/v2/zone/ac1/record/:order_name"
 
 ```
 

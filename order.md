@@ -424,11 +424,29 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/bill/:bill_number"
 | order_no | String | Yes | 订单编号 |
 | resource_type | String | Yes | 资源的类型(cloud,或者其他) |
 | account_name | String | Yes | 用户名 |
-| datacenter | String | Yes | 数据中心 code |
+| datacenter | String | Yes | 数据中心 |
 | consume_amount | Double | Yes | 消费金额 |
 | consume_way | String | Yes | 消费方式 POSTPAY(按需)PREPAY(包年包月)  |
 | consume_time | String | Yes | 消费时间 |
 | is_self | boolean | Yes | 是否账号本身 |
+
+### datacenter
+| code | means |
+| :-- | :-- |
+| BA | 北艾 |
+| HDYQ | 华东一区 | 
+| HKST | 香港二期 |
+| HL | 呼兰 | 
+| JH | 金海 | 
+| JQ | 金桥 | 
+| KS | 昆山 | 
+| LG | 长沙 | 
+| LUGU | 鲁谷 | 
+| NH | 南汇 |
+| NJ | 怒江 |
+| USA | 美国 |
+| WX | 无锡 | 
+| YTYQ | 亚太一区 | 
 
 ### 示例
 
@@ -493,6 +511,24 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 | amount | String | Yes | 消费金额 |
 | start_time| String | Yes | 开始时间 |
 | end_time | String | Yes | 结束时间 |
+
+### datacenter
+| code | means |
+| :-- | :-- |
+| BA | 北艾 |
+| HDYQ | 华东一区 | 
+| HKST | 香港二期 |
+| HL | 呼兰 | 
+| JH | 金海 | 
+| JQ | 金桥 | 
+| KS | 昆山 | 
+| LG | 长沙 | 
+| LUGU | 鲁谷 | 
+| NH | 南汇 |
+| NJ | 怒江 |
+| USA | 美国 |
+| WX | 无锡 | 
+| YTYQ | 亚太一区 | 
 
 ### 示例
 

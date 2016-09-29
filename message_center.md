@@ -18,7 +18,7 @@
 | :-- | :-- | :-- | :-- |
 | message_ids | String[] | No | 消息ID |
 | type | String| No | 消息类别 |
-| type | String| No | 以title过滤 |
+| search_word | String| No | 以title过滤 |
 | status | Int| No | 状态 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|

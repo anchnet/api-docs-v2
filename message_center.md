@@ -18,6 +18,7 @@
 | :-- | :-- | :-- | :-- |
 | message_ids | String[] | No | 消息ID |
 | type | String| No | 消息类别 |
+| type | String| No | 以title过滤 |
 | status | Int| No | 状态 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
@@ -54,6 +55,7 @@ $ curl -XGET "http://api.51idc.com/v2/messages"
             "title": "rsa",
             "context": "sss",
             "remark": "kp",
+            "type":"type"
             "status": 0,
             "send_at": "2016-07-21T09:48:08Z"
         }
@@ -192,27 +194,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/notice_types
             "remark" :"remark",  
             "create_at":"",
             "notice_ways":[],
-            "receivers": [],
-            "childs":[
-                {
-                    "id":"id",
-                    "name":"产品创建的信息通知",
-                    "remark" :"remark",  
-                    "create_at":"",
-                    "notice_ways":["sms","mail"],
-                    "receivers": [],
-                    "childs":[]
-              },
-            {
-                "id":"id",
-                "name":"产品欠费、即将停机的信息通知",
-                "remark" :"remark",  
-                "create_at":"",
-                "notice_ways":["mail"],
-                "receivers": [],
-                "childs":[]
-              }
-        ]
+            "receivers": []
     },
     {
         "id":"id",
@@ -220,8 +202,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/notice_types
         "remark" :"remark",  
         "create_at":"",
         "notice_ways":[],
-        "receivers": [],
-        "childs":[]
+        "receivers": []
     }
   ],
     "total_count": 7

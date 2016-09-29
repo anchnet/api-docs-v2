@@ -528,7 +528,17 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/records"
 | NJ | 怒江 |
 | USA | 美国 |
 | WX | 无锡 | 
-| YTYQ | 亚太一区 | 
+| YTYQ | 亚太一区 |
+
+### type
+| code | means |
+| :-- | :-- |
+| instance | 主机 |
+| router | 路由器 |
+| eip | 公网IP |
+| volume | 磁盘 |
+| image | 镜像 |
+| loadbalancer | 负载均衡器 |
 
 ### 示例
 

@@ -569,14 +569,17 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/record/:order_name"
 #### Body 参数
 | 参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| price_item | Object[] | Yes | 价格条目 |
+
+#### price_item
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
 | resource_kind | String | Yes | 资源种类 |
 | resource_type | String | No | 资源类型 |
 | size | Int | Yes | 大小 |
 | amount | Int | Yes | 数量 |
 | payment_type | String | Yes | 计费类型 (POSTPAY:按需，PREPAY:包月)|
 | payment_months | Int | No | 周期 (包月需填) |
-
-
 
 
 

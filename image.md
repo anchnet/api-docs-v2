@@ -188,7 +188,7 @@ $ curl -XGET "http://dev2.51idc.cn/v2/zone/ac1/images" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| image_id | String | Yes |  要验证的镜像id  |
+| image | String | Yes |  要验证的镜像id  |
 | username | String | Yes | 要验证的用户名 |
 
 ### 服务端响应
@@ -227,7 +227,7 @@ $ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/check_users" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| image_id | String | Yes |  要验证的镜像id  |
+| image | String | Yes |  要验证的镜像id  |
 
 ### 服务端响应
 
@@ -265,7 +265,7 @@ $ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| user_ids | String[] | Yes |  要共享给的用户  |
+| usernames | String[] | Yes |  要共享给的用户  |
 | image | string | Yes |  要共享的镜像ID  |
 
 ### 服务端响应
@@ -305,7 +305,7 @@ $ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| user_ids | String[] | Yes |  要取消共享给的用户  |
+| users | String[] | Yes |  要取消共享给的用户  |
 | image | string | Yes |  要取消共享的镜像ID  |
 
 ### 服务端响应

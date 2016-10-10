@@ -176,3 +176,160 @@ $ curl -XGET "http://dev2.51idc.cn/v2/zone/ac1/images" --data '
 ```
 
 #### 响应内容:
+
+## POST /check_users
+
+**验证用户名是否可用**
+
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| image_id | String | Yes |  要验证的镜像id  |
+| username | String | Yes | 要验证的用户名 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/check_users" --data '
+{
+    "instance":"i-IN234BH",
+    "image_name":"TEST"
+}'
+```
+
+#### 响应内容:
+
+
+## POST /image_users
+
+**获取镜像已共享的用户列表**
+
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| image_id | String | Yes |  要验证的镜像id  |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
+{
+    "instance":"i-IN234BH",
+    "image_name":"TEST"
+}'
+```
+
+#### 响应内容:
+
+
+## POST /image_shared
+
+**获取镜像已共享的用户列表**
+
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| user_ids | String[] | Yes |  要共享给的用户  |
+| image | string | Yes |  要共享的镜像ID  |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
+{
+    "instance":"i-IN234BH",
+    "image_name":"TEST"
+}'
+```
+
+#### 响应内容:
+
+
+
+## POST /image_unshared
+
+**获取镜像已共享的用户列表**
+
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| user_ids | String[] | Yes |  要取消共享给的用户  |
+| image | string | Yes |  要取消共享的镜像ID  |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
+{
+    "instance":"i-IN234BH",
+    "image_name":"TEST"
+}'
+```
+
+#### 响应内容:
+
+

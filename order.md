@@ -617,3 +617,34 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/record/:order_name"
 #### 响应头信息
 `NULL`
 #### 响应 Body 信息
+
+
+### datacenter
+| code | means |
+| :-- | :-- |
+| BA | 北艾 |
+| HDYQ | 华东一区 |
+| HKST | 香港二期 |
+| HL | 呼兰 |
+| JH | 金海 |
+| JQ | 金桥 |
+| KS | 昆山 |
+| LG | 长沙 |
+| LUGU | 鲁谷 |
+| NH | 南汇 |
+| NJ | 怒江 |
+| USA | 美国 |
+| WX | 无锡 |
+| YTYQ | 亚太一区 |
+
+### config_kind
+| code | means | unit |
+| :-- | :-- | :-- |
+| volume | 硬盘 | 硬盘大小 单位Gb |
+| eip | 公网ip | 公网ip带宽 单位Mb |
+| router | 路由器 | 最大连接数 单位个 |
+| loadbalancer | 负载均衡器 | 最大连接数 单位个  |
+| snapshot | 备份 | 大小 单位Gb |
+| image | 镜像 | 大小 单位Gb |
+| cpu | cpu | 核心数 单位个 |
+| memory | 内存 | 内存大小 单位Mb |

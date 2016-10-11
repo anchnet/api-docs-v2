@@ -1158,7 +1158,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| addition | String | Yes | 附加字段 |
+| addition | String | No | 附加字段 |
 | smsype | String | Yes | 验证类型，certify |
 | mobile | String | Yes | 手机 |
 

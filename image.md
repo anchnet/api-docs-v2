@@ -256,7 +256,7 @@ $ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
 
 ## POST /image_shared
 
-**获取镜像已共享的用户列表**
+**共享镜像给用户**
 
 
 ### 请求
@@ -296,7 +296,7 @@ $ curl -XPOST "http://dev2.51idc.cn/v2/zone/ac1/image_users" --data '
 
 ## POST /image_unshared
 
-**获取镜像已共享的用户列表**
+**取消镜像共享**
 
 
 ### 请求

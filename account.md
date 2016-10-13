@@ -674,7 +674,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| search_id | String | No | 模糊查询字段 |
+| search_word | String | No | 模糊查询字段 |
 | status | String | No | 状态过滤，ACTIVITY 或 DISABLED 或 空 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100 |
@@ -847,7 +847,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
     "authorization":"1006"
 }'
 ```
-## DELETE /customer/accounts/:account_ids
+## DELETE /customer/accounts/:account_id
 
 **删除登录账户 支持批量**
 
@@ -859,7 +859,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| account_ids | Int[] | Yes | 账户ID列表 |
+| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -871,17 +871,20 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 
 ### 示例
 
-#### 发送请求
-
+#### 发送请求(手机)
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_ids"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verification_code=652312"
+```
+#### 发送请求(微信)
+```bash
+$ curl -XDELETE "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=http%3A%2F%2Fapi.51idc.com%2Fv2%2Fzone%2Fac1%2Fcustomer%2Faccounts%2F%3Aaccount_id%3Fevent_id%3D1476347159&response_type=code&scope=snsapi_base#wechat_redirect "
 ```
 
 #### 响应内容:
 
 ```js
 {
-    "account_ids": []
+    "account_id": ""
 }
 ```
 ## PUT /customer/accounts/:account_id/disabled
@@ -1058,7 +1061,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
     "website":""
 }'
 ```
-## PUT /customer/accounts/account_id/passwd
+## PUT /customer/accounts/:account_id/passwd
 
 **修改密码**
 
@@ -1071,16 +1074,17 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 | :-- | :-- | :-- | :-- |
 | account_id | String | Yes | 用户登录ID |
 
-#### 请求 Body 参数
+#### 请求 Body 参数(手机方式)
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| login_id | String | Yes | 帐号 |
-| old_passwd | String | Yes | 原密码 |
 | new_passwd | String | Yes | 新密码 |
-| verify_type | String | Yes | 验证方式，phone对应手机，wechat对应微信 |
-| cell_number | String | Yes | 手机号或微信号 |
 | verification_code | String | Yes | 验证码 |
+#### QueryString 参数(微信方式)
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| new_passwd | String | Yes | 新密码，需base64编码 |
+| event_id | String | Yes | 轮寻ID，当前时间戳 |
 
 ### 服务端响应
 
@@ -1092,18 +1096,19 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 **NONE**
 ### 示例
 
-#### 发送请求
+#### 发送请求 (手机)
 
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd --data '
 {
-    "login_id":"",
-    "old_passwd":"",
     "new_passwd":"",
-    "verify_type":"",
-    "cell_number":"",
     "verification_code":""
 }'
+```
+#### 发送请求 (微信)
+
+```bash
+$ curl -XGET "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=http%3A%2F%2Fapi.51idc.com%2Fv2%2Fzone%2Fac1%2Fcustomer%2Faccounts%2Ftest%4051idc.com%2Fpasswd%3Fnew_passwd%3D123%26event_id%3D1476347159&response_type=code&scope=snsapi_base#wechat_redirect--data 
 ```
 ## PUT /customer/accounts/:account_id/phone
 

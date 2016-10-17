@@ -739,6 +739,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 | login_id | String | Yes | 登录账户 |
 | passwd | String | Yes | 密码 |
 | account_type | String | Yes | 账户类型, ADMIN对应主帐号,SUB对应子帐号 |
+| mobile | String | Yes | 手机 |
+| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -761,7 +763,9 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts" --data '
 {
     "login_id":"",
     "passwd":"123abc",
-    "account_type":"ADMIN"
+    "account_type":"ADMIN",
+    "mobile":"12345678945",
+    "verification_code":"123456"
 }'
 ```
 

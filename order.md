@@ -648,3 +648,16 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/record/:order_name"
 | image | 镜像 | 大小 单位Gb |
 | cpu | cpu | 核心数 单位个 |
 | memory | 内存 | 内存大小 单位Mb |
+
+
+## POST /recharge
+**充值**
+*详细描述*
+### 请求
+#### Body 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| amount | double | Yes | 充值金额 |
+| bank | string | Yes | 银行代号 |
+
+

@@ -224,7 +224,7 @@ $ curl -XGET "http://dev2.51idc.cn:9000/v2/notice_types
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | notice_type_id | String | Yes | 消息类别ID |
-| contact_ids | Int[] | No | 联系人ID |
+| contact_ids | String[] | No | 联系人ID |
 
 ### 服务端响应
 

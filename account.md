@@ -1240,7 +1240,7 @@ Http Status:400
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/verification_code" --data '
+$ curl -XPOST "http://api.51idc.com/v2/verification_code_withphone" --data '
 {
     "addition":"123abc",
     "smstype":"certify",

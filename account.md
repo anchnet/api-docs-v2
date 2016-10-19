@@ -877,7 +877,9 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 
 #### 发送请求(手机)
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verification_code=652312"
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id" --data '{
+    "verification_code": "652312"
+}'
 ```
 #### 发送请求(微信)
 ```bash
@@ -1156,6 +1158,57 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/
 }'
 ```
 ## post /verification_code
+
+**登录用户获取验证码**
+
+*给登录用户手机发送验证码*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| addition | String | No | 附加字段 |
+| smsype | String | Yes | 验证类型，certify |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/verification_code" --data '
+{
+    "addition":"123abc",
+    "smstype":"certify"
+}'
+```
+#### 响应内容:
+* 成功
+```js
+{} 
+```
+* 未绑定手机
+Http Status:400
+```js
+{
+  "code": "10120026",
+  "detail": "SError({Code:10124000026 Message:please bind your phone first Extra:map[]})",
+  "message": "10124000026"
+}
+```
+## post /verification_code_withphone
 
 **获取验证码**
 

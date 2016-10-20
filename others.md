@@ -71,7 +71,7 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
 ```
 
 ### form 表单示例
-```
+```html
 <form method="post" action="http://aip.51idc.com/v2/upload" enctype="multipart/form-data">
          Please Select Image: <input type="file" name="attachments">  <!-- name must be attachments -->
          <buttom type="submit">Upload</buttom>

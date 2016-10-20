@@ -6,7 +6,11 @@
 
 **文件上传**
 
-*注意：暂时仅支持图片格式*
+```
+注意：
+暂时仅支持图片格式;
+Form 表单需要设置  enctype="multipart/form-data"
+```
 
 ### 请求
 
@@ -64,4 +68,12 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
     "url": "http://cdn.domain.com/201610/20/d7c3aa81-d151-4363-87e5-e2b3906864c2.jpg"
   }
 ]
+```
+
+### form 表单示例
+```
+<form method="post" action="http://aip.51idc.com/v2/upload" enctype="multipart/form-data">
+         Please Select Image: <input type="file" name="attachments">  <!-- name must be attachments -->
+         <buttom type="submit">Upload</buttom>
+ </form>
 ```

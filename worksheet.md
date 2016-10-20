@@ -429,3 +429,64 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/ticket/:id" --data '
     "key": "value"
 }
 ```
+## GET /devinfo
+
+**获取设备信息**
+
+*详细描述*
+
+### 请求
+
+#### Body 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| datacenter | String | Yes | 数据中心代码 |
+| limit | String | Yes | 默认值:5 |
+| offset | String | Yes | 偏移量 |
+| dev_no | String | Yes | 设备编号 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| dev_items | List | Yes | 配置列表 |
+| total_count | int | Yes | 总数 |
+
+
+#### ReplyDetail
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| rack_no  | String | Yes | 机柜编号 |
+| dev_no  | String | Yes | 设备编号 |
+| ip_address  | String | Yes | IP地址 |
+| assets_no  | String | Yes | 资源编号 |
+| dev_model  | String | Yes | 设备型号 |
+| is_shelve  | String | Yes | 是否下架 |
+
+
+### 示例
+
+#### 发送请求
+
+```bash
+
+$ curl -XGET "http://dev.api.51idc.com/v2/devinfo?datacenter=JH&limit=0&offset=5&dev_no=test-005
+
+```
+
+#### 响应内容:
+
+```js
+
+{
+
+ "key": "value"
+
+}
+
+```

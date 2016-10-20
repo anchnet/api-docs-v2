@@ -31,7 +31,7 @@ Form 表单需要设置  enctype="multipart/form-data"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | extension | String | Yes | 文件扩展名 (不含'.') |
-| filename | String | Yes | 服务保存文件名(含子路径)|
+| filename | String | Yes | 服务保存文件名 (用于提交给后端接口)|
 | mime | String|Yes | 文件 Mime 类型，如：image/jpg|
 | original | String | Yes | 上传时原始文件名 |
 | size | Integer | Yes | 文件大小（单位字节） |

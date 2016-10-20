@@ -8,8 +8,9 @@
 
 ```
 注意：
-暂时仅支持图片格式;
-Form 表单需要设置  enctype="multipart/form-data"
+暂时仅支持图片格式；
+Form 表单需要设置  enctype="multipart/form-data"；
+暂不支持二进制流上传文件；
 ```
 
 ### 请求

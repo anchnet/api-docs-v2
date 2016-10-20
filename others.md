@@ -49,7 +49,7 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
 
 #### 相应示例
 
-```js
+```json
 [
   {
     "extension": "jpg",

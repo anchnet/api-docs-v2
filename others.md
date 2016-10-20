@@ -39,12 +39,21 @@ Form 表单需要设置  enctype="multipart/form-data"
 
 #### 请求实例
 
+#### CURL
 ```shell
 curl -XPOST "http://api.51idc.com/v2/upload" \
 --cookie "GWSession=YfLN8pqWn1d89Ek15hnS8VbhwAWof9WDYju72ibISabf0wlTVea3uDRZV9oRvuty" \
 -F "attachments=@/Users/eagle/Pictures/B172DD82-6DDE-4A9A-A23D-7C5D3C4E5381.png" \
 -F "attachments=@/Users/eagle/Pictures/B172DD82-6DDE-4A9A-A23D-7C5D3C4E5382.png" \
 -H "Content-Type: multipart/form-data"
+```
+
+#### form 表单
+```html
+<form method="post" action="http://aip.51idc.com/v2/upload" enctype="multipart/form-data">
+         Please Select Image: <input type="file" name="attachments">  <!-- name must be attachments -->
+         <buttom type="submit">Upload</buttom>
+ </form>
 ```
 
 #### 相应示例
@@ -70,10 +79,3 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
 ]
 ```
 
-### form 表单示例
-```html
-<form method="post" action="http://aip.51idc.com/v2/upload" enctype="multipart/form-data">
-         Please Select Image: <input type="file" name="attachments">  <!-- name must be attachments -->
-         <buttom type="submit">Upload</buttom>
- </form>
-```

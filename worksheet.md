@@ -443,7 +443,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/ticket/:id" --data '
 | datacenter | String | Yes | 数据中心代码 |
 | limit | String | Yes | 默认值:5 |
 | offset | String | Yes | 偏移量 |
-| dev_no | String | Yes | 设备编号 |
+| dev_no | String | No | 设备编号 |
 
 ### 服务端响应
 

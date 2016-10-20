@@ -39,7 +39,7 @@ Form 表单需要设置  enctype="multipart/form-data"
 
 #### 请求实例
 
-```
+```shell
 curl -XPOST "http://api.51idc.com/v2/upload" \
 --cookie "GWSession=YfLN8pqWn1d89Ek15hnS8VbhwAWof9WDYju72ibISabf0wlTVea3uDRZV9oRvuty" \
 -F "attachments=@/Users/eagle/Pictures/B172DD82-6DDE-4A9A-A23D-7C5D3C4E5381.png" \

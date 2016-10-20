@@ -1133,9 +1133,9 @@ $ curl -XGET "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&re
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| mobile | String | Yes | 手机号 |
-| verification_code | String | Yes | 验证码 |
-| action_type | Int | Yes | 动作，0表示绑定，1表示解除绑定 |
+| vcode_for_old | String | Yes | 原绑定手机验证码 |
+| new_mobile | String | Yes | 新手机号 |
+| vcode_for_new | String | Yes | 新手机验证码 |
 
 ### 服务端响应
 

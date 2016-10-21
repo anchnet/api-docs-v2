@@ -141,14 +141,14 @@ Http Status:400
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | cus_name | String | No | 用户名 |
-| cus_type | String | No | 用户类型,FIRM对应企业用户，SELF对应个人用户 |
+| cus_type | String | No | 用户类型,firm对应企业用户，self对应个人用户 |
 | tel | String | No | 固定电话 |
 | address | String | No | 地址 |
 | postcode | String | No | 邮编 |
 | fax | String | No | 传真 |
 | mobile | String | No | 手机 |
 | email | String | No | 邮箱 |
-| cred_type | String | No | 证件类型，身份证对应IDENTITY，<br>军官证对应MILITARY，<br>驾照对应DRIVER |
+| cred_type | String | No | 证件类型，身份证对应identity，<br>军官证对应military，<br>驾照对应driver |
 | credentials | String | No | 证件编号 |
 | permit_number | String | No | 营业执照编号 |
 | permit_addr | String | No | 营业执照图片地址 |
@@ -335,23 +335,23 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
       {
          "contact_id": "con_YZAKUZF",
          "name": "小张",
-         "sex": "M",
+         "sex": "m",
          "tel": "021-25228622",
          "mobile": "13751247782",
          "email": "test@163.com",
-         "con_type": "JTYPE",
-         "cred_type": "IDENTITY",
+         "con_type": "jtype",
+         "cred_type": "identity",
          "credentials": "330104598502150915"
       },
       {
          "contact_id": "con_USBENSE",
          "name": "小李",
-         "sex": "M",
+         "sex": "m",
          "tel": "",
          "mobile": "15721460942",
          "email": "test2@heheda.net",
-         "con_type": "STYPE",
-         "cred_type": "IDENTITY",
+         "con_type": "stype",
+         "cred_type": "identity",
          "credentials": "728923198511293151"
       }
    ],
@@ -371,11 +371,11 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| name | String | No | 姓名 |
+| name | String | Yes | 姓名 |
 | sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
-| mobile | String | No | 手机 |
-| email | String | No | 类型 |
+| mobile | String | Yes | 手机 |
+| email | String | Yes | 类型 |
 | con_type | String | No | 联系人类型 |
 | cred_type | String | No | 证件类型 |
 | credentials | String | No | 证件号 |
@@ -391,7 +391,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | contact_id | String | Yes | ID |
-| name | String | No | 姓名 |
+| name | String | Yes | 姓名 |
 | sex | String | No | 性别 |
 | tel | String | No | 固定电话 |
 | mobile | String | No | 手机 |
@@ -904,7 +904,7 @@ $ curl -XDELETE "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID
 #### 请求 Body 参数
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| reason | String | Yes | 理由 |
+| reason | String | No | 理由 |
 
 ### 服务端响应
 

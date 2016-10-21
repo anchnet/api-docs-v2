@@ -300,7 +300,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_lines"
         }
     ]
 } 
-```js
+```
 
 ## POST /idc/private_line
 
@@ -342,4 +342,4 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_line"
 
 ```js
 {} 
-```s
+```

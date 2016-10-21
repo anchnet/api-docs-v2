@@ -88,7 +88,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"dev_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"os": "*String*"<br>&nbsp;&nbsp;"up_time": "*String*"<br>&nbsp;&nbsp;"payment_cycle": "*Int*"<br>&nbsp;&nbsp;"payment_amount": "*double*"<br>&nbsp;&nbsp;"leases": "*Int*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
+| dev | Object | Yes | <br>{<br>&nbsp;&nbsp;"dev_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"os": "*String*"<br>&nbsp;&nbsp;"up_time": "*String*"<br>&nbsp;&nbsp;"payment_cycle": "*Int*"<br>&nbsp;&nbsp;"payment_amount": "*double*"<br>&nbsp;&nbsp;"leases": "*Int*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br> |
 
 ### 示例
 

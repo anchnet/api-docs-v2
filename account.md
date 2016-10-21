@@ -1247,3 +1247,42 @@ $ curl -XPOST "http://api.51idc.com/v2/verification_code_withphone" --data '
     "mobile":"13312345864"
 }'
 ```
+## put /customer/image
+
+**获取验证码**
+
+*给手机发送验证码*
+
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| obj_type | String | Yes | 操作对象类型，permit表示营业执照，organize表示组织机构代码证|
+| obj_name | String | Yes | 对象名字 |
+| obj_addr | String | Yes | 服务保存文件名 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/image" --data '
+{
+    "obj_type":"permit",
+    "obj_name":"test.jpg",
+    "obj_addr":"201610/20/7fe99d3c-4719-497e-9718-6261e2258eb2.jpg"
+}'
+```

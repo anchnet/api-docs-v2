@@ -300,9 +300,9 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_lines"
         }
     ]
 } 
-```s
+```js
 
-## Post /idc/private_line
+## POST /idc/private_line
 
 **创建专线**
 

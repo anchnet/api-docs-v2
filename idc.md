@@ -310,8 +310,6 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_lines"
 
 ### 请求
 
-#### QueryString 参数
-
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | type | String | No | 类型|

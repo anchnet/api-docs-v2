@@ -17,6 +17,7 @@
 | router | Object | Yes | 路由器 |
 | nets | Object[] | Yes | 网络信息 |
 | eip | Object | Yes | 公网IP信息 |
+| order | Object | Yes | 订单信息 |
 ###  router 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |

@@ -17,7 +17,7 @@
 | tag | String | No | 标签ID |
 | search_word | String| No | 查询条件 |
 | status | String| No | 状态 |
-| type | String| No | 类型 |
+| type | String| No | 类型：hire对应租用列表，managed对应托管列表 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 
@@ -32,7 +32,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | total_count | Int | Yes | 根据过滤条件得到租用设备总数 |
-| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
+| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
 
 ### 示例
 
@@ -51,12 +51,13 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev"
         {
            "id": "ins-D6MK7EV",
             "name": "rsa",
-            "model": "model",
-            "status": "status",
-            "networkip": "networkip",
+            "model": "型号",
+            "status": "状态",
+            "networkip": "内网IP",
+            "tags": "标签1,标签2",
             "dev_ip": {
-                "addr":"addr",
-                "carrier_code":"carrier_code"
+                "addr":"公网IP",
+                "carrier_code":"线路"
             }
         }
     ]
@@ -76,7 +77,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| dev_id | String | No | 设备ID |
+| dev_id | String | Yes | 设备ID |
 
 ### 服务端响应
 

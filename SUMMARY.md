@@ -23,5 +23,6 @@
     * [代金券](coupon.md)
     * [配额](quota.md)
     * [用户中心](account.md)
+    * [物理架构](idc.md)
     * [其他](others.md)
 

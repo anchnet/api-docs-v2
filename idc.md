@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-## GET /idc/dev
+## GET /idc/devs
 
 **获取设备列表**
 
@@ -63,9 +63,44 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev"
     ]
 } 
 ```
+## PUT /idc/devs/:dev_id
+
+**修改设备信息**
+
+*修改租用和托管设备的设备信息*
 
 
-## GET /idc/dev_dettails
+### 请求
+
+#### 请求 Body 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| name | String | Yes | 设备名 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+**NONE**
+### 示例
+
+#### 发送请求
+```bash
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
+{
+    "name":"设备名字"
+}'
+```
+#### 响应内容:
+
+```js
+```
+## GET /idc/devs/:dev_id
 
 **获取设备详情**
 
@@ -108,8 +143,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev_dettails"
     "model": "model",
     "status": "status",
     "networkip": "networkip",
-    "os": "os",
-    "up_time": "up_time",
+    "os": "操作系统",
+    "up_time": "上架时间",
     "payment_cycle": 3,
     "payment_amount": 4,
     "leases": 5,

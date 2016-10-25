@@ -39,7 +39,7 @@
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev"
+$ curl -XGET "http://api.51idc.com/v2/idc/dev"
 ```
 
 #### 响应内容:
@@ -143,7 +143,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev_dettails"
+$ curl -XGET "http://api.51idc.com/v2/idc/dev_dettails"
 ```
 
 #### 响应内容:
@@ -206,7 +206,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev_dettails"
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/racks"
+$ curl -XGET "http://api.51idc.com/v2/idc/racks"
 ```
 
 #### 响应内容:
@@ -267,7 +267,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/racks"
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/ips"
+$ curl -XGET "http://api.51idc.com/v2/idc/ips"
 ```
 
 #### 响应内容:
@@ -325,7 +325,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/ips"
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_lines"
+$ curl -XGET "http://api.51idc.com/v2/idc/private_lines"
 ```
 
 #### 响应内容:
@@ -381,7 +381,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_lines"
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/private_line"
+$ curl -XGET "http://api.51idc.com/v2/idc/private_line"
 ```
 
 #### 响应内容:

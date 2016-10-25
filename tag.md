@@ -39,7 +39,7 @@
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/tags"
+$ curl -XGET "http://api.51idc.com/v2/tags"
 ```
 
 #### 响应内容:
@@ -74,6 +74,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/tags"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 标签名称 |
+| zone | String | No |  分区 |
 | color | String | No | 颜色 |
 | describe | String | No | 描述 |
 
@@ -92,7 +93,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/tags"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags" --data '
+$ curl -XPOST "http://api.51idc.com/v2/tags" --data '
 {
     "name":"tag",
     "color":"",
@@ -120,6 +121,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| zone | String | No |  分区 |
 | tag_ids | String[] | Yes | 标签ID列表 |
 
 ### 服务端响应
@@ -137,7 +139,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags" --data '
 #### 发送请求
 
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/tags/:tag_ids"
+$ curl -XDELETE "http://api.51idc.com/v2/tags/:tag_ids"
 ```
 
 #### 响应内容:
@@ -182,7 +184,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/tags/:tag_ids"
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/tags/:tag_id" --data '
+$ curl -XPUT "http://api.51idc.com/v2/tags/:tag_id" --data '
 {
     "tag_id":"tag_1313677",
     "name":"name",
@@ -211,6 +213,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/tags/:tag_id" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| zone | String | No |  分区 |
 | tag_ids | String[] | Yes | 密钥ID列表 |
 | resources | Object[] | Yes | 资源列表 |
 
@@ -229,7 +232,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/tags/:tag_id" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
+$ curl -XPOST "http://api.51idc.com/v2/tags/attach" --data '
 {
   "tag_ids":["tag-1313677"],
   "resources":[
@@ -269,6 +272,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
 | :-- | :-- | :-- | :-- |
 | tagi_ids | String[] | Yes | 标签ID列表 |
 | resources | Object[] | Yes | 资源列表 |
+| zone | String | No |  分区 |
 
 ### 服务端响应
 
@@ -285,7 +289,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/attach" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/tags/detach" --data '
+$ curl -XPOST "http://api.51idc.com/v2/tags/detach" --data '
 {
   "tag_ids":["tag-1313677"],
   "resources":[

@@ -20,6 +20,7 @@
 | search_word | String| No | 查询条件 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
+| zone | String | No |  分区 |
 
 ### 服务端响应
 
@@ -169,6 +170,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/tags/:tag_ids"
 | name | String | NO | 标签名称 |
 | color | String | No | 颜色 |
 | describe | String | No | 描述 |
+| zone | String | No |  分区 |
 
 ### 服务端响应
 

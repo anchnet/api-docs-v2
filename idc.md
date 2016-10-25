@@ -14,7 +14,7 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| tag | String | No | 标签ID |
+| tags | String | No | 标签ID，逗号分隔 |
 | search_word | String| No | 查询条件 |
 | status | String| No | 状态 |
 | type | String| No | 类型：hire对应租用列表，managed对应托管列表 |
@@ -46,21 +46,33 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/idc/dev"
 
 ```js
 {
-    "total_count": 1,
     "dev": [
+    {
+      "id": "JH-TG-11387",
+      "name": "just test",
+      "model": "Dl360GS",
+      "status": "正常",
+      "networkip": "",
+      "tags": [
         {
-           "id": "ins-D6MK7EV",
-            "name": "rsa",
-            "model": "型号",
-            "status": "状态",
-            "networkip": "内网IP",
-            "tags": "标签1,标签2",
-            "dev_ip": {
-                "addr":"公网IP",
-                "carrier_code":"线路"
-            }
+          "tag_id": "tag-SNM3AXO",
+          "name": "tag-test",
+          "color": "7"
+        },
+        {
+          "tag_id": "tag-ZZZ20ZZ",
+          "name": "idc",
+          "color": "1"
         }
-    ]
+      ],
+      "dev_ip": [
+        {
+          "addr": "114.80.200.79",
+          "carrier_code": "PuN_CTC"
+        }
+      ]
+    },
+    "total_count": 1
 } 
 ```
 ## PUT /idc/devs/:dev_id

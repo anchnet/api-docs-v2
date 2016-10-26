@@ -236,11 +236,11 @@ $ curl -XPOST "http://api.51idc.com/v2/tags/attach" --data '
                
                 {
                     "resource_id":"ins-D6MK7EV",
-                    "resource_type":"instance"
+                    "resource_type":"INSTANCE"
                 },
                 {
                     "resource_id":"lb-921B97F",
-                    "resource_type":"loadbalancer"
+                    "resource_type":"LOADBALANCER"
                 }
               ]
 }'

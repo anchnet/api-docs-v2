@@ -20,7 +20,6 @@
 | search_word | String| No | 查询条件 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
-| zone | String | No |  分区 |
 
 ### 服务端响应
 
@@ -75,7 +74,6 @@ $ curl -XGET "http://api.51idc.com/v2/tags"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 标签名称 |
-| zone | String | No |  分区 |
 | color | String | No | 颜色 |
 | describe | String | No | 描述 |
 
@@ -122,7 +120,6 @@ $ curl -XPOST "http://api.51idc.com/v2/tags" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| zone | String | No |  分区 |
 | tag_ids | String[] | Yes | 标签ID列表 |
 
 ### 服务端响应
@@ -170,7 +167,6 @@ $ curl -XDELETE "http://api.51idc.com/v2/tags/:tag_ids"
 | name | String | NO | 标签名称 |
 | color | String | No | 颜色 |
 | describe | String | No | 描述 |
-| zone | String | No |  分区 |
 
 ### 服务端响应
 
@@ -215,7 +211,6 @@ $ curl -XPUT "http://api.51idc.com/v2/tags/:tag_id" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| zone | String | No |  分区 |
 | tag_ids | String[] | Yes | 密钥ID列表 |
 | resources | Object[] | Yes | 资源列表 |
 
@@ -274,7 +269,6 @@ $ curl -XPOST "http://api.51idc.com/v2/tags/attach" --data '
 | :-- | :-- | :-- | :-- |
 | tagi_ids | String[] | Yes | 标签ID列表 |
 | resources | Object[] | Yes | 资源列表 |
-| zone | String | No |  分区 |
 
 ### 服务端响应
 

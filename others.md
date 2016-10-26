@@ -2,6 +2,61 @@
 
 <!-- toc -->
 
+## POST /v2/zone/{zone}/lease
+
+**资源恢复接口**
+
+```
+注意：
+暂时仅支持 主机、磁盘、镜像 恢复
+```
+
+### 请求
+
+#### 请求Form参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| resources | []String | Yes | 资源 ID  例如: `["ins-23h4j43", "vol-23k3jgg"]`|
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac2/lease" --data '
+{
+    "resources": ["ins-CIC3QEB"]
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+  "job_id": "1bc0bdb3-cf10-4b6c-9e27-1e78492b9d25",
+  "action": "Lease",
+  "request_id": "30d327981cba6c21",
+  "status": "pending",
+  "created_time": "2016-10-26T09:46:21Z",
+  "begin_time": "",
+  "finished_time": "",
+  "extra": "",
+  "zone": "ac2",
+  "resource_ids": []
+}
+```
+
 ## POST /v2/upload
 
 **文件上传**

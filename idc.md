@@ -16,7 +16,7 @@
 | :-- | :-- | :-- | :-- |
 | tags | String | No | 标签ID，逗号分隔 |
 | search_word | String| No | 查询条件 |
-| status | String| No | 状态 |
+| status | String| No | 状态,healthy对应运行中，unhealthy对应已断网 |
 | type | String| No | 类型：hire对应租用列表，managed对应托管列表 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
@@ -89,6 +89,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 设备名 |
+| memo | String | No | 描述 |
 
 ### 服务端响应
 

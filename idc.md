@@ -32,7 +32,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | total_count | Int | Yes | 根据过滤条件得到租用设备总数 |
-| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
+| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"memo": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
 
 ### 示例
 
@@ -50,6 +50,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev"
     {
       "id": "JH-TG-11387",
       "name": "just test",
+      "memo": "描述",
       "model": "Dl360GS",
       "status": "正常",
       "networkip": "",
@@ -106,13 +107,11 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev"
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 {
-    "name":"设备名字"
+    "name":"设备名字",
+    "memo": "描述"
 }'
 ```
 #### 响应内容:
-
-```js
-```
 
 ## GET /idc/devs/:dev_id
 
@@ -138,7 +137,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| dev | Object | Yes | <br>{<br>&nbsp;&nbsp;"dev_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"os": "*String*"<br>&nbsp;&nbsp;"up_time": "*String*"<br>&nbsp;&nbsp;"payment_cycle": "*Int*"<br>&nbsp;&nbsp;"payment_amount": "*double*"<br>&nbsp;&nbsp;"leases": "*Int*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br> |
+| dev | Object | Yes | <br>{<br>&nbsp;&nbsp;"dev_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"memo": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"os": "*String*"<br>&nbsp;&nbsp;"up_time": "*String*"<br>&nbsp;&nbsp;"payment_cycle": "*Int*"<br>&nbsp;&nbsp;"payment_amount": "*double*"<br>&nbsp;&nbsp;"leases": "*Int*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br> |
 
 ### 示例
 
@@ -154,6 +153,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev_dettails"
 {
     "id": "ins-D6MK7EV",
     "name": "rsa",
+    "memo": "描述",
     "model": "model",
     "status": "status",
     "networkip": "networkip",

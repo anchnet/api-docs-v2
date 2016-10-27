@@ -134,4 +134,43 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
   }
 ]
 ```
+## GET /oplog
+
+**获取操作日志列表**
+
+*详细描述*
+
+### 请求
+
+#### Body 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| end_time | String | NO | 记录结束时间 |
+| start_time | String | NO | 记录开始时间 |
+| offset | Int | NO | 数据偏移量，默认为0 |
+| limit | Int | NO | 默认值: 10|
+
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| oplogs | Objects | Yes | 操作日志 |
+| total_count | Int | Yes | 根据过滤条件得到的总数 |
+
+### oplogs
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| action | String | Yes | 操作行文 |
+| resource_id | String | Yes | 资源的id |
+| result | String | Yes | 结果(success,fail) |
+| message | String | Yes | 错误内容 |
+| create_time | Double | Yes | 创建时间 |
 

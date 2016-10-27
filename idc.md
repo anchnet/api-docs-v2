@@ -113,6 +113,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 
 ```js
 ```
+
 ## GET /idc/devs/:dev_id
 
 **获取设备详情**

@@ -152,22 +152,22 @@ $ curl -XGET "http://api.51idc.com/v2/idc/devs/JH-HK-1002"
 ```js
 {
     "id": "ins-D6MK7EV",
-    "name": "rsa",
+    "name": "名字",
     "memo": "描述",
-    "model": "model",
-    "status": "status",
-    "networkip": "networkip",
+    "model": "型号",
+    "status": "状态",
+    "networkip": "内网IP",
     "os": "操作系统",
     "up_time": "上架时间",
-    "payment_cycle": 3,
-    "payment_amount": 4,
-    "leases": 5,
+    "payment_cycle": 付款周期,
+    "payment_amount": 月付额,
+    "leases": 租赁时长,
     "tags": "tags",
     "dev_ip": {
         "addr": "addr",
         "port": "port",
-        "bandwidth": 5,
-        "private_line_id": "private_line_id"
+        "bandwidth": 带宽,
+        "private_line_id": "专线"
     }
 }
 ```
@@ -212,7 +212,16 @@ $ curl -XGET "http://api.51idc.com/v2/idc/racks"
 ```
 
 #### 响应内容:
-
+rack_id:机柜ID
+data_center:数据中心
+status:
+actual_unit:剩余空间
+power_max:标准电量
+total_slot:插座数量
+dev:{
+    dev_id:设备ID
+    name:设备名
+}
 ```js
 {
     "total_count": 1,
@@ -225,7 +234,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/racks"
             "power_max": 3,
             "total_slot": 3,
             "devs": {
-                "id":"id",
+                "dev_id":"id",
                 "name":"name"
             }
         }
@@ -273,6 +282,13 @@ $ curl -XGET "http://api.51idc.com/v2/idc/ips"
 ```
 
 #### 响应内容:
+ip_addr:IP地址
+data_center:数据中心
+status:
+network:网络属性
+mask:掩码
+gateway:网关
+carrier:线路
 
 ```js
 {
@@ -331,7 +347,13 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_lines"
 ```
 
 #### 响应内容:
-
+private_line_id:专线id
+access_address_a:接入点a
+status:
+type:专线类型
+band_width:带宽
+access_address_b:接入点b
+devs:绑定资源id和名字
 ```js
 {
     "total_count": 1,
@@ -344,7 +366,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_lines"
             "band_width": 3,
             "access_address_b": "access_address_b",
             "devs": {
-                "id":"id",
+                "dev_id":"id",
                 "name":"name"
             }
         }

@@ -126,6 +126,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | dev_id | String | Yes | 设备ID |
+| type | String| No | 类型：hire对应租用列表，managed对应托管列表 |
 
 ### 服务端响应
 

@@ -387,7 +387,7 @@ devs:绑定资源id和名字
 | type | String | No | 类型|
 | band_width | Int| No | 带宽 |
 | access_address_a | String| No | 数据中心 |
-| access_address_b | Int | No | 接入点B |
+| access_address_b | String | No | 接入点B |
 
 ### 服务端响应
 

@@ -1259,7 +1259,7 @@ $ curl -XPOST "http://api.51idc.com/v2/verification_code_withphone" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| obj_type | String | Yes | 操作对象类型，permit表示营业执照，organize表示组织机构代码证|
+| obj_type | String | Yes | 操作对象类型，permit表示营业执照，organize表示组织机构代码证, credentials表示证件|
 | obj_name | String | Yes | 对象名字 |
 | obj_addr | String | Yes | 服务保存文件名 |
 

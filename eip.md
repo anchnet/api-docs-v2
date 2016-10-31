@@ -92,7 +92,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_billing_mode" --data
 ```
 
 
-## POST /eips/change_bandwidth
+## POST /eips/change_bandwidth_order
 
 **改变公网IP 带宽**
 

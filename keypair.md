@@ -21,7 +21,6 @@
 | instance_id | String | No | 主机ID |
 | encrypt_method | String | No | 加密算法:ssh-rsa,ssh-dss |
 | search_word | String | No | 搜索关键词，支持密钥ID，密钥名称 |
-| tags | String[] | No | 按照标签ID过滤, 只返回已绑定某标签的资源 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 

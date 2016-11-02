@@ -152,7 +152,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_product" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| security_groups | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"is_applied": "*Int*",<br>&nbsp;&nbsp;"description": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"is_default": "*Int*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"security_group_name": "*String*",<br>&nbsp;&nbsp;"resources": [<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource_id": "*String*"<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>}<br>] |
+| security_groups | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"is_applied": "*Int*",<br>&nbsp;&nbsp;"description": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"is_default": "*Int*",<br>&nbsp;&nbsp;"create_time": "*String*",<br>&nbsp;&nbsp;"security_group_name": "*String*",<br>&nbsp;&nbsp;"resources": [<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;"resource_name": "*String*",<br>&nbsp;&nbsp;"resource_type": "*String*",<br>&nbsp;&nbsp;"resource_id": "*String*"<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;}]<br>&nbsp;&nbsp;"tags": [<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"color": "*String*",<br>&nbsp;&nbsp;"tag_id": "*String*"<br>&nbsp;&nbsp;}]<br>&nbsp;&nbsp;<br>}<br>] |
 | total_count | Int | Yes | 根据过滤条件得到的防火墙总数 |
 
 ### 示例
@@ -175,7 +175,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_groups"
             "is_default": 1,
             "create_time": "2016-07-18T01:57:50Z",
             "security_group_name": "default firewall",
-            "resources": []
+            "resources": [],
+            "tags":[]
         },
         {
             "is_applied": 1,
@@ -184,7 +185,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_groups"
             "is_default": 0,
             "create_time": "2016-07-25T08:22:34Z",
             "security_group_name": "security_group_name",
-            "resources": []
+            "resources": [],
+            "tags":[]
         }
     ],
     "total_count": 2

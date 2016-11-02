@@ -174,3 +174,33 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
 | message | String | Yes | 错误内容 |
 | create_time | Double | Yes | 创建时间 |
 
+## GET /rent_info/:order_number
+
+**获取租赁信息**
+
+*详细描述*
+
+### 请求
+
+#### Query 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| order_no | String | Yes | 订单编号 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| order_no | String | Yes | 订单编号 |
+| price | Double | Yes | 订单价格 |
+| payment_type | String | Yes | 支付方式 |
+| payment_month | Int | Yes | 支付月数 |
+| create_time | String | Yes | 开始时间 |
+| end_time | String | Yes | 结束时间 |
+

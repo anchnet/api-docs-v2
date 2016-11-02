@@ -16,7 +16,7 @@
 | :-- | :-- | :-- | :-- |
 | tags | String | No | 标签ID，逗号分隔 |
 | search_word | String| No | 查询条件 |
-| status | String| No | 状态 |
+| status | String| No | 状态,healthy对应运行中，unhealthy对应已断网 |
 | type | String| No | 类型：hire对应租用列表，managed对应托管列表 |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
@@ -32,7 +32,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | total_count | Int | Yes | 根据过滤条件得到租用设备总数 |
-| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
+| dev | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"memo": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br>] |
 
 ### 示例
 
@@ -50,6 +50,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev"
     {
       "id": "JH-TG-11387",
       "name": "just test",
+      "memo": "描述",
       "model": "Dl360GS",
       "status": "正常",
       "networkip": "",
@@ -89,6 +90,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | name | String | Yes | 设备名 |
+| memo | String | No | 描述 |
 
 ### 服务端响应
 
@@ -105,13 +107,12 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev"
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 {
-    "name":"设备名字"
+    "name":"设备名字",
+    "memo": "描述"
 }'
 ```
 #### 响应内容:
 
-```js
-```
 ## GET /idc/devs/:dev_id
 
 **获取设备详情**
@@ -124,7 +125,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| dev_id | String | Yes | 设备ID |
+| type | String| No | 类型：hire对应租用列表，managed对应托管列表 |
 
 ### 服务端响应
 
@@ -136,14 +137,14 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/idc/devs/NJ-TG-10032" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| dev | Object | Yes | <br>{<br>&nbsp;&nbsp;"dev_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"os": "*String*"<br>&nbsp;&nbsp;"up_time": "*String*"<br>&nbsp;&nbsp;"payment_cycle": "*Int*"<br>&nbsp;&nbsp;"payment_amount": "*double*"<br>&nbsp;&nbsp;"leases": "*Int*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br> |
+| dev | Object | Yes | <br>{<br>&nbsp;&nbsp;"dev_id": "*String*",<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"memo": "*String*",<br>&nbsp;&nbsp;"model": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"networkip": "*String*"<br>&nbsp;&nbsp;"os": "*String*"<br>&nbsp;&nbsp;"up_time": "*String*"<br>&nbsp;&nbsp;"payment_cycle": "*Int*"<br>&nbsp;&nbsp;"payment_amount": "*double*"<br>&nbsp;&nbsp;"leases": "*Int*",<br>&nbsp;&nbsp;"tags": "*String*",<br>&nbsp;&nbsp;"dev_ip": "*Object[]*",<br> }<br> |
 
 ### 示例
 
 #### 发送请求
 
 ```bash
-$ curl -XGET "http://api.51idc.com/v2/idc/dev_dettails"
+$ curl -XGET "http://api.51idc.com/v2/idc/devs/JH-HK-1002"
 ```
 
 #### 响应内容:
@@ -151,21 +152,22 @@ $ curl -XGET "http://api.51idc.com/v2/idc/dev_dettails"
 ```js
 {
     "id": "ins-D6MK7EV",
-    "name": "rsa",
-    "model": "model",
-    "status": "status",
-    "networkip": "networkip",
+    "name": "名字",
+    "memo": "描述",
+    "model": "型号",
+    "status": "状态",
+    "networkip": "内网IP",
     "os": "操作系统",
     "up_time": "上架时间",
-    "payment_cycle": 3,
-    "payment_amount": 4,
-    "leases": 5,
+    "payment_cycle": 付款周期,
+    "payment_amount": 月付额,
+    "leases": 租赁时长,
     "tags": "tags",
     "dev_ip": {
         "addr": "addr",
         "port": "port",
-        "bandwidth": 5,
-        "private_line_id": "private_line_id"
+        "bandwidth": 带宽,
+        "private_line_id": "专线"
     }
 }
 ```
@@ -210,7 +212,16 @@ $ curl -XGET "http://api.51idc.com/v2/idc/racks"
 ```
 
 #### 响应内容:
-
+rack_id:机柜ID
+data_center:数据中心
+status:
+actual_unit:剩余空间
+power_max:标准电量
+total_slot:插座数量
+dev:{
+    dev_id:设备ID
+    name:设备名
+}
 ```js
 {
     "total_count": 1,
@@ -223,7 +234,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/racks"
             "power_max": 3,
             "total_slot": 3,
             "devs": {
-                "id":"id",
+                "dev_id":"id",
                 "name":"name"
             }
         }
@@ -271,6 +282,13 @@ $ curl -XGET "http://api.51idc.com/v2/idc/ips"
 ```
 
 #### 响应内容:
+ip_addr:IP地址
+data_center:数据中心
+status:
+network:网络属性
+mask:掩码
+gateway:网关
+carrier:线路
 
 ```js
 {
@@ -329,7 +347,13 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_lines"
 ```
 
 #### 响应内容:
-
+private_line_id:专线id
+access_address_a:接入点a
+status:
+type:专线类型
+band_width:带宽
+access_address_b:接入点b
+devs:绑定资源id和名字
 ```js
 {
     "total_count": 1,
@@ -342,7 +366,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_lines"
             "band_width": 3,
             "access_address_b": "access_address_b",
             "devs": {
-                "id":"id",
+                "dev_id":"id",
                 "name":"name"
             }
         }
@@ -363,7 +387,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_lines"
 | type | String | No | 类型|
 | band_width | Int| No | 带宽 |
 | access_address_a | String| No | 数据中心 |
-| access_address_b | Int | No | 接入点B |
+| access_address_b | String | No | 接入点B |
 
 ### 服务端响应
 

@@ -2,6 +2,61 @@
 
 <!-- toc -->
 
+## POST /v2/zone/{zone}/lease
+
+**资源恢复接口**
+
+```
+注意：
+暂时仅支持 主机、磁盘、镜像 恢复
+```
+
+### 请求
+
+#### 请求Form参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| resources | []String | Yes | 资源 ID  例如: `["ins-23h4j43", "vol-23k3jgg"]`|
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+参考: *[Job 数据结构](/job.html)*
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac2/lease" --data '
+{
+    "resources": ["ins-CIC3QEB"]
+}'
+```
+
+#### 响应内容:
+
+```js
+{
+  "job_id": "1bc0bdb3-cf10-4b6c-9e27-1e78492b9d25",
+  "action": "Lease",
+  "request_id": "30d327981cba6c21",
+  "status": "pending",
+  "created_time": "2016-10-26T09:46:21Z",
+  "begin_time": "",
+  "finished_time": "",
+  "extra": "",
+  "zone": "ac2",
+  "resource_ids": []
+}
+```
+
 ## POST /v2/upload
 
 **文件上传**
@@ -79,4 +134,43 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
   }
 ]
 ```
+## GET /oplog
+
+**获取操作日志列表**
+
+*详细描述*
+
+### 请求
+
+#### Body 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| end_time | String | NO | 记录结束时间 |
+| start_time | String | NO | 记录开始时间 |
+| offset | Int | NO | 数据偏移量，默认为0 |
+| limit | Int | NO | 默认值: 10|
+
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| oplogs | Objects | Yes | 操作日志 |
+| total_count | Int | Yes | 根据过滤条件得到的总数 |
+
+### oplogs
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| action | String | Yes | 操作行文 |
+| resource_id | String | Yes | 资源的id |
+| result | String | Yes | 结果(success,fail) |
+| message | String | Yes | 错误内容 |
+| create_time | Double | Yes | 创建时间 |
 

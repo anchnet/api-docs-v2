@@ -668,3 +668,16 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/record/:order_name"
 | 参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | order_no | String | Yes | 订单编号 |
+## POST /recharge
+**充值**
+*详细描述*
+### 请求
+#### Body 参数
+| 参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| amount | double | Yes | 充值金额 |
+| bank | string | Yes | 银行代号 |
+
+## GET /balance
+**获取当前账户余额**
+*详细描述*

@@ -92,7 +92,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_billing_mode" --data
 ```
 
 
-## POST /eips/change_bandwidth
+## POST /eips/change_bandwidth_order
 
 **改变公网IP 带宽**
 
@@ -106,6 +106,12 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/eips/change_billing_mode" --data
 | :-- | :-- | :-- | :-- |
 | eips | String[] | Yes |  公网IP的ID  |
 | bandwidth | Int | Yes |  公网IP带宽，单位是 Mbps  |
+| order | object | Yes | 订单信息 |
+### 订单信息
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| payment_type | String | Yes | 支付类型 <br> POSTPAY: 按需 <br> PREPAY: 包月 |
+| payment_months | int | No | 月份  支付类型为包月 必须填写 |
 
 ### 服务端响应
 

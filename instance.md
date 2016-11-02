@@ -3,7 +3,7 @@
 
 <!-- toc -->
 
-## POST /instances
+## POST /v2/zone/{zone}/instances
 
 **打包产品**
 
@@ -50,7 +50,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances_product" --data '
 ```
 
 
-## GET /instances
+## GET  /v2/zone/{zone}/instances
 
 **查询主机**
 
@@ -145,7 +145,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/instances"
 ```
 
 
-## PUT /instances
+## PUT /v2/zone/{zone}/instances
 
 **修改主机属性**
 
@@ -190,7 +190,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/instances" --data '
 ```
 
 
-## POST /instances/start
+## POST /v2/zone/{zone}/instances/start
 
 **启动主机**
 
@@ -234,7 +234,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/start" --data '
 ```
 
 
-## POST /instances/stop
+## POST /v2/zone/{zone}/instances/stop
 
 **关闭主机**
 
@@ -279,7 +279,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/stop" --data '
 ```
 
 
-## POST /instances/restart
+## POST /v2/zone/{zone}/instances/restart
 
 **重启主机**
 
@@ -323,7 +323,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/restart" --data '
 ```
 
 
-## POST /instances/reset
+## POST /v2/zone/{zone}/instances/reset
 
 **重置主机至初始状态**
 
@@ -371,7 +371,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset" --data '
 ```
 
 
-## POST /instances/resize
+## POST /v2/zone/{zone}/instances/resize
 
 **修改主机配置**
 
@@ -418,7 +418,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/resize" --data '
 ```
 
 
-## POST /instances/reset_login_passwd
+## POST /v2/zone/{zone}/instances/reset_login_passwd
 
 **重置系统密码**
 
@@ -469,7 +469,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/instances/reset_login_passwd" --
 ```
 
 
-## DELETE /instances/:ins_id
+## DELETE /v2/zone/{zone}/instances/:ins_id
 
 **销毁主机**
 
@@ -518,7 +518,7 @@ $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/instances/i-23kh43?volumes=vol
 ```
 
 
-## GET /instances_brokers/:ins_id
+## GET /v2/zone/{zone}/instances_brokers/:ins_id
 
 **获取主机 Web Console Brokers**
 

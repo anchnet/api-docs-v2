@@ -14,9 +14,7 @@
 | :-- | :-- | :-- | :-- |
 | start_time | Int | Yes | 监控数据开始时间戳 |
 | end_time | Int | Yes | 监控数据结束时间戳 |
-| cf | String | Yes | - AVERAGE 平均值
-                      - MAX 最大值
-                      - MIN 最小值|
+| cf | String | Yes | - AVERAGE 平均值  - MAX 最大值  - MIN 最小值|
 | endpoint | String | Yes | 监控对象 |
 | counter | String | Yes | 监控项 |
 

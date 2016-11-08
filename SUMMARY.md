@@ -24,5 +24,6 @@
     * [配额](quota.md)
     * [用户中心](account.md)
     * [物理架构](idc.md)
+    * [资源监控](monitor.md)
     * [其他](others.md)
 

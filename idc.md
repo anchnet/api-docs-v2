@@ -413,3 +413,51 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_line"
 ```js
 {} 
 ```
+## GET /agent/downloadlink
+
+**获取监控器下载地址**
+
+
+### 请求
+
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| dev_id | String| Yes | 设备ID |
+| monitor_name | Yes| No | 监控器名字 |
+| os_type | String| Yes | 操作系统类型（linux, windows） |
+| os_bit | Int | No | 操作系统位数（32, 64） |
+| agent_type | Int | Yes | 监控器部署方式（0:公网，1:内网）|
+| gateway | String| No | 网关地址，当部署方式为内网时必须传 |
+| ip | String| No | 服务器ip，为空时可不传，有多个时传一个 |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| agent_addr | String| Yes | 采集器下载地址 |
+| gateway_addr | String| No | gateway下载地址 |
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XGET "http://api.51idc.com/v2/agent/downloadlink?dev_id=INS-12&monitor_name=test&os_type=linux&os_bit=32&agent_type=0&ip=165.1.12.45"
+```
+
+#### 响应内容:
+
+```js
+{
+    "agent_addr": "", 
+    "gateway_addr": ""
+} 
+```

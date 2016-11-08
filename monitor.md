@@ -16,7 +16,7 @@
 | end_time | Int | Yes | 监控数据结束时间戳 |
 | cf | String | Yes | - AVERAGE 平均值  - MAX 最大值  - MIN 最小值|
 | endpoint | String | Yes | 监控对象 |
-| counter | String | Yes | 监控项 |
+| counter | String | Yes | 监控项 [<br>{<br>&nbsp;&nbsp;"cpu.busy": "CPU使用率",<br>&nbsp;&nbsp;"load.load1": "1分钟负载",<br>&nbsp;&nbsp;"load.load5": "5分钟负载",<br>&nbsp;&nbsp;"load.load15": "15分钟负载",<br>&nbsp;&nbsp;"mem.memused.percent": "内存使用率",<br>&nbsp;&nbsp;"net.if.in.bytes": "进方向流量",<br>&nbsp;&nbsp;"net.if.out.bytes": "出方向流量",<br>&nbsp;&nbsp;"disk.io.write_bytes": "IO写速率",<br>&nbsp;&nbsp;"disk.io.read_bytes": "IO读速率",<br>&nbsp;&nbsp;"ss.closed": "tcp.closed",<br>&nbsp;&nbsp;"ss.timewait": "tcp.timewait",<br>&nbsp;&nbsp;"ss.synrecv": "tcp.synrecv",<br>&nbsp;&nbsp;"ss.slabinfo.timewait": "tcp.slabinfo.timewait",<br>&nbsp;&nbsp;"ss.orphaned": "tcp.orphaned",<br>&nbsp;&nbsp;"ss.estab": "tcp.estab",<br> }<br>]|
 
 ### 服务端响应
 
@@ -83,34 +83,6 @@ curl -XPOST "http://api.51idc.com/v2/monitor/idc" --data '
         {
           "timestamp": 1476783900,
           "value": 0
-        },
-        {
-          "timestamp": 1476784200,
-          "value": 0
-        },
-        {
-          "timestamp": 1476784500,
-          "value": 0
-        },
-        {
-          "timestamp": 1476784800,
-          "value": 0
-        },
-        {
-          "timestamp": 1476785100,
-          "value": 0
-        },
-        {
-          "timestamp": 1476785400,
-          "value": 0
-        },
-        {
-          "timestamp": 1476785700,
-          "value": 0
-        },
-        {
-          "timestamp": 1476786000,
-          "value": 0
         }
       ]
     },
@@ -130,38 +102,6 @@ curl -XPOST "http://api.51idc.com/v2/monitor/idc" --data '
         },
         {
           "timestamp": 1476783600,
-          "value": 0
-        },
-        {
-          "timestamp": 1476783900,
-          "value": 0
-        },
-        {
-          "timestamp": 1476784200,
-          "value": 0
-        },
-        {
-          "timestamp": 1476784500,
-          "value": 0
-        },
-        {
-          "timestamp": 1476784800,
-          "value": 0
-        },
-        {
-          "timestamp": 1476785100,
-          "value": 0
-        },
-        {
-          "timestamp": 1476785400,
-          "value": 0
-        },
-        {
-          "timestamp": 1476785700,
-          "value": 0
-        },
-        {
-          "timestamp": 1476786000,
           "value": 0
         }
       ]

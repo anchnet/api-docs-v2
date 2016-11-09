@@ -15,6 +15,7 @@
 | search_word | String | Yes | 搜索内容 |
 | offset | Int | Yes | 偏移量 |
 | limit | Int | No | 默认值: 10 |
+| ins_id| String| Yes | 资源 ID 筛选, 多个以英文半角 ',' 分割 |
 
 ### 服务端响应
 
@@ -205,6 +206,35 @@ $ curl -XPOST "http://api.51idc.com/v2/apikey" --data '
     "create_time": "2016-09-26T02:50:24Z"
   }
 ]
+```
+
+
+## GET /v2/download/apikey/:ins_id
+
+**下载 AccessID 和 SecretKey**
+
+`注: 新创建 10 分钟内下载有效，超过时间后仍可下载，但 SecretKey 会被星号 * 替换`
+
+### 请求
+
+#### 路由参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+|ins_id|String|Yes|资源 ID|
+
+
+### 示例
+#### 发送请求
+
+```bash
+$ curl -XGET "http://api.51idc.com/v2/apikey"
+```
+
+#### 响应下载头:
+
+```js
+
 ```
 
 

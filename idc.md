@@ -425,9 +425,9 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_line"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | dev_id | String| Yes | 设备ID |
-| monitor_name | Yes| No | 监控器名字 |
+| monitor_name | String| Yes | 监控器名字 |
 | os_type | String| Yes | 操作系统类型（linux, windows） |
-| os_bit | Int | No | 操作系统位数（32, 64） |
+| os_bit | Int | Yes | 操作系统位数（32, 64） |
 | agent_type | Int | Yes | 监控器部署方式（0:公网，1:内网）|
 | gateway | String| No | 网关地址，当部署方式为内网时必须传 |
 | ip | String| No | 服务器ip，为空时可不传，有多个时传一个 |
@@ -443,7 +443,7 @@ $ curl -XGET "http://api.51idc.com/v2/idc/private_line"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | agent_addr | String| Yes | 采集器下载地址 |
-| gateway_addr | String| No | gateway下载地址 |
+| gateway_addr | String| No | gateway下载地址, 当部署方式为外网时返回空 |
 
 ### 示例
 

@@ -328,9 +328,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/start
 
 ## POST /rdbs/resize
 
-**启动指定的数据库集群**
+**扩容指定的数据库集群**
 
-*启动指定的数据库集群*
+*扩容指定的数据库集群*
 
 ### 请求
 
@@ -386,9 +386,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/resize
 
 ## POST /rdbs/leave_vxnet
 
-**启动指定的数据库集群**
+**将指定的数据库集群从私有网络中脱离**
 
-*启动指定的数据库集群*
+*将指定的数据库集群从私有网络中脱离*
 
 ### 请求
 
@@ -442,13 +442,13 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/leave_vxnet
 
 ## POST /rdbs/join_vxnet
 
-**启动指定的数据库集群**
+**将指定的数据库集群加入私有网络**
 
-*启动指定的数据库集群*
+*将指定的数据库集群加入私有网络*
 
 ### 请求
 
-#### QueryString 参数
+####  参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -506,13 +506,13 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/join_vxnet
 
 ## POST /rdbs/snapshot/create_rdb
 
-**启动指定的数据库集群**
+**从指定备份创建出一个全新的数据库集群**
 
-*启动指定的数据库集群*
+*从指定备份创建出一个全新的数据库集群*
 
 ### 请求
 
-#### QueryString 参数
+#### 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
@@ -585,9 +585,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_rdb
 
 ## POST /rdbs/snapshot/create_temp_instance
 
-**启动指定的数据库集群**
+**从备份创建一个临时性数据库实例，并将之添加到指定的数据库集群**
 
-*启动指定的数据库集群*
+*从备份创建一个临时性数据库实例，并将之添加到指定的数据库集群*
 
 ### 请求
 
@@ -703,9 +703,9 @@ $ curl -XGET "http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances/rmi-YQWIMTU/lo
 
 ## POST /rdbs/instance_logs/copy2ftp
 
-**启动指定的数据库集群**
+**将指定的日志文件拷贝到 FTP 目录**
 
-*启动指定的数据库集群*
+*将指定的日志文件拷贝到 FTP 目录*
 
 ### 请求
 
@@ -760,9 +760,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instance_logs/copy2ftp
 
 ## POST /rdbs/instance_logs/purge
 
-**启动指定的数据库集群**
+**清除日志文件**
 
-*启动指定的数据库集群*
+*清除日志文件*
 
 ### 请求
 
@@ -816,11 +816,11 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instance_logs/purge
 }
 ```
 
-## POST /rdbs/attributes
+## PUT /rdbs/attributes
 
-**启动指定的数据库集群**
+**修改数据库名称描述备份时间等属性**
 
-*启动指定的数据库集群*
+*修改数据库名称描述备份时间等属性*
 
 ### 请求
 
@@ -847,7 +847,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instance_logs/purge
 #### 发送请求
 
 ```bash
-$ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdb/attributes
+$ curl -XPUT http://dev.api.51idc.com/v2/zone/ac2/rdb/attributes
 {
     "zone": "ac2",
     "rdb_id": "rdb-JLF5S7E",
@@ -865,9 +865,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdb/attributes
 
 ## POST /rdbs/update_rdb
 
-**启动指定的数据库集群**
+**修改数据库读写IP及实例节点IP**
 
-*启动指定的数据库集群*
+*修改数据库读写IP及实例节点IP*
 
 ### 请求
 
@@ -933,9 +933,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/update_rdb
 
 ## POST /rdbs/instances
 
-**启动指定的数据库集群**
+**创建数据库实例**
 
-*启动指定的数据库集群*
+*创建数据库实例*
 
 ### 请求
 
@@ -990,9 +990,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances
 
 ## POST /rdbs/instances/delete
 
-**启动指定的数据库集群**
+**删除数据库实例**
 
-*启动指定的数据库集群*
+*删除数据库实例*
 
 ### 请求
 
@@ -1043,7 +1043,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances/delete
 ```
 
 
-## POST /rdbs/parameters
+## PUT /rdbs/parameters
 
 **启动指定的数据库集群**
 
@@ -1072,7 +1072,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances/delete
 #### 发送请求
 
 ```bash
-$ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/parameters
+$ curl -XPUT http://dev.api.51idc.com/v2/zone/ac2/rdbs/parameters
 {
     "zone": "ac2",
     "rdb_id": "rdb-HPGBLT4",
@@ -1206,5 +1206,54 @@ $ curl -XGET "http://dev.api.51idc.com/v2/zone/ac2/rdbs/parameters?rdb_id=rdb-JL
         }
     ],
     "total_count": 64
+}
+```
+
+
+
+## DELETE /rdbs/rdbs/:rdb_ids
+
+**删除一个数据库集群**
+
+*删除一个数据库集群*
+
+### 请求
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| zone | String| Yes | 区域 ID |
+| rdb_ids | String[] | Yes |数据库集群 ID |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+### 示例
+
+#### 发送请求
+
+```bash
+$ curl -XDELETE http://dev.api.51idc.com/v2/zone/ac2/rdbs/rdb-JYSD9NZ
+{}
+```
+
+#### 响应内容:
+
+```js
+{
+    "job_id": "f14f9c65-e0c1-4bf8-b675-95e391c63b0f",
+    "action": "DeleteRdbs",
+    "request_id": "302c66226879fd60",
+    "status": "pending",
+    "created_time": "2016-11-11T03:31:25Z",
+    "begin_time": "",
+    "finished_time": "",
+    "extra": "",
+    "zone": "ac2",
+    "resource_ids": []
 }
 ```

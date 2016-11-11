@@ -273,60 +273,6 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/stop
 }
 ```
 
-
-## POST /rdbs/start
-
-**启动指定的数据库集群**
-
-*启动指定的数据库集群*
-
-### 请求
-
-#### QueryString 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| zone | String| Yes | 区域 ID |
-| rdb_ids | []String| Yes | 数据库集群 ID |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/start
-{
-    "rdb_ids": [
-        "rdb-JLF5S7E"
-    ]
-}
-```
-
-#### 响应内容:
-
-```js
-{
-    "job_id": "ad3f090b-d1ff-466b-aa66-35ee654b6050",
-    "action": "StartRdbs",
-    "request_id": "3307f72665049061",
-    "status": "pending",
-    "created_time": "2016-11-10T08:58:27Z",
-    "begin_time": "",
-    "finished_time": "",
-    "extra": "",
-    "zone": "ac2",
-    "resource_ids": []
-}
-```
-
 ## POST /rdbs/start
 
 **启动指定的数据库集群**
@@ -379,6 +325,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/start
     "resource_ids": []
 }
 ```
+
 ## POST /rdbs/resize
 
 **启动指定的数据库集群**
@@ -393,6 +340,8 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/start
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域 ID |
 | rdb_ids | []String| Yes | 数据库集群 ID |
+| rdb_type | String| No | 数据库型号，1-2核4G，2-4核8G，3-8核16G，4-8核32G |
+| storage_size | Int| No |数据库磁盘容量(GB)，用于存放数据和日志，最小50G，最大1000G，扩容时该值不能比原始容量小 |
 
 ### 服务端响应
 
@@ -449,6 +398,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/resize
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域 ID |
 | rdb_ids | []String| Yes | 数据库集群 ID |
+| vxnet_id | String| Yes | 私有网络 ID|
 
 ### 服务端响应
 
@@ -504,6 +454,10 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/leave_vxnet
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域 ID |
 | rdb_ids | []String| Yes | 数据库集群 ID |
+| vxnet_id | String| Yes | 私有网络 ID|
+| wvip | String | No | 写节点IP |
+| rvip | String | No | 读节点IP |
+| instances | Object[] | No | [<br>{<br>&nbsp;&nbsp;"rdb_instance_id": "*String*",<br>&nbsp;&nbsp;"private_ip": "*String*",<br>}<br>] |
 
 ### 服务端响应
 
@@ -563,7 +517,18 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/join_vxnet
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域 ID |
-| rdb_id | []String| Yes | 数据库集群备份 ID |
+| snapshot_id | String| Yes | 数据库集群备份 ID |
+| vxnet_id | String | Yes |   私有网络 ID|
+| rdb_username | String | Yes | 数据库用户名 |
+| rdb_password | String | Yes | 数据库用户密码 |
+| rdb_type | String | Yes |  数据库型号，1 – 1核2G，2 – 2核4G，3 – 4核8G，4 – 8核16G，5 – 8核32G |
+| rdb_class | String | No |  数据库性能 |
+| rdb_name | String | No |  数据库集群名称 |
+| auto_backup_time | Int | No | 自动备份时间，有效值0-23，任何大于23的整型值均表示关闭自动备份，忽略的话会随机选择一个自动备份时间 |
+| instances | Object[] | No | [<br>{<br>&nbsp;&nbsp;"rdb_instance_id": "*String*",<br>&nbsp;&nbsp;"private_ip": "*String*",<br>}<br>] |
+| wvip | String | No | 写节点IP |
+| rvip | String | No | 读节点IP |
+| description | String | No | 数据库集群描述 |
 
 ### 服务端响应
 
@@ -683,6 +648,8 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_temp_ins
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| zone | String | Yes | 区域ID |
+| rdb_instance_id | String | No | 数据库节点ID |
 
 
 ### 服务端响应
@@ -696,6 +663,8 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_temp_ins
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | rdb_instance_id | String | Yes | 节点 Id |
+| slow_logs | Object[] | No | [<br>{<br>&nbsp;&nbsp;"last_modify": "*String*",<br>&nbsp;&nbsp;"file": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>}<br>] |
+| binary_logs | Object[] | No | [<br>{<br>&nbsp;&nbsp;"last_modify": "*String*",<br>&nbsp;&nbsp;"file": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>}<br>] |
 
 ### 示例
 
@@ -1033,8 +1002,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域 ID |
 | rdb_id | String| Yes | RDB ID |
-| rdb_instance_role | String | Yes | 节点类型 |
-| private_ip | String | No | 节点IP |
+| rdb_instance_ids | []String | Yes | 节点ID |
 
 ### 服务端响应
 
@@ -1089,7 +1057,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances/delete
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域 ID |
 | rdb_id | String| Yes | RDB ID |
-| parameters | Object[][ | No | parameters |
+| parameters | Object[] | No |  [<br>{<br>&nbsp;&nbsp;"var_value": "*String*",<br>&nbsp;&nbsp;"var_name": "*String*",<br>}<br>]  |
 
 ### 服务端响应
 
@@ -1174,7 +1142,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/parameters/apply
 }
 ```
 
-## GET /idc/parameters
+## GET /rdbs/parameters
 
 **获取专线列表**
 
@@ -1186,9 +1154,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/parameters/apply
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| tag_ids | String[] | No | 标签ID |
-| search_word | String| No | 查询条件 |
-| data_center | String| No | 数据中心 |
+| rdb_id | String| Yes | RDB ID |
 | offset | Int | No | 数据偏移量，默认为0 |
 | limit | Int | No | 返回数据长度，默认为10，最大100|
 

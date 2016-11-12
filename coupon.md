@@ -17,7 +17,7 @@
 | code | String | No | 代金券号码 |
 | order_number| String| No | 订单号|
 | type_id | Integer | No | 代金券类型|
-| is_used| Integer | No | 是否已使用 可选值 `1` 已使用  `0` 未使用|
+| is_used| Integer | No | 是否已使用 可选值 `1` 已使用  `0` 未使用  `-1` 已过期|
 | zone_scope| String | No | 区域筛选 例如 `ac1` `ac2` |
 | service_scope| String | No | 服务范围 <br>instance: 创建主机 <br>bandwidth: 新建带宽 <br>ops: 运维服务 <br>cdn: 开通 CDN <br>rds: 新建RDS <br>security_scan: 开通安全扫描服务  |
 

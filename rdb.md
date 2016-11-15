@@ -175,13 +175,12 @@ $ curl -XGET "http://dev.api.51idc.com/v2/zone/ac2/rdbs"
 ```bash
 $ curl -XPOST "http://dev.api.51idc.com/v2/zone/ac2/rdbs" --data '
 {
-    "vxnet_id": "vxnet-8A99107",
+    "vxnet_id": "vxnet-6120978",
     "rdb_engine": "mysql",
     "engine_version": "mysql_5_7",
     "rdb_username": "testtest",
     "rdb_password": "TESTtest1234",
     "rdb_type": "K1G2",
-    "rdb_class": "HIGH_PERFORMANCE",
     "storage_size": 10,
     "rdb_name": "testtest",
     "node_count": 4,
@@ -198,25 +197,29 @@ $ curl -XPOST "http://dev.api.51idc.com/v2/zone/ac2/rdbs" --data '
         "192.168.100.227"
     ],
     "auto_minor_ver_upgrade": 1,
-    "description": ""
+    "description": "",
+    "order":{
+    "payment_type":"POSTPAY"
+  }
 }
 ```
 #### 响应内容:
 
 ```js
 {
-    "job_id": "55b61675-a3d7-46f9-9e56-932240e46d48",
+    "job_id": "5de9599b-5075-4a92-bd9e-c8d19c3f2b93",
     "action": "CreateRdb",
-    "request_id": "6ba0b2a477cc9610",
+    "request_id": "3e1db903ecd07681",
     "status": "pending",
-    "created_time": "2016-11-10T08:45:48Z",
+    "created_time": "2016-11-15T07:19:48Z",
     "begin_time": "",
     "finished_time": "",
     "extra": "",
     "zone": "ac2",
     "resource_ids": [
-        "rdb-JLF5S7E"
-    ]
+        "rdb-LUH1UV1"
+    ],
+    "order_no": "C2016111512900"
 }
 ```
 

@@ -848,12 +848,11 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instance_logs/purge
 #### 发送请求
 
 ```bash
-$ curl -XPUT http://dev.api.51idc.com/v2/zone/ac2/rdb/attributes
+$ curl -XPUT http://dev.api.51idc.com/v2/zone/ac2/rdbs/attributes
 {
     "zone": "ac2",
-    "rdb_id": "rdb-JLF5S7E",
-    "rdb_name": "test-name",
-    "log_type": "binary_log",
+    "rdb_id": "rdb-NZT0USF",
+    "rdb_name": "test-name-test",
     "description": "description"
 }
 ```

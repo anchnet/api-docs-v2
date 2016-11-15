@@ -113,10 +113,10 @@ curl -XPOST "http://api.51idc.com/v2/monitor/idc" --data '
 ## GET /v2/monitor/instance
 
 **获取资源监控数据。支持的资源包括主机、公网 IP 和路由器， 选定不同类型资源，可获取的监控项不同。**
-> *主机的监控项包括: CPU 使用率，内存使用率，系统盘数据(吞吐量， IOPS 和使用率)， 主机连接私有网络的网卡流量，与主机绑定的各磁盘数据（吞吐量， IOPS 和使用率）。
+> * 主机的监控项包括: CPU 使用率，内存使用率，系统盘数据(吞吐量， IOPS 和使用率)， 主机连接私有网络的网卡流量，与主机绑定的各磁盘数据（吞吐量， IOPS 和使用率）。
 >  _注解 其中内存使用率和磁盘使用率暂不支持 Windows ，以及 kernel 版本过低的 Linux_
-> *公网 IP 资源可得到公网 “进/出” 的流量数据。
-> *如果资源为路由器，可得到路由器在基础网络的流量数据，以及与路由器连接的私有网络的流量数据
+> * 公网 IP 资源可得到公网 “进/出” 的流量数据。
+> * 如果资源为路由器，可得到路由器在基础网络的流量数据，以及与路由器连接的私有网络的流量数据
 
 ### 请求
 
@@ -124,10 +124,11 @@ curl -XPOST "http://api.51idc.com/v2/monitor/idc" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| resource | String | Yes | 监控资源ID |
 | start_time | Int | Yes | 监控数据开始时间戳 |
 | end_time | Int | Yes | 监控数据结束时间戳 |
-| endpoint | String | Yes | 监控对象 |
-| counter | String | Yes | 监控项 [<br>{<br>&nbsp;&nbsp;"cpu.busy": "CPU使用率",<br>&nbsp;&nbsp;"load.load1": "1分钟负载",<br>&nbsp;&nbsp;"load.load5": "5分钟负载",<br>&nbsp;&nbsp;"load.load15": "15分钟负载",<br>&nbsp;&nbsp;"mem.memused.percent": "内存使用率",<br>&nbsp;&nbsp;"net.if.in.bytes": "进方向流量",<br>&nbsp;&nbsp;"net.if.out.bytes": "出方向流量",<br>&nbsp;&nbsp;"disk.io.write_bytes": "IO写速率",<br>&nbsp;&nbsp;"disk.io.read_bytes": "IO读速率",<br>&nbsp;&nbsp;"ss.closed": "tcp.closed",<br>&nbsp;&nbsp;"ss.timewait": "tcp.timewait",<br>&nbsp;&nbsp;"ss.synrecv": "tcp.synrecv",<br>&nbsp;&nbsp;"ss.slabinfo.timewait": "tcp.slabinfo.timewait",<br>&nbsp;&nbsp;"ss.orphaned": "tcp.orphaned",<br>&nbsp;&nbsp;"ss.estab": "tcp.estab",<br> }<br>]|
+| step | String | Yes | 数据间隔时间，有效值为：5m, 15m, 2h, 1d。(m 表示分钟，h 表示小时，d 表示天) |
+| metersN | String | Yes | 监控项，不同类型的资源支持的监控项不同： <br> *  若资源是主机，meters 可以是 <br> > *    “cpu”：主机 cpu 使用率<br> > *    “memory”：主机内存使用率<br> > *  “disk-os”, “disk-iops-os”, “disk-us-os”：主机系统盘吞吐量，IOPS，空间使用率<br> > *   “if-网卡地址”：主机网卡流量 <br> *    资源是公网IP，meters 只有 “traffic”<br> *   资源是路由器，meters 可以是 “vxnet-0” 和 “与路由器相连的私有网络ID”|
 
 ### 服务端响应
 

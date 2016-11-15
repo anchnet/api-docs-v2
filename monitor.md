@@ -359,3 +359,156 @@ curl -XGET "http://api.51idc.com/v2/zone/ac2/monitor/loadbalancer/lbl-FE142D9?st
   "total_count": 2
 }
 ```
+
+## GET /v2/zone/{zone}/monitor/rdb/:resource_id
+
+**获取指定数据库实例的监控信息。**
+
+### 请求
+
+#### 请求query参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| resource | String | Yes | 监控资源ID |
+| start_time | String | Yes | 监控数据的起始 UTC 时间，格式为 2011-07-11T11:07:00Z 或 2011-07-11T11:07:00.520Z |
+| end_time | String | Yes | 监控数据的结束 UTC 时间，格式为 2011-07-11T11:07:00Z 或 2011-07-11T11:07:00.520Z |
+| step | String | Yes | 数据间隔时间，有效值为：1m, 15m, 2h, 1d。(m 表示分钟，h 表示小时，d 表示天)，建议1m在请求6小时监控数据时使用，15m在请求一天数据时使用，2h在请求两周数据时使用，1d在请求一个月和6个月数据时使用 |
+| metersN | String | Yes | 监控项，数据库的监控项包括：<br> <ul><li>如果想获取主机监控，meters 可以为"cpu","memory","disk-us-volume","disk-iops-volume","disk-volume"<li>如果想监控数据库服务，meters 目前只有 status：MySQL 数据库基础状态数据，返回值是由”|”分隔的多项状态值：</li><ul><li>Slow_queries: 慢查询次数</li><li>Opened_tables: 当前打开的数据库表数量</li><li>Select_scan: 全表扫描次数</li><li>Threads_connected: 当前连接线程数</li><li>Threads_running: 当前活跃连接线程数</li><li>Max_used_connections: 最大并发连接数</li><li>Innodb_buffer_pool_pages_free: InnoDB 缓冲池可用空间（单位：页）</li><li>Com_commit: 提交事务数</li><li>Com_rollback: 回滚事务数</li><li>Innodb_buffer_pool_reads: 穿透 InnoDB 缓冲池的查询数量</li><li>Innodb_buffer_pool_read_requests: 从 InnoDB 缓冲池返回的查询数量</li><li>Qcache_hits: 从查询缓存返回的查询数量</li><li>Qcache_inserts: 穿透查询缓存的查询数量</li><li>Threads_created: 已创建连接线程数</li><li>Connections: 全部连接数（包括连接失败的连接数量）</li><li>Questions: 查询数量</li><li>Seconds_Behind_Master: 从节点落后主节点的秒数</li></ul><li>“status”: PostgreSQL 数据库基础状态数据，返回值是由”|”分隔的多项状态值：</li><ul><li>blks_read: 未命中中缓存的查询数量 | blks_hit: 命中缓存的查询数量 | connections: 当前连接数</li></ul></ul>|
+| obj | String | Yes | 操作对象，填“rdbi”|
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| resource_id | String | Yes | 监控资源ID, 可选主机ID或者公网IP |
+| meter_set | Array | Yes | 监控数据集|
+| total_count | Int | Yes | 监控项数目 |
+
+
+#### 请求实例
+
+#### CURL
+```shell
+主机监控
+curl -XGET "http://dev.api.51idc.com/v2/zone/ac2/monitor/rdb/rmi-HVA1DB8?step=5m&start_time=2016-11-15T02:20:08.354Z&end_time=2016-11-15T08:20:08.354Z&metersN=cpu,memory,disk-us-volume,disk-iops-volume,disk-volume&obj=rdbi"
+```
+
+#### 响应示例  主机监控
+
+```json
+{
+  "resource_id": "rmi-HVA1DB8",
+  "meter_set": [
+    {
+      "meter_id": "disk-us-volume",
+      "data_set": [
+        {
+          "timestamp": [
+            1479198600
+          ],
+          "data_string": [
+            "/data|2|177|9390"
+          ]
+        }
+      ]
+    },
+    {
+      "meter_id": "disk-iops-volume",
+      "data_set": [
+        {
+          "timestamp": [
+            1479198600
+          ],
+          "data_in": [
+            12
+          ],
+          "data_out": [
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "meter_id": "memory",
+      "data_set": [
+        {
+          "timestamp": [
+            1479198600
+          ],
+          "data_in": [
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "meter_id": "cpu",
+      "data_set": [
+        {
+          "timestamp": [
+            1479198600
+          ],
+          "data_in": [
+            64
+          ]
+        }
+      ]
+    },
+    {
+      "meter_id": "disk-volume",
+      "data_set": [
+        {
+          "timestamp": [
+            1479198600
+          ],
+          "data_in": [
+            54776
+          ],
+          "data_out": [
+            7710091
+          ]
+        }
+      ]
+    }
+  ],
+  "total_count": 5
+}
+```
+#### CURL
+```shell
+主机监控
+curl -XGET "http://dev.api.51idc.com/v2/zone/ac2/monitor/rdb/rmi-HVA1DB8?step=5m&start_time=2016-11-15T02:20:08.354Z&end_time=2016-11-15T08:20:08.354Z&metersN=status&obj=rdbi"
+```
+
+#### 响应示例  主机监控
+
+```json
+{
+  "resource_id": "rmi-HVA1DB8",
+  "meter_set": [
+    {
+      "meter_id": "status",
+      "data_set": [
+        {
+          "timestamp": [
+            1479198900
+          ],
+          "data_string": [
+            "0|160|106|4|4|0|98013|477|0|0|0|0|0|5|710|1941|0"
+          ],
+          "role": "master",
+          "rdb_instance_id": "rmi-k060ld50"
+        }
+      ]
+    }
+  ],
+  "total_count": 1
+}
+```

@@ -362,9 +362,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/start
 $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/resize
 {
     "zone": "ac2",
-    "rdb_ids": [
-        "rdb-JLF5S7E"
-    ],
+    "rdb_id": "rdb-JLF5S7E",
     "rdb_type": "K2G4",
     "storage_size": 50
 }

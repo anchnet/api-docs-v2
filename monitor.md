@@ -61,50 +61,40 @@ curl -XPOST "http://api.51idc.com/v2/monitor/idc" --data '
 
 ```json
 {
-  "history": [
+  "meter_set": [
     {
       "endpoint": "hanjh_server_548",
       "counter": "mem.memfree",
-      "dstype": "GAUGE",
       "step": 60,
-      "Values": [
-        {
-          "timestamp": 1476783000,
-          "value": 0
-        },
-        {
-          "timestamp": 1476783300,
-          "value": 0
-        },
-        {
-          "timestamp": 1476783600,
-          "value": 0
-        },
-        {
-          "timestamp": 1476783900,
-          "value": 0
-        }
-      ]
+      "data_set": {
+        "timestamp": [
+          1476783000,
+          1476783300,
+          1476783600
+        ],
+        "data_in": [
+          0,
+          0,
+          0
+        ]
+      }
     },
     {
       "endpoint": "hanjh_server_548",
       "counter": "cpu.idle",
-      "dstype": "GAUGE",
       "step": 60,
-      "Values": [
-        {
-          "timestamp": 1476783000,
-          "value": 0
-        },
-        {
-          "timestamp": 1476783300,
-          "value": 0
-        },
-        {
-          "timestamp": 1476783600,
-          "value": 0
-        }
-      ]
+      "data_set": {
+        "timestamp": [
+          1476783000,
+          1476783300,
+          1476783600
+        ],
+        "data_in": [
+          0,
+          0,
+          0
+        ]
+      }
     }
   ],
   "total_count": 2

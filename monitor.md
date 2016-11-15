@@ -129,6 +129,7 @@ curl -XPOST "http://api.51idc.com/v2/monitor/idc" --data '
 | end_time | Int | Yes | 监控数据结束时间戳 |
 | step | String | Yes | 数据间隔时间，有效值为：5m, 15m, 2h, 1d。(m 表示分钟，h 表示小时，d 表示天) |
 | metersN | String | Yes | 监控项，不同类型的资源支持的监控项不同： <br> *  若资源是主机，meters 可以是 <br> > *    “cpu”：主机 cpu 使用率<br> > *    “memory”：主机内存使用率<br> > *  “disk-os”, “disk-iops-os”, “disk-us-os”：主机系统盘吞吐量，IOPS，空间使用率<br> > *   “if-网卡地址”：主机网卡流量 <br> *    资源是公网IP，meters 只有 “traffic”<br> *   资源是路由器，meters 可以是 “vxnet-0” 和 “与路由器相连的私有网络ID”|
+| metersN | String | Yes | 监控项，不同类型的资源支持的监控项不同：<br> <ul><li>若资源是主机，meters 可以是<br> <ul><li>“cpu”：主机 cpu 使用率</li><li>“memory”：主机内存使用率</li><li>“disk-os”, “disk-iops-os”, “disk-us-os”：主机系统盘吞吐量，IOPS，空间使用率</li><li>“disk-硬盘ID”, “disk-iops-硬盘ID”, “disk-us-硬盘ID”：与主机绑定的硬盘的吞吐量，IOPS，空间使用率</li><li>“if-网卡地址”：主机网卡流量</li></ul> <br>  </li><li>资源是公网IP，meters 只有 “traffic”</li><li>资源是路由器，meters 可以是 “vxnet-0” 和 “与路由器相连的私有网络ID”</li></ul>|
 
 ### 服务端响应
 

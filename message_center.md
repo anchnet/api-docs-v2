@@ -33,7 +33,8 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| total_count | Int | Yes | 根据过滤条件得到的密钥总数 |
+| total_count | Int | Yes | 消息数量 |
+| unread | Int | Yes | 未读消息数量 |
 | messages | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"id": "*String*",<br>&nbsp;&nbsp;"title": "*String*",<br>&nbsp;&nbsp;"type": "*String*",<br>&nbsp;&nbsp;"context": "*String*",<br>&nbsp;&nbsp;"remark": "*String*",<br>&nbsp;&nbsp;"status": "*String*",<br>&nbsp;&nbsp;"send_at": "*String*"<br>}<br>] |
 
 ### 示例

@@ -14,6 +14,7 @@
     * [防火墙](security_group.md)
     * [SSH 秘钥](keypair.md)
     * [负载均衡](loadbalancer.md)
+    * [数据库集群](rdb.md)
     * [备份](snapshot.md)
     * [事件通知](events.md)
     * [JOB](job.md)
@@ -25,5 +26,7 @@
     * [用户中心](account.md)
     * [物理架构](idc.md)
     * [资源监控](monitor.md)
+    * [标签](tag.md)
+    * [消息中心](message_center.md)
     * [其他](others.md)
 

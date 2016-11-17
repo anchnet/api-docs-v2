@@ -546,23 +546,26 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/join_vxnet
 ```bash
 $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_rdb
 {
-    "snapshot_id": "ss-VR3GZD9",
-    "vxnet_id": "vxnet-8A99107",
-    "rdb_username": "testtest",
+    "snapshot_id": "ss-A1G00YM",
+    "vxnet_id": "vxnet-E786A0B",
+    "rdb_username": "tessnap1Q",
     "rdb_password": "TESTtest1234",
     "rdb_type": "K1G2",
-    "rdb_class": "HIGH_PERFORMANCE",
-    "rdb_name": "",
+    "rdb_class": "PERFORMANCE",
+    "rdb_name": "testTEst123gffff4",
     "auto_backup_time": 0,
     "instances": [
         {
             "rdb_instance_role": "master",
-            "private_ip": "192.168.100.103"
+            "private_ip": "192.168.100.113"
         }
     ],
-    "wvip": "192.168.100.102",
-    "rvip": "192.168.100.101",
-    "description": ""
+    "wvip": "192.168.100.112",
+    "rvip": "192.168.100.111",
+    "description": "",
+     "order":{
+    "payment_type":"POSTPAY"
+  }
 }
 ```
 
@@ -570,16 +573,19 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_rdb
 
 ```js
 {
-    "job_id": "d2c03b9e-6382-4e8e-b12f-685207b48c90",
-    "action": "CreateRdbFromSnapshot",
-    "request_id": "13195ce20c75ae44",
-    "status": "pending",
-    "created_time": "2016-11-10T10:46:32Z",
-    "begin_time": "",
-    "finished_time": "",
-    "extra": "",
-    "zone": "ac2",
-    "resource_ids": []
+  "job_id": "cfd1b7c1-a3ec-4c54-94c8-b7fc3704be64",
+  "action": "CreateRdbFromSnapshot",
+  "request_id": "5481e02c950f1b06",
+  "status": "pending",
+  "created_time": "2016-11-17T03:37:32Z",
+  "begin_time": "",
+  "finished_time": "",
+  "extra": "",
+  "zone": "ac2",
+  "resource_ids": [
+    "rdb-940AAHH"
+  ],
+  "order_no": "C2016111713220"
 }
 ```
 

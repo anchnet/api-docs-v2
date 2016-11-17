@@ -2,6 +2,46 @@
 
 <!-- toc -->
 
+## GET /v2/monitor_status/:endpoint
+
+**endpoint监控状态查询**
+> 查询endpoint有没有被监控
+
+### 请求
+
+#### 请求body参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+
+### 服务端响应
+
+#### 响应头信息
+
+`NULL`
+
+#### 响应 Body 信息
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| message | String | Yes | 监控说明 |
+| ok | Bool | Yes | true表示已经监控， false表示未添加监控 |
+
+#### 请求实例
+
+#### CURL
+```shell
+curl -XGET "http://api.51idc.com/v2/monitor_status/server_9845" 
+```
+
+#### 响应示例
+
+```json
+{
+    "message" : "",
+    "ok"      : true
+}
+```
 ## POST /v2/monitor/idc
 
 **物理设备监控数据获取**

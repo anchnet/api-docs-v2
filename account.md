@@ -1293,7 +1293,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/image" --data '
 *此ticket用来向微信平台兑换二维码*
 > 获取二维码ticket后，开发者可用ticket换取二维码图片。请注意，本接口无须登录态即可调用
 > * 请求说明
-    > HTTP GET请求（请使用https协议）https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET提醒：TICKET记得进行UrlEncode
+    > HTTP GET请求（请使用https协议）https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET *提醒：TICKET记得进行UrlEncode*
 > * ticket正确情况下，http 返回码是200，是一张图片，可以直接展示或者下载。
     > HTTP头（示例）如下：
         ```
@@ -1327,6 +1327,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/image" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| ticket | String | Yes | ticket |
 
 ### 示例
 

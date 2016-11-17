@@ -365,6 +365,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/resize
     "rdb_id": "rdb-JLF5S7E",
     "rdb_type": "K2G4",
     "storage_size": 50
+    "order":{
+    "payment_type":"POSTPAY"
+  }
 }
 ```
 
@@ -382,6 +385,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/resize
     "extra": "",
     "zone": "ac2",
     "resource_ids": []
+    "order_no": "C2016111713220"
 }
 ```
 
@@ -622,7 +626,10 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_rdb
 $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_temp_instance
 {
     "snapshot_id": "ss-VR3GZD9",
-    "rdb_id": "rdb-JYSD9NZ"
+    "rdb_id": "rdb-JYSD9NZ",
+    "order":{
+    "payment_type":"POSTPAY"
+  }
 }
 ```
 
@@ -639,7 +646,8 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/snapshot/create_temp_ins
     "finished_time": "",
     "extra": "",
     "zone": "ac2",
-    "resource_ids": []
+    "resource_ids": [],
+    "order_no": "C2016111713220"
 }
 ```
 
@@ -973,6 +981,9 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances
     "rdb_id": "rdb-JLF5S7E",
     "rdb_instance_role": "slave",
     "private_ip": "192.168.100.120"
+    "order":{
+    "payment_type":"POSTPAY"
+  }
 }
 ```
 
@@ -990,6 +1001,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances
     "extra": "",
     "zone": "ac2",
     "resource_ids": []
+    "order_no": "C2016111713220"
 }
 ```
 
@@ -1027,7 +1039,10 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances/delete
 {
     "zone": "ac2",
     "rdb_id": "rdb-JLF5S7E",
-    "rdb_instance_ids": ["rmi-YEFEPXM"]
+    "rdb_instance_ids": ["rmi-YEFEPXM"],
+    "order":{
+    "payment_type":"POSTPAY"
+  }
 }
 ```
 
@@ -1045,6 +1060,7 @@ $ curl -XPOST http://dev.api.51idc.com/v2/zone/ac2/rdbs/instances/delete
     "extra": "",
     "zone": "ac2",
     "resource_ids": []
+    "order_no": "C2016111713220"
 }
 ```
 

@@ -239,5 +239,7 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
 | CreateVxnet | 创建私网 |
 | ModifyVxnetAttributes | 修改私网属性 |
 | CreateWorkSheet | 创建工单 |
+| ModifyVolumeAttributes| 修改硬盘属性 |
+| ModifySnapshotAttributes| 修改备份属性 |
 
 

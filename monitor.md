@@ -56,7 +56,7 @@ curl -XGET "http://api.51idc.com/v2/monitor_status/server_9845"
 | end_time | Int | Yes | 监控数据结束时间戳 |
 | cf | String | Yes | - AVERAGE 平均值  - MAX 最大值  - MIN 最小值|
 | endpoint | String | Yes | 监控对象 |
-| counter | String | Yes | 监控项 [<br>{<br>&nbsp;&nbsp;"cpu.busy": "CPU使用率",<br>&nbsp;&nbsp;"load.load1": "1分钟, 5分钟，15分钟负载",<br>&nbsp;&nbsp;"mem.memused.percent": "内存使用率",<br>&nbsp;&nbsp;"net.if.in.bytes": "进方向流量",<br>&nbsp;&nbsp;"net.if.out.bytes": "出方向流量",<br>&nbsp;&nbsp;"disk.io.write_bytes": "IO写速率",<br>&nbsp;&nbsp;"disk.io.read_bytes": "IO读速率",<br>&nbsp;&nbsp;"tcp.closed": "tcp.closed",<br>&nbsp;&nbsp;"tcp.timewait": "tcp.timewait",<br>&nbsp;&nbsp;"tcp.synrecv": "tcp.synrecv",<br>&nbsp;&nbsp;"tcp.slabinfo.timewait": "tcp.slabinfo.timewait",<br>&nbsp;&nbsp;"tcp.orphaned": "tcp.orphaned",<br>&nbsp;&nbsp;"tcp.estab": "tcp.estab",<br>}<br>]|
+| counter | String | Yes | 监控项 [<br>{<br>&nbsp;&nbsp;"cpu.busy": "CPU使用率",<br>&nbsp;&nbsp;"load": "1分钟, 5分钟，15分钟负载",<br>&nbsp;&nbsp;"mem.memused.percent": "内存使用率",<br>&nbsp;&nbsp;"net.if.in.bytes": "进方向流量",<br>&nbsp;&nbsp;"net.if.out.bytes": "出方向流量",<br>&nbsp;&nbsp;"disk.io.write_bytes": "IO写速率",<br>&nbsp;&nbsp;"disk.io.read_bytes": "IO读速率",<br>&nbsp;&nbsp;"tcp.closed": "tcp.closed",<br>&nbsp;&nbsp;"tcp.timewait": "tcp.timewait",<br>&nbsp;&nbsp;"tcp.synrecv": "tcp.synrecv",<br>&nbsp;&nbsp;"tcp.slabinfo.timewait": "tcp.slabinfo.timewait",<br>&nbsp;&nbsp;"tcp.orphaned": "tcp.orphaned",<br>&nbsp;&nbsp;"tcp.estab": "tcp.estab",<br>}<br>]|
 
 ### 服务端响应
 

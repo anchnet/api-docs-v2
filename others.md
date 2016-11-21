@@ -204,3 +204,40 @@ curl -XPOST "http://api.51idc.com/v2/upload" \
 | create_time | String | Yes | 开始时间 |
 | end_time | String | Yes | 结束时间 |
 
+
+
+### 同步 Action 翻译
+| code | means |
+| :-- | :-- |
+| DeleteLoadBalancerListeners | 删除负载均衡器监听器 |
+| AddLoadBalancerListeners | 创建负载均衡器监听器 |
+| ModifyLoadBalancerListenerAttributes | 修改负载均衡器监听器属性 |
+| ModifyLoadBalancerPolicyAttributes | 修改负载均衡器策略 |
+| DeleteLoadBalancerPolicies | 删除负载均衡器策略 |
+| AddLoadBalancerBackends | 增加负载均衡器后端 |
+| DeleteLoadBalancerBackends | 删除负载均衡器后端 |
+| ModifyLoadBalancerBackendAttributes | 修改负载均衡器后端属性 |
+| CreateServerCertificate | 创建服务器证书 |
+| ModifyServerCertificateAttributes | 修改服务证书属性 |
+| DeleteServerCertificates | 删除服务器证书 |
+| AddLoadBalancerPolicyRules | 增加负载均衡器策略规则 |
+| ModifyLoadBalancerPolicyRuleAttributes | 修改负载均衡器策略规则属性 |
+| DeleteLoadBalancerPolicyRules | 删除负载均衡器策略规则 |
+| ModifyLoadBalancerAttributes | 修改负载均衡器属性 |
+| CreateLoadBalancerPolicy | 创建负载均衡器策略 |
+| ModifyEipAttributes | 修改公网IP属性 |
+| RevokeImageFromUsers | 取消共享镜像 |
+| GrantImageToUsers | 共享镜像给其他用户 |
+| ModifyImageAttributes | 修改镜像属性 |
+| modifyRouterAttributes | 修改路由器属性 |
+| AddRouterStatics | 增加路由器规则 |
+| ModifyRouterStaticAttributes | 修改路由器规则属性 |
+| DeleteRouterStatics | 删除路由器规则 |
+| AddRouterStaticEntries | 增加路由器规则条目 |
+| DeleteRouterStaticEntries | 删除路由器规则条目 |
+| ModifyRouterStaticEntries | 修改路由器规则条目 |
+| CreateVxnet | 创建私网 |
+| ModifyVxnetAttributes | 修改私网属性 |
+| CreateWorkSheet | 创建工单 |
+
+

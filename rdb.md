@@ -137,7 +137,7 @@ $ curl -XGET "http://dev.api.51idc.com/v2/zone/ac2/rdbs"
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | zone | String| Yes | 区域  |
-| vxnet | String | Yes |   私有网络 ID|
+| vxnet_id | String | Yes |   私有网络 ID|
 | rdb_engine | String | No | 数据库类型，支持 mysql 和 psql，注意该值是大小写敏感的；默认值为 mysql |
 | engine_version | String | No | 对应数据的版本，mysql 支持 5.5，psql 支持 9.4；默认值为 5.5 |
 | rdb_username | String | Yes | 数据库用户名 |

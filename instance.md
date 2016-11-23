@@ -16,7 +16,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | instance | Object | Yes | 主机配置详情<br>{<br>&nbsp;&nbsp;"image_id": "*String*",<br>&nbsp;&nbsp;"instance_type": "*Int*",<br>&nbsp;&nbsp;"cpu": "*Int*",<br>&nbsp;&nbsp;"memory": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"instance_name": "*String*",<br>&nbsp;&nbsp;"login_mode": "*String*",<br>&nbsp;&nbsp;"login_keypair": "*String*",<br>&nbsp;&nbsp;"login_passwd": "*String*",<br>&nbsp;&nbsp;"vxnets": "*String[]*",<br>&nbsp;&nbsp;"security_group": "*String*",<br>&nbsp;&nbsp;"volumes": "*String[]*",<br>&nbsp;&nbsp;"need_newsid": "*Int*",<br>&nbsp;&nbsp;"need_userdata": "*Int*",<br>&nbsp;&nbsp;"userdata_type": "*String*",<br>&nbsp;&nbsp;"userdata_value": "*String*",<br>&nbsp;&nbsp;"instance_class": "*String*",<br>&nbsp;&nbsp;"userdata_path": "*String*",<br>&nbsp;&nbsp;"userdata_file": "*String*",<br>&nbsp;&nbsp;"eips": "*String[]*"<br>} |
-| vxnet |[ Object ] | No | 新建私有网络 <br>[<br>{<br>&nbsp;&nbsp;"name": "*String*",<br>&nbsp;&nbsp;"type": "*String*",<br>}<br>] |
+| vxnet |[ Object ] | No | 新建私有网络 <br>[<br>{<br>&nbsp;&nbsp;"vxnet_name": "*String*",<br>&nbsp;&nbsp;"vxnet_type": "*String*",<br>}<br>] |
 | eip | Object | No | 新建公网 IP <br>{<br>&nbsp;&nbsp;"bandwidth": "*Int*",<br>&nbsp;&nbsp;"billing_mode": "*String*",<br>&nbsp;&nbsp;"eip_name": "*String*",<br>&nbsp;&nbsp;"count": "*Int*",<br>&nbsp;&nbsp;"eip_group": "*String*"<br>} |
 | volume | [ Object ] | No | 新建磁盘<br>[<br>{<br>&nbsp;&nbsp;"volume_name": "*String*",<br>&nbsp;&nbsp;"size": "*Int*",<br>&nbsp;&nbsp;"volume_type": "*Int*",<br>&nbsp;&nbsp;"count": "*Int*"<br>}<br>] |
 

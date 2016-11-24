@@ -9,8 +9,16 @@
 *注册成为云平台用户*
 
 *可以选择注册成为个人用户和企业用户*
+>   属敏感操作， 需结合手机验证
 
 ### 请求
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| verify_mode | String | Yes | 认证模式 <br> &nbsp;短信：sms （查看发送短信接口）微信：weixin |
+| captcha_code | String | Yes | 用户输入的验证码 |
+| phone | String | Yes | 用户输入的手机号 |
 
 #### 请求 Body 参数
 
@@ -23,7 +31,6 @@
 | tel | String | No | 固定电话 |
 | mobile | String | Yes | 手机 |
 | email | String | Yes | 邮箱 |
-| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -42,7 +49,7 @@
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/customer" --data '
+$ curl -XPOST "http://api.51idc.com/v2/customer?verify_mode=sms&captcha_code=390104&phone=13456855412" --date '
 {
     "cus_name":"51idc",
     "short_name":"idc",
@@ -51,7 +58,6 @@ $ curl -XPOST "http://api.51idc.com/v2/customer" --data '
     "tel":"021-9621312",
     "mobile":"13312345864",
     "email":"test@51idc.com",
-    "verification_code":"133264"
 }'
 ```
 
@@ -61,15 +67,6 @@ $ curl -XPOST "http://api.51idc.com/v2/customer" --data '
 {
     "cus_name": "51idc"
 } 
-```
-* 验证码错误
-Http Status:400
-```js
-{
-  "code": "10120020",
-  "detail": "SError({Code:10124000020 Message:Verification code does not match Extra:map[]})",
-  "message": "10124000020"
-}
 ```
 * 密码格式错误
 Http Status:400
@@ -728,9 +725,16 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 
 **增加新账户**
 
-*增加新登录账户*
+>   属敏感操作， 需结合手机验证
 
 ### 请求
+#### QueryString 参数
+
+|参数名 | 类型 | 是否必选 | 描述 |
+| :-- | :-- | :-- | :-- |
+| verify_mode | String | Yes | 认证模式 <br> &nbsp;短信：sms （查看发送短信接口）微信：weixin |
+| captcha_code | String | Yes | 用户输入的验证码 |
+| phone | String | Yes | 用户输入的手机号 |
 
 #### 请求 Body 参数
 
@@ -738,9 +742,8 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 | :-- | :-- | :-- | :-- |
 | login_id | String | Yes | 登录账户 |
 | passwd | String | Yes | 密码 |
-| account_type | String | Yes | 账户类型, ADMIN对应主帐号,SUB对应子帐号 |
+| account_type | String | Yes | 账户类型, admin对应主帐号,sub对应子帐号 |
 | mobile | String | Yes | 手机 |
-| verification_code | String | Yes | 验证码 |
 
 ### 服务端响应
 
@@ -759,13 +762,12 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 #### 发送请求
 
 ```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts" --data '
+$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts?verify_mode=sms&captcha_code=390104&phone=13456855412" --date '
 {
     "login_id":"",
     "passwd":"123abc",
     "account_type":"ADMIN",
     "mobile":"12345678945",
-    "verification_code":"123456"
 }'
 ```
 

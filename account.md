@@ -855,7 +855,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 
 **删除登录账户 支持批量**
 
-*删除一个或多个用户的登录账户*
+>   属敏感操作， 需结合手机或微信验证
 
 ### 请求
 
@@ -863,7 +863,9 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| verification_code | String | Yes | 验证码 |
+| verify_mode | String | Yes | 认证模式 <br> &nbsp;短信：sms （查看发送短信接口）微信：weixin |
+| captcha_code | String | No | 用户输入的验证码 |
+| wxtoken | String | No | 微信 Token |
 
 ### 服务端响应
 
@@ -877,13 +879,11 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 
 #### 发送请求(手机)
 ```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id" --data '{
-    "verification_code": "652312"
-}'
+$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verify_mode=sms&captcha_code=390104"
 ```
 #### 发送请求(微信)
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verify_mode=weixin&wxtoken=wxtoken-09022f4a-ba57-4787-8acd-a489064302ad" 
 ```bash
-$ curl -XDELETE "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=http%3A%2F%2Fapi.51idc.com%2Fv2%2Fzone%2Fac1%2Fcustomer%2Faccounts%2F%3Aaccount_id%3Fevent_id%3D1476347159&response_type=code&scope=snsapi_base#wechat_redirect "
 ```
 
 #### 响应内容:
@@ -1070,27 +1070,22 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 ## PUT /customer/accounts/:account_id/passwd
 
 **修改密码**
-
-*修改登录密码*
+>   属敏感操作， 需结合手机或微信验证
 
 ### 请求
 #### QueryString 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| account_id | String | Yes | 用户登录ID |
-
-#### 请求 Body 参数(手机方式)
+| verify_mode | String | Yes | 认证模式 <br> &nbsp;短信：sms （查看发送短信接口）微信：weixin |
+| captcha_code | String | No | 用户输入的验证码 |
+| wxtoken | String | No | 微信 Token |
+#### body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | new_passwd | String | Yes | 新密码 |
-| verification_code | String | Yes | 验证码 |
-#### QueryString 参数(微信方式)
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| new_passwd | String | Yes | 新密码，需base64编码 |
-| event_id | String | Yes | 轮寻ID，当前时间戳 |
+
 
 ### 服务端响应
 
@@ -1105,22 +1100,25 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/profession --data '
 #### 发送请求 (手机)
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd --data '
-{
-    "new_passwd":"",
-    "verification_code":""
-}'
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd?verify_mode=sms&captcha_code=390104" --data '
+{   
+    "new_passwd": "NewPassword123"
+}
+'
 ```
 #### 发送请求 (微信)
 
 ```bash
-$ curl -XGET "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=http%3A%2F%2Fapi.51idc.com%2Fv2%2Fzone%2Fac1%2Fcustomer%2Faccounts%2Ftest%4051idc.com%2Fpasswd%3Fnew_passwd%3D123%26event_id%3D1476347159&response_type=code&scope=snsapi_base#wechat_redirect--data 
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd?verify_mode=weixin&wxtoken=wxtoken-09022f4a-ba57-4787-8acd-a489064302ad" 
+{   
+    "new_passwd": "NewPassword123"
+}
 ```
 ## PUT /customer/accounts/:account_id/phone
 
 **绑定手机**
+>   属敏感操作， 需结合手机验证
 
-*绑定账户手机*
 
 ### 请求
 
@@ -1128,14 +1126,13 @@ $ curl -XGET "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&re
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| account_id | String | Yes | 用户登录ID |
+| verify_mode | String | Yes | 认证模式 <br> &nbsp;短信：sms （查看发送短信接口）微信：weixin |
+| captcha_code | String | Yes | 用户输入的验证码, 如果已经绑定过手机，需填写旧手机验证码和新手机验证码，使用逗号分隔并且旧手机验证码放在后面，<br> 如果原来没有绑定过手机，只需填写一个验证码|
+| phone | String | Yes | 用户输入的手机号，无需传旧手机号 |
 #### 请求 Body 参数
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| vcode_for_old | String | Yes | 原绑定手机验证码 |
-| new_mobile | String | Yes | 新手机号 |
-| vcode_for_new | String | Yes | 新手机验证码 |
 
 ### 服务端响应
 
@@ -1150,12 +1147,7 @@ $ curl -XGET "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&re
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd --data '
-{
-    "mobile":"",
-    "verification_code":"",
-    "action_type":0
-}'
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd?verify_mode=sms&captcha_code=390104&phone=13456855412"
 ```
 ## post /verification_code
 

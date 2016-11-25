@@ -686,7 +686,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accountmanager"
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| accounts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"login_id": "*String*",<br>&nbsp;&nbsp;"account_type": "*String*",<br>&nbsp;&nbsp;"last_logintime": "*TimeStamp*",<br>&nbsp;&nbsp;"last_loginip": "*String*",<br>&nbsp;&nbsp;"status": "*String*"DISABLED or ACTIVITY<br>}<br>] |
+| accounts | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"account_id": "*String*",<br>&nbsp;&nbsp;"login_id": "*String*",<br>&nbsp;&nbsp;"account_type": "*String*",<br>&nbsp;&nbsp;"last_logintime": "*TimeStamp*",<br>&nbsp;&nbsp;"last_loginip": "*String*",<br>&nbsp;&nbsp;"status": "*String*"DISABLED or ACTIVITY<br>}<br>] |
 | total_count | Int | Yes | - |
 
 ### 示例
@@ -703,6 +703,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
 {
    "accounts": [
       {
+         "account_id": "123456",
          "login_id": "test@51idc.com",
          "account_type": "ADMIN",
          "last_logintime": "2013-08-30T05:13:32Z",
@@ -710,6 +711,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
          "status": "ACTIVITY"
       },
       {
+         "account_id": "123457",
          "login_id": "test@51idc.com",
          "account_type": "SUB",
          "last_logintime": "2013-08-30T05:13:32Z",
@@ -836,7 +838,8 @@ Http Status:400
 #### 响应 Body 信息
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| login_id | string | Yes | 用户登录ID |
+| account_id | string | Yes | 用户登录ID |
+| login_id | string | Yes | 用户登录email |
 | mobile | string | Yes | 绑定手机 |
 | wechat | string | Yes | 绑定微信 |
 | authorization | string | Yes | 服务授权码 |
@@ -847,6 +850,7 @@ Http Status:400
 ```bash
 $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 {
+    "account_id": "141341",
     "login_id":"test@51idc.com",
     "mobile":"",
     "wechat":"",

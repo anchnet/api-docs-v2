@@ -382,6 +382,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/volumes/attach" --data '
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
+| instance_id | String | Yes | 主机ID |
 | volumes | String[] | Yes | 磁盘ID |
 
 ### 服务端响应

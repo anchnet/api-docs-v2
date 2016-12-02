@@ -1,5 +1,4 @@
-# API 秘钥
-
+# 代金券
 <!-- toc -->
 
 ## GET /v2/coupon

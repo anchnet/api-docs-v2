@@ -27,7 +27,7 @@
 | cus_name | String | Yes | 用户名 |
 | short_name | String| No | 昵称 |
 | passwd | String | Yes | 密码 |
-| cus_type | String | Yes | 用户类型，企业对应FIRM，个人对应SELF |
+| cus_type | String | Yes | 用户类型，企业对应firm，个人对应self |
 | tel | String | No | 固定电话 |
 | mobile | String | Yes | 手机 |
 | email | String | Yes | 邮箱 |
@@ -54,7 +54,7 @@ $ curl -XPOST "http://api.51idc.com/v2/customer?verify_mode=sms&captcha_code=390
     "cus_name":"51idc",
     "short_name":"idc",
     "passwd":"123abc",
-    "cus_type":"FIRM",
+    "cus_type":"firm",
     "tel":"021-9621312",
     "mobile":"13312345864",
     "email":"test@51idc.com",
@@ -66,14 +66,14 @@ $ curl -XPOST "http://api.51idc.com/v2/customer?verify_mode=sms&captcha_code=390
 ```js
 {
     "cus_name": "51idc"
-} 
+}
 ```
 * 密码格式错误
 Http Status:400
 ```js         
 {             
-  "code": "10120023",
-  "detail": "SError({Code:10124000023 Message:ill-formatted password Extra:map[]})",
+  "code": "10121003",
+  "detail": "SError({Code:10124001003 Message:The password format is invalid.})",
   "message": "10124000023"
 }             
 ```
@@ -81,17 +81,17 @@ Http Status:400
 Http Status:400                                                                                                                                                                                                    
 ```js           
 {               
-  "code": "10120018",
-  "detail": "SError({Code:10120018 Message:SError({Code:10124000019 Message:customer's email already existed Extra:map[]}) Extra:map[]})",
+  "code": "10122003",
+  "detail": "SError({Code:10124002003 Message:SError({Code:10124000019 Message:customer's email already existed})",
   "message": "10120018"
 }               
-``` 
+```
 * 手机已存在
 Http Status:400
 ```js
 {  
-  "code": "10120017",
-  "detail": "SError({Code:10120017 Message:SError({Code:10124000019 Message:customer's name already existed Extra:map[]}) Extra:map[]})",
+  "code": "10122003",
+  "detail": "SError({Code:10124002003 Message:SError({Code:10124000019 Message:customer's name already existed Extra:map[]}) Extra:map[]})",
   "message": "10120017"
 }                                                                                                                                                                                                                  
 ```
@@ -100,8 +100,8 @@ Http Status:400
 Http Status:400
 ```js
 {
-  "code": "10120019",
-  "detail": "SError({Code:10120019 Message:SError({Code:10124000019 Message:customer's name already existed Extra:map[]}) Extra:map[]})",
+  "code": "10122003",
+  "detail": "SError({Code:10124002003 Message:SError({Code:10124000019 Message:customer's name already existed Extra:map[]}) Extra:map[]})",
   "message": "10120019"
 }
 ```
@@ -109,11 +109,11 @@ Http Status:400
 Http Status:400
 ```js
 {    
-  "code": "10120001",
-  "detail": "SError({Code:10124000001 Message:invalid params Extra:map[]})",
+  "code": "10121003",
+  "detail": "SError({Code:10124001003 Message:The mobile format is invalid.})",
   "message": "10124000001"
 }    
-``` 
+```
 ## GET /customer
 
 **获取用户信息**
@@ -277,14 +277,14 @@ $ curl -XGET "http://api.51idc.com/v2/customer/available?cusname=51idc"
     "available": {
         "cus_name":"51idc"
     }
-} 
+}
 ```
 * 用户名不可用
 Http Status:202
 ```js
 {
-  "code": "10120012",
-  "detail": "SError({Code:10122020012 Message:customer name already existed Extra:map[]})",
+  "code": "10122002",
+  "detail": "SError({Code:10124002002 Message:customer name already existed})",
   "message": "10122020012"
 }
 ```
@@ -354,7 +354,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/contacts"
    ],
    "total_count": 2
 }
- 
+
 ```
 ## post /customer/contacts
 
@@ -539,7 +539,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/contacts/con_USBENSE --d
     "con_type":"",
     "cred_type":"",
     "credentials":""
-} 
+}
 ```
 * 非法的手机格式
 ```js
@@ -721,7 +721,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/customer/accounts"
    ],
    "total_count": 2
 }
- 
+
 ```
 ## post /customer/accounts
 
@@ -778,7 +778,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/customer/accounts?verify_mode=sm
 ```js
 {
     "login_id": ""
-} 
+}
 ```
 * 邮箱已存在
 Http Status:400                                                                                                                                                                                                    
@@ -788,7 +788,7 @@ Http Status:400
   "detail": "SError({Code:10120018 Message:SError({Code:10124000019 Message:customer's email already existed Extra:map[]}) Extra:map[]})",
   "message": "10120018"
 }               
-``` 
+```
 * 非法参数
 Http Status:400
 ```js
@@ -888,7 +888,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/account --data '
 $ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verify_mode=sms&captcha_code=390104"
 ```
 #### 发送请求(微信)
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verify_mode=weixin&wxtoken=wxtoken-09022f4a-ba57-4787-8acd-a489064302ad" 
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/:account_id?verify_mode=weixin&wxtoken=wxtoken-09022f4a-ba57-4787-8acd-a489064302ad"
 ```bash
 ```
 
@@ -943,7 +943,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/
 {
     "account_id": "test@51idc.com",
     "status": "DISABLED"
-} 
+}
 ```
 ## PUT /customer/accounts/:account_id/undisabled
 
@@ -988,7 +988,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/
 {
     "account_id": "test@51idc.com"
     "status": "ACTIVITY"
-} 
+}
 ```
 
 
@@ -1115,7 +1115,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/
 #### 发送请求 (微信)
 
 ```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd?verify_mode=weixin&wxtoken=wxtoken-09022f4a-ba57-4787-8acd-a489064302ad" 
+$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/customer/accounts/test@51idc.com/passwd?verify_mode=weixin&wxtoken=wxtoken-09022f4a-ba57-4787-8acd-a489064302ad"
 {   
     "new_passwd": "NewPassword123"
 }
@@ -1195,7 +1195,7 @@ $ curl -XPOST "http://api.51idc.com/v2/verification_code" --data '
 #### 响应内容:
 * 成功
 ```js
-{} 
+{}
 ```
 * 未绑定手机
 Http Status:400

@@ -31,6 +31,7 @@
 | tel | String | No | 固定电话 |
 | mobile | String | Yes | 手机 |
 | email | String | Yes | 邮箱 |
+| register_from | String | Yes | 来源， WEB为平台注册， PROMOTION为推广 |
 
 ### 服务端响应
 

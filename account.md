@@ -24,8 +24,8 @@
 
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
-| cus_name | String | Yes | 用户名 |
-| short_name | String| No | 昵称 |
+| cus_name | String | Yes | 企业名称 |
+| short_name | String| No | 姓名 |
 | passwd | String | Yes | 密码 |
 | cus_type | String | Yes | 用户类型，企业对应firm，个人对应self |
 | tel | String | No | 固定电话 |

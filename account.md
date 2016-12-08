@@ -1367,6 +1367,15 @@ $ curl -XPOST "http:/api.51idc.com//usercenter/password/confirm" --data '
     "token":"passwd_reset_token-c155e076-f0ee-4bd2-9f16-f0e421726cea"
 }'
 ```
+* 令牌过期
+Http Status:400
+```js         
+{             
+  "code": "10122003",
+  "detail": "SError({Code:10124002003 Message:Token has expired.})",
+  "message": "10124002003"
+}             
+```
 ## PUT /usercenter/password/reset
 
 **校验验证密码令牌是否有效**

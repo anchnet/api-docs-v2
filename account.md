@@ -1327,7 +1327,7 @@ $ curl -XPUT "http://api.51idc.com/v2/wexin_ticket"
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http:/api.51idc.com//usercenter/password/forget" --data '
+$ curl -XPOST "http:/api.51idc.com//usercenter/password/forget" --data '
 {
     "email":"test@51idc.com"
 }'
@@ -1361,13 +1361,13 @@ $ curl -XPUT "http:/api.51idc.com//usercenter/password/forget" --data '
 #### 发送请求
 
 ```bash
-$ curl -XPUT "http:/api.51idc.com//usercenter/password/confirm" --data '
+$ curl -XPOST "http:/api.51idc.com//usercenter/password/confirm" --data '
 {
     "email":"test@51idc.com",
     "token":"passwd_reset_token-c155e076-f0ee-4bd2-9f16-f0e421726cea"
 }'
 ```
-## POST /usercenter/password/reset
+## PUT /usercenter/password/reset
 
 **校验验证密码令牌是否有效**
 

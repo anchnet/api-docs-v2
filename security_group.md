@@ -17,6 +17,7 @@
 |参数名 | 类型 | 是否必选 | 描述 |
 | :-- | :-- | :-- | :-- |
 | group_name | String | No | 防火墙名称 |
+| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*string*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
 
 ### 服务端响应
 

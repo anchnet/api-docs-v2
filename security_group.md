@@ -35,75 +35,39 @@
 ```bash
 $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups" --data '
 {
-  "group_name":"security_group_name"
-}'
-```
-
-#### 响应内容:
-
-```js
-{
-    "security_group_id": "sg-5PXZLGU"
-} 
-```
-## POST /security_group_product
-
-**创建防火墙并添加规则**
-
-### 请求
-
-#### 请求 Body 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| group_name | String | No | 防火墙名称 |
-| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
-
-
-#### Rule 信息
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
-| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
-| action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| val2 | String | No | 协议为 tcp 或 udp，此值表示起始端口。<br>协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | No | 协议为 tcp 或 udp，此值表示结束端口。<br>协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
-| name | String | No | 防火墙规则名称 |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-参考: *[Job 数据结构](/job.html)*
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_product" --data '
-{
-  "group_name":"secruity_group_name",
-   "rules":[
-            {
-                "protocol": "tcp",
-                "priority": 3,
-                "action": "accept",
-                "val2": "80",
-                "val1": "80",
-                "val3": "",
-                "direction": 0,
-                "disabled": 0,
-                "name": "http1"
+    "group_name":"secruity_group_name",
+    "rules": [
+        {
+            "name": "ping",
+            "priority": 1,
+            "action": "accept",
+            "direction": 0,
+            "protocol": "icmp",
+            "disabled": 0,
+            "icmp": {
+                "icmp_type": "8",
+                "icmp_code": "0"
+            },
+            "addr": {
+                "saddr": "192.168.11.12"
             }
-     ]
+        },
+        {
+            "name": "mstsc",
+            "priority": 3,
+            "action": "accept",
+            "direction": 0,
+            "protocol": "tcp",
+            "disabled": 0,
+            "tcp": {
+                "start_port": "3389",
+                "end_port": "3389"
+            },
+            "addr": {
+                "saddr": "192.168.11.12"
+            }
+        }
+    ]
 }
 ```
 
@@ -111,11 +75,11 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_product" --data '
 
 ```js
 {
-    "job_id": "30ce8c26-e013-482b-8811-eaaae4d3735d",
-    "action": "CreateSecurityGroupProduct",
-    "request_id": "6ed9677b-563e-41bf-b5fa-584b1da33bee",
+    "job_id": "08b2ee3e-1be6-4c6c-802c-c3fd21143f5a",
+    "action": "CreateSecurityGroupProduction",
+    "request_id": "c37e2be8-c8e2-489b-be10-307a2d3fd611",
     "status": "pending",
-    "create_time": "2016-08-03T01:58:03Z",
+    "create_time": "2016-08-29T10:47:46Z",
     "begin_time": "",
     "finished_time": "",
     "extra": "",
@@ -399,7 +363,7 @@ $ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_groups/:sg_id" --data '
 } 
 ```
 
-
+<!--
 ## POST /create_default_security_groups
 
 **创建默认防火墙**
@@ -445,7 +409,7 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/create_default_security_groups" 
     "extra": ""
 } 
 ```
-
+-->
 
 ## POST /security_groups_snapshots
 
@@ -652,255 +616,6 @@ $ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_groups_snapshots/rollba
     "group_snapshot": "sgs-PRY5PEH"
 }
 ```
-
-
-## GET /security_group_rules
-
-**获取防火墙规则**
-
-*详细描述*
-
-### 请求
-
-#### QueryString 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| security_group | String | No | 防火墙ID |
-| security_group_rules | String[] | No | 防火墙规则ID |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。默认为 0。 |
-| offset | Int | No | 数据偏移量，默认为0 |
-| limit | Int | No | 返回数据长度，默认为10，最大100 |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
-| total_count | Int | Yes | - |
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XGET "http://api.51idc.com/v2/zone/ac1/security_group_rules"
-```
-
-#### 响应内容:
-
-```js
-{
-    "rules": [
-        {
-            "protocol": "icmp",
-            "security_group_id": "sg-9UY7WTG",
-            "priority": 1,
-            "action": "accept",
-            "security_group_rule_id": "sgr-WWT8F8A",
-            "val2": "0",
-            "val1": "8",
-            "val3": "",
-            "direction": 0,
-            "disabled": 0,
-            "name": "ping"
-        }
-    ],
-    "total_count": 1
-}
-```
-
-
-## POST /security_group_rules
-
-**添加防火墙规则**
-
-*给防火墙添加规则。每条规则包括的属性为：<br>*
-*protocol：协议<br>*
-*priority：优先级，由高到低为 0 - 100<br>*
-*security_group_rule_name：规则名称<br>*
-*action：操作，分为 accept 接受 和 drop 拒绝<br>*
-*direction：方向，0 表示下行，1 表示上行<br>*
-*val1：协议为 tcp 或 udp，此值表示起始端口。如果协议为 icmp，此值表示 ICMP 类型。具体类型可参见 ICMP 类型及代码<br>*
-*val2：协议为 tcp 或 udp，此值表示结束端口。如果协议为 icmp，此值表示 ICMP 代码。具体代码可参见 ICMP 类型及代码<br>*
-*val3：源IP<br>*
-
-### 请求
-
-#### 请求 Body 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| security_group | String | Yes | 防火墙ID |
-| rules | Object[] | Yes | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"security_group_id": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"security_group_rule_id": "*String*",<br>&nbsp;&nbsp;"val2": "*String*",<br>&nbsp;&nbsp;"val1": "*String*",<br>&nbsp;&nbsp;"val3": "*String*",<br>&nbsp;&nbsp;"direction": "*Int*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
-
-
-#### Rule 信息
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| security_group_id | String | Yes |   防火墙规则ID |
-| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
-| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
-| action | String | No | 行为：accept 表示接受，drop 为拒绝 |
-| val2 | String | No | 如果协议为 tcp 或 udp，此值表示起始端口。<br>如果协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | No | 如果协议为 tcp 或 udp，此值表示结束端口。<br>如果协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
-| val3 | String | No | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
-| direction | Int | No | 方向，0 表示下行，1 表示上行。 |
-| name | String | No | 防火墙规则名称 |
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-参考: *[Job 数据结构](/job.html)*
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XPOST "http://api.51idc.com/v2/zone/ac1/security_group_rules" --data '
-{
-  "security_group":"sg-YZOEB6B",
-  "rules":[ 
-            {
-                "protocol": "tcp",
-                "priority": 3,
-                "action": "accept",
-                "val2": "80",
-                "val1": "80",
-                "val3": "",
-                "direction": 0,
-                "disabled": 0,
-                "name": "http123"
-            }
-  ]
-}'
-```
-
-#### 响应内容:
-
-```js
-{
-    "security_group_rules": [
-        "sgr-ZL4HY0B"
-    ]
-} 
-```
-
-
-## DELETE /security_group_rules/:rules_id
-
-**删除防火墙规则**
-
-*删除防火墙规则。*
-
-*注 删除规则后，记得调用 ApplySecurityGroup 使其生效。*
-
-### 请求
-
-#### QueryString 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| rules | String[] | Yes | 防火墙规则ID |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-参考: *[Job 数据结构](/job.html)*
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XDELETE "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id"
-```
-
-#### 响应内容:
-
-```js
-{
-    "rules": [
-        "sgr-J9PJQ6W"
-    ]
-}
-```
-
-
-## PUT /security_group_rules/:rules_id
-
-**修改防火墙属性**
-
-*详细描述*
-
-### 请求
-
-#### 请求 Body 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| protocol | String | Yes | 协议，目前支持 tcp, udp, icmp, gre, esp, ah, ipip |
-| priority | Int | Yes | 优先级，由高到低为 0 - 100 |
-| action | String | Yes | 行为：accept 表示接受，drop 为拒绝s |
-| val2 | String | Yes | 协议为 tcp 或 udp，此值表示起始端口。<br>协议为 icmp，此值表示 ICMP 类型，<br>具体类型可参见 ICMP 类型及代码 。 其他协议无需此值 |
-| val1 | String | Yes | 协议为 tcp 或 udp，此值表示结束端口。<br>协议为 icmp，此值表示 ICMP 代码，<br>具体代码可参见 ICMP 类型及代码 。 其他协议无需此值。 |
-| val3 | String | Yes | 目标 IP，如果填写，则这条防火墙规则只对此IP（或IP段）有效。 |
-| direction | Int | Yes | 方向，0 表示下行，1 表示上行。 |
-| name | String | Yes | 防火墙规则名称 |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-**NONE**
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XPUT "http://api.51idc.com/v2/zone/ac1/security_group_rules/:rules_id" --data '
-   {
-            "protocol": "tcp",     
-            "priority": 3,
-            "action": "accept",
-            "val2": "80",
-            "val1": "80",
-            "val3": "",
-            "direction": 1,
-            "disabled": 0,
-            "name": "httpt"
-}'
-```
-
-#### 响应内容:
-
-```js
-{
-    "rule_id": "sgr-278lsi9z"
-}
-```
-
 
 ## GET /security_rules
 
@@ -1210,88 +925,5 @@ $ curl -XDELETE "http://dev2.51idc.cn:9000/v2/zone/ac2/security_rules/:rules_id"
     "rules": [
         "sgr-KNWLWNT"
     ]
-}
-```
-
-## POST /new/security_group_product
-
-**创建防火墙并添加规则**
-
-### 请求
-
-#### 请求 Body 参数
-
-|参数名 | 类型 | 是否必选 | 描述 |
-| :-- | :-- | :-- | :-- |
-| group_name | String | No | 防火墙名称 |
-| rules | Object[] | No | [<br>{<br>&nbsp;&nbsp;"protocol": "*String*",<br>&nbsp;&nbsp;"priority": "*Int*",<br>&nbsp;&nbsp;"action": "*String*",<br>&nbsp;&nbsp;"tcp": "*object*",<br>&nbsp;&nbsp;"udp": "*object*",<br>&nbsp;&nbsp;"icmp": "*object*",<br>&nbsp;&nbsp;"address": "*object*",<br>&nbsp;&nbsp;"direction": "*string*",<br>&nbsp;&nbsp;"disabled": "*Int*",<br>&nbsp;&nbsp;"name": "*String*"<br>}<br>] |
-
-### 服务端响应
-
-#### 响应头信息
-
-`NULL`
-
-#### 响应 Body 信息
-
-参考: *[Job 数据结构](/job.html)*
-
-### 示例
-
-#### 发送请求
-
-```bash
-$ curl -XPOST "http://dev2.51idc.cn:9000/v2/zone/ac2/new/security_group_product" --data '
-{
-    "group_name":"secruity_group_name",
-    "rules": [
-        {
-            "name": "ping",
-            "priority": 1,
-            "action": "accept",
-            "direction": 0,
-            "protocol": "icmp",
-            "disabled": 0,
-            "icmp": {
-                "icmp_type": "8",
-                "icmp_code": "0"
-            },
-            "addr": {
-                "saddr": "192.168.11.12"
-            }
-        },
-        {
-            "name": "mstsc",
-            "priority": 3,
-            "action": "accept",
-            "direction": 0,
-            "protocol": "tcp",
-            "disabled": 0,
-            "tcp": {
-                "start_port": "3389",
-                "end_port": "3389"
-            },
-            "addr": {
-                "saddr": "192.168.11.12"
-            }
-        }
-    ]
-}
-```
-
-#### 响应内容:
-
-```js
-{
-    "job_id": "08b2ee3e-1be6-4c6c-802c-c3fd21143f5a",
-    "action": "CreateSecurityGroupProduction",
-    "request_id": "c37e2be8-c8e2-489b-be10-307a2d3fd611",
-    "status": "pending",
-    "create_time": "2016-08-29T10:47:46Z",
-    "begin_time": "",
-    "finished_time": "",
-    "extra": "",
-    "zone": "ac2",
-    "resource_ids": []
 }
 ```

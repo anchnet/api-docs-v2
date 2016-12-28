@@ -109,7 +109,7 @@ $ curl -XGET "http://api.51idc.com/v2/zone/ac1/volume_snapshots"
 | :-- | :-- | :-- | :-- |
 | resources | String[] | Yes | 资源ID |
 | snapshot_name | String | Yes | 备份点名称 |
-| is_full | Int | No | 是否创建全量备份,1为是 0为由系统决定 |
+| is_full | String| No | 是否创建全量备份,IS_FULL 表示是 IS_AUTH 表示由系统决定 |
 
 ### 服务端响应
 
